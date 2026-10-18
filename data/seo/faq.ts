@@ -850,6 +850,11 @@ export const TOOL_SPECIFIC_CONTENT: Record<
         answer:
           "A slug transforms human titles into simplified, permanent URL paths by lowercasing text, replacing spaces with hyphens, and stripping invalid punctuation. In contrast, URL encoding (percent-encoding) temporarily converts special characters (like spaces to `%20` or `&` to `%26`) so they can be safely passed through query strings without altering the underlying data. If you need query string encoding, explore our [URL Encoder / Decoder](/tools/url-encoder).",
       },
+      {
+        question: "Why use a deterministic slug generator instead of an AI model?",
+        answer:
+          "A deterministic slug generator uses predictable regular expressions and Unicode normalization rules directly in your browser. Unlike generative language models, which can introduce unexpected word substitutions or latency, a deterministic tool provides consistent, reproducible kebab-case outputs instantly without sending your headlines across the network.",
+      },
     ],
   },
 
@@ -1418,6 +1423,11 @@ export const TOOL_SPECIFIC_CONTENT: Record<
         question: "Does this tool process HTML locally in my browser?",
         answer:
           "Yes, minification runs 100% client-side in your local browser memory using JavaScript. Your HTML markup, templates, and proprietary page source are never transmitted to, stored on, or logged by any server.",
+      },
+      {
+        question: "Can I use the HTML minifier to compress or minify plain text?",
+        answer:
+          "The HTML Minifier is designed specifically for HTML markup syntax—collapsing inter-tag whitespace, stripping comments, and compacting attributes without removing HTML tags. If you need to compress plain text, remove repeated spaces between words, or join paragraphs, use our [Remove Extra Spaces](/tools/remove-extra-spaces) tool instead.",
       },
     ],
   },

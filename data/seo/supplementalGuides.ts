@@ -38,11 +38,11 @@ export const SUPPLEMENTAL_GUIDES: Record<string, ToolGuide> = {
     ]
   },
   "character-frequency": {
-    "title": "Character Frequency Counter",
-    "description": "Count occurrences and percentages of characters. Compare letter frequency with case and whitespace options in your browser.",
-    "heading": "Inspect repeated characters",
-    "example": "In “aab”, a appears twice and b once. Ignoring case combines A with a; excluding whitespace changes the denominator used for percentages.",
-    "limitations": "Counts use Unicode code points. A visible symbol made from combining marks or joined emoji may span several entries. Rounded percentages may not total exactly 100.",
+    "title": "Character Frequency Counter – Online Letter & Symbol Occurrence Counter",
+    "description": "Count character occurrences, percentages, and letter frequency distributions in real time. Inspect symbol frequency, whitespace, and case differences directly in your browser.",
+    "heading": "Inspect repeated characters and letter frequency",
+    "example": "In “aab”, a appears twice and b once. Ignoring case combines uppercase and lowercase letters; excluding whitespace adjusts the total count used for calculating percentages.",
+    "limitations": "Counts use Unicode code points. A visible glyph formed from combining marks or joined emojis may count as several entries. Percentages are rounded to two decimal places.",
     "related": [
       "word-frequency",
       "word-counter",
@@ -106,7 +106,8 @@ export const SUPPLEMENTAL_GUIDES: Record<string, ToolGuide> = {
     "related": [
       "trim-lines",
       "sort-lines",
-      "remove-empty-lines"
+      "remove-empty-lines",
+      "add-line-numbers"
     ]
   },
   "remove-empty-lines": {
