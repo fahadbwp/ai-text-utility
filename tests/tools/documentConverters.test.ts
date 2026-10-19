@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import sitemap from "../../app/sitemap.ts";
-import { Document, Paragraph, TextRun, Table, TableRow, TableCell, HeadingLevel, WidthType, Packer } from "docx";
+import { Document, Paragraph, TextRun, Table, TableRow, TableCell, HeadingLevel, WidthType, ImageRun, Packer } from "docx";
 import { jsPDF } from "jspdf";
 import { convertDocxToPdf, ConversionCancelledError } from "../../lib/converter/docxToPdf.ts";
 import { convertPdfToDocx, ScannedPdfError } from "../../lib/converter/pdfToDocx.ts";
@@ -53,31 +53,55 @@ test("DOCX to PDF - Normal Document with Headings and Paragraphs", async () => {
   assert.equal(magic, "%PDF-", "Generated blob must be a valid PDF");
 });
 
-test("DOCX to PDF - Multi-page Document with Tables", async () => {
+test("DOCX to PDF - Structured Preservation (Headings, Tables, Images, Page Breaks)", async () => {
+  const redPngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
+  const redPngBuffer = Buffer.from(redPngBase64, "base64");
+
   const doc = new Document({
     sections: [
       {
         children: [
-          new Paragraph({ text: "Executive Summary", heading: HeadingLevel.HEADING_1 }),
+          new Paragraph({ text: "Executive Financial Report", heading: HeadingLevel.HEADING_1 }),
+          new Paragraph({
+            children: [
+              new TextRun({ text: "Key performance indicators for " }),
+              new TextRun({ text: "Fiscal Year 2026", bold: true }),
+              new TextRun({ text: " across all regions." }),
+            ],
+          }),
+          // Table with 3 rows and 3 columns
           new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
             rows: [
               new TableRow({
                 children: [
-                  new TableCell({ children: [new Paragraph({ text: "Metric" })] }),
-                  new TableCell({ children: [new Paragraph({ text: "Value" })] }),
+                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Department", bold: true })] })] }),
+                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Budget", bold: true })] })] }),
+                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Status", bold: true })] })] }),
                 ],
               }),
               new TableRow({
                 children: [
-                  new TableCell({ children: [new Paragraph({ text: "Revenue" })] }),
-                  new TableCell({ children: [new Paragraph({ text: "$100,000" })] }),
+                  new TableCell({ children: [new Paragraph({ text: "Engineering" })] }),
+                  new TableCell({ children: [new Paragraph({ text: "$2,400,000" })] }),
+                  new TableCell({ children: [new Paragraph({ text: "On Track" })] }),
                 ],
               }),
             ],
           }),
+          // Embedded Image
           new Paragraph({
-            text: "Page 2 Content after break",
+            children: [
+              new ImageRun({
+                data: redPngBuffer,
+                transformation: { width: 50, height: 50 },
+                type: "png",
+              }),
+            ],
+          }),
+          // Page 2 after explicit break
+          new Paragraph({
+            text: "Page 2 Appendices after explicit page break",
             pageBreakBefore: true,
           }),
         ],
@@ -88,13 +112,19 @@ test("DOCX to PDF - Multi-page Document with Tables", async () => {
   const buffer = await Packer.toBuffer(doc);
   const result = await convertDocxToPdf(buffer);
 
-  assert.ok(result.blob);
-  assert.ok(result.wordCount >= 7);
-  assert.ok(result.pageCount >= 1);
+  assert.ok(result.blob, "Result must contain Blob");
+  assert.equal(result.pageCount, 2, "Page break must produce 2 distinct PDF pages");
+  assert.ok(result.wordCount >= 10, "Word count must accurately reflect text and tables");
+
+  const pdfArrayBuffer = await result.blob.arrayBuffer();
+  const pdfStr = Buffer.from(pdfArrayBuffer).toString("binary");
+
+  assert.ok(pdfStr.startsWith("%PDF-"), "Output must be valid PDF stream");
+  assert.ok(pdfStr.includes("/XObject") || pdfStr.includes("/Image"), "PDF must contain embedded image object");
+  assert.ok(pdfStr.includes("Engineering") || pdfStr.includes("Department"), "PDF must preserve table cell text");
 });
 
 test("PDF to DOCX - Digital Selectable PDF Extraction", async () => {
-  // Create a genuine digital PDF with jsPDF
   const pdf = new jsPDF();
   pdf.setFontSize(16);
   pdf.text("Digital Report Header", 20, 20);
@@ -117,10 +147,9 @@ test("PDF to DOCX - Digital Selectable PDF Extraction", async () => {
 });
 
 test("PDF to DOCX - Scanned Image-Only PDF Rejection Guard", async () => {
-  // Create an image-only PDF without text glyphs
   const pdf = new jsPDF();
   pdf.setFillColor(220, 220, 220);
-  pdf.rect(10, 10, 190, 270, "F"); // Simulates scanned raster image
+  pdf.rect(10, 10, 190, 270, "F"); // Simulates scanned raster image without text glyphs
 
   const pdfBuffer = pdf.output("arraybuffer");
 

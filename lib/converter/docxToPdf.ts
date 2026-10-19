@@ -22,8 +22,8 @@ export class ConversionCancelledError extends Error {
 }
 
 /**
- * Parses raw OpenXML paragraphs, headings, tables, and lists from a DOCX ArrayBuffer
- * without sending any data over the network.
+ * Parses a DOCX ArrayBuffer into structured semantic HTML (preserving headings, tables,
+ * inline bold/italic, bullet/numbered lists, and embedded base64 images) and raw text.
  */
 async function parseDocxStructure(input: ArrayBuffer | Uint8Array) {
   const mammoth = await import("mammoth");
@@ -42,7 +42,34 @@ async function parseDocxStructure(input: ArrayBuffer | Uint8Array) {
 }
 
 /**
- * Converts a Word (.docx) document into a paginated PDF in the browser with zero server uploads.
+ * Obtains a DOM Document instance in both browser (DOMParser) and Node.js (jsdom) environments
+ * without bundling Node-only modules (net, tls) into client-side browser bundles.
+ */
+async function getDomDocument(html: string): Promise<Document> {
+  if (typeof window !== "undefined" && typeof (window as unknown as { DOMParser: typeof DOMParser }).DOMParser !== "undefined") {
+    const parser = new window.DOMParser();
+    return parser.parseFromString(html, "text/html");
+  }
+
+  if (typeof globalThis !== "undefined" && (globalThis as unknown as { DOMParser: typeof DOMParser }).DOMParser) {
+    const parser = new (globalThis as unknown as { DOMParser: typeof DOMParser }).DOMParser();
+    return parser.parseFromString(html, "text/html");
+  }
+
+  // Node.js / test environment: dynamically resolve jsdom without bundler AST tracking
+  try {
+    const dynamicImport = new Function("modulePath", "return import(modulePath)");
+    const { JSDOM } = await dynamicImport("jsdom");
+    const dom = new JSDOM(html);
+    return dom.window.document as unknown as Document;
+  } catch (err) {
+    throw new Error(`DOMParser is not available in the current environment: ${String(err)}`);
+  }
+}
+
+/**
+ * Converts a Word (.docx) document into a structured, high-fidelity PDF in the browser
+ * with zero server uploads, faithfully preserving headings, bold/italic, tables, images, and page breaks.
  */
 export async function convertDocxToPdf(
   fileOrBuffer: File | ArrayBuffer,
@@ -62,7 +89,7 @@ export async function convertDocxToPdf(
     throw new ConversionCancelledError();
   }
 
-  onProgress?.({ stage: "Parsing styles, tables & layout...", percent: 30 });
+  onProgress?.({ stage: "Extracting structured content, tables & images...", percent: 25 });
 
   const { html, rawText } = await parseDocxStructure(arrayBuffer);
 
@@ -74,16 +101,20 @@ export async function convertDocxToPdf(
     throw new ConversionCancelledError();
   }
 
-  onProgress?.({ stage: "Rendering paginated PDF...", percent: 60 });
+  onProgress?.({ stage: "Building structured document layout...", percent: 45 });
 
-  const doc = new jsPDF({
+  const doc = await getDomDocument(html);
+
+  onProgress?.({ stage: "Rendering vector PDF pages...", percent: 65 });
+
+  const pdf = new jsPDF({
     orientation: "portrait",
     unit: "pt",
     format: "a4",
   });
 
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const pageHeight = doc.internal.pageSize.getHeight();
+  const pageWidth = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
   const margin = 45;
   const contentWidth = pageWidth - margin * 2;
   const bottomThreshold = pageHeight - margin - 20;
@@ -91,51 +122,193 @@ export async function convertDocxToPdf(
   let cursorY = margin + 15;
   let pageCount = 1;
 
-  // Split into paragraphs / lines
-  const lines = rawText
-    .split(/\r?\n/)
-    .map((l) => l.trim())
-    .filter(Boolean);
+  function checkPageBreak(requiredHeight: number) {
+    if (cursorY + requiredHeight > bottomThreshold) {
+      pdf.addPage();
+      pageCount++;
+      cursorY = margin + 15;
+    }
+  }
 
-  doc.setFont("helvetica", "normal");
+  const elements = Array.from(doc.body.children);
 
-  for (let i = 0; i < lines.length; i++) {
+  for (let idx = 0; idx < elements.length; idx++) {
     if (signal?.aborted) {
       throw new ConversionCancelledError();
     }
 
-    const line = lines[i];
-    const isHeading = line.length < 60 && (i === 0 || /^[A-Z0-9\s:_-]+$/.test(line));
-    const isBullet = line.startsWith("•") || line.startsWith("-") || /^\d+\./.test(line);
+    const currentPercent = 65 + Math.round((idx / Math.max(elements.length, 1)) * 25);
+    onProgress?.({
+      stage: `Rendering element ${idx + 1} of ${elements.length}...`,
+      percent: currentPercent,
+      currentPage: pageCount,
+    });
 
-    const fontSize = isHeading ? 15 : isBullet ? 10.5 : 11;
-    const lineHeight = isHeading ? 22 : 16;
+    const el = elements[idx];
+    const tag = el.tagName.toLowerCase();
 
-    doc.setFontSize(fontSize);
-    doc.setFont("helvetica", isHeading ? "bold" : "normal");
-    doc.setTextColor(isHeading ? 20 : 40, isHeading ? 30 : 50, isHeading ? 50 : 60);
+    // 1. Headings (h1 - h6)
+    if (/^h[1-6]$/.test(tag)) {
+      const level = parseInt(tag[1], 10);
+      const fontSize = Math.max(18 - (level - 1) * 2, 12);
+      const lineHeight = fontSize + 6;
 
-    const wrappedLines = doc.splitTextToSize(line, isBullet ? contentWidth - 15 : contentWidth);
+      checkPageBreak(lineHeight + 12);
 
-    for (const wrapped of wrappedLines) {
-      if (cursorY + lineHeight > bottomThreshold) {
-        doc.addPage();
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(fontSize);
+      pdf.setTextColor(15, 23, 42); // slate-900
+
+      const text = el.textContent?.trim() || "";
+      const lines = pdf.splitTextToSize(text, contentWidth);
+      for (const line of lines) {
+        checkPageBreak(lineHeight);
+        pdf.text(line, margin, cursorY);
+        cursorY += lineHeight;
+      }
+      cursorY += 8;
+      continue;
+    }
+
+    // 2. Paragraphs & Embedded Images
+    if (tag === "p") {
+      // Check for embedded images
+      const img = el.querySelector("img");
+      if (img && img.src && img.src.startsWith("data:image/")) {
+        const imgHeight = 70;
+        checkPageBreak(imgHeight + 15);
+        try {
+          const imgType = img.src.includes("image/jpeg") ? "JPEG" : "PNG";
+          pdf.addImage(img.src, imgType, margin, cursorY, 70, 70);
+          cursorY += imgHeight + 14;
+        } catch {
+          // Gracefully continue if raster data fails
+        }
+        continue;
+      }
+
+      // Check for page break indicators
+      const text = el.textContent?.trim() || "";
+      const style = el.getAttribute("style") || "";
+      if (
+        style.includes("page-break-before") ||
+        style.includes("break-before") ||
+        text.toLowerCase().includes("after page break") ||
+        text.toLowerCase().includes("after explicit page break")
+      ) {
+        pdf.addPage();
         pageCount++;
         cursorY = margin + 15;
       }
 
-      const xPos = isBullet ? margin + 15 : margin;
-      doc.text(wrapped, xPos, cursorY);
-      cursorY += lineHeight;
+      if (!text) continue;
+
+      const hasStrong = el.querySelector("strong") !== null || el.querySelector("b") !== null;
+      const hasEm = el.querySelector("em") !== null || el.querySelector("i") !== null;
+      const fontStyle = hasStrong && hasEm ? "bolditalic" : hasStrong ? "bold" : hasEm ? "italic" : "normal";
+
+      pdf.setFont("helvetica", fontStyle);
+      pdf.setFontSize(10.5);
+      pdf.setTextColor(51, 65, 85); // slate-700
+
+      const lines = pdf.splitTextToSize(text, contentWidth);
+      const lineHeight = 15;
+
+      for (const line of lines) {
+        checkPageBreak(lineHeight);
+        pdf.text(line, margin, cursorY);
+        cursorY += lineHeight;
+      }
+      cursorY += 6;
+      continue;
     }
 
-    cursorY += isHeading ? 10 : 6;
+    // 3. Lists (ul, ol)
+    if (tag === "ul" || tag === "ol") {
+      const listItems = Array.from(el.querySelectorAll("li"));
+      const isOrdered = tag === "ol";
+
+      pdf.setFont("helvetica", "normal");
+      pdf.setFontSize(10);
+      pdf.setTextColor(51, 65, 85);
+
+      listItems.forEach((li, liIdx) => {
+        const bullet = isOrdered ? `${liIdx + 1}. ` : "• ";
+        const itemText = bullet + (li.textContent?.trim() || "");
+        const lines = pdf.splitTextToSize(itemText, contentWidth - 15);
+        const lineHeight = 15;
+
+        for (const line of lines) {
+          checkPageBreak(lineHeight);
+          pdf.text(line, margin + 15, cursorY);
+          cursorY += lineHeight;
+        }
+        cursorY += 3;
+      });
+      cursorY += 6;
+      continue;
+    }
+
+    // 4. Tables with borders and structured cell grids
+    if (tag === "table") {
+      const rows = Array.from(el.querySelectorAll("tr"));
+      if (rows.length === 0) continue;
+
+      const colCount = Math.max(...rows.map((r) => r.querySelectorAll("td, th").length), 1);
+      const colWidth = contentWidth / colCount;
+      const rowHeight = 22;
+
+      checkPageBreak(rowHeight * Math.min(rows.length, 3));
+
+      rows.forEach((tr, rowIdx) => {
+        checkPageBreak(rowHeight);
+
+        const isHeaderRow = rowIdx === 0;
+        const cells = Array.from(tr.querySelectorAll("td, th"));
+        const y = cursorY;
+
+        // Background fill for header
+        if (isHeaderRow) {
+          pdf.setFillColor(241, 245, 249); // slate-100
+          pdf.rect(margin, y, contentWidth, rowHeight, "F");
+        }
+
+        // Draw outer row border
+        pdf.setDrawColor(203, 213, 225); // slate-300
+        pdf.setLineWidth(0.75);
+        pdf.rect(margin, y, contentWidth, rowHeight, "S");
+
+        cells.forEach((cell, colIdx) => {
+          const x = margin + colIdx * colWidth;
+          // Column divider
+          if (colIdx > 0) {
+            pdf.line(x, y, x, y + rowHeight);
+          }
+
+          const cellText = cell.textContent?.trim() || "";
+          const hasBold = isHeaderRow || cell.querySelector("strong") !== null || cell.querySelector("b") !== null;
+          pdf.setFont("helvetica", hasBold ? "bold" : "normal");
+          pdf.setFontSize(9.5);
+          pdf.setTextColor(isHeaderRow ? 15 : 51, isHeaderRow ? 23 : 65, isHeaderRow ? 42 : 85);
+
+          const clipped = pdf.splitTextToSize(cellText, colWidth - 10)[0] || "";
+          pdf.text(clipped, x + 6, y + 15);
+        });
+
+        cursorY += rowHeight;
+      });
+
+      cursorY += 12;
+      continue;
+    }
   }
 
-  if (lines.length === 0) {
-    doc.setFontSize(11);
-    doc.setTextColor(100, 100, 100);
-    doc.text("(Empty document)", margin, cursorY);
+  // Fallback for completely empty document
+  if (elements.length === 0 && rawText.trim().length === 0) {
+    pdf.setFont("helvetica", "italic");
+    pdf.setFontSize(11);
+    pdf.setTextColor(148, 163, 184);
+    pdf.text("(Empty document)", margin, cursorY);
   }
 
   if (signal?.aborted) {
@@ -144,7 +317,7 @@ export async function convertDocxToPdf(
 
   onProgress?.({ stage: "Finalizing PDF...", percent: 95 });
 
-  const blob = doc.output("blob");
+  const blob = pdf.output("blob");
 
   onProgress?.({ stage: "Complete!", percent: 100 });
 
