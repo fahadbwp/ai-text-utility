@@ -33,6 +33,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Dedicated client-side document converter routes
+  const converterRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/tools/pdf-to-word`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/tools/word-to-pdf`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+  ];
+
   // Only index verified public tool pages
   const toolRoutes: MetadataRoute.Sitemap = TOOLS_REGISTRY.map((tool) => ({
     url: `${baseUrl}/tools/${tool.slug}`,
@@ -40,5 +54,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: tool.featured ? 0.9 : 0.7,
   }));
 
-  return [...staticRoutes, ...toolRoutes];
+  return [...staticRoutes, ...converterRoutes, ...toolRoutes];
 }

@@ -8,7 +8,7 @@ const server=spawn('node',['node_modules/next/dist/bin/next','start','--hostname
 const normalize = value => value.replace(/\s+/g, ' ').trim();
 let canonicalOrigin;
 const titles = new Set();
-const canonicalPaths = new Set(['/', '/about', '/contact', '/privacy', '/terms', ...TOOLS_REGISTRY.map(tool => `/tools/${tool.slug}`)]);
+const canonicalPaths = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/tools/pdf-to-word', '/tools/word-to-pdf', ...TOOLS_REGISTRY.map(tool => `/tools/${tool.slug}`)]);
 async function inspect(path) {
  const res = await fetch(origin + path);
  assert.equal(res.status, 200, path);
