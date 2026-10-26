@@ -1664,12 +1664,12 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       {
         question: "How do I remove special characters from text?",
         answer:
-          "Paste or type your text into the input area, select your desired filter mode (Alphanumeric Only, Keep Standard Punctuation, or Custom Allowed List), and optionally specify custom symbols to preserve. The tool removes unwanted characters instantly, and you can copy the cleaned text directly to your clipboard.",
+          "Paste or type your text into the input area, select your desired filter mode (Alphanumeric Only, Keep Standard Punctuation, or Custom Allowed List), and optionally specify custom symbols to preserve. The tool removes unwanted characters instantly, and you can copy the cleaned text directly to your clipboard. For spacing adjustments, combine with our [Remove Extra Spaces](/tools/remove-extra-spaces) tool.",
       },
       {
         question: "What counts as a special character?",
         answer:
-          "Special characters encompass symbols outside standard alphanumeric letters and digits. These include typographical symbols (@, #, %, ^, &, *, ~), currency signs ($, €, £), mathematical operators (+, =, <, >), and emojis. Punctuation marks (. , ! ? ' \" - : ; ( )) can either be removed or preserved depending on whether you choose Alphanumeric Only or Keep Standard Punctuation.",
+          "Special characters encompass symbols outside standard alphanumeric letters and digits. These include typographical symbols (@, #, %, ^, &, *, ~), currency signs ($, €, £), mathematical operators (+, =, <, >), and emojis (which you can also remove specifically using [Remove Emojis](/tools/remove-emojis)). Punctuation marks (. , ! ? ' \" - : ; ( )) can either be removed or preserved depending on whether you choose Alphanumeric Only or Keep Standard Punctuation.",
       },
       {
         question: "Can I keep spaces while removing symbols?",
@@ -1840,7 +1840,7 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       {
         question: "When should I use the AI Professional Tone tool?",
         answer:
-          "Use this tool whenever you need to communicate with managers, enterprise clients, executives, or hiring teams where precision, diplomacy, and professional polish are critical.",
+          "Use this tool whenever you need to communicate with managers, enterprise clients, executives, or hiring teams where precision, diplomacy, and professional polish are critical. For warmer team messages, try our [AI Friendly Rewriter](/tools/ai-friendly), or proofread grammar with [AI Proofreader](/tools/ai-grammar).",
       },
       {
         question: "Does this tool store my confidential business emails?",
@@ -1957,7 +1957,7 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       {
         question: "Does paraphrasing alter the original meaning of the text?",
         answer:
-          "The AI is instructed, but cannot guarantee, to preserve meaning. Review its output. It is specifically prompted to preserve all facts, arguments, and core intentions while varying sentence structures and vocabulary for better fluency.",
+          "The AI is instructed, but cannot guarantee, to preserve meaning. Review its output. It is specifically prompted to preserve all facts, arguments, and core intentions while varying sentence structures and vocabulary for better fluency. To check grammar and spelling, use our [AI Proofreader](/tools/ai-grammar).",
       },
       {
         question: "Can I use this tool to overcome writer's block?",
@@ -1989,7 +1989,7 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       {
         question: "How does the AI expand content without adding fluff?",
         answer:
-          "The model is prompted to develop the supplied ideas, but it can add repetition or unsupported details. Compare the draft with your source and keep only useful, accurate additions.",
+          "The model is prompted to develop the supplied ideas, but it can add repetition or unsupported details. Compare the draft with your source and keep only useful, accurate additions. If you need to condense text instead, use our [AI Summarizer](/tools/ai-summarize), or check length with [Word Counter](/tools/word-counter).",
       },
       {
         question: "Can I expand bullet points into full paragraphs?",

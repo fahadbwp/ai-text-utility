@@ -40,10 +40,26 @@ export interface ToolSeoContentProps {
   tool: ToolDefinition;
 }
 
-// Helper to render markdown-style links [text](url) inside FAQ answers
-function renderAnswerWithLinks(text: string): React.ReactNode {
+// Validate that a link destination is a valid, registered internal tool route
+export function isValidInternalRoute(url: string): boolean {
+  if (!url || typeof url !== "string") return false;
+  const trimmed = url.trim();
+  // Reject protocol-relative, absolute schemes, dangerous protocols, or directory traversal
+  if (trimmed.startsWith("//") || trimmed.includes(":") || trimmed.includes("\\") || trimmed.includes("..")) {
+    return false;
+  }
+  if (trimmed === "/") return true;
+  const match = trimmed.match(/^\/tools\/([a-z0-9-]+)$/);
+  if (!match) return false;
+  const slug = match[1];
+  return Boolean(getToolBySlug(slug));
+}
+
+// Helper to render markdown-style links [text](url) inside FAQ and guide copy
+export function renderAnswerWithLinks(text: string): React.ReactNode {
+  if (!text) return "";
   const parts: React.ReactNode[] = [];
-  const regex = /\[([^\]]+)\]\(((?:\/(?!\/)|https?:\/\/)[^)]+)\)/g;
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
@@ -51,16 +67,23 @@ function renderAnswerWithLinks(text: string): React.ReactNode {
     if (match.index > lastIndex) {
       parts.push(text.substring(lastIndex, match.index));
     }
-    const [_, label, url] = match;
-    parts.push(
-      <Link
-        key={match.index}
-        href={url}
-        className="text-brand-600 dark:text-brand-400 font-semibold underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
-      >
-        {label}
-      </Link>
-    );
+    const [_, label, rawUrl] = match;
+    const trimmedUrl = rawUrl.trim();
+
+    if (isValidInternalRoute(trimmedUrl)) {
+      parts.push(
+        <Link
+          key={match.index}
+          href={trimmedUrl}
+          className="text-brand-600 dark:text-brand-400 font-semibold underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
+        >
+          {label}
+        </Link>
+      );
+    } else {
+      // Insecure, external, malformed, or unregistered destination: fallback to plain text label
+      parts.push(label);
+    }
     lastIndex = regex.lastIndex;
   }
 
@@ -194,7 +217,7 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
       {searchGuide && (
         <section aria-labelledby="search-guide-heading" className="space-y-5 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
           <h2 id="search-guide-heading" className="scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white">{searchGuide.heading}</h2>
-          <p className="text-sm leading-relaxed">{searchGuide.useCase}</p>
+          <p className="text-sm leading-relaxed">{renderAnswerWithLinks(searchGuide.useCase)}</p>
           <div className="grid gap-4 md:grid-cols-2">
             {[["Example input", searchGuide.example.input], ["Example result", searchGuide.example.output]].map(([label, value]) => (
               <div key={label} className="min-w-0">
@@ -205,7 +228,7 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
           </div>
           <p className="text-xs">{searchGuide.example.note}</p>
           <h3 className="font-semibold text-slate-900 dark:text-white">What this tool does and does not do</h3>
-          <p className="text-sm leading-relaxed">{searchGuide.limitation}</p>
+          <p className="text-sm leading-relaxed">{renderAnswerWithLinks(searchGuide.limitation)}</p>
         </section>
       )}
       {!searchGuide && EditorialComponent && <EditorialComponent />}
