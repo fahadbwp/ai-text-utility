@@ -4,6 +4,8 @@ import { getToolSeoBlueprint, ToolSeoBlueprint } from "../../data/seoBlueprint.t
 import { SEARCH_GUIDES } from "../../data/seo/searchGuides.ts";
 import { getToolEducationalContent } from "../../data/seo/faq.ts";
 import { TOOLS_REGISTRY, getToolBySlug } from "../../data/toolsRegistry.ts";
+import { isValidInternalRoute, renderAnswerWithLinks } from "../../components/ToolSeoContent.tsx";
+import React from "react";
 
 const TARGET_SLUGS = [
   "ai-friendly",
@@ -133,4 +135,52 @@ test("SEO Phase 1 - GSC Specific Search Term Alignments", () => {
   const paraphrase = getToolSeoBlueprint("ai-paraphrase")!;
   assert.ok(paraphrase.title.toLowerCase().includes("paraphrasing tool"), "Title must target paraphrasing tool");
   assert.equal(paraphrase.h1, "Free Online AI Paraphrasing Tool");
+});
+
+
+test("SEO Phase 1 - isValidInternalRoute Security & Scope Validation", () => {
+  // Positive assertions: Registered tools and root path
+  assert.equal(isValidInternalRoute("/tools/word-counter"), true, "Valid registered tool must pass");
+  assert.equal(isValidInternalRoute("/tools/ai-friendly"), true, "Valid registered tool must pass");
+  assert.equal(isValidInternalRoute("/tools/slug-generator"), true, "Valid registered tool must pass");
+  assert.equal(isValidInternalRoute("/tools/remove-special-chars"), true, "Valid registered tool must pass");
+  assert.equal(isValidInternalRoute("/"), true, "Root path must pass");
+
+  // Negative assertions: Unregistered tools, external URLs, dangerous schemes, traversals
+  assert.equal(isValidInternalRoute("/tools/nonexistent-tool-xyz"), false, "Unregistered tool must fail");
+  assert.equal(isValidInternalRoute("https://external-site.com"), false, "HTTPS URL must fail");
+  assert.equal(isValidInternalRoute("http://external-site.com"), false, "HTTP URL must fail");
+  assert.equal(isValidInternalRoute("//external-site.com"), false, "Protocol-relative URL must fail");
+  assert.equal(isValidInternalRoute("javascript:alert(1)"), false, "javascript: scheme must fail");
+  assert.equal(isValidInternalRoute("data:text/html,<script>"), false, "data: scheme must fail");
+  assert.equal(isValidInternalRoute("/tools/word-counter/../../etc/passwd"), false, "Path traversal must fail");
+  assert.equal(isValidInternalRoute("/api/ai"), false, "Non-tool API route must fail");
+  assert.equal(isValidInternalRoute(""), false, "Empty URL must fail");
+  assert.equal(isValidInternalRoute("   "), false, "Whitespace URL must fail");
+});
+
+test("SEO Phase 1 - renderAnswerWithLinks Sanitization & Fallback", () => {
+  // Positive: Valid internal link renders React Link element
+  const validOutput = renderAnswerWithLinks("Explore our [Word Counter](/tools/word-counter) utility.");
+  assert.ok(Array.isArray(validOutput), "Output with valid link should be an array of React nodes");
+  const linkNode = validOutput.find((node) => React.isValidElement(node)) as React.ReactElement | undefined;
+  assert.ok(linkNode, "Valid link must produce a React element");
+  assert.equal(linkNode?.props.href, "/tools/word-counter");
+
+  // Negative: Malicious / external / unregistered link falls back to plain text label
+  const maliciousOutput = renderAnswerWithLinks("Check this [Security Exploit](javascript:alert(1)) immediately.");
+  assert.ok(Array.isArray(maliciousOutput), "Output should be an array of nodes");
+  const maliciousElements = maliciousOutput.filter((node) => React.isValidElement(node));
+  assert.equal(maliciousElements.length, 0, "Must not create any React elements for dangerous links");
+  assert.ok(maliciousOutput.includes("Security Exploit"), "Should preserve the text label as safe plain text");
+
+  const externalOutput = renderAnswerWithLinks("Visit [External Website](https://example.com) for details.");
+  const externalElements = (externalOutput as React.ReactNode[]).filter((node) => React.isValidElement(node));
+  assert.equal(externalElements.length, 0, "Must not create any React elements for external links");
+  assert.ok((externalOutput as React.ReactNode[]).includes("External Website"), "Should keep plain text label");
+
+  const unregisteredOutput = renderAnswerWithLinks("Use [Ghost Tool](/tools/unregistered-slug-12345) here.");
+  const unregisteredElements = (unregisteredOutput as React.ReactNode[]).filter((node) => React.isValidElement(node));
+  assert.equal(unregisteredElements.length, 0, "Must not link to unregistered tools");
+  assert.ok((unregisteredOutput as React.ReactNode[]).includes("Ghost Tool"), "Should keep plain text label");
 });

@@ -55,7 +55,7 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
   },
   "ai-paraphrase": {
     title: "AI Paraphrasing Tool Free Online – Rephrase Sentences & Text",
-    description: "Rephrase sentences, paragraphs, and essays with fresh vocabulary using an AI provider. Free online AI paraphrasing tool with no sign-up required. Fast, clean, and accurate.",
+    description: "Rephrase sentences, paragraphs, and essays with fresh vocabulary using an AI provider. Online AI paraphrasing tool with no sign-up required. Review suggestions before use.",
     heading: "Rephrase Sentences & Passages with Natural Vocabulary",
     useCase: "Overcome repetitive phrasing, improve sentence variety, and express ideas with fresh vocabulary while preserving the original intent and core facts of your text. To verify spelling and grammatical structure, use our [AI Proofreader](/tools/ai-grammar), or check length with [Word Counter](/tools/word-counter).",
     example: { input: "Effective communication requires clarity, active listening, and precision in language.", output: "Clear communication depends on expressing ideas plainly, listening attentively, and choosing words with care.", note: "Illustrative rewrite; sentence structure and vocabulary are varied naturally while the essential meaning remains intact." },

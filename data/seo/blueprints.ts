@@ -612,10 +612,10 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     slug: "ai-paraphrase",
     title: "AI Paraphrasing Tool Free Online – Rephrase Sentences & Text",
     metaDescription:
-      "Rephrase sentences, paragraphs, and essays with fresh vocabulary and improved fluency. Free online AI paraphrasing tool with no sign-up required. Fast, clean, and accurate.",
+      "Rephrase sentences, paragraphs, and essays with fresh vocabulary using an AI provider. Online AI paraphrasing tool with no sign-up required. Review suggestions before use.",
     h1: "Free Online AI Paraphrasing Tool",
     aboveTheFoldIntro:
-      "Rewrite text with alternative wording, fresh vocabulary, and polished sentence flow while preserving your original meaning. Instant AI paraphraser with zero character paywalls.",
+      "Rewrite text with alternative wording, fresh vocabulary, and polished sentence flow while preserving your original meaning. Connects securely to your configured AI provider.",
     primaryKeyword: "ai paraphrasing tool",
     secondaryKeywords: [
       "online ai paraphraser",
