@@ -194,7 +194,7 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
       {searchGuide && (
         <section aria-labelledby="search-guide-heading" className="space-y-5 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
           <h2 id="search-guide-heading" className="scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white">{searchGuide.heading}</h2>
-          <p className="text-sm leading-relaxed">{searchGuide.useCase}</p>
+          <p className="text-sm leading-relaxed">{renderAnswerWithLinks(searchGuide.useCase)}</p>
           <div className="grid gap-4 md:grid-cols-2">
             {[["Example input", searchGuide.example.input], ["Example result", searchGuide.example.output]].map(([label, value]) => (
               <div key={label} className="min-w-0">
@@ -205,7 +205,7 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
           </div>
           <p className="text-xs">{searchGuide.example.note}</p>
           <h3 className="font-semibold text-slate-900 dark:text-white">What this tool does and does not do</h3>
-          <p className="text-sm leading-relaxed">{searchGuide.limitation}</p>
+          <p className="text-sm leading-relaxed">{renderAnswerWithLinks(searchGuide.limitation)}</p>
         </section>
       )}
       {!searchGuide && EditorialComponent && <EditorialComponent />}

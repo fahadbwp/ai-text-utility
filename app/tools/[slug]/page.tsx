@@ -183,10 +183,7 @@ export default async function ToolPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeStructuredData(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeStructuredData(faqSchema) }}
-      />
+
 
       <article>
         <ToolPageClient tool={tool} />
