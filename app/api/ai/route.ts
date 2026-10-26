@@ -123,7 +123,7 @@ export async function POST(req: Request): Promise<NextResponse<AiResponseBody>> 
       process.env.AI_BASE_URL ||
       "https://generativelanguage.googleapis.com/v1beta";
 
-    const model = process.env.AI_MODEL || "gemini-flash-latest";
+    const model = process.env.AI_MODEL || "gemini-flash-lite-latest";
     const timeoutMs = parseInt(process.env.AI_TIMEOUT_MS || "25000", 10);
     const maxOutputTokens = parseInt(process.env.AI_MAX_OUTPUT_TOKENS || "2000", 10);
     const envTemp = process.env.AI_TEMPERATURE ? parseFloat(process.env.AI_TEMPERATURE) : 0.7;

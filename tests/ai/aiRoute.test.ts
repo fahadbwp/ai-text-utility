@@ -347,3 +347,63 @@ test("11. Distributed Upstash Redis Rate Limiter & Graceful Failover", async () 
     globalThis.fetch = originalFetch;
   }
 });
+
+
+test("12. Gemini Provider - High Demand 503 Fallback to Stable Model", async () => {
+  const originalFetch = globalThis.fetch;
+  const calls: string[] = [];
+
+  try {
+    globalThis.fetch = async (url) => {
+      const urlStr = String(url);
+      calls.push(urlStr);
+
+      if (urlStr.includes("gemini-overloaded-model")) {
+        // Return 503 high demand spike
+        return new Response(
+          JSON.stringify({
+            error: {
+              code: 503,
+              message: "This model is currently experiencing high demand.",
+              status: "UNAVAILABLE",
+            },
+          }),
+          { status: 503, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      if (urlStr.includes("gemini-flash-lite-latest")) {
+        // Fallback model succeeds
+        return new Response(
+          JSON.stringify({
+            candidates: [
+              {
+                content: {
+                  parts: [{ text: "Recovered via resilient fallback model." }],
+                },
+              },
+            ],
+          }),
+          { status: 200, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      return new Response("Not found", { status: 404 });
+    };
+
+    const provider = new GeminiProvider();
+    const result = await provider.execute("friendly", "Draft text", {
+      apiKey: "test-key",
+      baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+      model: "gemini-overloaded-model",
+      timeoutMs: 5000,
+    });
+
+    assert.equal(result, "Recovered via resilient fallback model.");
+    assert.equal(calls.length, 2, "Should attempt primary then fallback model");
+    assert.ok(calls[0].includes("gemini-overloaded-model"), "First call should be to primary model");
+    assert.ok(calls[1].includes("gemini-flash-lite-latest"), "Second call should be to fallback model");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});

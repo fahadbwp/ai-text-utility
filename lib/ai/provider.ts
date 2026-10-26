@@ -79,8 +79,8 @@ export class GeminiProvider implements AiProvider {
       });
 
       // If temporary high-demand spike (503/429), try configurable stable version fallback
-      if (!response.ok && (response.status === 503 || response.status === 429) && model === "gemini-flash-latest") {
-        const fallbackModel = process.env.AI_FALLBACK_MODEL || "gemini-2.5-flash";
+      const fallbackModel = process.env.AI_FALLBACK_MODEL || "gemini-flash-lite-latest";
+      if (!response.ok && (response.status === 503 || response.status === 429) && model !== fallbackModel) {
         const fallbackEndpoint = `${cleanBaseUrl}/models/${fallbackModel}:generateContent`;
         const fallbackResponse = await fetch(fallbackEndpoint, {
           method: "POST",
