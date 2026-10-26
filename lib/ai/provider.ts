@@ -4,7 +4,7 @@
  * Hardened for security, timeouts, transient retries, and sensitive data redaction.
  */
 
-import type { AiMode, AiProvider, AiProviderConfig } from "./types.ts";
+import type { AiMode, AiProvider, AiProviderConfig, AiExecutionResult } from "./types.ts";
 import { getSystemPrompt } from "./prompts.ts";
 
 /**
@@ -40,7 +40,7 @@ export class GeminiProvider implements AiProvider {
     mode: AiMode,
     text: string,
     config: AiProviderConfig
-  ): Promise<string> {
+  ): Promise<AiExecutionResult> {
     const { apiKey, baseUrl, model, timeoutMs, maxOutputTokens, temperature } = config;
 
     const controller = new AbortController();
@@ -78,21 +78,43 @@ export class GeminiProvider implements AiProvider {
         signal: controller.signal,
       });
 
-      // If temporary high-demand spike (503/429), try configurable stable version fallback
-      const fallbackModel = process.env.AI_FALLBACK_MODEL || "gemini-flash-lite-latest";
-      if (!response.ok && (response.status === 503 || response.status === 429) && model !== fallbackModel) {
-        const fallbackEndpoint = `${cleanBaseUrl}/models/${fallbackModel}:generateContent`;
-        const fallbackResponse = await fetch(fallbackEndpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-goog-api-key": apiKey,
-          },
-          body: JSON.stringify(requestPayload),
-          signal: controller.signal,
-        });
-        if (fallbackResponse.ok) {
-          response = fallbackResponse;
+      let effectiveModel = model;
+      const fallbackModel = (process.env.AI_FALLBACK_MODEL || "gemini-3.5-flash-lite").trim();
+
+      // Check if primary response failed with temporary high-demand (503) or rate limit (429)
+      const isTransientError = response.status === 503 || response.status === 429;
+      const canFallback = !response.ok && isTransientError && Boolean(fallbackModel) && fallbackModel !== model;
+
+      if (canFallback) {
+        let isDailyQuotaExhausted = false;
+        if (response.status === 429) {
+          try {
+            const peekClone = response.clone();
+            const errBody = await peekClone.json();
+            const errMsg = (errBody?.error?.message || "").toLowerCase();
+            if (errMsg.includes("per day") || errMsg.includes("daily") || errMsg.includes("quota exceeded for metric")) {
+              isDailyQuotaExhausted = true;
+            }
+          } catch {
+            // Non-JSON or unparseable error body: proceed with bounded fallback attempt
+          }
+        }
+
+        if (!isDailyQuotaExhausted) {
+          const fallbackEndpoint = `${cleanBaseUrl}/models/${fallbackModel}:generateContent`;
+          const fallbackResponse = await fetch(fallbackEndpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-goog-api-key": apiKey,
+            },
+            body: JSON.stringify(requestPayload),
+            signal: controller.signal,
+          });
+          if (fallbackResponse.ok) {
+            response = fallbackResponse;
+            effectiveModel = fallbackModel;
+          }
         }
       }
 
@@ -134,7 +156,7 @@ export class GeminiProvider implements AiProvider {
         throw new AiProviderError("Malformed response from AI provider (Missing candidates/content in response).", 502, false);
       }
 
-      return content.trim();
+      return { text: content.trim(), model: effectiveModel };
     } catch (err: unknown) {
       if (err instanceof AiProviderError) {
         throw err;
@@ -157,7 +179,7 @@ export class OpenAiCompatibleProvider implements AiProvider {
     mode: AiMode,
     text: string,
     config: AiProviderConfig
-  ): Promise<string> {
+  ): Promise<AiExecutionResult> {
     const { apiKey, baseUrl, model, timeoutMs, maxOutputTokens, temperature } = config;
 
     const controller = new AbortController();
@@ -228,7 +250,7 @@ export class OpenAiCompatibleProvider implements AiProvider {
         throw new AiProviderError("Malformed response from AI provider (Missing choices/content in response).", 502, false);
       }
 
-      return content.trim();
+      return { text: content.trim(), model };
     } catch (err: unknown) {
       if (err instanceof AiProviderError) {
         throw err;

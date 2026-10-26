@@ -130,7 +130,7 @@ export async function POST(req: Request): Promise<NextResponse<AiResponseBody>> 
 
     // 6. Execute via Pluggable Provider Layer
     const provider = getAiProvider();
-    const result = await provider.execute(mode as AiMode, text, {
+    const execution = await provider.execute(mode as AiMode, text, {
       apiKey,
       baseUrl,
       model,
@@ -139,11 +139,14 @@ export async function POST(req: Request): Promise<NextResponse<AiResponseBody>> 
       temperature: isNaN(envTemp) ? 0.7 : envTemp,
     });
 
+    const resultText = typeof execution === "string" ? execution : execution.text;
+    const resolvedModel = typeof execution === "string" ? model : execution.model;
+
     return NextResponse.json(
       {
         success: true,
-        result,
-        model,
+        result: resultText,
+        model: resolvedModel,
       },
       {
         status: 200,
