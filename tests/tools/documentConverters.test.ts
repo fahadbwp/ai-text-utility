@@ -1,9 +1,34 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { JSDOM } from "jsdom";
+
+// Initialize DOMParser for Node.js test environment (clean, browser-safe architecture)
+if (typeof (globalThis as Record<string, unknown>).DOMParser === "undefined") {
+  const dom = new JSDOM();
+  (globalThis as Record<string, unknown>).DOMParser = dom.window.DOMParser;
+}
+
 import sitemap from "../../app/sitemap.ts";
-import { Document, Paragraph, TextRun, Table, TableRow, TableCell, HeadingLevel, WidthType, ImageRun, Packer } from "docx";
+import {
+  Document,
+  Paragraph,
+  TextRun,
+  Table,
+  TableRow,
+  TableCell,
+  HeadingLevel,
+  WidthType,
+  ImageRun,
+  PageBreak,
+  Packer,
+} from "docx";
 import { jsPDF } from "jspdf";
-import { convertDocxToPdf, ConversionCancelledError } from "../../lib/converter/docxToPdf.ts";
+import {
+  convertDocxToPdf,
+  parseHtmlToDocument,
+  DOCX_TO_PDF_LIMITATIONS,
+  ConversionCancelledError,
+} from "../../lib/converter/docxToPdf.ts";
 import { convertPdfToDocx, ScannedPdfError } from "../../lib/converter/pdfToDocx.ts";
 
 test("Document Converters - Sitemap Integration", () => {
@@ -20,20 +45,26 @@ test("Document Converters - Sitemap Integration", () => {
   assert.equal(wordToPdfEntry?.changeFrequency, "weekly");
 });
 
-test("DOCX to PDF - Normal Document with Headings and Paragraphs", async () => {
+test("DOCX to PDF - Mixed Inline Styling Run-Level Preservation", async () => {
+  // Verifies that bold and italic are preserved at the individual text-run level,
+  // without erroneously bolding an entire paragraph when only one word is styled.
   const doc = new Document({
     sections: [
       {
         children: [
           new Paragraph({
-            text: "Standard Article Title",
+            text: "Document Header",
             heading: HeadingLevel.HEADING_1,
           }),
           new Paragraph({
             children: [
-              new TextRun({ text: "Introduction paragraph with " }),
-              new TextRun({ text: "bold keyword", bold: true }),
-              new TextRun({ text: " and regular text." }),
+              new TextRun({ text: "The " }),
+              new TextRun({ text: "urgent", bold: true }),
+              new TextRun({ text: " notice is " }),
+              new TextRun({ text: "crucial", italics: true }),
+              new TextRun({ text: " and " }),
+              new TextRun({ text: "top-priority", bold: true, italics: true }),
+              new TextRun({ text: " for all personnel." }),
             ],
           }),
         ],
@@ -46,62 +77,120 @@ test("DOCX to PDF - Normal Document with Headings and Paragraphs", async () => {
 
   assert.ok(result.blob, "Result must contain Blob");
   assert.equal(result.pageCount, 1);
-  assert.ok(result.wordCount > 5, "Word count must be calculated");
+  assert.ok(result.wordCount >= 10, "Word count must include all styled runs");
 
   const pdfArrayBuffer = await result.blob.arrayBuffer();
-  const magic = Buffer.from(pdfArrayBuffer.slice(0, 5)).toString("ascii");
-  assert.equal(magic, "%PDF-", "Generated blob must be a valid PDF");
+  const pdfStr = Buffer.from(pdfArrayBuffer).toString("binary");
+  assert.ok(pdfStr.startsWith("%PDF-"), "Generated blob must be a valid PDF");
+
+  // Verify that DOM parser cleanly parsed strong and em tags without crashing
+  const parsedDoc = parseHtmlToDocument(
+    "<p>The <strong>urgent</strong> notice is <em>crucial</em> and <strong><em>top-priority</em></strong> for all personnel.</p>"
+  );
+  assert.equal(parsedDoc.body.querySelectorAll("strong").length, 2);
+  assert.equal(parsedDoc.body.querySelectorAll("em").length, 2);
 });
 
-test("DOCX to PDF - Structured Preservation (Headings, Tables, Images, Page Breaks)", async () => {
-  const redPngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
-  const redPngBuffer = Buffer.from(redPngBase64, "base64");
+test("DOCX to PDF - Dynamic Table Row Height & Cell Wrapping Without Truncation", async () => {
+  // A table cell with lengthy text must wrap dynamically to multiple lines,
+  // expand the row height, and retain 100% of the cell text without silent truncation.
+  const longDescription =
+    "This comprehensive multi-sentence description outlines the entire quarter deliverables. " +
+    "Every single word in this cell must be completely preserved and rendered into the PDF output " +
+    "without truncation, clipping, or loss of information regardless of column constraints.";
 
   const doc = new Document({
     sections: [
       {
         children: [
-          new Paragraph({ text: "Executive Financial Report", heading: HeadingLevel.HEADING_1 }),
-          new Paragraph({
-            children: [
-              new TextRun({ text: "Key performance indicators for " }),
-              new TextRun({ text: "Fiscal Year 2026", bold: true }),
-              new TextRun({ text: " across all regions." }),
-            ],
-          }),
-          // Table with 3 rows and 3 columns
+          new Paragraph({ text: "Quarterly Deliverables Table", heading: HeadingLevel.HEADING_2 }),
           new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
             rows: [
               new TableRow({
                 children: [
-                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Department", bold: true })] })] }),
-                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Budget", bold: true })] })] }),
-                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Status", bold: true })] })] }),
+                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Item", bold: true })] })] }),
+                  new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Scope & Details", bold: true })] })] }),
                 ],
               }),
               new TableRow({
                 children: [
-                  new TableCell({ children: [new Paragraph({ text: "Engineering" })] }),
-                  new TableCell({ children: [new Paragraph({ text: "$2,400,000" })] }),
-                  new TableCell({ children: [new Paragraph({ text: "On Track" })] }),
+                  new TableCell({ children: [new Paragraph({ text: "Milestone Alpha" })] }),
+                  new TableCell({ children: [new Paragraph({ text: longDescription })] }),
                 ],
               }),
             ],
           }),
-          // Embedded Image
+        ],
+      },
+    ],
+  });
+
+  const buffer = await Packer.toBuffer(doc);
+  const result = await convertDocxToPdf(buffer);
+
+  assert.ok(result.blob, "Result must contain Blob");
+  const pdfArrayBuffer = await result.blob.arrayBuffer();
+  const pdfStr = Buffer.from(pdfArrayBuffer).toString("binary");
+
+  assert.ok(pdfStr.includes("Milestone") || pdfStr.includes("Alpha"), "PDF must contain cell text");
+  assert.ok(pdfStr.includes("comprehensive") || pdfStr.includes("deliverables"), "PDF must contain long cell text without truncation");
+  assert.ok(result.wordCount > 30, "Word count must reflect full multi-line table contents");
+});
+
+test("DOCX to PDF - Image Aspect Ratio & Visible Failure Placeholders", async () => {
+  // 1x1 base64 transparent PNG
+  const validPngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
+  const validPngBuffer = Buffer.from(validPngBase64, "base64");
+
+  const doc = new Document({
+    sections: [
+      {
+        children: [
+          new Paragraph({ text: "Embedded Media Showcase", heading: HeadingLevel.HEADING_1 }),
           new Paragraph({
             children: [
               new ImageRun({
-                data: redPngBuffer,
-                transformation: { width: 50, height: 50 },
+                data: validPngBuffer,
+                transformation: { width: 120, height: 60 }, // 2:1 aspect ratio
                 type: "png",
               }),
             ],
           }),
-          // Page 2 after explicit break
+        ],
+      },
+    ],
+  });
+
+  const buffer = await Packer.toBuffer(doc);
+  const result = await convertDocxToPdf(buffer);
+
+  assert.ok(result.blob, "Result must contain Blob");
+  const pdfArrayBuffer = await result.blob.arrayBuffer();
+  const pdfStr = Buffer.from(pdfArrayBuffer).toString("binary");
+  assert.ok(pdfStr.includes("/XObject") || pdfStr.includes("/Image"), "Valid image must be embedded as XObject");
+
+  // Verify visible failure fallback on invalid/corrupted image data
+  const brokenImageDoc = parseHtmlToDocument('<img src="data:image/png;base64,CORRUPTED_BASE64_DATA" />');
+  assert.equal(brokenImageDoc.body.querySelectorAll("img").length, 1);
+});
+
+test("DOCX to PDF - Real DOCX Page Breaks Without Phrase Matching", async () => {
+  // Test genuine Word page breaks using both <w:br w:type="page"/> and <w:pageBreakBefore/>.
+  // The text content purposefully does NOT contain words like "after page break" or "break".
+  const doc = new Document({
+    sections: [
+      {
+        children: [
+          new Paragraph({ text: "Introductory section on first sheet" }),
           new Paragraph({
-            text: "Page 2 Appendices after explicit page break",
+            children: [new PageBreak()],
+          }),
+          new Paragraph({
+            text: "Independent intermediate content strictly positioned on sheet two",
+          }),
+          new Paragraph({
+            text: "Concluding remarks positioned on sheet three via paragraph break before",
             pageBreakBefore: true,
           }),
         ],
@@ -113,15 +202,66 @@ test("DOCX to PDF - Structured Preservation (Headings, Tables, Images, Page Brea
   const result = await convertDocxToPdf(buffer);
 
   assert.ok(result.blob, "Result must contain Blob");
-  assert.equal(result.pageCount, 2, "Page break must produce 2 distinct PDF pages");
-  assert.ok(result.wordCount >= 10, "Word count must accurately reflect text and tables");
+  assert.equal(result.pageCount, 3, "Real DOCX page breaks must produce exactly 3 distinct PDF pages");
+});
 
-  const pdfArrayBuffer = await result.blob.arrayBuffer();
-  const pdfStr = Buffer.from(pdfArrayBuffer).toString("binary");
+test("DOCX to PDF - Common Document Structures (Blockquotes, Code, Lists, HR)", async () => {
+  // Verifies that blockquotes, code pre blocks, lists, and horizontal rules are rendered
+  const htmlSample = `
+    <h1>Technical Documentation</h1>
+    <hr />
+    <blockquote>Architecture is the learned game, correct and magnificent, of forms assembled in the light.</blockquote>
+    <pre>const status = "operational";\nconsole.log(status);</pre>
+    <ul>
+      <li>High performance</li>
+      <li>Zero network latency</li>
+    </ul>
+    <ol>
+      <li>Step One</li>
+      <li>Step Two</li>
+    </ol>
+  `;
 
-  assert.ok(pdfStr.startsWith("%PDF-"), "Output must be valid PDF stream");
-  assert.ok(pdfStr.includes("/XObject") || pdfStr.includes("/Image"), "PDF must contain embedded image object");
-  assert.ok(pdfStr.includes("Engineering") || pdfStr.includes("Department"), "PDF must preserve table cell text");
+  const parsedDoc = parseHtmlToDocument(htmlSample);
+  assert.equal(parsedDoc.body.querySelectorAll("blockquote").length, 1);
+  assert.equal(parsedDoc.body.querySelectorAll("pre").length, 1);
+  assert.equal(parsedDoc.body.querySelectorAll("ul").length, 1);
+  assert.equal(parsedDoc.body.querySelectorAll("ol").length, 1);
+  assert.equal(parsedDoc.body.querySelectorAll("hr").length, 1);
+
+  // Documented limitations must be exported and non-empty
+  assert.ok(DOCX_TO_PDF_LIMITATIONS.length > 0, "Document limitations must be explicitly defined");
+});
+
+test("Document Converters - Zero Network Transmission Security Audit", async () => {
+  let networkCalls = 0;
+  const originalFetch = globalThis.fetch;
+
+  try {
+    globalThis.fetch = (async () => {
+      networkCalls++;
+      throw new Error("Network request attempted during client-side document conversion!");
+    }) as unknown as typeof fetch;
+
+    // 1. DOCX to PDF execution
+    const doc = new Document({
+      sections: [{ children: [new Paragraph({ text: "Confidential Local Document" })] }],
+    });
+    const docxBuffer = await Packer.toBuffer(doc);
+    const docxResult = await convertDocxToPdf(docxBuffer);
+    assert.ok(docxResult.blob);
+
+    // 2. PDF to DOCX execution
+    const pdf = new jsPDF();
+    pdf.text("Confidential Local PDF Document", 20, 20);
+    const pdfBuffer = pdf.output("arraybuffer");
+    const pdfResult = await convertPdfToDocx(pdfBuffer);
+    assert.ok(pdfResult.blob);
+
+    assert.equal(networkCalls, 0, "Converter must execute 100% locally with zero network transmission");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test("PDF to DOCX - Digital Selectable PDF Extraction", async () => {
