@@ -43,7 +43,12 @@ export interface AiProviderConfig {
   temperature?: number;
 }
 
+export interface AiExecutionResult {
+  text: string;
+  model: string;
+}
+
 export interface AiProvider {
   name: string;
-  execute(mode: AiMode, text: string, config: AiProviderConfig): Promise<string>;
+  execute(mode: AiMode, text: string, config: AiProviderConfig): Promise<AiExecutionResult>;
 }

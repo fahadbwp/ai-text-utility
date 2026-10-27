@@ -119,7 +119,8 @@ test("4. Gemini Provider - Valid Request Execution", async () => {
       temperature: 0.7,
     });
 
-    assert.equal(result, "Corrected user text by Gemini.");
+    assert.equal(result.text, "Corrected user text by Gemini.");
+    assert.equal(result.model, "gemini-flash-latest");
   } finally {
     globalThis.fetch = originalFetch;
   }
@@ -343,6 +344,218 @@ test("11. Distributed Upstash Redis Rate Limiter & Graceful Failover", async () 
     // Should fail over gracefully to local in-memory limiter without throwing
     const failoverRes = await upstashLimiter.check("192.168.1.200");
     assert.equal(failoverRes.allowed, true);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("12. Gemini Provider - High Demand 503 Fallback to Distinct Stable Model", async () => {
+  const originalFetch = globalThis.fetch;
+  const calls: string[] = [];
+
+  try {
+    globalThis.fetch = async (url) => {
+      const urlStr = String(url);
+      calls.push(urlStr);
+
+      if (urlStr.includes("gemini-flash-lite-latest")) {
+        // Primary returns 503 high demand spike
+        return new Response(
+          JSON.stringify({
+            error: {
+              code: 503,
+              message: "This model is currently experiencing high demand.",
+              status: "UNAVAILABLE",
+            },
+          }),
+          { status: 503, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      if (urlStr.includes("gemini-3.5-flash-lite")) {
+        // Distinct fallback model succeeds
+        return new Response(
+          JSON.stringify({
+            candidates: [
+              {
+                content: {
+                  parts: [{ text: "Recovered via distinct fallback model." }],
+                },
+              },
+            ],
+          }),
+          { status: 200, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      return new Response("Not found", { status: 404 });
+    };
+
+    const provider = new GeminiProvider();
+    const result = await provider.execute("friendly", "Draft text", {
+      apiKey: "test-key",
+      baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+      model: "gemini-flash-lite-latest",
+      timeoutMs: 5000,
+      maxOutputTokens: 1000,
+    });
+
+    assert.equal(result.text, "Recovered via distinct fallback model.");
+    assert.equal(result.model, "gemini-3.5-flash-lite", "Returned metadata must reflect actual generating model");
+    assert.equal(calls.length, 2, "Must make exactly 2 calls: primary then fallback");
+    assert.ok(calls[0].includes("gemini-flash-lite-latest"), "First call to primary");
+    assert.ok(calls[1].includes("gemini-3.5-flash-lite"), "Second call to distinct fallback");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("13. Gemini Provider - Avoids Duplicate Request When Primary and Fallback IDs Match", async () => {
+  const originalFetch = globalThis.fetch;
+  const calls: string[] = [];
+
+  try {
+    globalThis.fetch = async (url) => {
+      calls.push(String(url));
+      return new Response(
+        JSON.stringify({
+          error: { code: 503, message: "Temporary capacity spike", status: "UNAVAILABLE" },
+        }),
+        { status: 503, headers: { "Content-Type": "application/json" } }
+      );
+    };
+
+    const provider = new GeminiProvider();
+    // Configure identical primary and fallback model IDs
+    const prevFallback = process.env.AI_FALLBACK_MODEL;
+    process.env.AI_FALLBACK_MODEL = "gemini-flash-lite-latest";
+
+    await assert.rejects(
+      async () => {
+        await provider.execute("professional", "Draft text", {
+          apiKey: "test-key",
+          baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+          model: "gemini-flash-lite-latest",
+          timeoutMs: 5000,
+          maxOutputTokens: 1000,
+        });
+      },
+      { status: 503 }
+    );
+
+    assert.equal(calls.length, 1, "Must avoid duplicate request when primary and fallback are identical");
+    process.env.AI_FALLBACK_MODEL = prevFallback;
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("14. Gemini Provider - Authentication & Invalid Key Errors Bypass Pointless Fallback", async () => {
+  const originalFetch = globalThis.fetch;
+  const calls: string[] = [];
+
+  try {
+    globalThis.fetch = async (url) => {
+      calls.push(String(url));
+      return new Response(
+        JSON.stringify({
+          error: { code: 400, message: "API key not valid", status: "INVALID_ARGUMENT" },
+        }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    };
+
+    const provider = new GeminiProvider();
+    await assert.rejects(
+      async () => {
+        await provider.execute("expand", "Draft text", {
+          apiKey: "bad-key",
+          baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+          model: "gemini-flash-lite-latest",
+          timeoutMs: 5000,
+          maxOutputTokens: 1000,
+        });
+      },
+      { status: 400 }
+    );
+
+    assert.equal(calls.length, 1, "Auth errors must fail immediately without attempting fallback");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("15. Gemini Provider - Account Daily Quota Exhaustion Skips Fallback", async () => {
+  const originalFetch = globalThis.fetch;
+  const calls: string[] = [];
+
+  try {
+    globalThis.fetch = async (url) => {
+      calls.push(String(url));
+      return new Response(
+        JSON.stringify({
+          error: {
+            code: 429,
+            message: "Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests per day limit exceeded",
+            status: "RESOURCE_EXHAUSTED",
+          },
+        }),
+        { status: 429, headers: { "Content-Type": "application/json" } }
+      );
+    };
+
+    const provider = new GeminiProvider();
+    await assert.rejects(
+      async () => {
+        await provider.execute("paraphrase", "Draft text", {
+          apiKey: "test-key",
+          baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+          model: "gemini-flash-lite-latest",
+          timeoutMs: 5000,
+          maxOutputTokens: 1000,
+        });
+      },
+      { status: 429 }
+    );
+
+    assert.equal(calls.length, 1, "Daily quota exhaustion must not trigger futile secondary requests");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("16. Gemini Provider - Fallback Failure Produces Safe Error (Max 2 Calls)", async () => {
+  const originalFetch = globalThis.fetch;
+  const calls: string[] = [];
+
+  try {
+    globalThis.fetch = async (url) => {
+      calls.push(String(url));
+      // Both primary and fallback return 503
+      return new Response(
+        JSON.stringify({
+          error: { code: 503, message: "Capacity full", status: "UNAVAILABLE" },
+        }),
+        { status: 503, headers: { "Content-Type": "application/json" } }
+      );
+    };
+
+    const provider = new GeminiProvider();
+    await assert.rejects(
+      async () => {
+        await provider.execute("friendly", "Draft text", {
+          apiKey: "test-key",
+          baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+          model: "gemini-flash-lite-latest",
+          timeoutMs: 5000,
+          maxOutputTokens: 1000,
+        });
+      },
+      { status: 503 }
+    );
+
+    assert.equal(calls.length, 2, "Must make at most 2 upstream requests (primary + 1 fallback attempt)");
   } finally {
     globalThis.fetch = originalFetch;
   }

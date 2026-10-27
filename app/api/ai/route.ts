@@ -123,14 +123,14 @@ export async function POST(req: Request): Promise<NextResponse<AiResponseBody>> 
       process.env.AI_BASE_URL ||
       "https://generativelanguage.googleapis.com/v1beta";
 
-    const model = process.env.AI_MODEL || "gemini-flash-latest";
+    const model = process.env.AI_MODEL || "gemini-flash-lite-latest";
     const timeoutMs = parseInt(process.env.AI_TIMEOUT_MS || "25000", 10);
     const maxOutputTokens = parseInt(process.env.AI_MAX_OUTPUT_TOKENS || "2000", 10);
     const envTemp = process.env.AI_TEMPERATURE ? parseFloat(process.env.AI_TEMPERATURE) : 0.7;
 
     // 6. Execute via Pluggable Provider Layer
     const provider = getAiProvider();
-    const result = await provider.execute(mode as AiMode, text, {
+    const execution = await provider.execute(mode as AiMode, text, {
       apiKey,
       baseUrl,
       model,
@@ -139,11 +139,14 @@ export async function POST(req: Request): Promise<NextResponse<AiResponseBody>> 
       temperature: isNaN(envTemp) ? 0.7 : envTemp,
     });
 
+    const resultText = typeof execution === "string" ? execution : execution.text;
+    const resolvedModel = typeof execution === "string" ? model : execution.model;
+
     return NextResponse.json(
       {
         success: true,
-        result,
-        model,
+        result: resultText,
+        model: resolvedModel,
       },
       {
         status: 200,
