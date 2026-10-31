@@ -713,7 +713,7 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
   "remove-special-chars": {
     slug: "remove-special-chars",
-    title: "Remove Special Characters Online – Clean Symbols & Keep Letters",
+    title: "Remove Special Characters Online – Strip Symbols & Keep Spaces [Free]",
     metaDescription:
       "Quickly remove symbols, punctuation, and special characters from text while preserving letters and numbers. Free, instant in-browser cleaner with custom symbol options.",
     h1: "Remove Special Characters Online",
@@ -722,10 +722,15 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     primaryKeyword: "remove special characters online",
     secondaryKeywords: [
       "remove special characters",
+      "keep alphanumeric & spaces only",
+      "keep alphanumeric and spaces",
+      "remove all non alphanumeric characters",
+      "keep numeric only",
+      "keep numbers only online",
+      "keep ascii only",
       "special character remover",
       "strip special characters",
       "remove symbols from text",
-      "remove non alphanumeric characters",
       "alphanumeric text cleaner",
       "clean symbols online",
     ],
