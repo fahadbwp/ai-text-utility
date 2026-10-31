@@ -1649,10 +1649,11 @@ export const TOOL_SPECIFIC_CONTENT: Record<
 
   "remove-special-chars": {
     howToSteps: [
-      "Paste or type your text containing symbols, punctuation, or unwanted characters into the input area.",
-      "Select your preferred filter mode: Alphanumeric Only, Keep Standard Punctuation, or Custom Allowed List.",
-      "If using Custom mode, enter any symbols you wish to retain into the Allowed Characters field.",
-      "Copy the cleaned, filtered text to your clipboard with one click.",
+      "Prepare your text with unwanted symbols, currency signs, or rogue characters.",
+      "Paste your data or type directly into the input area.",
+      "Select your cleanup option: Keep Alphanumeric & Spaces, Keep Alphanumeric Only, Keep Numeric Only, Keep ASCII Only, Keep Standard Punctuation, or Custom Allowed List.",
+      "Review the instant preview of your cleaned, sanitized text output.",
+      "Click 'Copy to Clipboard' and your sanitized data is ready to use.",
     ],
     features: [
       "Three filtering modes: Alphanumeric Only, Keep Standard Punctuation, and Custom Allowed List",
@@ -1685,6 +1686,16 @@ export const TOOL_SPECIFIC_CONTENT: Record<
         question: "Does the tool support accented and non-English letters?",
         answer:
           "Yes. The tool uses Unicode property classes (\\p{L} for letters and \\p{N} for numbers) with the Unicode flag enabled. This ensures accented Latin characters (é, ñ, ü, ç) as well as non-Latin alphabets (such as Arabic, Cyrillic, Greek, Hebrew, and Devanagari) are properly recognized as letters and preserved.",
+      },
+      {
+        question: "Can I keep numbers only and remove all letters and symbols?",
+        answer:
+          "Yes. Selecting 'Keep Numeric Only' strips all letters, spaces, and special symbols, leaving strictly numbers and digits. If you want to keep spaces between separate numbers, select 'Keep Numeric & Spaces Only'.",
+      },
+      {
+        question: "How do I remove non-ASCII characters from text?",
+        answer:
+          "Choose the 'Keep ASCII Only' mode. The tool instantly strips emojis, smart quotes, accented diacritics, and all non-ASCII unicode characters outside the standard 0-127 ASCII character set, making it safe for legacy database imports and command-line scripts.",
       },
       {
         question: "Can I choose which special characters to keep?",

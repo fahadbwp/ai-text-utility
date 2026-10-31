@@ -157,4 +157,20 @@ test("7. Remove Special Characters", () => {
     customAllowedChars: "@.",
   });
   assert.equal(custom, "user@domain.com test");
+
+  // Keep alphanumeric only (no spaces)
+  const noSpaces = removeSpecialChars("Hello, World! @# 123", { mode: "alphanumeric-no-spaces" });
+  assert.equal(noSpaces, "HelloWorld123");
+
+  // Keep numeric & spaces only
+  const numericSpaces = removeSpecialChars("Order #123 has $45 items", { mode: "numeric-spaces" });
+  assert.equal(numericSpaces, "123 45");
+
+  // Keep numeric only (no spaces)
+  const numericOnly = removeSpecialChars("Order #123 has $45 items", { mode: "numeric-only" });
+  assert.equal(numericOnly, "12345");
+
+  // Keep ASCII only
+  const asciiOnly = removeSpecialChars("Café 123 😊 Résumé!", { mode: "ascii-only" });
+  assert.equal(asciiOnly, "Caf 123 Rsum!");
 });

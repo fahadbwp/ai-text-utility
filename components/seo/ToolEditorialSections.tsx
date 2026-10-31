@@ -5008,36 +5008,144 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
             When importing raw data, copying text from PDF documents, or preparing text for database queries and URL slugs, strings frequently contain unwanted symbols, stray punctuation, currency signs, and non-printable control characters. Manually deleting these characters is tedious, error-prone, and impractical for large datasets.
           </p>
           <p>
-            The <strong>Remove Special Characters</strong> tool provides instant, client-side text filtering. By leveraging modern Unicode regular expressions (specifically the Unicode letter property <code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">\p&#123;L&#125;</code> and number property <code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">\p&#123;N&#125;</code>), the tool accurately distinguishes between valid multilingual letters, numbers, and intrusive non-alphanumeric noise.
+            The <strong>Remove Special Characters Online</strong> tool provides instant, client-side text filtering. By leveraging modern Unicode regular expressions (specifically the Unicode letter property <code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">\p&#123;L&#125;</code> and number property <code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">\p&#123;N&#125;</code>), the tool accurately distinguishes between valid multilingual letters, numbers, and intrusive non-alphanumeric noise. Learn more about standard <a href="https://en.wikipedia.org/wiki/Alphanumeric" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 underline underline-offset-2 hover:text-brand-700">alphanumeric characters on Wikipedia</a>.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-            <div className="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
-              <span className="font-semibold text-slate-900 dark:text-white text-xs block">Alphanumeric Filter</span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-2">
+            <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
+              <span className="font-semibold text-slate-900 dark:text-white text-xs block">Alphanumeric &amp; Spaces</span>
               <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                Strips all symbols, currency signs, and punctuation while preserving letters and numbers.
+                Letters, digits, spaces preserved.
               </p>
             </div>
-            <div className="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
+            <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
+              <span className="font-semibold text-slate-900 dark:text-white text-xs block">Alphanumeric Only</span>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                Pure letters &amp; numbers without spaces.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
+              <span className="font-semibold text-slate-900 dark:text-white text-xs block">Numeric Only</span>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                Extract digits, strip all text &amp; symbols.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
+              <span className="font-semibold text-slate-900 dark:text-white text-xs block">ASCII Only</span>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                Strip emojis, unicode, &amp; foreign glyphs.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
               <span className="font-semibold text-slate-900 dark:text-white text-xs block">Keep Punctuation</span>
               <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                Retains standard sentence punctuation (. , ! ? &apos; &quot; - : ; ( )) while stripping decorative symbols.
+                Retain (. , ! ? - : ;) for natural prose.
               </p>
             </div>
-            <div className="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
-              <span className="font-semibold text-slate-900 dark:text-white text-xs block">Custom Allowed List</span>
+            <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 space-y-1">
+              <span className="font-semibold text-slate-900 dark:text-white text-xs block">Custom Allowed</span>
               <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                Specify exact symbols to preserve alongside alphanumeric text (e.g., @ and . for email addresses).
+                Whitelist exact symbols (e.g. @._-).
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Before & After Transformation Examples */}
+      {/* 2. Step-by-Step Tutorial / How-To (Featured Snippet Optimization) */}
+      <section aria-labelledby="tutorial-heading" className="space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800/60 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
+            <BookOpen size={18} />
+          </div>
+          <div>
+            <h2
+              id="tutorial-heading"
+              className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight"
+            >
+              How to Remove Special Characters from Text Online (Step-by-Step Tutorial)
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Follow these simple steps to quickly delete unwanted symbols and clean your input data
+            </p>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          <ol className="space-y-3.5 list-none">
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                1
+              </span>
+              <div>
+                <strong className="text-slate-900 dark:text-white block font-semibold text-xs sm:text-sm">
+                  Prepare your raw text
+                </strong>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Have your input data containing unwanted symbols, stray punctuation, or messy formatting ready from your clipboard, document, or spreadsheet.
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                2
+              </span>
+              <div>
+                <strong className="text-slate-900 dark:text-white block font-semibold text-xs sm:text-sm">
+                  Enter or paste the data
+                </strong>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Paste your text into the input workspace. The tool accepts multi-line passages, paragraphs, CSV snippets, and code extracts.
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                3
+              </span>
+              <div>
+                <strong className="text-slate-900 dark:text-white block font-semibold text-xs sm:text-sm">
+                  Select your desired filtering mode
+                </strong>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Click on the <em>Filter Mode</em> dropdown and pick the desired preset: Keep Alphanumeric &amp; Spaces, Keep Alphanumeric Only, Keep Numeric Only, Keep ASCII Only, Keep Standard Punctuation, or Custom Allowed List.
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                4
+              </span>
+              <div>
+                <strong className="text-slate-900 dark:text-white block font-semibold text-xs sm:text-sm">
+                  Instant transformation &amp; live preview
+                </strong>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  The sanitized output updates instantly in real time. Extra spaces created by removed symbols are automatically collapsed for clean reading.
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                5
+              </span>
+              <div>
+                <strong className="text-slate-900 dark:text-white block font-semibold text-xs sm:text-sm">
+                  Copy to clipboard
+                </strong>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Click the <em>Copy</em> button to copy your sanitized string to clipboard, or export it directly into your workflow.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      {/* 3. Before & After Transformation Examples */}
       <section aria-labelledby="examples-heading" className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
-            <BookOpen size={18} />
+            <Layers size={18} />
           </div>
           <div>
             <h2
@@ -5057,47 +5165,47 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
               <span className="inline-block text-[11px] font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
-                Mode: Alphanumeric Only
+                Mode: Alphanumeric &amp; Spaces
               </span>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Original Input:</span>
                 <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 font-mono text-xs text-rose-600 dark:text-rose-400 break-all">
-                  Hello, World! @#2026 $$$
+                  !#This tool removes $special *characters* /other/ than! digits &amp; spaces!!!$
                 </div>
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
                 <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
-                  Hello World 2026
+                  This tool removes special characters other than digits spaces
                 </div>
               </div>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed pt-2 border-t border-slate-100 dark:border-slate-800">
-              Punctuation (<code>,</code>, <code>!</code>), hashtags (<code>#</code>), mentions (<code>@</code>), and currency signs (<code>$</code>) are stripped. Spacing between words is preserved.
+              Non-alphanumeric punctuation (<code>!</code>, <code>#</code>, <code>$</code>, <code>*</code>, <code>/</code>) is removed while words and spaces are preserved.
             </p>
           </div>
 
           {/* Example 2 */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                Mode: Keep Punctuation
+              <span className="inline-block text-[11px] font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
+                Mode: Keep Numeric Only
               </span>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Original Input:</span>
                 <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 font-mono text-xs text-rose-600 dark:text-rose-400 break-all">
-                  Order #984: Total is $45.50 (paid)!
+                  Invoice #INV-2026 for $1,450.00 (Due: 11/30)
                 </div>
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
                 <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
-                  Order 984: Total is 45.50 (paid)!
+                  20261450001130
                 </div>
               </div>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed pt-2 border-t border-slate-100 dark:border-slate-800">
-              Grammatical punctuation (<code>:</code>, <code>.</code>, <code>()</code>, <code>!</code>) remains intact for natural reading, while non-punctuation symbols (<code>#</code>, <code>$</code>) are removed.
+              Strips all letters, spaces, currency symbols, and delimiters, extracting continuous digit strings for phone numbers or serial IDs.
             </p>
           </div>
 
@@ -5105,29 +5213,29 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
               <span className="inline-block text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
-                Mode: Custom Allowed List (@.-_)
+                Mode: Keep ASCII Only
               </span>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Original Input:</span>
                 <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 font-mono text-xs text-rose-600 dark:text-rose-400 break-all">
-                  user_name+tag@company.corp:8080!
+                  “Café crème” ☕ — Price: £4.50
                 </div>
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
                 <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
-                  user_nametag@company.corp8080
+                  Caf crme Price: 4.50
                 </div>
               </div>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed pt-2 border-t border-slate-100 dark:border-slate-800">
-              Only specified characters (<code>@</code>, <code>.</code>, <code>-</code>, <code>_</code>) are spared alongside letters and digits. Other symbols like <code>+</code>, <code>:</code>, and <code>!</code> are stripped.
+              Strips non-ASCII characters, curly smart quotes, emojis, and non-ASCII currency signs (<code className="font-mono">£</code>), producing pure 7-bit ASCII strings.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 3. Deep Dive into the Three Filter Modes */}
+      {/* 4. Deep Dive into the Filtering Modes */}
       <section aria-labelledby="filter-modes-heading" className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
@@ -5138,7 +5246,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               id="filter-modes-heading"
               className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight"
             >
-              The Three Filtering Modes Explained
+              The Six Filtering Modes Explained
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Choose the exact level of filtering required for your specific workflow
@@ -5150,20 +5258,50 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
             <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-500" />
-              1. Alphanumeric Only (A-Z, 0-9, and Spaces)
+              1. Keep Alphanumeric &amp; Spaces (A-Z, 0-9, and Spaces)
             </h3>
             <p className="leading-relaxed">
-              This is the strictest filtering mode. Under the hood, it constructs the pattern <code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">/[^\p&#123;L&#125;\p&#123;N&#125; \r\n\t]/gu</code>. Any character that is not a Unicode letter or a Unicode number is permanently removed. This is the optimal mode when generating alphanumeric serials, cleaning input tokens for natural language processing, or stripping all punctuation marks from raw prose.
+              This standard cleanup mode removes all symbols, math signs, currency markers, and punctuation while preserving word spacing. Under the hood, it constructs the pattern <code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">/[^\p&#123;L&#125;\p&#123;N&#125; \r\n\t]/gu</code>. This is optimal when preparing prose tokens for machine learning, search indexes, or clean text parsing.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
+            <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              2. Keep Alphanumeric Only (No Spaces)
+            </h3>
+            <p className="leading-relaxed">
+              Strips all special characters and all whitespace characters. Ideal when generating compact alphanumeric identifiers, validation hashes, license keys, or alphanumeric usernames where spaces are strictly forbidden.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
+            <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-teal-500" />
+              3. Keep Numeric Only &amp; Numeric with Spaces
+            </h3>
+            <p className="leading-relaxed">
+              Discards all alphabetical letters, punctuation, and symbols, retaining exclusively digits (<code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">\p&#123;N&#125;</code>). Choose <strong>Keep Numeric &amp; Spaces Only</strong> when cleaning sequences of numbers (such as bank accounts or order IDs) or <strong>Keep Numeric Only</strong> when extracting pure continuous digits.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
+            <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
+              4. Keep ASCII Only (Strip Non-ASCII &amp; Unicode)
+            </h3>
+            <p className="leading-relaxed">
+              Removes all characters outside the standard 7-bit ASCII range (<code className="text-brand-600 dark:text-brand-400 bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded-sm font-mono text-[11px]">[^\x00-\x7F]</code>). This strips emojis, smart quotes, curly dashes, accented diacritics, and foreign scripts, ensuring compatibility with legacy POS systems, terminal logs, and SQL engines.
             </p>
           </div>
 
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
             <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-indigo-500" />
-              2. Keep Standard Punctuation
+              5. Keep Standard Punctuation
             </h3>
             <p className="leading-relaxed">
-              In writing and editorial workflows, you often want to strip bizarre non-printable symbols, math operators (<code className="text-[11px] font-mono">+ = &lt; &gt; ^ ~</code>), and currency signs (<code className="text-[11px] font-mono">$ € £ ¥</code>) without destroying sentence structure. The <strong>Keep Standard Punctuation</strong> mode preserves exactly these characters:
+              In writing and editorial workflows, you often want to strip non-printable symbols, math operators (<code className="text-[11px] font-mono">+ = &lt; &gt; ^ ~</code>), and currency signs (<code className="text-[11px] font-mono">$ € £ ¥</code>) without destroying sentence structure. The <strong>Keep Standard Punctuation</strong> mode preserves grammatical punctuation:
             </p>
             <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/80 font-mono text-xs text-slate-800 dark:text-slate-200 flex flex-wrap gap-2">
               <span className="px-2 py-0.5 rounded-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">. Period</span>
@@ -5177,27 +5315,21 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               <span className="px-2 py-0.5 rounded-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">; Semicolon</span>
               <span className="px-2 py-0.5 rounded-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">( ) Parentheses</span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Everything outside this whitelist—including hashtags, asterisks, brackets, and emojis—is safely removed.
-            </p>
           </div>
 
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
             <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500" />
-              3. Custom Allowed List
+              <span className="w-2 h-2 rounded-full bg-violet-500" />
+              6. Custom Allowed Whitelist
             </h3>
             <p className="leading-relaxed">
-              When processing technical identifiers, system paths, or specialized data formats, you may require specific symbols that neither alphanumeric-only nor punctuation-only modes accommodate. Switching to <strong>Custom Allowed List</strong> exposes a dedicated text field where you can input the exact characters to spare.
-            </p>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Every character you type into the custom field is automatically escaped against regex injection vulnerabilities before being added to the allow-pattern. For example, entering <code className="font-mono text-brand-600 dark:text-brand-400">@._-</code> allows you to sanitize messy email lists or user accounts while discarding all other symbols.
+              When processing technical identifiers, system paths, or specialized data formats, you may require specific symbols that presets do not cover. Switching to <strong>Custom Allowed List</strong> exposes a text field where you can input exact characters to preserve (e.g. <code className="font-mono text-brand-600 dark:text-brand-400">@._-</code> for email lists and user handles).
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. Unicode & Multilingual Support */}
+      {/* 5. Unicode & Multilingual Support */}
       <section aria-labelledby="unicode-support-heading" className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
@@ -5241,49 +5373,6 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
 
           <p className="text-xs text-slate-500 dark:text-slate-400 pt-1">
             If your goal is specifically to strip diacritics and convert accented characters into plain unaccented ASCII (e.g., turning <code>é</code> into <code>e</code>), use our specialized <Link href="/tools/remove-accents" className="text-brand-600 dark:text-brand-400 font-semibold underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-300">Remove Accents &amp; Diacritics Tool</Link>.
-          </p>
-        </div>
-      </section>
-
-      {/* 5. Spaces & Line Breaks Handling */}
-      <section aria-labelledby="whitespace-heading" className="space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
-            <Layers size={18} />
-          </div>
-          <div>
-            <h2
-              id="whitespace-heading"
-              className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight"
-            >
-              Whitespace, Space Collapsing &amp; Line Break Preservation
-            </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Clean symbol removal without corrupting your document&apos;s spacing or paragraph formatting
-            </p>
-          </div>
-        </div>
-
-        <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-          <p>
-            A common flaw in simple find-and-replace scripts is that removing symbols leaves behind awkward double or triple spaces (for instance, turning <code>first  #  second</code> into <code>first    second</code>).
-          </p>
-          <p>
-            This tool handles whitespace intelligently by default:
-          </p>
-          <ul className="space-y-2 list-disc list-inside text-slate-700 dark:text-slate-300">
-            <li>
-              <strong>Preserves Paragraphs &amp; Line Breaks:</strong> Carriage returns (<code className="font-mono text-xs">\r</code>) and newlines (<code className="font-mono text-xs">\n</code>) are maintained so multi-line text and lists do not collapse into a single giant line.
-            </li>
-            <li>
-              <strong>Preserves Word Separation:</strong> Standard spaces and tabs are kept so distinct words do not accidentally merge together.
-            </li>
-            <li>
-              <strong>Collapses Multiple Spaces:</strong> Consecutive spaces created when intermediate symbols are removed are collapsed into a single space per word boundary, keeping the final output clean and readable.
-            </li>
-          </ul>
-          <p className="text-xs text-slate-500 dark:text-slate-400 pt-1">
-            Need dedicated whitespace control, line indentation trimming, or trailing space cleanup? Check out our companion tool: <Link href="/tools/remove-extra-spaces" className="text-brand-600 dark:text-brand-400 font-semibold underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-300">Remove Extra Spaces</Link>.
           </p>
         </div>
       </section>
@@ -5464,6 +5553,21 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2">
             <div className="flex items-center justify-between">
               <Link
+                href="/tools/extract-urls"
+                className="text-sm font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors inline-flex items-center gap-1.5"
+              >
+                Extract URLs <ArrowRight size={14} />
+              </Link>
+              <span className="text-[11px] font-mono text-cyan-600 dark:text-cyan-400">Extract</span>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              Extract and isolate all valid HTTP/HTTPS web links and domain URLs from messy text and logs.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2">
+            <div className="flex items-center justify-between">
+              <Link
                 href="/tools/regex-tester"
                 className="text-sm font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors inline-flex items-center gap-1.5"
               >
@@ -5481,7 +5585,6 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
   );
 };
 
-// ==========================================
 // 20. REMOVE EXTRA SPACES EDITORIAL
 // ==========================================
 export const RemoveExtraSpacesEditorial: React.FC = () => {

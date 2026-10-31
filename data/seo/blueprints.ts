@@ -626,6 +626,13 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
       "remove symbols online",
       "text special character remover",
       "remove non alphanumeric characters online",
+      "keep alphanumeric and spaces only",
+      "keep alphanumeric only",
+      "keep numeric only",
+      "keep numeric and spaces only",
+      "keep ascii only",
+      "remove non-ascii characters",
+      "remove special characters from string",
     ],
     popularAnchor: "Remove Special Characters",
     clusterSlugs: [
