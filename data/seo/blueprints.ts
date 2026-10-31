@@ -19,6 +19,57 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     aboveTheFoldIntro: guide.description, primaryKeyword: guide.title.toLowerCase(),
     secondaryKeywords: [], popularAnchor: guide.title, clusterSlugs: guide.related,
   }])),
+  "remove-duplicate-lines": {
+    slug: "remove-duplicate-lines",
+    title: "Remove Duplicate Lines Online – Dedupe Text Lists Instantly [Free]",
+    metaDescription:
+      "Quickly remove duplicate lines from lists and text documents. Preserve original line order, configure case sensitivity, and copy deduplicated lines in seconds.",
+    h1: "Remove Duplicate Lines Online",
+    aboveTheFoldIntro:
+      "Clean and deduplicate pasted text lists with a deterministic in-browser algorithm. Retain the first occurrence of each unique row with full control over case and whitespace.",
+    primaryKeyword: "duplicate line remover",
+    secondaryKeywords: [
+      "remove duplicate lines text",
+      "dedupe lines online",
+      "duplicate line remover online",
+      "remove duplicate lines",
+      "delete duplicate rows",
+      "unique lines filter",
+    ],
+    popularAnchor: "Duplicate Line Remover",
+    clusterSlugs: [
+      "sort-lines",
+      "trim-lines",
+      "remove-empty-lines",
+      "remove-extra-spaces",
+    ],
+  },
+  "strip-html-tags": {
+    slug: "strip-html-tags",
+    title: "Strip HTML Tags to Plain Text – Extract Clean Text from Code [Instant]",
+    metaDescription:
+      "Strip HTML tags and convert markup into clean plain text instantly. Extract readable content from email templates and web code with entity decoding in your browser.",
+    h1: "Strip HTML Tags to Plain Text",
+    aboveTheFoldIntro:
+      "Extract readable, clean copy from raw HTML markup in real time. Strip formatting tags, convert block elements to neat line breaks, and decode HTML character entities securely.",
+    primaryKeyword: "strip html tags to plain text",
+    secondaryKeywords: [
+      "remove all html tags from string",
+      "strip code",
+      "html strip",
+      "html to plain text",
+      "remove html tags online",
+      "clean html code to text",
+    ],
+    popularAnchor: "Strip HTML Tags",
+    clusterSlugs: [
+      "html-minifier",
+      "markdown-to-html",
+      "remove-extra-spaces",
+      "remove-line-breaks",
+    ],
+  },
+
   "word-counter": {
     slug: "word-counter",
     title: "Word Counter – Free Online Word Count & Character Counter",
