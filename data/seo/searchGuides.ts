@@ -94,10 +94,10 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
     faq: { question: "Can an online AI proofreader find every mistake?", answer: "No. Review the suggestions yourself, especially proper names, technical wording and facts. A fluent sentence can still be inaccurate." },
   },
   "remove-special-chars": {
-    title: "Remove Special Characters Online – Clean Symbols & Keep Letters",
+    title: "Remove Special Characters Online – Strip Symbols & Keep Spaces [Free]",
     description: "Quickly remove symbols, punctuation, and special characters from text while preserving letters and numbers. Free, instant in-browser cleaner with custom symbol options.",
     heading: "Strip Unwanted Symbols, Glyphs & Special Characters Online",
-    useCase: "Clean copied labels, database records, product descriptions, or code identifiers when target applications reject special characters. Runs 100% locally in your browser memory. For formatting spacing between words, combine with [Remove Extra Spaces](/tools/remove-extra-spaces), or convert headings into clean URLs using our [Slug Generator](/tools/slug-generator).",
+    useCase: "Clean copied labels, database records, product descriptions, or code identifiers when target applications reject special characters. Keep alphanumeric characters and spaces intact, retain numeric-only values, or strip non-ASCII glyphs. Runs 100% locally in your browser memory. For formatting spacing between words, combine with [Remove Extra Spaces](/tools/remove-extra-spaces), or convert headings into clean URLs using our [Slug Generator](/tools/slug-generator).",
     example: { input: "Order #9842* & SKU: [AX-99] @ $49.99 (Discount: 15%!)", output: "Order 9842 SKU AX99 4999 Discount 15", note: "Default alphanumeric-only mode. Standard punctuation and custom allowed symbols can also be preserved." },
     limitation: "Retains Unicode letters and numbers across languages. Stripping characters is a client-side text formatting utility; it does not perform server-side database SQL escaping or HTML security sanitization.",
     related: ["remove-extra-spaces", "remove-emojis", "remove-accents", "slug-generator"],
