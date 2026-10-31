@@ -330,7 +330,7 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
   "slug-generator": {
     slug: "slug-generator",
-    title: "Slug Generator – Free Online URL & SEO Slug Creator",
+    title: "Slug Generator – Instant URL & SEO Friendly Slug Creator [Free]",
     metaDescription:
       "Convert article titles and headings into clean, SEO-friendly URL slugs instantly. Customize delimiters, strip special characters, and copy URL-safe slugs with one click.",
     h1: "Online SEO Slug Generator",
@@ -462,7 +462,7 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
   "html-minifier": {
     slug: "html-minifier",
-    title: "HTML Minifier – Minify HTML Code Online Free",
+    title: "HTML Minifier – Minify HTML Code and Compress Markup Online [Instant]",
     metaDescription:
       "Minify HTML online: remove standard comments and compact attribute gaps while preserving text whitespace. Process markup locally in your browser.",
     h1: "HTML Minifier",
@@ -529,7 +529,7 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
   "unix-timestamp": {
     slug: "unix-timestamp",
-    title: "Unix Timestamp Converter – Epoch Time to Date Online",
+    title: "Unix Timestamp Converter – Convert Epoch to Date and Date to Epoch [Instant]",
     metaDescription:
       "Convert Unix timestamps to readable dates and dates back to epoch time instantly. Supports common timestamp formats directly in your browser.",
     h1: "Unix Timestamp Converter",
@@ -562,7 +562,7 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
     "ai-professional": {
     slug: "ai-professional",
-    title: "AI Professional Tone Rewriter – Polish Business Emails & Text Online",
+    title: "AI Professional Tone Rewriter – Turn Casual Drafts into Executive Emails [Free]",
     metaDescription:
       "Convert casual drafts into authoritative, polished business text. Free online AI tool to rewrite emails, reports, and workplace messages in clear executive English.",
     h1: "AI Professional Tone Rewriter",

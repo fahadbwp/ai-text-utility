@@ -98,7 +98,7 @@ export const SUPPLEMENTAL_GUIDES: Record<string, ToolGuide> = {
     ]
   },
   "remove-duplicate-lines": {
-    "title": "Remove Duplicate Lines Online",
+    "title": "Remove Duplicate Lines Online – Dedupe Text Lists Instantly [Free]",
     "description": "Keep unique lines in a text list while preserving their order. Review case and whitespace settings before deduplicating.",
     "heading": "Clean a repeated list",
     "example": "A list containing apple, banana, apple becomes apple, banana with the first occurrence retained. This is useful for repeated IDs or copied entries.",
@@ -135,7 +135,7 @@ export const SUPPLEMENTAL_GUIDES: Record<string, ToolGuide> = {
     ]
   },
   "strip-html-tags": {
-    "title": "Strip HTML Tags to Plain Text",
+    "title": "Strip HTML Tags to Plain Text – Extract Clean Text from Code [Instant]",
     "description": "Extract text from HTML markup with line-break and entity-decoding options. Convert copied markup into readable text.",
     "heading": "Extract copy from a markup snippet",
     "example": "Paste <p>Hello <b>world</b></p> to obtain Hello world. Block boundaries can become line breaks, and supported entities can become readable characters.",
