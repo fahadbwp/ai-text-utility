@@ -309,6 +309,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       }
     ]
   },
+  "extract-text-between": {
+    howToSteps: [
+      "Paste your text, code, or log output into the Input editor area.",
+      "Specify your Start and End delimiters (or click a quick preset like Double Quotes, Parentheses, or Brackets).",
+      "Choose whether to include the delimiter characters in the output and toggle deduplication if desired.",
+      "Copy the extracted substrings line-by-line or download the output as a text file."
+    ],
+    features: [
+      "Instant non-greedy extraction between any custom starting and ending delimiter tokens",
+      "One-click presets for \"Double Quotes\", 'Single Quotes', (Parentheses), [Square Brackets], {Curly Brackets}, and <Angle Brackets>",
+      "Toggle to include or exclude delimiter tokens from final output",
+      "Built-in deduplication option to return only unique extracted values",
+      "100% private, client-side processing directly in your browser with zero server uploads"
+    ],
+    faqs: [
+      {
+        question: "Can I extract text between different starting and ending characters?",
+        answer: "Yes. You can specify different characters for Start and End delimiters. For example, set Start to '(' and End to ')' to pull text inside parentheses, or set Start to '<b>' and End to '</b>' to isolate bold text."
+      },
+      {
+        question: "How do I extract text inside quotes online?",
+        answer: "Paste your text into the input field and click the 'Double Quotes' preset (or ensure both Start and End delimiters are set to \"). The tool immediately extracts every quoted word or phrase line-by-line."
+      },
+      {
+        question: "Can I keep the surrounding quotes or brackets in the output?",
+        answer: "Yes. Check the 'Include Delimiters' box. The output will include the opening and closing delimiters along with the enclosed text (for example, \"[admin]\" instead of \"admin\")."
+      },
+      {
+        question: "Does the tool remove duplicate extracted items?",
+        answer: "Yes. Check the 'Deduplicate' option in the toolbar. The tool will filter the extracted list and return only unique instances."
+      },
+      {
+        question: "Is my text data or document stored on your servers?",
+        answer: "No. The entire extraction algorithm runs locally in your browser's JavaScript environment. No documents, database queries, or private text are ever transmitted to an external server."
+      }
+    ]
+  },
   "find-and-replace": {
     howToSteps: [
       "Paste your text into the Input editor area.",

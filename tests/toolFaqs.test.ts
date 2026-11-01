@@ -8,7 +8,7 @@ import {
 
 test("Tool FAQs - Coverage for All Registered Tools", () => {
   const allTools = getAllTools();
-  assert.equal(allTools.length, 50, "Should have exactly 50 tools in registry");
+  assert.equal(allTools.length, 51, "Should have exactly 51 tools in registry");
 
   for (const tool of allTools) {
     const specific = TOOL_SPECIFIC_CONTENT[tool.slug];

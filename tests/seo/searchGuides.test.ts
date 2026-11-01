@@ -12,6 +12,7 @@ import { addPrefixSuffix } from "../../lib/tools/addPrefixSuffix.ts";
 import { removeHiddenCharacters } from "../../lib/tools/removeHiddenCharacters.ts";
 import { findAndReplace } from "../../lib/tools/findAndReplace.ts";
 import { extractPhoneNumbers } from "../../lib/tools/extractPhoneNumbers.ts";
+import { extractTextBetween } from "../../lib/tools/extractTextBetween.ts";
 import { stripHtmlTags } from "../../lib/tools/stripHtmlTags.ts";
 import { minifyHtml } from "../../lib/tools/htmlMinifier.ts";
 import { generateHash } from "../../lib/tools/hashGenerator.ts";
@@ -26,6 +27,7 @@ test("Published deterministic search examples match the actual tools", async () 
     "remove-lines-containing": (input) => removeLinesContaining(input, { query: "ERROR", mode: "remove" }).result,
     "remove-hidden-characters": removeHiddenCharacters,
     "extract-phone-numbers": (input) => extractPhoneNumbers(input, { deduplicate: true, format: "clean" }),
+    "extract-text-between": (input) => extractTextBetween(input, { startDelimiter: '"', endDelimiter: '"' }),
     "find-and-replace": (input) => findAndReplace(input, { find: "fox", replace: "cat" }).result,
     "strip-html-tags": stripHtmlTags,
     "html-minifier": (input) => minifyHtml(input).minified,
