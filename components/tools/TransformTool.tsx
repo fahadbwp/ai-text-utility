@@ -17,6 +17,7 @@ import {
   removeLineBreaks,
   removeSpecialChars,
   removeHiddenCharacters,
+  findAndReplace,
   convertCase,
   CaseMode,
   sortLines,

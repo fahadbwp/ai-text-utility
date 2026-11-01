@@ -19,6 +19,33 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     aboveTheFoldIntro: guide.description, primaryKeyword: guide.title.toLowerCase(),
     secondaryKeywords: [], popularAnchor: guide.title, clusterSlugs: guide.related,
   }])),
+  "find-and-replace": {
+    slug: "find-and-replace",
+    title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
+    metaDescription:
+      "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",
+    h1: "Find and Replace Text Online",
+    aboveTheFoldIntro:
+      "Search and replace text, words, and regular expression patterns in real time. Customize case matching and whole-word boundaries with instant occurrence counters.",
+    primaryKeyword: "find and replace text online",
+    secondaryKeywords: [
+      "find and replace",
+      "find and replace text",
+      "replace text online",
+      "search and replace online",
+      "regex replace text",
+      "batch replace words",
+      "replace words in text",
+    ],
+    popularAnchor: "Find and Replace",
+    clusterSlugs: [
+      "remove-special-chars",
+      "remove-extra-spaces",
+      "case-converter",
+      "word-counter",
+    ],
+  },
+
   "remove-hidden-characters": {
     slug: "remove-hidden-characters",
     title: "Remove Hidden Characters Online – Clean Zero-Width & Invisible AI Text [Free]",

@@ -13,6 +13,23 @@ export interface SearchGuide {
 }
 
 export const SEARCH_GUIDES: Record<string, SearchGuide> = {
+  "find-and-replace": {
+    title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
+    description: "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",
+    heading: "Batch Find and Replace Words, Phrases & Regex Patterns",
+    useCase: "Quickly swap repeated terms, replace variables in code snippets, update templates, or bulk substitute typos across large documents. Use Whole Word mode to prevent accidental mid-word replacements, or regex mode for advanced token substitutions. For cleaning up whitespace after replacements, combine with [Remove Extra Spaces](/tools/remove-extra-spaces), or inspect length with [Word Counter](/tools/word-counter).",
+    example: {
+      input: "The quick brown fox jumps over the lazy dog. The fox was nimble and quick.",
+      output: "The quick brown cat jumps over the lazy dog. The cat was nimble and quick.",
+      note: "Substituted 'fox' with 'cat' across the sample text."
+    },
+    limitation: "Find and replace operates directly on plain text in your browser. In regular expression mode, unescaped special characters like parentheses and asterisks are evaluated as regex tokens. Verify capture group references ($1, $2) before replacing.",
+    related: ["remove-special-chars", "remove-extra-spaces", "case-converter", "word-counter"],
+    faq: {
+      question: "Can I replace words without accidentally replacing substrings?",
+      answer: "Yes. Check the 'Whole Words Only' option. When enabled, the tool enforces word boundary matching (\b) so searching for 'cat' will replace 'cat' while leaving 'category', 'scratched', or 'locates' untouched."
+    }
+  },
   "remove-hidden-characters": {
     title: "Remove Hidden Characters Online – Clean Zero-Width & Invisible AI Text [Free]",
     description: "Detect and remove hidden Unicode characters, zero-width spaces, soft hyphens, and invisible AI markers instantly. Free in-browser text sanitizer.",
