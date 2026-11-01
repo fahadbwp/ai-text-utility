@@ -22,6 +22,8 @@ import {
   removeLinesContaining,
   addPrefixSuffix,
   extractTextBetween,
+  extractCapitalizedWords,
+  CapitalizedExtractionMode,
   convertCase,
   CaseMode,
   sortLines,
@@ -93,6 +95,11 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [betweenEnd, setBetweenEnd] = useState<string>('"');
   const [betweenIncludeDelims, setBetweenIncludeDelims] = useState<boolean>(false);
   const [betweenDedupe, setBetweenDedupe] = useState<boolean>(false);
+
+  // Extract capitalized words options
+  const [capitalMode, setCapitalMode] = useState<CapitalizedExtractionMode>("all-capitalized");
+  const [capitalDedupe, setCapitalDedupe] = useState<boolean>(false);
+  const [capitalMinLength, setCapitalMinLength] = useState<number>(2);
 
   // Transform options
   const [caseMode, setCaseMode] = useState<CaseMode>("uppercase");
