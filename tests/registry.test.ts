@@ -49,7 +49,7 @@ test("Tools Registry - Modular Category Consistency", () => {
   assert.equal(CLEANUP_TOOLS.length, 7);
   assert.equal(TRANSFORM_TOOLS.length, 12);
   assert.equal(DATE_TIME_TOOLS.length, 2);
-  assert.equal(AI_TOOLS.length, 6);
+  assert.equal(AI_TOOLS.length, 7);
 
   const totalSum =
     TEXT_TOOLS.length +
@@ -60,7 +60,7 @@ test("Tools Registry - Modular Category Consistency", () => {
     AI_TOOLS.length;
 
   assert.equal(TOOLS_REGISTRY.length, totalSum);
-  assert.equal(TOOLS_REGISTRY.length, 44);
+  assert.equal(TOOLS_REGISTRY.length, 45);
 });
 
 test("Tools Registry - Valid Categories", () => {
