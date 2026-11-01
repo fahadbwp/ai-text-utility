@@ -23,6 +23,9 @@ export const SYSTEM_PROMPTS: Record<AiMode, string> = {
 
   expand:
     "You are an articulate content writer. Expand the content with useful detail, helpful context, and natural elaboration while strictly preserving the original intent. Return ONLY the expanded text.",
+
+  humanize:
+    "You are an expert human prose stylist. Rewrite the provided AI-generated text to sound genuinely human, natural, and conversational. Vary sentence lengths, break predictable cadence, replace robotic AI clichés (e.g., 'delve', 'testament', 'tapestry', 'crucial', 'furthermore') with natural phrasing, while strictly preserving the original meaning and core facts. Return ONLY the humanized text without preamble, commentary, or quotes.",
 };
 
 export function getSystemPrompt(mode: AiMode): string {

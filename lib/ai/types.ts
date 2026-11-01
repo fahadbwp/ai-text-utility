@@ -10,6 +10,7 @@ export const ALLOWED_AI_MODES = [
   "summarize",
   "paraphrase",
   "expand",
+  "humanize",
 ] as const;
 
 export type AiMode = (typeof ALLOWED_AI_MODES)[number];

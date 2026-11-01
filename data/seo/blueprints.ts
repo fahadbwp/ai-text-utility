@@ -19,6 +19,33 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     aboveTheFoldIntro: guide.description, primaryKeyword: guide.title.toLowerCase(),
     secondaryKeywords: [], popularAnchor: guide.title, clusterSlugs: guide.related,
   }])),
+  "ai-humanizer": {
+    slug: "ai-humanizer",
+    title: "AI Humanizer – Convert AI Text to Natural Human Writing [Free]",
+    metaDescription:
+      "Turn stiff, robotic ChatGPT and AI drafts into natural, human-like prose with an AI provider. Free online AI humanizer that improves flow and rhythm instantly.",
+    h1: "AI Humanizer & Text Rewriter",
+    aboveTheFoldIntro:
+      "Transform formulaic AI drafts from ChatGPT, Gemini, or Claude into authentic, conversational human text. Break robotic patterns and enhance readability in seconds.",
+    primaryKeyword: "ai humanizer",
+    secondaryKeywords: [
+      "humanize ai text",
+      "bypass ai detector",
+      "ai to human converter",
+      "undetectable ai free",
+      "make ai sound human",
+      "humanize chatgpt text",
+      "ai text rewriter",
+    ],
+    popularAnchor: "AI Humanizer",
+    clusterSlugs: [
+      "ai-paraphrase",
+      "ai-friendly",
+      "ai-professional",
+      "word-counter",
+    ],
+  },
+
   "remove-duplicate-lines": {
     slug: "remove-duplicate-lines",
     title: "Remove Duplicate Lines Online – Dedupe Text Lists Instantly [Free]",

@@ -37,7 +37,7 @@ test("1. AI Mode Validation", () => {
 });
 
 test("2. AI Prompts - Strict Specification Matching", () => {
-  assert.equal(ALLOWED_AI_MODES.length, 6);
+  assert.equal(ALLOWED_AI_MODES.length, 7);
 
   // Verify each mode has distinct, customized system instructions
   for (const mode of ALLOWED_AI_MODES) {

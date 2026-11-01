@@ -198,6 +198,47 @@ export const TOOL_SPECIFIC_CONTENT: Record<
   string,
   { howToSteps: string[]; features: string[]; faqs: ToolFaqItem[] }
 > = {
+  "ai-humanizer": {
+    howToSteps: [
+      "Paste your AI-generated draft from ChatGPT, Claude, or Gemini into the Input Draft area.",
+      "Click 'Process with AI' to analyze and rewrite robotic phrasing into fluid human prose.",
+      "Review the humanized text in the AI Generated Result box, comparing sentence rhythm and natural flow.",
+      "Click 'Copy to Clipboard' or 'Download' to use the refined, human-sounding text."
+    ],
+    features: [
+      "Converts rigid, formulaic AI writing into natural, authentic human cadence",
+      "Eliminates telltale AI clichés, predictable transitions, and monotonous sentence lengths",
+      "Preserves original meaning, factual points, and core ideas with high semantic fidelity",
+      "Zero client database logging or persistence of submitted drafts",
+      "Instant in-browser processing with one-click copy and download support"
+    ],
+    faqs: [
+      {
+        question: "How does the AI Humanizer make text sound human?",
+        answer: "The humanizer identifies and rewrites robotic AI patterns—such as overly complex transition words ('furthermore', 'moreover'), repetitive sentence structures, and predictable vocabulary ('delve', 'tapestry')—substituting them with authentic, varied phrasing and dynamic conversational rhythm."
+      },
+      {
+        question: "What is an AI Humanizer and how does it work?",
+        answer: "An AI Humanizer is an AI-powered writing assistant designed to rewrite machine-generated content (from ChatGPT, Claude, or Gemini) into natural, fluid human prose. It breaks robotic sentence structures, eliminates predictable AI clichés, and introduces human-like cadence while preserving your core ideas."
+      },
+      {
+        question: "Does the AI Humanizer store or train on my text?",
+        answer: "Your text is sent through our server endpoint to an AI provider. The application does not save submitted text in its own database. Provider retention and training practices depend on the service and account settings; zero retention is not guaranteed. Avoid submitting confidential information and review generated text before use."
+      },
+      {
+        question: "Does this tool guarantee 100% bypass on all AI detectors?",
+        answer: "No automated tool can ethically guarantee a 100% bypass rate across all third-party AI detection models, because detectors rely on heuristic probability scores (perplexity and burstiness) that constantly change. Our tool focuses on genuine stylistic humanization, making your writing more engaging, varied, and natural for real human readers."
+      },
+      {
+        question: "Is this AI Humanizer free to use without signing up?",
+        answer: "Yes. AI Text Utility provides access to the AI Humanizer completely free directly in your browser without requiring account creation, login, or subscriptions."
+      },
+      {
+        question: "What kind of text can I humanize?",
+        answer: "You can humanize essays, blog articles, marketing copy, social media posts, cover letters, and everyday emails. For business communications specifically, you can also explore our [AI Professional Tone Rewriter](/tools/ai-professional)."
+      }
+    ]
+  },
   // ==========================================
   // TRANSFORM (12 Tools)
   // ==========================================

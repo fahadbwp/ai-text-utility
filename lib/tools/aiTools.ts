@@ -12,6 +12,7 @@ export const SLUG_TO_AI_MODE: Record<string, AiMode> = {
   "ai-summarize": "summarize",
   "ai-paraphrase": "paraphrase",
   "ai-expand": "expand",
+  "ai-humanizer": "humanize",
 };
 
 export async function requestAiTool(mode: AiMode, text: string, signal?: AbortSignal): Promise<string> {
