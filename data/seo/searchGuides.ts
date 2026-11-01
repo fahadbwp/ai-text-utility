@@ -64,6 +64,23 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "Paste your values into the tool and click the 'SQL Quotes' preset button (or set Prefix to ' and Suffix to ',). Each line will be wrapped with quotes and a comma, ready to copy directly into your SELECT ... WHERE id IN (...) query."
     }
   },
+  "extract-text-between": {
+    title: "Extract Text Between Quotes or Characters Online [Free]",
+    description: "Extract text and substrings between quotes, brackets, parentheses, or custom delimiter characters instantly. 100% free and private in-browser tool.",
+    heading: "Batch Extract Strings Inside Quotes, Brackets & Custom Delimiters",
+    useCase: "Extract quoted words from documents, parse IP addresses inside brackets [192.168.1.1], isolate SQL values ('active', 'pending'), or scrape text between custom HTML/XML tags. Features one-click presets for double quotes, single quotes, parentheses, square brackets, curly braces, and angle brackets. Combine with [Remove Duplicate Lines](/tools/remove-duplicate-lines) or [Find and Replace](/tools/find-and-replace) for powerful data parsing.",
+    example: {
+      input: 'The system logged "authentication_failure" for user "admin" from IP "192.168.1.50".',
+      output: "authentication_failure\nadmin\n192.168.1.50",
+      note: "Extracted all substrings enclosed in double quotes (start: \", end: \")."
+    },
+    limitation: "Matching operates non-greedily between the specified start and end delimiters. If delimiters are nested within each other (such as nested parentheses), the extractor matches from each opening delimiter to the nearest closing delimiter.",
+    related: ["find-and-replace", "extract-emails-urls", "extract-phone-numbers", "remove-special-chars"],
+    faq: {
+      question: "Can I extract text between different starting and ending characters?",
+      answer: "Yes. You can specify different characters for Start and End delimiters. For example, set Start to '(' and End to ')' to pull text inside parentheses, or set Start to '<b>' and End to '</b>' to isolate bold text."
+    }
+  },
   "find-and-replace": {
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
     description: "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",

@@ -103,6 +103,34 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     ],
   },
 
+  "extract-text-between": {
+    slug: "extract-text-between",
+    title: "Extract Text Between Quotes or Characters Online [Free]",
+    metaDescription:
+      "Extract text and substrings between quotes, brackets, parentheses, or custom delimiter characters instantly. 100% free and private in-browser tool.",
+    h1: "Extract Text Between Quotes or Characters",
+    aboveTheFoldIntro:
+      "Isolate and extract text enclosed inside double quotes, single quotes, brackets, parentheses, or custom tags across multi-line logs, datasets, and documents.",
+    primaryKeyword: "extract text between quotes",
+    secondaryKeywords: [
+      "extract text between",
+      "extract text between brackets",
+      "extract text between parentheses",
+      "text between delimiter",
+      "extract text between two characters",
+      "string between extractor",
+      "extract quotes from text",
+      "get text inside quotes",
+    ],
+    popularAnchor: "Extract Text Between",
+    clusterSlugs: [
+      "find-and-replace",
+      "extract-emails-urls",
+      "extract-phone-numbers",
+      "remove-special-chars",
+    ],
+  },
+
   "find-and-replace": {
     slug: "find-and-replace",
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",

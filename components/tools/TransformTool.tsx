@@ -21,6 +21,7 @@ import {
   extractPhoneNumbers,
   removeLinesContaining,
   addPrefixSuffix,
+  extractTextBetween,
   convertCase,
   CaseMode,
   sortLines,
@@ -86,6 +87,12 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [lineSuffix, setLineSuffix] = useState<string>("");
   const [prefixSkipEmpty, setPrefixSkipEmpty] = useState<boolean>(true);
   const [prefixTrimLines, setPrefixTrimLines] = useState<boolean>(false);
+
+  // Extract text between options
+  const [betweenStart, setBetweenStart] = useState<string>('"');
+  const [betweenEnd, setBetweenEnd] = useState<string>('"');
+  const [betweenIncludeDelims, setBetweenIncludeDelims] = useState<boolean>(false);
+  const [betweenDedupe, setBetweenDedupe] = useState<boolean>(false);
 
   // Transform options
   const [caseMode, setCaseMode] = useState<CaseMode>("uppercase");
