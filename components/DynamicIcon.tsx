@@ -60,6 +60,8 @@ import {
   LayoutGrid,
   Cpu,
   AlertTriangle,
+  PhoneCall,
+  Replace,
   LucideProps,
 } from "lucide-react";
 
@@ -122,6 +124,8 @@ const ICON_MAP: Record<string, React.FC<LucideProps>> = {
   LayoutGrid,
   Cpu,
   AlertTriangle,
+  PhoneCall,
+  Replace,
 };
 
 interface DynamicIconProps extends React.SVGProps<SVGSVGElement> {

@@ -18,6 +18,7 @@ import {
   removeSpecialChars,
   removeHiddenCharacters,
   findAndReplace,
+  extractPhoneNumbers,
   convertCase,
   CaseMode,
   sortLines,
@@ -59,6 +60,17 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [lineBreaksParagraphs, setLineBreaksParagraphs] = useState<boolean>(false);
   const [specialCharsMode, setSpecialCharsMode] = useState<"alphanumeric-only" | "keep-punctuation" | "custom">("alphanumeric-only");
   const [specialCharsCustom, setSpecialCharsCustom] = useState<string>("");
+
+  // Phone extraction options
+  const [phoneDedupe, setPhoneDedupe] = useState<boolean>(true);
+  const [phoneFormat, setPhoneFormat] = useState<"clean" | "digits-only" | "raw">("clean");
+
+  // Find and replace options
+  const [findQuery, setFindQuery] = useState<string>("");
+  const [replaceWith, setReplaceWith] = useState<string>("");
+  const [findMatchCase, setFindMatchCase] = useState<boolean>(false);
+  const [findWholeWord, setFindWholeWord] = useState<boolean>(false);
+  const [findUseRegex, setFindUseRegex] = useState<boolean>(false);
 
   // Transform options
   const [caseMode, setCaseMode] = useState<CaseMode>("uppercase");

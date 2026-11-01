@@ -49,3 +49,4 @@ export * from "./dateDifference.ts";
 export * from "./aiTools.ts";
 export * from "./removeHiddenCharacters.ts";
 export * from "./findAndReplace.ts";
+export * from "./extractPhoneNumbers.ts";
