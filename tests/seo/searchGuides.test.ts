@@ -7,6 +7,7 @@ import { generateSlug } from "../../lib/tools/slugGenerator.ts";
 import { removeSpecialChars } from "../../lib/tools/removeSpecialChars.ts";
 import { removeExtraSpaces } from "../../lib/tools/removeExtraSpaces.ts";
 import { removeDuplicateLines } from "../../lib/tools/removeDuplicateLines.ts";
+import { removeLinesContaining } from "../../lib/tools/removeLinesContaining.ts";
 import { removeHiddenCharacters } from "../../lib/tools/removeHiddenCharacters.ts";
 import { findAndReplace } from "../../lib/tools/findAndReplace.ts";
 import { extractPhoneNumbers } from "../../lib/tools/extractPhoneNumbers.ts";
@@ -20,6 +21,7 @@ test("Published deterministic search examples match the actual tools", async () 
     "remove-special-chars": removeSpecialChars,
     "remove-extra-spaces": removeExtraSpaces,
     "remove-duplicate-lines": removeDuplicateLines,
+    "remove-lines-containing": (input) => removeLinesContaining(input, { query: "ERROR", mode: "remove" }).result,
     "remove-hidden-characters": removeHiddenCharacters,
     "extract-phone-numbers": (input) => extractPhoneNumbers(input, { deduplicate: true, format: "clean" }),
     "find-and-replace": (input) => findAndReplace(input, { find: "fox", replace: "cat" }).result,

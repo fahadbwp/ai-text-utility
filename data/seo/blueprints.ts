@@ -47,6 +47,34 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     ],
   },
 
+  "remove-lines-containing": {
+    slug: "remove-lines-containing",
+    title: "Remove Lines Containing Text Online – Filter & Delete Lines [Free]",
+    metaDescription:
+      "Remove or keep lines containing specific words, text, or regex patterns instantly. Filter bulk lists, log files, and CSVs with real-time browser preview.",
+    h1: "Remove Lines Containing Text Online",
+    aboveTheFoldIntro:
+      "Filter, delete, or isolate lines matching specific words, prefixes, or regular expressions across multi-gigabyte lists and server logs with zero server uploads.",
+    primaryKeyword: "remove lines containing",
+    secondaryKeywords: [
+      "remove lines containing text",
+      "delete lines containing",
+      "filter lines online",
+      "remove lines with word",
+      "delete rows containing string",
+      "filter text lines",
+      "keep lines containing",
+      "regex line filter",
+    ],
+    popularAnchor: "Remove Lines Containing",
+    clusterSlugs: [
+      "remove-duplicate-lines",
+      "find-and-replace",
+      "remove-empty-lines",
+      "sort-lines",
+    ],
+  },
+
   "find-and-replace": {
     slug: "find-and-replace",
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",

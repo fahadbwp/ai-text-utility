@@ -235,6 +235,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       }
     ]
   },
+  "remove-lines-containing": {
+    howToSteps: [
+      "Paste your text or log data into the Input editor area.",
+      "Enter the target word, phrase, or regular expression into the filter query box.",
+      "Choose 'Remove Lines' (to delete matches) or 'Keep Only Lines' (to isolate matches).",
+      "Toggle Match Case or Regex matching as needed, then copy or download the filtered output."
+    ],
+    features: [
+      "Dual mode filtering: purge lines containing target text or retain only matching lines",
+      "Full JavaScript Regular Expression (RegEx) pattern filtering support",
+      "Case sensitive matching toggle to distinguish uppercase from lowercase text",
+      "Optional blank line removal to sanitize output spacing automatically",
+      "100% private, client-side processing capable of handling large multi-line lists in browser memory"
+    ],
+    faqs: [
+      {
+        question: "Can I invert the filter to keep only lines that contain a word?",
+        answer: "Yes. Toggle the mode button to 'Keep Only Lines'. In this mode, any line containing your search query or regex pattern will be retained while all non-matching lines are purged."
+      },
+      {
+        question: "How do I delete lines containing specific words online?",
+        answer: "Paste your multi-line text into the input field, type the word into the filter box, and select 'Remove Lines'. The tool immediately strips every line where that word occurs."
+      },
+      {
+        question: "Does the line filter support regular expressions (RegEx)?",
+        answer: "Yes. Check the 'Regex' option to write custom regular expressions like '^ERROR.*500' or '\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b' to filter lines based on structural patterns."
+      },
+      {
+        question: "Can I remove lines that are completely empty or whitespace-only?",
+        answer: "Yes. Enable the 'Strip Blank Lines' checkbox. This cleans up any empty lines left behind or present in the original dataset."
+      },
+      {
+        question: "Is my text or log file sent to an external server?",
+        answer: "No. All line processing and pattern filtering executes 100% locally in your web browser. No log lines, customer details, or private text are ever uploaded."
+      }
+    ]
+  },
   "find-and-replace": {
     howToSteps: [
       "Paste your text into the Input editor area.",

@@ -30,6 +30,23 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "Yes. In the tool options, switch the Output Format dropdown to 'Digits Only'. The tool will strip all parentheses, hyphens, and whitespace while retaining leading international '+' signs if present."
     }
   },
+  "remove-lines-containing": {
+    title: "Remove Lines Containing Text Online – Filter & Delete Lines [Free]",
+    description: "Remove or keep lines containing specific words, text, or regex patterns instantly. Filter bulk lists, log files, and CSVs with real-time browser preview.",
+    heading: "Filter & Delete Rows Matching Words, Substrings or RegEx",
+    useCase: "Clean application log dumps, server debug files, CSV exports, or email contact databases. Purge noisy debug traces or isolate critical system alerts. Use 'Keep Only Lines' mode to extract only lines containing your target term, or enable Regular Expressions for complex pattern filtering. Combine with [Remove Duplicate Lines](/tools/remove-duplicate-lines) or [Find and Replace](/tools/find-and-replace) for end-to-end data cleaning.",
+    example: {
+      input: "INFO 2026-11-01 Service started\nDEBUG 2026-11-01 Checking socket\nERROR 2026-11-01 Connection timeout\nINFO 2026-11-01 Worker idle\nERROR 2026-11-01 Handshake failed",
+      output: "INFO 2026-11-01 Service started\nDEBUG 2026-11-01 Checking socket\nINFO 2026-11-01 Worker idle",
+      note: "Removed all lines containing 'ERROR'."
+    },
+    limitation: "Matching operates on a line-by-line basis. When regular expression mode is enabled, invalid patterns will trigger an inline notification without modifying your original input text.",
+    related: ["remove-duplicate-lines", "find-and-replace", "remove-empty-lines", "sort-lines"],
+    faq: {
+      question: "Can I invert the filter to keep only lines that contain a word?",
+      answer: "Yes. Toggle the mode button to 'Keep Only Lines'. In this mode, any line containing your search query or regex pattern will be retained while all non-matching lines are purged."
+    }
+  },
   "find-and-replace": {
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
     description: "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",

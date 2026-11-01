@@ -46,7 +46,7 @@ test("Tools Registry - Structure & Uniqueness", () => {
 test("Tools Registry - Modular Category Consistency", () => {
   assert.equal(TEXT_TOOLS.length, 13);
   assert.equal(FORMAT_TOOLS.length, 6);
-  assert.equal(CLEANUP_TOOLS.length, 8);
+  assert.equal(CLEANUP_TOOLS.length, 9);
   assert.equal(TRANSFORM_TOOLS.length, 12);
   assert.equal(DATE_TIME_TOOLS.length, 2);
   assert.equal(AI_TOOLS.length, 7);
@@ -60,7 +60,7 @@ test("Tools Registry - Modular Category Consistency", () => {
     AI_TOOLS.length;
 
   assert.equal(TOOLS_REGISTRY.length, totalSum);
-  assert.equal(TOOLS_REGISTRY.length, 48);
+  assert.equal(TOOLS_REGISTRY.length, 49);
 });
 
 test("Tools Registry - Valid Categories", () => {

@@ -19,6 +19,7 @@ import {
   removeHiddenCharacters,
   findAndReplace,
   extractPhoneNumbers,
+  removeLinesContaining,
   convertCase,
   CaseMode,
   sortLines,
@@ -71,6 +72,13 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [findMatchCase, setFindMatchCase] = useState<boolean>(false);
   const [findWholeWord, setFindWholeWord] = useState<boolean>(false);
   const [findUseRegex, setFindUseRegex] = useState<boolean>(false);
+
+  // Filter lines options
+  const [filterQuery, setFilterQuery] = useState<string>("");
+  const [filterMode, setFilterMode] = useState<"remove" | "keep">("remove");
+  const [filterCase, setFilterCase] = useState<boolean>(false);
+  const [filterRegex, setFilterRegex] = useState<boolean>(false);
+  const [filterRemoveEmpty, setFilterRemoveEmpty] = useState<boolean>(false);
 
   // Transform options
   const [caseMode, setCaseMode] = useState<CaseMode>("uppercase");
