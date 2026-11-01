@@ -7,6 +7,7 @@ import { generateSlug } from "../../lib/tools/slugGenerator.ts";
 import { removeSpecialChars } from "../../lib/tools/removeSpecialChars.ts";
 import { removeExtraSpaces } from "../../lib/tools/removeExtraSpaces.ts";
 import { removeDuplicateLines } from "../../lib/tools/removeDuplicateLines.ts";
+import { removeHiddenCharacters } from "../../lib/tools/removeHiddenCharacters.ts";
 import { stripHtmlTags } from "../../lib/tools/stripHtmlTags.ts";
 import { minifyHtml } from "../../lib/tools/htmlMinifier.ts";
 import { generateHash } from "../../lib/tools/hashGenerator.ts";
@@ -17,6 +18,7 @@ test("Published deterministic search examples match the actual tools", async () 
     "remove-special-chars": removeSpecialChars,
     "remove-extra-spaces": removeExtraSpaces,
     "remove-duplicate-lines": removeDuplicateLines,
+    "remove-hidden-characters": removeHiddenCharacters,
     "strip-html-tags": stripHtmlTags,
     "html-minifier": (input) => minifyHtml(input).minified,
     "hash-generator": async (input) => (await generateHash(input)).hash,
