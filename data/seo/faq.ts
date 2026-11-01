@@ -198,6 +198,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
   string,
   { howToSteps: string[]; features: string[]; faqs: ToolFaqItem[] }
 > = {
+  "remove-hidden-characters": {
+    howToSteps: [
+      "Paste your text into the Input area (or click 'Load Sample' to test).",
+      "Select your cleanup options (strip zero-width spaces, directional marks, or normalize non-breaking spaces).",
+      "Inspect the cleaned output in real time with all invisible characters purged.",
+      "Click 'Copy to Clipboard' or 'Download' to use the sanitized text."
+    ],
+    features: [
+      "Detects and removes zero-width spaces (U+200B), ZWNJ (U+200C), and ZWJ (U+200D)",
+      "Removes Byte Order Marks (BOM / U+FEFF) and soft hyphens (U+00AD) that break compilers",
+      "Normalizes non-breaking spaces (&nbsp; / U+00A0) into standard readable spaces",
+      "Eliminates invisible AI watermarks and tracking markers from copied LLM outputs",
+      "100% private, client-side execution directly in your browser with zero server transmission"
+    ],
+    faqs: [
+      {
+        question: "What invisible characters does this tool remove?",
+        answer: "The tool purges Zero-Width Spaces (U+200B), Zero-Width Non-Joiners (U+200C), Zero-Width Joiners (U+200D), Byte Order Marks (U+FEFF), Soft Hyphens (U+00AD), Word Joiners (U+2060), directional marks (LTR/RTL), and optionally normalizes non-breaking spaces."
+      },
+      {
+        question: "Why do ChatGPT and AI copy-pastes contain hidden characters?",
+        answer: "Large language models, web scrapers, and markdown formatters often introduce zero-width spaces, soft hyphens, or non-breaking spaces around markdown elements, equations, or formatting boundaries. Some tools also embed zero-width sequences as subtle cryptographic watermarks."
+      },
+      {
+        question: "How do hidden characters break code and databases?",
+        answer: "Invisible characters like U+200B look like empty spaces to humans, but compilers and JSON parsers see them as unexpected tokens, throwing syntax errors. In databases, they cause query lookup mismatches because 'user' and 'user\u200B' are treated as two completely different strings."
+      },
+      {
+        question: "Can I remove hidden characters without losing normal spaces?",
+        answer: "Yes. The tool targets only zero-width, non-printing, and invisible Unicode codepoints. Your standard spaces, paragraph breaks, and tabs remain completely intact unless you explicitly choose to normalize them."
+      },
+      {
+        question: "Is my text uploaded to any server?",
+        answer: "No. The entire cleaning algorithm runs natively in your browser's JavaScript engine. Your text never leaves your computer and is never sent to any server or external API."
+      }
+    ]
+  },
   "ai-humanizer": {
     howToSteps: [
       "Paste your AI-generated draft from ChatGPT, Claude, or Gemini into the Input Draft area.",

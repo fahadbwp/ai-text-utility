@@ -19,6 +19,33 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     aboveTheFoldIntro: guide.description, primaryKeyword: guide.title.toLowerCase(),
     secondaryKeywords: [], popularAnchor: guide.title, clusterSlugs: guide.related,
   }])),
+  "remove-hidden-characters": {
+    slug: "remove-hidden-characters",
+    title: "Remove Hidden Characters Online – Clean Zero-Width & Invisible AI Text [Free]",
+    metaDescription:
+      "Detect and remove hidden Unicode characters, zero-width spaces, soft hyphens, and invisible AI markers instantly. Free in-browser text sanitizer.",
+    h1: "Remove Hidden & Invisible Characters Online",
+    aboveTheFoldIntro:
+      "Detect and purge hidden Unicode characters, zero-width spaces (ZWSP), and invisible AI text markers in real time. Sanitize copied content safely in your browser.",
+    primaryKeyword: "remove hidden characters",
+    secondaryKeywords: [
+      "remove zero width space",
+      "invisible character remover",
+      "clean invisible characters",
+      "remove hidden ai characters",
+      "zero width space cleaner",
+      "remove non breaking spaces",
+      "unicode cleaner",
+    ],
+    popularAnchor: "Remove Hidden Characters",
+    clusterSlugs: [
+      "remove-special-chars",
+      "remove-extra-spaces",
+      "ai-humanizer",
+      "word-counter",
+    ],
+  },
+
   "ai-humanizer": {
     slug: "ai-humanizer",
     title: "AI Humanizer – Convert AI Text to Natural Human Writing [Free]",

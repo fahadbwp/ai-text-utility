@@ -16,6 +16,7 @@ import {
   stripHtmlTags,
   removeLineBreaks,
   removeSpecialChars,
+  removeHiddenCharacters,
   convertCase,
   CaseMode,
   sortLines,

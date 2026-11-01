@@ -13,6 +13,23 @@ export interface SearchGuide {
 }
 
 export const SEARCH_GUIDES: Record<string, SearchGuide> = {
+  "remove-hidden-characters": {
+    title: "Remove Hidden Characters Online – Clean Zero-Width & Invisible AI Text [Free]",
+    description: "Detect and remove hidden Unicode characters, zero-width spaces, soft hyphens, and invisible AI markers instantly. Free in-browser text sanitizer.",
+    heading: "Purge Invisible Unicode Characters & AI Watermarks",
+    useCase: "Clean copied text from ChatGPT, web documents, or PDF extracts that harbor hidden zero-width spaces, soft hyphens, or directional overrides. Prevents code compiler errors, JSON parse failures, and hidden AI tracking markers. For general punctuation cleanup, use [Remove Special Characters](/tools/remove-special-chars), or naturalize phrasing with [AI Humanizer](/tools/ai-humanizer).",
+    example: {
+      input: "Here\u200Bis\u200Ctext\u200Dwith\uFEFFinvisible\u00ADcharacters.",
+      output: "Hereistextwithinvisiblecharacters.",
+      note: "Purges zero-width spaces, joiners, BOMs, and soft hyphens."
+    },
+    limitation: "This utility targets non-rendering, zero-width, and invisible Unicode codepoints. It does not sanitize HTML tags or strip standard alphanumeric letters. Verify your target application requirements before stripping non-breaking spaces or directional marks.",
+    related: ["remove-special-chars", "remove-extra-spaces", "ai-humanizer", "word-counter"],
+    faq: {
+      question: "What invisible characters does this tool remove?",
+      answer: "The tool purges Zero-Width Spaces (U+200B), Zero-Width Non-Joiners (U+200C), Zero-Width Joiners (U+200D), Byte Order Marks (U+FEFF), Soft Hyphens (U+00AD), Word Joiners (U+2060), directional marks (LTR/RTL), and optionally normalizes non-breaking spaces."
+    }
+  },
   "ai-humanizer": {
     title: "AI Humanizer – Convert AI Text to Natural Human Writing [Free]",
     description: "Turn stiff, robotic ChatGPT and AI drafts into natural, human-like prose with an AI provider. Free online AI humanizer that improves flow and rhythm instantly.",
