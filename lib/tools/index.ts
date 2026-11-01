@@ -53,3 +53,4 @@ export * from "./extractPhoneNumbers.ts";
 export * from "./removeLinesContaining.ts";
 export * from "./addPrefixSuffix.ts";
 export * from "./extractTextBetween.ts";
+export * from "./extractCapitalizedWords.ts";

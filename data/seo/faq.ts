@@ -346,6 +346,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       }
     ]
   },
+  "extract-capitalized-words": {
+    howToSteps: [
+      "Paste your text or article into the Input editor area.",
+      "Select your preferred extraction mode: Capitalized Words, Acronyms (ALL CAPS), or Proper Nouns (Phrases).",
+      "Set your minimum word length threshold and toggle deduplication if desired.",
+      "Copy the extracted words line-by-line or download the list as a text file."
+    ],
+    features: [
+      "Three targeted extraction modes: individual capitalized words, ALL CAPS acronyms, and multi-word proper nouns",
+      "Customizable minimum word length filter to ignore single-letter artifacts",
+      "Built-in deduplication toggle to return only unique names and entities",
+      "Instant real-time parsing capable of analyzing large books and transcripts locally",
+      "100% private, client-side processing with zero server uploads or external data logging"
+    ],
+    faqs: [
+      {
+        question: "Can I extract only all-caps acronyms like NASA or API?",
+        answer: "Yes. Click the 'Acronyms (ALL CAPS)' mode button. The tool will filter the text and isolate only words where all letters are capitalized, excluding standard title-case words."
+      },
+      {
+        question: "How do I extract capitalized words from text online?",
+        answer: "Paste your text into the input box and ensure the 'Capitalized Words' option is active. The tool immediately extracts every word that begins with an uppercase letter."
+      },
+      {
+        question: "Can I extract multi-word names like 'New York' as a single entity?",
+        answer: "Yes. Select the 'Proper Nouns (Phrases)' mode. The extractor groups consecutive capitalized words together into full entity phrases instead of separating them onto individual lines."
+      },
+      {
+        question: "How do I remove duplicate capitalized words from the output?",
+        answer: "Check the 'Deduplicate' box in the tool options toolbar. Each unique capitalized word or acronym will be displayed only once."
+      },
+      {
+        question: "Is my text uploaded or stored on any server?",
+        answer: "No. The entire capitalized word extraction engine runs 100% locally in your web browser. No text, articles, or confidential documents are ever transmitted over the network."
+      }
+    ]
+  },
   "find-and-replace": {
     howToSteps: [
       "Paste your text into the Input editor area.",

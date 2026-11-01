@@ -131,6 +131,34 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     ],
   },
 
+  "extract-capitalized-words": {
+    slug: "extract-capitalized-words",
+    title: "Extract Capitalized Words from Text Online – Proper Nouns [Free]",
+    metaDescription:
+      "Extract words starting with uppercase, acronyms, and proper noun phrases from raw text or articles. Fast, 100% private in-browser text analyzer.",
+    h1: "Extract Capitalized Words from Text Online",
+    aboveTheFoldIntro:
+      "Extract capitalized words, proper nouns, corporate names, and all-caps acronyms from articles, legal documents, and transcripts with zero server uploads.",
+    primaryKeyword: "extract capitalized words from text",
+    secondaryKeywords: [
+      "extract capitalized words",
+      "capital words extractor",
+      "extract proper nouns",
+      "extract uppercase words",
+      "acronym extractor",
+      "find capitalized words",
+      "capitalized word finder",
+      "extract title case words",
+    ],
+    popularAnchor: "Extract Capitalized Words",
+    clusterSlugs: [
+      "case-converter",
+      "word-counter",
+      "extract-text-between",
+      "find-and-replace",
+    ],
+  },
+
   "find-and-replace": {
     slug: "find-and-replace",
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",

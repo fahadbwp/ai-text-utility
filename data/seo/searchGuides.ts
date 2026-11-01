@@ -81,6 +81,23 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "Yes. You can specify different characters for Start and End delimiters. For example, set Start to '(' and End to ')' to pull text inside parentheses, or set Start to '<b>' and End to '</b>' to isolate bold text."
     }
   },
+  "extract-capitalized-words": {
+    title: "Extract Capitalized Words from Text Online – Proper Nouns [Free]",
+    description: "Extract words starting with uppercase, acronyms, and proper noun phrases from raw text or articles. Fast, 100% private in-browser text analyzer.",
+    heading: "Extract Capitalized Words, Acronyms & Proper Nouns",
+    useCase: "Extract proper nouns (names of people, places, organizations), brand names, or all-caps acronyms (NASA, FBI, UNESCO) from articles, academic papers, and interview transcripts. Switch between all capitalized words, acronym-only filtering, or multi-word proper noun phrases. Pair with [Case Converter](/tools/case-converter) to transform casing, or [Word Counter](/tools/word-counter) to inspect entity density.",
+    example: {
+      input: "Alice Johnson visited the United Nations headquarters in New York.",
+      output: "Alice\nJohnson\nUnited\nNations\nNew\nYork",
+      note: "Extracted all words starting with an uppercase letter."
+    },
+    limitation: "The default mode extracts every word starting with an uppercase letter, including the first word of each sentence. To isolate multi-word entities, switch to the 'Proper Nouns (Phrases)' mode.",
+    related: ["case-converter", "word-counter", "extract-text-between", "find-and-replace"],
+    faq: {
+      question: "Can I extract only all-caps acronyms like NASA or API?",
+      answer: "Yes. Click the 'Acronyms (ALL CAPS)' mode button. The tool will filter the text and isolate only words where all letters are capitalized, excluding standard title-case words."
+    }
+  },
   "find-and-replace": {
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
     description: "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",
