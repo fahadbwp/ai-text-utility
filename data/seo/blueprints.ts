@@ -75,6 +75,34 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     ],
   },
 
+  "add-prefix-suffix": {
+    slug: "add-prefix-suffix",
+    title: "Add Prefix and Suffix to Lines Online – Prepend & Append Text [Free]",
+    metaDescription:
+      "Add custom prefix and suffix to every line of text instantly. Generate SQL 'IN' clauses, markdown lists, HTML tags, or wrapped quotes with free in-browser tool.",
+    h1: "Add Prefix and Suffix to Lines Online",
+    aboveTheFoldIntro:
+      "Prepend and append characters, quotes, bullets, or HTML markup to every line of text in real time with instant live preview and zero server uploads.",
+    primaryKeyword: "add prefix and suffix to lines",
+    secondaryKeywords: [
+      "add prefix suffix online",
+      "add prefix to each line",
+      "add suffix to each line",
+      "prepend and append text",
+      "add quotes to lines",
+      "sql quote list generator",
+      "prefix suffix generator",
+      "wrap lines in quotes",
+    ],
+    popularAnchor: "Add Prefix & Suffix",
+    clusterSlugs: [
+      "add-line-numbers",
+      "sort-lines",
+      "remove-duplicate-lines",
+      "find-and-replace",
+    ],
+  },
+
   "find-and-replace": {
     slug: "find-and-replace",
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",

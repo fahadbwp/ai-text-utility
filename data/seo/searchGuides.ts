@@ -47,6 +47,23 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "Yes. Toggle the mode button to 'Keep Only Lines'. In this mode, any line containing your search query or regex pattern will be retained while all non-matching lines are purged."
     }
   },
+  "add-prefix-suffix": {
+    title: "Add Prefix and Suffix to Lines Online – Prepend & Append Text [Free]",
+    description: "Add custom prefix and suffix to every line of text instantly. Generate SQL 'IN' clauses, markdown lists, HTML tags, or wrapped quotes with free in-browser tool.",
+    heading: "Batch Prepend & Append Text, Quotes or HTML to Lines",
+    useCase: "Format raw data into SQL queries (wrap values in single quotes and commas), create markdown checklists, generate HTML list items (<li>...</li>), or append domains to user lists. Includes one-click presets for SQL, JSON/CSV, Markdown, and HTML. Combine with [Add Line Numbers](/tools/add-line-numbers) or [Remove Duplicate Lines](/tools/remove-duplicate-lines) for rapid text structuring.",
+    example: {
+      input: "apple\nbanana\norange",
+      output: "'apple',\n'banana',\n'orange',",
+      note: "Applied SQL quotes preset (prefix: ' and suffix: ',)."
+    },
+    limitation: "By default, blank lines are preserved without receiving prefixes or suffixes. To prepend and append to completely empty lines as well, disable the 'Skip Empty Lines' option.",
+    related: ["add-line-numbers", "sort-lines", "remove-duplicate-lines", "find-and-replace"],
+    faq: {
+      question: "How do I format a column of words into a SQL IN clause list?",
+      answer: "Paste your values into the tool and click the 'SQL Quotes' preset button (or set Prefix to ' and Suffix to ',). Each line will be wrapped with quotes and a comma, ready to copy directly into your SELECT ... WHERE id IN (...) query."
+    }
+  },
   "find-and-replace": {
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
     description: "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",

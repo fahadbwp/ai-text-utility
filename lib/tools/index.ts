@@ -51,3 +51,4 @@ export * from "./removeHiddenCharacters.ts";
 export * from "./findAndReplace.ts";
 export * from "./extractPhoneNumbers.ts";
 export * from "./removeLinesContaining.ts";
+export * from "./addPrefixSuffix.ts";
