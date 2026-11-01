@@ -20,6 +20,7 @@ import {
   findAndReplace,
   extractPhoneNumbers,
   removeLinesContaining,
+  addPrefixSuffix,
   convertCase,
   CaseMode,
   sortLines,
@@ -79,6 +80,12 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [filterCase, setFilterCase] = useState<boolean>(false);
   const [filterRegex, setFilterRegex] = useState<boolean>(false);
   const [filterRemoveEmpty, setFilterRemoveEmpty] = useState<boolean>(false);
+
+  // Prefix & Suffix options
+  const [linePrefix, setLinePrefix] = useState<string>("");
+  const [lineSuffix, setLineSuffix] = useState<string>("");
+  const [prefixSkipEmpty, setPrefixSkipEmpty] = useState<boolean>(true);
+  const [prefixTrimLines, setPrefixTrimLines] = useState<boolean>(false);
 
   // Transform options
   const [caseMode, setCaseMode] = useState<CaseMode>("uppercase");

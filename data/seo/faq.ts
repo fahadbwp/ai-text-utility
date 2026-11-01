@@ -272,6 +272,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       }
     ]
   },
+  "add-prefix-suffix": {
+    howToSteps: [
+      "Paste your multi-line list into the Input editor area.",
+      "Enter the text you want to prepend in the Prefix field and text to append in the Suffix field (or click a quick preset like SQL or HTML).",
+      "Toggle 'Skip Empty Lines' or 'Trim Lines' depending on your formatting preference.",
+      "Copy the formatted output to your clipboard or download it as a text file."
+    ],
+    features: [
+      "Simultaneous prepend (prefix) and append (suffix) across thousands of lines instantly",
+      "One-click formatting presets for SQL ('val',), JSON/CSV (\"val\",), Markdown (- item), and HTML (<li>item</li>)",
+      "Smart empty line handling with optional blank line skipping",
+      "Line trimming toggle to strip irregular leading and trailing whitespace before applying wrappers",
+      "100% private, client-side processing with zero server network latency"
+    ],
+    faqs: [
+      {
+        question: "How do I format a column of words into a SQL IN clause list?",
+        answer: "Paste your values into the tool and click the 'SQL Quotes' preset button (or set Prefix to ' and Suffix to ',). Each line will be wrapped with quotes and a comma, ready to copy directly into your SELECT ... WHERE id IN (...) query."
+      },
+      {
+        question: "Can I add only a prefix without adding a suffix?",
+        answer: "Yes. Simply fill in the 'Prefix' field and leave the 'Suffix' field completely blank. The tool will only add text to the beginning of each line."
+      },
+      {
+        question: "Can I add only a suffix to the end of each line?",
+        answer: "Yes. Leave the 'Prefix' field blank and enter your desired characters or delimiter into the 'Suffix' field."
+      },
+      {
+        question: "Will empty lines get prefixes and suffixes?",
+        answer: "By default, 'Skip Empty Lines' is enabled, which ensures blank lines remain blank without unwanted quotes or tags. You can uncheck this box if you want empty lines wrapped as well."
+      },
+      {
+        question: "Is my text data private and secure?",
+        answer: "Yes. All prefix and suffix transformations are executed locally inside your browser using JavaScript. No text, code snippets, or database values are ever uploaded to any server."
+      }
+    ]
+  },
   "find-and-replace": {
     howToSteps: [
       "Paste your text into the Input editor area.",
