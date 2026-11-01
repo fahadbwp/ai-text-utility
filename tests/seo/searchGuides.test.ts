@@ -9,6 +9,7 @@ import { removeExtraSpaces } from "../../lib/tools/removeExtraSpaces.ts";
 import { removeDuplicateLines } from "../../lib/tools/removeDuplicateLines.ts";
 import { removeHiddenCharacters } from "../../lib/tools/removeHiddenCharacters.ts";
 import { findAndReplace } from "../../lib/tools/findAndReplace.ts";
+import { extractPhoneNumbers } from "../../lib/tools/extractPhoneNumbers.ts";
 import { stripHtmlTags } from "../../lib/tools/stripHtmlTags.ts";
 import { minifyHtml } from "../../lib/tools/htmlMinifier.ts";
 import { generateHash } from "../../lib/tools/hashGenerator.ts";
@@ -20,6 +21,7 @@ test("Published deterministic search examples match the actual tools", async () 
     "remove-extra-spaces": removeExtraSpaces,
     "remove-duplicate-lines": removeDuplicateLines,
     "remove-hidden-characters": removeHiddenCharacters,
+    "extract-phone-numbers": (input) => extractPhoneNumbers(input, { deduplicate: true, format: "clean" }),
     "find-and-replace": (input) => findAndReplace(input, { find: "fox", replace: "cat" }).result,
     "strip-html-tags": stripHtmlTags,
     "html-minifier": (input) => minifyHtml(input).minified,

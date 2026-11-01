@@ -198,6 +198,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
   string,
   { howToSteps: string[]; features: string[]; faqs: ToolFaqItem[] }
 > = {
+  "extract-phone-numbers": {
+    howToSteps: [
+      "Paste your text, email thread, or contact list into the Input editor area.",
+      "Choose your preferred Output Format (Clean, Digits Only, or Raw) and toggle deduplication.",
+      "The tool extracts all valid telephone and mobile numbers line-by-line in real time.",
+      "Click 'Copy to Clipboard' or 'Download' to export your cleaned phone contact list."
+    ],
+    features: [
+      "Bulk extraction of international and domestic telephone formats (+1, +44, 03xx, 1-800)",
+      "Automatic deduplication to remove repeated contact numbers across large documents",
+      "Format normalization: clean punctuation, extract digits-only, or preserve original layout",
+      "Strips trailing sentence punctuation (periods, commas, colons) without breaking area codes",
+      "100% private, client-side processing with zero server uploads or contact data logging"
+    ],
+    faqs: [
+      {
+        question: "Can I extract only the raw digits without punctuation or spaces?",
+        answer: "Yes. In the tool options, switch the Output Format dropdown to 'Digits Only'. The tool will strip all parentheses, hyphens, and whitespace while retaining leading international '+' signs if present."
+      },
+      {
+        question: "What telephone formats does this tool recognize?",
+        answer: "The extractor identifies international E.164 formats (+1, +44, +92, etc.), US and North American area code formats (1-800-xxx-xxxx, (555) 123-4567, 555-0143), and standard international mobile and landline patterns between 7 and 15 digits."
+      },
+      {
+        question: "Will the tool remove duplicate phone numbers?",
+        answer: "Yes. By default, the 'Deduplicate numbers' option is enabled. The extractor compares the underlying digit sequences and outputs each unique telephone number once."
+      },
+      {
+        question: "Can I extract phone numbers from PDFs, CSVs, or copied emails?",
+        answer: "Yes. Copy the text from any PDF document, CSV file, email thread, or web page and paste it directly into the input area. The tool automatically ignores irrelevant text and filters out all phone numbers."
+      },
+      {
+        question: "Are my contacts or phone numbers stored on your server?",
+        answer: "No. The phone number extraction logic executes 100% locally in your client's web browser using JavaScript. No phone numbers, contact names, or text data are ever sent over the network or stored on any server."
+      }
+    ]
+  },
   "find-and-replace": {
     howToSteps: [
       "Paste your text into the Input editor area.",

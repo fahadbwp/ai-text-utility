@@ -13,6 +13,23 @@ export interface SearchGuide {
 }
 
 export const SEARCH_GUIDES: Record<string, SearchGuide> = {
+  "extract-phone-numbers": {
+    title: "Extract Phone Numbers from Text Online – Bulk Phone Extractor [Free]",
+    description: "Extract international and domestic telephone numbers, mobile contacts, and hotlines from raw text, emails, or spreadsheets. 100% private in-browser tool.",
+    heading: "Bulk Phone Number Extractor for Raw Text & Lead Lists",
+    useCase: "Extract contact numbers, mobile hotlines, and international dialing codes from mixed customer inquiries, chat transcripts, or CRM exports. Automatically removes trailing sentence punctuation, normalizes spacing, and discards duplicate entries. Pair with [Extract Emails & URLs](/tools/extract-emails-urls) to parse website links, or clean formatting with [Remove Extra Spaces](/tools/remove-extra-spaces).",
+    example: {
+      input: "Contact us at +1 (555) 234-5678, toll-free 1-800-555-0199, or UK office +44 20 7946 0912.",
+      output: "+1 (555) 234-5678\n1-800-555-0199\n+44 20 7946 0912",
+      note: "Extracted and deduplicated international and toll-free telephone numbers."
+    },
+    limitation: "The extractor analyzes text for standard international (+E.164) and national telephone structures between 7 and 15 digits. Short service codes (like 911 or 3-digit extensions) are excluded by default to avoid false positives with dates or invoice quantities.",
+    related: ["extract-emails-urls", "find-and-replace", "remove-duplicate-lines", "remove-special-chars"],
+    faq: {
+      question: "Can I extract only the raw digits without punctuation or spaces?",
+      answer: "Yes. In the tool options, switch the Output Format dropdown to 'Digits Only'. The tool will strip all parentheses, hyphens, and whitespace while retaining leading international '+' signs if present."
+    }
+  },
   "find-and-replace": {
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
     description: "Search and replace text, words, and regex patterns online. Match case, whole words, and batch replace strings instantly with live counts. Free in-browser tool.",

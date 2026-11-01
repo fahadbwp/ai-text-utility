@@ -19,6 +19,34 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     aboveTheFoldIntro: guide.description, primaryKeyword: guide.title.toLowerCase(),
     secondaryKeywords: [], popularAnchor: guide.title, clusterSlugs: guide.related,
   }])),
+  "extract-phone-numbers": {
+    slug: "extract-phone-numbers",
+    title: "Extract Phone Numbers from Text Online – Bulk Phone Extractor [Free]",
+    metaDescription:
+      "Extract international and domestic telephone numbers, mobile contacts, and hotlines from raw text, emails, or spreadsheets. 100% private in-browser tool.",
+    h1: "Extract Phone Numbers from Text Online",
+    aboveTheFoldIntro:
+      "Instantly isolate, clean, and deduplicate phone and mobile numbers from unstructured text, web scrapes, or messy customer lists with zero server uploads.",
+    primaryKeyword: "extract phone numbers from text",
+    secondaryKeywords: [
+      "extract phone numbers",
+      "phone number extractor",
+      "extract phone numbers online",
+      "phone extractor online",
+      "bulk phone number extractor",
+      "extract mobile numbers from text",
+      "phone regex extractor",
+      "scrape phone numbers from text",
+    ],
+    popularAnchor: "Extract Phone Numbers",
+    clusterSlugs: [
+      "extract-emails-urls",
+      "find-and-replace",
+      "remove-duplicate-lines",
+      "remove-special-chars",
+    ],
+  },
+
   "find-and-replace": {
     slug: "find-and-replace",
     title: "Find and Replace Text Online – Search, Match & Batch Replace [Free]",
