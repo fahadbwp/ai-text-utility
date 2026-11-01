@@ -46,7 +46,7 @@ test("Tools Registry - Structure & Uniqueness", () => {
 test("Tools Registry - Modular Category Consistency", () => {
   assert.equal(TEXT_TOOLS.length, 15);
   assert.equal(FORMAT_TOOLS.length, 7);
-  assert.equal(CLEANUP_TOOLS.length, 9);
+  assert.equal(CLEANUP_TOOLS.length, 10);
   assert.equal(TRANSFORM_TOOLS.length, 12);
   assert.equal(DATE_TIME_TOOLS.length, 2);
   assert.equal(AI_TOOLS.length, 7);
@@ -60,7 +60,7 @@ test("Tools Registry - Modular Category Consistency", () => {
     AI_TOOLS.length;
 
   assert.equal(TOOLS_REGISTRY.length, totalSum);
-  assert.equal(TOOLS_REGISTRY.length, 52);
+  assert.equal(TOOLS_REGISTRY.length, 53);
 });
 
 test("Tools Registry - Valid Categories", () => {
@@ -91,6 +91,7 @@ test("Tools Registry - Lookup Helpers & Alias Resolution", () => {
     { alias: "grammar-spelling-fixer", expectedSlug: "ai-grammar" },
     { alias: "grammar-fixer", expectedSlug: "ai-grammar" },
     { alias: "ai-summarizer", expectedSlug: "ai-summarize" },
+    { alias: "prompt-sanitizer", expectedSlug: "pii-sanitizer" },
   ];
 
   for (const { alias, expectedSlug } of expectedAliases) {

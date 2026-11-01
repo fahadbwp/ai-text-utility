@@ -299,4 +299,21 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
     related: ["extract-emails-urls", "remove-special-chars", "json-formatter"],
     faq: { question: "Is this an automatic regex generator?", answer: "No. You supply the pattern and sample text. The tool tests the pattern and shows matches; it does not generate regular expressions from a description." },
   },
+  "pii-sanitizer": {
+    title: "PII Sanitizer & AI Prompt Scrubber Online – 100% Private [Free]",
+    description: "Anonymize emails, phone numbers, API keys, and names before pasting into ChatGPT, Claude, or DeepSeek. 100% in-browser privacy with 1-click restoration.",
+    heading: "In-Browser PII Masking & AI Prompt Anonymizer",
+    useCase: "Safely interact with LLMs without violating GDPR, HIPAA, or corporate data privacy rules. Anonymize customer records, medical notes, server debugging logs, and internal credentials into synthetic tokens. Once your AI model finishes generating its answer, use Tab 2 to de-anonymize the response back into its original text. Pair with [Extract Emails & URLs](/tools/extract-emails-urls) and [Extract Phone Numbers](/tools/extract-phone-numbers) for advanced data parsing.",
+    example: {
+      input: "Customer Dr. Gregory House (gregory.house@hospital.org, phone +1 555-0199) reported database timeout on host 192.168.1.105.",
+      output: "Customer [NAME_1] ([EMAIL_1], phone [PHONE_1]) reported database timeout on host [IP_ADDRESS_1].",
+      note: "All PII replaced with reversible tokens while preserving syntactic meaning."
+    },
+    limitation: "The in-browser engine uses deterministic regex and entropy heuristics to identify common identifiers. For highly irregular or novel secret patterns, verify the detection chips before submitting prompts to external AI models.",
+    related: ["extract-phone-numbers", "extract-emails-urls", "find-and-replace", "remove-special-chars"],
+    faq: {
+      question: "Are my confidential files or prompts stored or sent to any server?",
+      answer: "No. All scanning, regex tokenization, and de-anonymization take place locally in your browser session. No text is ever uploaded, cached, or transmitted over the internet."
+    }
+  },
 };

@@ -2303,6 +2303,36 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       },
     ],
   },
+  "pii-sanitizer": {
+    howToSteps: [
+      "Paste your confidential prompt, log file, or document into the Input editor area.",
+      "Select the sensitive entities you wish to scrub (Emails, Phone Numbers, API Keys & Secrets, IP Addresses, Credit Cards, SSNs, or Names).",
+      "Choose your anonymization mode: Reversible Tokens ([TOKEN_1]) or Redacted Masking.",
+      "Copy the safe sanitized prompt directly into ChatGPT, Claude, or DeepSeek.",
+      "Paste the AI model's response into Tab 2 (Restore AI Response) to automatically restore all original confidential values with 1 click."
+    ],
+    features: [
+      "Comprehensive multi-category PII detection for emails, international phones, IPv4/IPv6, credit cards, and cloud API keys",
+      "Deterministic 1-click token restoration to de-anonymize AI model responses seamlessly",
+      "Luhn-verified credit card detection to distinguish real payment cards from numeric sequence IDs",
+      "Exportable and importable session mapping dictionary for multi-turn AI conversations",
+      "100% private in-browser client-side execution with zero external network transmission or server logging"
+    ],
+    faqs: [
+      {
+        question: "Is it safe to paste confidential business data or code into this tool?",
+        answer: "Yes, 100%. The PII & Prompt Sanitizer runs entirely within your web browser using client-side JavaScript. None of your text, tokens, or mapping dictionaries are ever uploaded or transmitted to any server."
+      },
+      {
+        question: "How does 1-click token restoration work with ChatGPT or Claude?",
+        answer: "When you anonymize your prompt, confidential items are replaced with deterministic placeholder tokens like [EMAIL_1] or [API_KEY_1]. AI models preserve these exact tokens in their replies. When you paste the AI's reply into the Restore tab, the tool replaces each token with your original confidential string in under a millisecond."
+      },
+      {
+        question: "Can I use this tool for irreversible redaction before public sharing?",
+        answer: "Yes. Switch the Anonymization Mode toggle to 'Redacted ([REDACTED])'. In this mode, sensitive strings are permanently masked without generating a restoration dictionary, making it safe for public code snippets or audit logs."
+      }
+    ]
+  },
 };
 
 import { getToolBySlug } from "../tools/index.ts";
