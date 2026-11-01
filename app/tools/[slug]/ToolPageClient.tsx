@@ -12,10 +12,12 @@ import {
   RegexTool,
   TableTool,
   TransformTool,
+  PiiSanitizerTool,
 } from "@/components/tools";
 
 export const ToolPageClient: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   if (tool.slug === "diff-checker") return <DiffCheckerTool tool={tool} />;
+  if (tool.slug === "pii-sanitizer") return <PiiSanitizerTool tool={tool} />;
   // 1. AI Magic Tools (6 tools)
   if (tool.category === "AI Magic") {
     return <AiTool tool={tool} />;

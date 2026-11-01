@@ -54,3 +54,4 @@ export * from "./removeLinesContaining.ts";
 export * from "./addPrefixSuffix.ts";
 export * from "./extractTextBetween.ts";
 export * from "./extractCapitalizedWords.ts";
+export * from "./piiSanitizer.ts";

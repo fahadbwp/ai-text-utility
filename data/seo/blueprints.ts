@@ -990,6 +990,33 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
       "remove-special-chars",
     ],
   },
+  "pii-sanitizer": {
+    slug: "pii-sanitizer",
+    title: "PII Sanitizer & AI Prompt Scrubber Online – 100% Private [Free]",
+    metaDescription:
+      "Anonymize emails, phone numbers, API keys, and names before pasting into ChatGPT, Claude, or DeepSeek. 100% in-browser privacy with 1-click restoration.",
+    h1: "PII Sanitizer & AI Prompt Scrubber Online",
+    aboveTheFoldIntro:
+      "Scrub confidential personal data, secrets, IP addresses, and customer records from AI prompts with zero server uploads and instant 1-click token restoration.",
+    primaryKeyword: "pii sanitizer",
+    secondaryKeywords: [
+      "ai prompt sanitizer",
+      "sanitize prompt for chatgpt",
+      "anonymize text for ai",
+      "redact sensitive data",
+      "prompt scrubber",
+      "local pii anonymizer",
+      "ai data privacy tool",
+      "de-identify data online",
+    ],
+    popularAnchor: "PII & Prompt Sanitizer",
+    clusterSlugs: [
+      "extract-phone-numbers",
+      "extract-emails-urls",
+      "find-and-replace",
+      "remove-special-chars",
+    ],
+  },
 };
 
 
