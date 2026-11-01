@@ -198,6 +198,43 @@ export const TOOL_SPECIFIC_CONTENT: Record<
   string,
   { howToSteps: string[]; features: string[]; faqs: ToolFaqItem[] }
 > = {
+  "find-and-replace": {
+    howToSteps: [
+      "Paste your text into the Input editor area.",
+      "Enter the search query in the 'Find Text or Regex Pattern' field and specify your replacement string.",
+      "Select your matching preferences (Match Case, Whole Words Only, or Regular Expression).",
+      "Inspect the updated text in real time with the live replacement counter, then click 'Copy to Clipboard' or 'Download'."
+    ],
+    features: [
+      "Instant real-time search and batch replacement directly in your browser",
+      "Whole Words Only toggle enforcing boundary matching to protect substrings",
+      "Case sensitive matching switch (Aa) to distinguish uppercase from lowercase",
+      "Full JavaScript Regular Expression (RegEx) pattern support with capture groups ($1, $2)",
+      "Live counter showing the exact number of occurrences matched and replaced"
+    ],
+    faqs: [
+      {
+        question: "Can I replace words without accidentally replacing substrings?",
+        answer: "Yes. Check the 'Whole Words Only' option. When enabled, the tool enforces word boundary matching (\b) so searching for 'cat' will replace 'cat' while leaving 'category', 'scratched', or 'locates' untouched."
+      },
+      {
+        question: "How do I find and replace text online?",
+        answer: "Paste your text into the input box, type the word or phrase you want to change into the 'Find' field, and enter your new word in the 'Replace With' field. The tool replaces all occurrences instantly and displays a count of matches replaced."
+      },
+      {
+        question: "Does this tool support Regular Expressions (RegEx)?",
+        answer: "Yes. When you enable the 'Regular Expression (RegEx)' option, your search input is parsed as a JavaScript RegExp. You can use wildcards (.*), character sets ([a-z]), and capture group backreferences ($1, $2) in the replacement field."
+      },
+      {
+        question: "Can I delete words by replacing them with nothing?",
+        answer: "Yes. Simply leave the 'Replace With' box completely empty. The tool will purge all matched instances of your search term from the text."
+      },
+      {
+        question: "Is my text uploaded or stored on any server?",
+        answer: "No. The entire find and replace engine runs 100% locally in your browser's JavaScript memory. None of your data, documents, or search terms are ever transmitted or stored on any server."
+      }
+    ]
+  },
   "remove-hidden-characters": {
     howToSteps: [
       "Paste your text into the Input area (or click 'Load Sample' to test).",

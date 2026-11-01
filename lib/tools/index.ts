@@ -48,3 +48,4 @@ export * from "./dateDifference.ts";
 // AI Magic Tools
 export * from "./aiTools.ts";
 export * from "./removeHiddenCharacters.ts";
+export * from "./findAndReplace.ts";
