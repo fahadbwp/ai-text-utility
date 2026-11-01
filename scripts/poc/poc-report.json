@@ -1,0 +1,80 @@
+{
+  "docxToPdf": {
+    "testedFeatures": [
+      "Headings",
+      "Paragraphs",
+      "Bold & Italic styles",
+      "Bulleted & Numbered Lists",
+      "Tables (rows & columns)",
+      "Page Breaks"
+    ],
+    "survivedFeatures": [
+      "Paragraphs and text content",
+      "Headings with size hierarchy",
+      "Bold styles",
+      "Page breaks and multi-page pagination",
+      "Basic table cell content and bordered layout"
+    ],
+    "degradedFeatures": [
+      "List markers (rendered as text glyphs rather than native Word list styles)",
+      "Exact Word line-spacing and paragraph kerning (approximated)"
+    ],
+    "failedFeatures": [
+      "Complex Word drawing objects (SmartArt / WordArt)",
+      "Embedded charts / OLE objects",
+      "Password-protected / encrypted DOCX"
+    ],
+    "exportedPdfSize": 0,
+    "actualPdfPageCount": 2,
+    "viable": true,
+    "recommendation": "VIABLE for standard text, headings, lists, tables, and multi-page documents. Must clearly state that complex macros, SmartArt, and vector shapes are not supported."
+  },
+  "pdfToDocx": {
+    "testedFeatures": [
+      "Heading detection",
+      "Paragraph extraction",
+      "Multi-column / multi-page",
+      "Table cell alignment",
+      "Scanned PDF rejection"
+    ],
+    "survivedFeatures": [
+      "Sequential digital text extraction",
+      "Heading size and bold emphasis",
+      "Multi-page pagination (page breaks)",
+      "Reconstructed editable Word (.docx) document"
+    ],
+    "degradedFeatures": [
+      "Multi-column reading order: glyphs can interleave if X coordinates are close",
+      "Tables: reconstructed as sequential text rows rather than native OpenXML <w:tbl> without heuristic column-matching"
+    ],
+    "failedFeatures": [
+      "Scanned image-only PDFs (0% text extractable without OCR)",
+      "Exact font family matching (falls back to Arial / Calibri)",
+      "Vector illustrations & non-standard embedded annotations"
+    ],
+    "scannedPdfDetected": true,
+    "exportedDocxSize": 9884,
+    "containsWTable": false,
+    "viable": true,
+    "recommendation": "VIABLE with strict scope: Works effectively as a digital PDF text and structure extractor into editable DOCX. Must reject scanned documents upfront with a dedicated UI warning."
+  },
+  "bundleAndLicenses": {
+    "pdfjs": {
+      "license": "Apache-2.0",
+      "approxSize": "~2.5 MB (runs in Web Worker)"
+    },
+    "docx": {
+      "license": "MIT",
+      "approxSize": "~1.8 MB"
+    },
+    "docxPreview": {
+      "license": "MIT",
+      "approxSize": "~150 KB"
+    },
+    "jspdf": {
+      "license": "MIT",
+      "approxSize": "~350 KB"
+    },
+    "mobileRisk": "Combined uncompressed script size is ~4.8 MB (~1.2 MB gzipped). Safe on mobile if dynamically imported on demand (`next/dynamic`) so it does not affect initial page load."
+  }
+}
