@@ -210,7 +210,7 @@ export const RegexTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
                 {parsed.entries.map((entry, idx) => (
                   <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-3 text-slate-400 dark:text-slate-500">{idx + 1}</td>
-                    <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">{entry.decodedKey}</td>
+                    <td className="p-3 font-semibold text-blue-600 dark:text-blue-400">{entry.decodedKey}</td>
                     <td className="p-3 text-slate-900 dark:text-slate-100 font-medium">{entry.decodedValue || <span className="text-slate-400 dark:text-slate-600 font-normal">(empty)</span>}</td>
                     <td className="p-3 text-slate-600 dark:text-slate-400">{entry.rawValue || <span className="text-slate-400 dark:text-slate-600 font-normal">(empty)</span>}</td>
                   </tr>
@@ -236,14 +236,14 @@ export const RegexTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
           <div className="flex items-center justify-between text-xs">
             <span className="text-slate-600 dark:text-slate-400 font-medium">
               Matches Found:{" "}
-              <strong className={res.matchCount > 0 ? "text-emerald-600 dark:text-emerald-400" : "text-slate-500 dark:text-slate-400"}>
+              <strong className={res.matchCount > 0 ? "text-blue-600 dark:text-blue-400" : "text-slate-500 dark:text-slate-400"}>
                 {res.matchCount}
               </strong>
             </span>
             {res.isValid ? (
-              <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-medium">✓ Valid Expression</span>
+              <span className="text-[11px] text-blue-600 dark:text-blue-400 font-medium">✓ Valid Expression</span>
             ) : (
-              <span className="text-[11px] text-rose-600 dark:text-rose-400 font-mono font-medium">✕ Evaluation error</span>
+              <span className="text-[11px] text-rose-600 dark:text-rose-400 font-medium">✕ Evaluation error</span>
             )}
           </div>
 
@@ -260,7 +260,7 @@ export const RegexTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
                       idx {m.start}..{m.end}
                     </span>
                   </div>
-                  <div className="p-1.5 rounded-sm bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 break-all font-semibold">
+                  <div className="p-1.5 rounded-sm bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-300 break-all font-semibold">
                     {input.slice(m.start, m.end) || "(zero-length match)"}
                   </div>
                   {m.groups.length > 0 && (

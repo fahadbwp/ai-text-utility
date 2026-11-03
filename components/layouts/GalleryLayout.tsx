@@ -23,14 +23,14 @@ export const GalleryLayout: React.FC<WorkspaceProps> = ({
     <div className="space-y-6">
       {/* 1. Full-Width Top Input Box */}
       <div className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs focus-within:border-blue-500/50 transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22]">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200 flex items-center gap-2">
               <FileText size={14} className="text-blue-600 dark:text-blue-400" />
               Source Text to Stylize
             </span>
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
               Live preview enabled
             </span>
           </div>
@@ -70,7 +70,7 @@ export const GalleryLayout: React.FC<WorkspaceProps> = ({
           />
         </div>
 
-        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22] text-xs text-slate-500 dark:text-zinc-400 font-mono">
           <span>{input.length.toLocaleString()} characters in input</span>
           <span className="text-slate-400 dark:text-zinc-500">In-browser Unicode font generation</span>
         </div>

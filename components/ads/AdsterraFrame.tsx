@@ -51,7 +51,7 @@ export function AdsterraFrame({ format, className = "" }: { format: AdFormat; cl
   if (origin === undefined) return <AdPending format={format} className={className} />;
   if (!origin || failed) return null;
   return <aside aria-label="Sponsored advertisement" className={`flex flex-col items-center my-4 ${className}`}>
-    <span className="text-xs uppercase font-mono text-slate-500 mb-1">Advertisement</span>
+    <span className="text-xs font-medium text-slate-500 mb-1">Advertisement</span>
     <iframe key={format} ref={frame} title={unit.title} width={unit.width} height={unit.height}
       src={`${origin}/${format}`} sandbox={AD_SANDBOX} referrerPolicy="no-referrer"
       onError={() => setFailed(true)}

@@ -108,7 +108,7 @@ export const CLEANUP_TOOLS: ToolDefinition[] = [
     category: "Cleanup",
     layout: "transform",
     description: "Remove unwanted symbols and special characters from text while preserving letters, numbers, spaces, punctuation, or custom characters.",
-    icon: "Sparkle",
+    icon: "SlidersHorizontal",
     keywords: [
       "remove special characters",
       "remove special characters online",

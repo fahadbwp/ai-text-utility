@@ -56,7 +56,7 @@ export const AILayout: React.FC<WorkspaceProps> = ({
 
       {/* 2. Source Text Input Card */}
       <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs focus-within:border-blue-500/50 transition-colors">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22]">
           <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200 flex items-center gap-2">
             <FileText size={14} className="text-blue-600 dark:text-blue-400" />
             Input Draft
@@ -95,7 +95,7 @@ export const AILayout: React.FC<WorkspaceProps> = ({
           className="w-full p-4 sm:p-5 bg-transparent text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-sm resize-y focus:outline-hidden leading-relaxed min-h-[180px]"
         />
 
-        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22] text-xs text-slate-500 dark:text-zinc-400 font-mono">
           <span className={isOverLimit ? "text-rose-600 dark:text-rose-400 font-bold" : ""}>
             {input.length.toLocaleString()} / 10,000 max characters
           </span>
@@ -136,7 +136,7 @@ export const AILayout: React.FC<WorkspaceProps> = ({
 
       {/* 4. AI Result Card */}
       <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-colors">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22]">
           <div className="flex items-center gap-2">
             <Cpu size={14} className="text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200">
@@ -177,7 +177,7 @@ export const AILayout: React.FC<WorkspaceProps> = ({
           />
         )}
 
-        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22] text-xs text-slate-500 dark:text-zinc-400 font-mono">
           <span>{output ? `${output.length.toLocaleString()} characters generated` : "Awaiting execution"}</span>
           <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700">Server Endpoint</span>
         </div>

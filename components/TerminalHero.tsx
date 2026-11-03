@@ -95,41 +95,35 @@ export const TerminalHero: React.FC = () => {
           </div>
 
           {/* Primary H1 (Solid, unified high-contrast typography) */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-slate-900 dark:text-zinc-100 leading-[1.15]">
-            Your All-in-One Text Utility Suite
+          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-slate-900 dark:text-zinc-100 leading-[1.12] font-display">
+            Precision text operations for engineers &amp; writers
           </h1>
 
           {/* Supporting Paragraph */}
           <p className="text-slate-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg">
-            Analyze, transform, clean, and format text with deterministic, client-side browser utilities. Built for engineers, technical writers, and creators.
+            Deterministic, client-side text utilities. Format JSON, test regular expressions, clean lists, and convert encodings without server roundtrips or telemetry.
           </p>
 
           {/* Compact 3-item Trust Row */}
-          <div className="w-full pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3 text-left">
-            <div className="flex-1 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
-                <ShieldCheck size={16} aria-hidden="true" />
-              </div>
+          <div className="w-full pt-1 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-left">
+            <div className="p-2.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 flex items-start gap-2">
+              <ShieldCheck size={15} className="text-slate-600 dark:text-zinc-400 shrink-0 mt-0.5" aria-hidden="true" />
               <div>
                 <div className="text-xs font-semibold text-slate-900 dark:text-zinc-100">Client-Side</div>
                 <div className="text-[11px] text-slate-500 dark:text-zinc-400">Runs locally in browser</div>
               </div>
             </div>
 
-            <div className="flex-1 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                <Zap size={16} aria-hidden="true" />
-              </div>
+            <div className="p-2.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 flex items-start gap-2">
+              <Zap size={15} className="text-slate-600 dark:text-zinc-400 shrink-0 mt-0.5" aria-hidden="true" />
               <div>
                 <div className="text-xs font-semibold text-slate-900 dark:text-zinc-100">Zero Latency</div>
                 <div className="text-[11px] text-slate-500 dark:text-zinc-400">Sub-millisecond execution</div>
               </div>
             </div>
 
-            <div className="flex-1 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 border border-teal-500/20">
-                <Lock size={16} aria-hidden="true" />
-              </div>
+            <div className="p-2.5 rounded-lg border border-slate-200/80 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 flex items-start gap-2">
+              <Lock size={15} className="text-slate-600 dark:text-zinc-400 shrink-0 mt-0.5" aria-hidden="true" />
               <div>
                 <div className="text-xs font-semibold text-slate-900 dark:text-zinc-100">Private by Default</div>
                 <div className="text-[11px] text-slate-500 dark:text-zinc-400">Zero data retention</div>
@@ -142,7 +136,7 @@ export const TerminalHero: React.FC = () => {
         <div className="lg:col-span-6 w-full min-w-0">
           <div className="relative rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hero-card-3d overflow-hidden">
             {/* Top Bar / App Card Chrome */}
-            <div className="h-10 bg-slate-50 dark:bg-zinc-950/80 border-b border-slate-200 dark:border-zinc-800 px-4 flex items-center justify-between gap-3 select-none">
+            <div className="h-10 bg-slate-50 dark:bg-[#161b22]/80 border-b border-slate-200 dark:border-zinc-800 px-4 flex items-center justify-between gap-3 select-none">
               <div className="flex items-center gap-1.5 shrink-0">
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-zinc-700 inline-block" />
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-zinc-700 inline-block" />
@@ -181,8 +175,8 @@ export const TerminalHero: React.FC = () => {
               </div>
 
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-medium shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 text-[11px] font-medium shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
                 <span>Live Preview</span>
               </div>
             </div>
@@ -200,7 +194,7 @@ export const TerminalHero: React.FC = () => {
                   <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400 block">
                     Input text
                   </span>
-                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 font-mono text-xs text-slate-700 dark:text-zinc-300 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-[#0d1117] border border-slate-200 dark:border-zinc-800 font-mono text-xs text-slate-700 dark:text-zinc-300 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
                     {activePreset.input}
                   </div>
                 </div>
@@ -224,11 +218,11 @@ export const TerminalHero: React.FC = () => {
                       aria-label="Copy demo output"
                       className="btn-secondary h-6 px-2 text-[11px] font-medium inline-flex items-center gap-1 cursor-pointer transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500/40"
                     >
-                      {copied ? <Check size={11} className="text-emerald-500" /> : <RefreshCw size={11} />}
+                      {copied ? <Check size={11} className="text-blue-600 dark:text-blue-400" /> : <RefreshCw size={11} />}
                       <span>{copied ? "Copied" : "Copy"}</span>
                     </button>
                   </div>
-                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 font-mono text-xs text-slate-800 dark:text-zinc-200 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-[#0d1117] border border-slate-200 dark:border-zinc-800 font-mono text-xs text-slate-800 dark:text-zinc-200 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
                     {activePreset.output}
                   </div>
                 </div>
@@ -237,10 +231,10 @@ export const TerminalHero: React.FC = () => {
               {/* Bottom Status Bar */}
               <div className="pt-2 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
                   <span className="font-medium text-[11px]">{activePreset.sublabel}</span>
                 </div>
-                <div className="font-mono text-[11px]">
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">
                   Characters: {activePreset.charsBefore} → {activePreset.charsAfter}
                 </div>
               </div>

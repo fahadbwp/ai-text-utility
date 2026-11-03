@@ -46,12 +46,6 @@ export const appIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
       <stop offset="90%" stop-color="#A855F7" />
       <stop offset="100%" stop-color="#C084FC" />
     </linearGradient>
-    <linearGradient id="ai_sparkle_grad" x1="44" y1="6" x2="52" y2="14" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="40%" stop-color="#E0F2FE" />
-      <stop offset="80%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#818CF8" />
-    </linearGradient>
     <filter id="ribbon_drop_shadow" x="-30%" y="-30%" width="160%" height="160%">
       <feDropShadow dx="-0.8" dy="1.8" stdDeviation="1.2" flood-color="#020617" flood-opacity="0.55" />
     </filter>
@@ -92,12 +86,8 @@ export const appIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
       fill="rgba(255, 255, 255, 0.45)"
     />
 
-    <!-- 5. 4-POINT AI SPARKLE -->
-    <path
-      d="M 48 5.5 Q 48 11 42.5 11 Q 48 11 48 16.5 Q 48 11 53.5 11 Q 48 11 48 5.5 Z"
-      fill="url(#ai_sparkle_grad)"
-    />
-    <circle cx="48" cy="11" r="1.2" fill="#FFFFFF" />
+    <!-- 5. ACCENT TERMINAL DOT -->
+    <circle cx="48" cy="11" r="2.5" fill="#38BDF8" />
   </g>
 </svg>`;
 
@@ -123,12 +113,6 @@ export const masterMarkSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
       <stop offset="70%" stop-color="#818CF8" />
       <stop offset="90%" stop-color="#A855F7" />
       <stop offset="100%" stop-color="#C084FC" />
-    </linearGradient>
-    <linearGradient id="ai_sparkle_grad" x1="44" y1="6" x2="52" y2="14" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="40%" stop-color="#E0F2FE" />
-      <stop offset="80%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#818CF8" />
     </linearGradient>
     <filter id="ribbon_drop_shadow" x="-30%" y="-30%" width="160%" height="160%">
       <feDropShadow dx="-0.8" dy="1.8" stdDeviation="1.2" flood-color="#020617" flood-opacity="0.55" />
@@ -167,14 +151,8 @@ export const masterMarkSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
       fill="rgba(255, 255, 255, 0.45)"
     />
 
-    <!-- 5. 4-POINT AI SPARKLE -->
-    <g class="brand-sparkle">
-      <path
-        d="M 48 5.5 Q 48 11 42.5 11 Q 48 11 48 16.5 Q 48 11 53.5 11 Q 48 11 48 5.5 Z"
-        fill="url(#ai_sparkle_grad)"
-      />
-      <circle cx="48" cy="11" r="1.2" fill="#FFFFFF" />
-    </g>
+    <!-- 5. ACCENT TERMINAL DOT -->
+    <circle cx="48" cy="11" r="2.5" fill="#38BDF8" />
   </g>
 </svg>`;
 

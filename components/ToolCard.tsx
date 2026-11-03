@@ -16,12 +16,12 @@ export const ToolCard: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
       <div>
         <div className="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
           <div
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 group-hover:border-blue-500/40 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+            className="flex items-center justify-center shrink-0 text-slate-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
             aria-hidden="true"
           >
             <DynamicIcon
               name={tool.icon}
-              size={15}
+              size={16}
               className="transition-colors"
             />
           </div>

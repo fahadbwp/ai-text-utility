@@ -71,7 +71,7 @@ export const GeneratorLayout: React.FC<WorkspaceProps> = ({
 
       {/* 3. Prominent Generated Result Display */}
       <div className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-colors">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22]">
           <div className="flex items-center gap-2">
             <Layers size={14} className="text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200">
@@ -105,12 +105,12 @@ export const GeneratorLayout: React.FC<WorkspaceProps> = ({
               placeholder={outputPlaceholder}
               aria-label="Generated output text"
               rows={8}
-              className="w-full p-4 bg-slate-50 dark:bg-zinc-950 rounded-lg border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-sm resize-y focus:outline-hidden leading-relaxed min-h-[160px] cursor-default"
+              className="w-full p-4 bg-slate-50 dark:bg-[#161b22] rounded-lg border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-sm resize-y focus:outline-hidden leading-relaxed min-h-[160px] cursor-default"
             />
           </div>
         )}
 
-        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+        <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22] text-xs text-slate-500 dark:text-zinc-400 font-mono">
           <span>{output ? `${output.length.toLocaleString()} characters generated` : "Ready to generate"}</span>
           <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700">Generated result</span>
         </div>

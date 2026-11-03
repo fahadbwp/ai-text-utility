@@ -8,7 +8,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 transition-colors mt-12">
+    <footer className="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-[#0d1117] transition-colors mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-8 border-b border-slate-200/80 dark:border-zinc-800/80">
           {/* Col 1: Brand & Purpose */}
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-zinc-400 pt-1">
               <span className="inline-flex items-center gap-1.5">
-                <Shield size={14} className="text-emerald-500" />
+                <Shield size={14} className="text-slate-600 dark:text-zinc-400" />
                 Standard Tools Run Client-Side
               </span>
               <span className="inline-flex items-center gap-1.5">

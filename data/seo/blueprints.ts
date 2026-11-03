@@ -556,7 +556,7 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
       "lorem ipsum generator online",
       "dummy text",
     ],
-    popularAnchor: "Lorem Ipsum Generator",
+    popularAnchor: "Placeholder & Dummy Text",
     clusterSlugs: [
       "word-counter",
       "case-converter",

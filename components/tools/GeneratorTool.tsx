@@ -441,7 +441,7 @@ export const GeneratorTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
         "very-weak": "text-rose-500 bg-rose-500/10 border-rose-500/20",
         weak: "text-amber-500 bg-amber-500/10 border-amber-500/20",
         medium: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20",
-        strong: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+        strong: "text-blue-500 bg-blue-500/10 border-blue-500/20",
         "very-strong": "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
       };
 
@@ -451,14 +451,14 @@ export const GeneratorTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             <div className="flex items-center gap-2">
               <span className="text-slate-700 dark:text-slate-300 font-medium">Strength:</span>
               <span
-                className={`px-2.5 py-0.5 rounded-md font-semibold text-xs border uppercase tracking-wider ${
+                className={`px-2.5 py-0.5 rounded-md font-semibold text-xs border ${
                   strengthColors[res.strength]
                 }`}
               >
                 {res.strength.replace("-", " ")}
               </span>
             </div>
-            <span className="text-slate-500 dark:text-slate-400 font-mono text-[11px]">
+            <span className="text-slate-500 dark:text-slate-400 text-[11px]">
               ~{res.entropyBits} bits of entropy
             </span>
           </div>

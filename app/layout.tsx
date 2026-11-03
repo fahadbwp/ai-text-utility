@@ -116,7 +116,7 @@ export default function RootLayout({
         />
 
       </head>
-      <body className="bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 antialiased selection:bg-brand-500/15 selection:text-brand-700 dark:selection:text-brand-300">
+      <body className="bg-slate-50 dark:bg-[#0d1117] text-slate-900 dark:text-[#f0f6fc] antialiased selection:bg-brand-500/15 selection:text-brand-700 dark:selection:text-brand-300">
         <AppShell>{children}</AppShell>
       </body>
     </html>

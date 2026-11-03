@@ -337,7 +337,7 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
             className={`border-2 border-dashed rounded-xl p-8 sm:p-12 text-center cursor-pointer transition-colors duration-200 flex flex-col items-center justify-center ${
               isDragging
                 ? "border-sky-500 bg-sky-50/50 dark:bg-sky-950/20"
-                : "border-slate-300 dark:border-zinc-700 hover:border-sky-500 dark:hover:border-sky-500 bg-slate-50/50 dark:bg-zinc-950/40"
+                : "border-slate-300 dark:border-zinc-700 hover:border-sky-500 dark:hover:border-sky-500 bg-slate-50/50 dark:bg-[#161b22]/40"
             }`}
           >
             <div className="w-14 h-14 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4 shadow-2xs">
@@ -433,7 +433,7 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
         {/* State: Success Output */}
         {state.status === "success" && state.resultMetrics && (
           <div className="space-y-6 text-center">
-            <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-sm">
+            <div className="w-14 h-14 mx-auto rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shadow-sm">
               <CheckCircle className="w-8 h-8" />
             </div>
 
@@ -452,19 +452,19 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
                 <div className="text-lg font-black text-slate-900 dark:text-slate-100">
                   {state.resultMetrics.pageCount}
                 </div>
-                <div className="text-[11px] font-semibold uppercase text-slate-400">Pages</div>
+                <div className="text-[11px] font-semibold text-slate-400">Pages</div>
               </div>
               <div className="p-2">
                 <div className="text-lg font-black text-slate-900 dark:text-slate-100">
                   {state.resultMetrics.wordCount}
                 </div>
-                <div className="text-[11px] font-semibold uppercase text-slate-400">Words</div>
+                <div className="text-[11px] font-semibold text-slate-400">Words</div>
               </div>
               <div className="p-2">
                 <div className="text-lg font-black text-slate-900 dark:text-slate-100">
                   {state.resultMetrics.sizeFormatted}
                 </div>
-                <div className="text-[11px] font-semibold uppercase text-slate-400">Size</div>
+                <div className="text-[11px] font-semibold text-slate-400">Size</div>
               </div>
             </div>
 
@@ -473,7 +473,7 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
               <button
                 type="button"
                 onClick={handleDownload}
-                className="w-full sm:w-auto py-3 px-8 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto py-3 px-8 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2"
               >
                 <Download className="w-5 h-5" />
                 <span>Download {state.resultFileName}</span>

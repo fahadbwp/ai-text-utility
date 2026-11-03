@@ -230,7 +230,7 @@ export const TRANSFORM_TOOLS: ToolDefinition[] = [
     slug: "lorem-ipsum",
     category: "Transform",
     layout: "generator",
-    description: "Generate Latin dummy text (Lorem Ipsum) with custom paragraph, sentence, and word counts.",
+    description: "Generate clean dummy and placeholder text with custom paragraph, sentence, and word counts.",
     icon: "BookOpen",
     keywords: [
       "lorem ipsum generator",

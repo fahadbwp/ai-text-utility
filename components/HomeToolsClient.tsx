@@ -21,12 +21,12 @@ const RecentToolCard: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
       <div>
         <div className="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
           <div
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 group-hover:border-blue-500/40 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+            className="flex items-center justify-center shrink-0 text-slate-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
             aria-hidden="true"
           >
             <DynamicIcon
               name={tool.icon}
-              size={15}
+              size={16}
               className="transition-colors"
             />
           </div>
@@ -121,7 +121,7 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
       <TerminalHero />
 
       {/* Modern Developer Command Search Launcher */}
-      <div className="w-full max-w-xl mx-auto -mt-2 sm:-mt-3">
+      <div className="w-full max-w-2xl -mt-2 sm:-mt-3">
         <button
           type="button"
           onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
@@ -135,7 +135,7 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
             </span>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
-            <kbd className="hidden sm:inline-flex items-center text-[11px] font-mono font-medium text-slate-400 dark:text-zinc-500 bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 px-2 py-0.5 rounded">
+            <kbd className="hidden sm:inline-flex items-center text-[11px] font-medium text-slate-400 dark:text-zinc-500 bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 px-2 py-0.5 rounded">
               ⌘K
             </kbd>
           </div>
@@ -144,7 +144,7 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
 
       {/* Category Filter Rail */}
       <section id="tools-section" className="w-full min-w-0 scroll-mt-24 -mt-2 sm:-mt-3">
-        <div className="flex items-center justify-start sm:justify-center overflow-x-auto pb-1.5 scrollbar-none gap-2">
+        <div className="flex items-center justify-start overflow-x-auto pb-1.5 scrollbar-none gap-2">
           <button
             type="button"
             onClick={() => { setSelectedCategory("ALL"); setOnlyFavorites(false); }}
@@ -206,9 +206,7 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
         <section id="recent" aria-labelledby="recent-heading" className="space-y-3">
           <div className="flex items-center justify-between pb-1">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 flex items-center justify-center border border-slate-200 dark:border-zinc-700">
-                <Clock size={14} />
-              </div>
+              <Clock size={16} className="text-slate-600 dark:text-zinc-400 shrink-0" />
               <div>
                 <h2 id="recent-heading" className="text-sm sm:text-base font-semibold text-slate-900 dark:text-zinc-100 tracking-tight">
                   Recently Used
@@ -250,8 +248,8 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
               >
                 <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-zinc-800/80 pb-2.5">
                   <div className="flex items-center gap-2.5">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${catTheme.bg} ${catTheme.border}`}>
-                      <DynamicIcon name={cat.icon} size={15} className={catTheme.text} />
+                    <div className="flex items-center justify-center shrink-0 text-slate-700 dark:text-zinc-300">
+                      <DynamicIcon name={cat.icon} size={18} className="text-slate-700 dark:text-zinc-300" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">

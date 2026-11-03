@@ -208,7 +208,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                   {tool.category}
                 </span>
                 {tool.supportsLiveMode && (
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700">
                     Live Auto-Run
                   </span>
                 )}
@@ -264,7 +264,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           {/* Input Panel */}
           {!hideDefaultInput && (
             <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/75 dark:bg-zinc-950/60">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/75 dark:bg-[#161b22]/60">
                 <span className="text-xs font-semibold text-slate-700 dark:text-zinc-300 flex items-center gap-2">
                   <FileText size={14} className="text-slate-400" />
                   Input Text
@@ -302,7 +302,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
               />
 
               {/* Input Live Stats Bar */}
-              <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-950/40 text-[11px] text-slate-500 dark:text-zinc-400 font-mono flex-wrap gap-2">
+              <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-[#161b22]/40 text-[11px] text-slate-500 dark:text-zinc-400 font-mono flex-wrap gap-2">
                 <div className="flex items-center gap-3">
                   <span>{stats.words.toLocaleString()} words</span>
                   <span>•</span>
@@ -321,7 +321,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           {/* Output Panel / Preview */}
           {!hideDefaultOutput && (
             <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/75 dark:bg-zinc-950/60">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/75 dark:bg-[#161b22]/60">
                 <span className="text-xs font-semibold text-slate-700 dark:text-zinc-300">
                   Output Result
                 </span>
@@ -367,7 +367,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                 />
               )}
 
-              <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-950/40 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+              <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-[#161b22]/40 text-xs text-slate-500 dark:text-zinc-400 font-mono">
                 <span>{output ? `${output.length} characters generated` : "Waiting for input"}</span>
                 <span className="text-xs text-slate-400">Read-only</span>
               </div>

@@ -209,7 +209,7 @@ export const TableTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-950/40">
               <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Words</div>
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400 font-mono">
+              <div className="text-xl font-bold text-blue-600 dark:text-blue-400 font-mono">
                 {stats.words.toLocaleString()}
               </div>
             </div>
@@ -355,7 +355,7 @@ export const TableTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
                 {items.slice(0, 100).map((item, idx) => (
                   <tr key={idx} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-3 text-slate-400">{idx + 1}</td>
-                    <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">
+                    <td className="p-3 font-semibold text-blue-600 dark:text-blue-400">
                       {item.word}
                     </td>
                     <td className="p-3 font-semibold text-slate-800 dark:text-slate-200">{item.count.toLocaleString()}</td>
@@ -363,7 +363,7 @@ export const TableTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
                     <td className="p-3">
                       <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
                         <div
-                          className="h-full bg-emerald-500 rounded-full"
+                          className="h-full bg-blue-600 rounded-full"
                           style={{ width: `${Math.min(100, item.percentage * 2)}%` }}
                         />
                       </div>
@@ -391,7 +391,7 @@ export const TableTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-950/40">
               <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Emails Extracted</div>
-              <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400 font-mono mt-1">{res.emails.length}</div>
+              <div className="text-xl font-bold text-blue-600 dark:text-blue-400 font-mono mt-1">{res.emails.length}</div>
             </div>
             <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-950/40">
               <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">URLs Extracted</div>

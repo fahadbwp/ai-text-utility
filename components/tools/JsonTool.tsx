@@ -390,7 +390,7 @@ export const JsonTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             </div>
 
             {htmlMinifyStats && (
-              <div className="flex items-center gap-2 text-[11px] text-emerald-600 dark:text-emerald-400 font-mono">
+              <div className="flex items-center gap-2 text-[11px] text-blue-600 dark:text-blue-400 font-mono">
                 <span>Original: {htmlMinifyStats.originalSizeBytes} B</span>
                 <span>→</span>
                 <span>Minified: {htmlMinifyStats.minifiedSizeBytes} B</span>
@@ -502,7 +502,7 @@ export const JsonTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
                 className={`px-2.5 py-1 rounded-lg font-mono font-medium border ${
                   decoded.isExpired
                     ? "bg-rose-50 dark:bg-rose-500/10 border-rose-200 dark:border-rose-500/20 text-rose-700 dark:text-rose-400"
-                    : "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400"
+                    : "bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/20 text-blue-700 dark:text-blue-400"
                 }`}
               >
                 {decoded.isExpired ? "Status: Expired" : "Status: Active (Not Expired)"}
@@ -520,7 +520,7 @@ export const JsonTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             <span className="text-xs font-semibold text-rose-600 dark:text-rose-400">
               Header: Algorithm & Token Type
             </span>
-            <pre className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-zinc-950 p-3 rounded-lg overflow-x-auto border border-slate-200 dark:border-zinc-800">
+            <pre className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-[#161b22] p-3 rounded-lg overflow-x-auto border border-slate-200 dark:border-zinc-800">
               {decoded.formattedHeader}
             </pre>
           </div>
@@ -530,17 +530,17 @@ export const JsonTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             <span className="text-xs font-semibold text-sky-600 dark:text-sky-400">
               Payload: Data Claims
             </span>
-            <pre className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-zinc-950 p-3 rounded-lg overflow-x-auto border border-slate-200 dark:border-zinc-800">
+            <pre className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-[#161b22] p-3 rounded-lg overflow-x-auto border border-slate-200 dark:border-zinc-800">
               {decoded.formattedPayload}
             </pre>
           </div>
 
           {/* Signature Card */}
           <div className="p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/70 dark:bg-zinc-900/60 space-y-2">
-            <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+            <span className="text-xs font-semibold text-blue-600 dark:text-blue-400">
               Signature (Raw Base64)
             </span>
-            <div className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-zinc-950 p-2.5 rounded-lg break-all border border-slate-200 dark:border-zinc-800">
+            <div className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-[#161b22] p-2.5 rounded-lg break-all border border-slate-200 dark:border-zinc-800">
               {decoded.signature || "(No signature)"}
             </div>
           </div>
