@@ -16,7 +16,7 @@ import {
   Layers,
   ArrowRight,
   Globe,
-  Sparkles,
+  Cpu,
   Table,
   FileSpreadsheet,
   FileCode,
@@ -82,7 +82,7 @@ export const WordCounterEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+              <span className="text-xs font-medium text-slate-700 dark:text-zinc-300">
                 Pacing Estimates
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -338,7 +338,7 @@ export const PasswordGeneratorEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+              <span className="text-xs font-medium text-slate-700 dark:text-zinc-300">
                 3. Zero Human Bias
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -420,10 +420,10 @@ export const UuidGeneratorEditorial: React.FC = () => {
               Anatomy of a UUID v4 Canonical String
             </h3>
             <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto">
-              <span>xxxxxxxx</span>-<span>xxxx</span>-<span className="text-brand-600 dark:text-brand-400 font-bold">4</span>xxx-<span className="text-purple-600 dark:text-purple-400 font-bold">y</span>xxx-<span>xxxxxxxxxxxx</span>
+              <span>xxxxxxxx</span>-<span>xxxx</span>-<span className="text-brand-600 dark:text-brand-400 font-bold">4</span>xxx-<span className="text-blue-600 dark:text-blue-400 font-bold">y</span>xxx-<span>xxxxxxxxxxxx</span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 pt-1">
-              Formatted as 32 hexadecimal characters across five hyphen-separated groups (8-4-4-4-12). The &apos;<span className="text-brand-600 dark:text-brand-400 font-semibold">4</span>&apos; identifies Version 4 (Random), while &apos;<span className="text-purple-600 dark:text-purple-400 font-semibold">y</span>&apos; represents the RFC 4122 variant (fixed to 8, 9, a, or b).
+              Formatted as 32 hexadecimal characters across five hyphen-separated groups (8-4-4-4-12). The &apos;<span className="text-brand-600 dark:text-brand-400 font-semibold">4</span>&apos; identifies Version 4 (Random), while &apos;<span className="text-blue-600 dark:text-blue-400 font-semibold">y</span>&apos; represents the RFC 4122 variant (fixed to 8, 9, a, or b).
             </p>
           </div>
         </div>
@@ -791,8 +791,8 @@ export const JwtDecoderEditorial: React.FC = () => {
                 Specifies the token type (<code className="font-mono text-xs">typ: &quot;JWT&quot;</code>) and cryptographic signing algorithm (such as <code className="font-mono text-xs">alg: &quot;HS256&quot;</code> or <code className="font-mono text-xs">&quot;RS256&quot;</code>).
               </p>
             </div>
-            <div className="p-4 rounded-xl border border-purple-200/70 dark:border-purple-900/60 bg-purple-50/50 dark:bg-purple-950/30 space-y-2">
-              <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+            <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-900/40 space-y-2">
+              <span className="text-xs font-medium text-slate-700 dark:text-zinc-300">
                 2. Payload (Claims)
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1010,8 +1010,8 @@ export const SlugGeneratorEditorial: React.FC = () => {
       {/* 3. Real Transformation Mechanics & Example Table */}
       <section aria-labelledby="slug-mechanics-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
-            <Sparkles size={18} />
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
+            <Eraser size={18} />
           </div>
           <div>
             <h2
@@ -1235,7 +1235,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
               >
                 Word Counter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Metrics</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Metrics</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Measure character lengths and word counts to ensure your article titles and URLs remain within optimal search snippet thresholds.
@@ -1309,7 +1309,7 @@ export const JsonToCsvEditorial: React.FC = () => {
       {/* 2. Step-by-Step Converter Workflow */}
       <section aria-labelledby="json-to-csv-workflow-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Table size={18} />
           </div>
           <div>
@@ -1464,7 +1464,7 @@ export const JsonToCsvEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-purple-600">●</span> Multi-line Strings
+                <span className="text-blue-600 dark:text-blue-400">●</span> Multi-line Strings
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Values with newline characters (<code className="font-mono text-[11px]">\\n</code> or <code className="font-mono text-[11px]">\\r</code>) are wrapped in quotes, allowing multi-line cell entries in Excel and Google Sheets.
@@ -1608,7 +1608,7 @@ export const JsonToCsvEditorial: React.FC = () => {
               >
                 Query String Parser <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Inspector</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Inspector</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Parse URL query parameters into formatted JSON key-value objects or reconstruct query strings from data.
@@ -1697,7 +1697,7 @@ export const CsvToJsonEditorial: React.FC = () => {
       {/* 2. Step-by-Step Converter Workflow */}
       <section aria-labelledby="csv-to-json-workflow-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Table size={18} />
           </div>
           <div>
@@ -1852,7 +1852,7 @@ export const CsvToJsonEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-purple-600">●</span> Multi-line Cell Strings
+                <span className="text-blue-600 dark:text-blue-400">●</span> Multi-line Cell Strings
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 When a spreadsheet cell contains internal newlines (<code className="font-mono text-[11px]">\n</code> or <code className="font-mono text-[11px]">\r\n</code>) enclosed in quotes, the parser preserves the entire string as a single record rather than breaking rows prematurely.
@@ -1995,7 +1995,7 @@ export const CsvToJsonEditorial: React.FC = () => {
               >
                 Query String Parser <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Inspector</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Inspector</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Parse URL query parameters into formatted JSON key-value objects or reconstruct query strings from data.
@@ -2084,7 +2084,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
       {/* 2. Step-by-Step Converter Workflow */}
       <section aria-labelledby="md-workflow-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Table size={18} />
           </div>
           <div>
@@ -2496,7 +2496,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
               >
                 Word Counter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Metrics</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Metrics</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Analyze word count, character metrics, paragraph totals, and reading time for your Markdown draft articles.
@@ -2582,7 +2582,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
       {/* 2. Step-by-Step Workflow */}
       <section aria-labelledby="html-minifier-workflow-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Table size={18} />
           </div>
           <div>
@@ -2890,7 +2890,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
               >
                 JSON Formatter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Format</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Format</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Beautify, validate, or compact structured JSON payloads with configurable indentation and syntax error highlighting.
@@ -2992,7 +2992,7 @@ export const HashGeneratorEditorial: React.FC = () => {
       {/* Section 2: Step-by-Step Workflow Guide */}
       <section aria-labelledby="hash-workflow-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Layers size={18} />
           </div>
           <div>
@@ -3150,7 +3150,7 @@ export const HashGeneratorEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
               <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <Binary size={14} className="text-purple-500" /> 3. Encoding (Base64)
+                <Binary size={14} className="text-blue-500" /> 3. Encoding (Base64)
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 A <strong>two-way reversible data representation</strong> with no secret key. Base64 converts raw binary data into safe ASCII characters for email and JSON transport. You can convert strings or payloads using our <Link href="/tools/base64" className="text-brand-600 dark:text-brand-400 underline font-semibold">Base64 Tool</Link>.
@@ -3219,7 +3219,7 @@ export const HashGeneratorEditorial: React.FC = () => {
       <section aria-labelledby="avalanche-heading" className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
-            <Sparkles size={18} />
+            <Sliders size={18} />
           </div>
           <div>
             <h2
@@ -3267,7 +3267,7 @@ export const HashGeneratorEditorial: React.FC = () => {
       {/* Section 7: Common Software Engineering & DevOps Use Cases */}
       <section aria-labelledby="dev-use-cases-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <BookOpen size={18} />
           </div>
           <div>
@@ -3413,7 +3413,7 @@ export const HashGeneratorEditorial: React.FC = () => {
               >
                 UUID Generator <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Identifiers</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Identifiers</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Generate RFC 4122 compliant random UUID v4 identifiers for databases, APIs, and microservices.
@@ -3501,7 +3501,7 @@ export const UnixTimestampEditorial: React.FC = () => {
       {/* Section 2: Seconds vs. Milliseconds */}
       <section aria-labelledby="seconds-vs-ms-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Layers size={18} />
           </div>
           <div>
@@ -3542,7 +3542,7 @@ export const UnixTimestampEditorial: React.FC = () => {
                 <span className="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">
                   Epoch Milliseconds (13 Digits)
                 </span>
-                <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded-sm border border-purple-200 dark:border-purple-800">
+                <span className="text-[11px] font-medium text-slate-700 dark:text-zinc-300 bg-slate-100 dark:bg-zinc-800 px-2 py-0.5 rounded-sm border border-slate-200 dark:border-zinc-700">
                   JavaScript / Java
                 </span>
               </div>
@@ -3681,7 +3681,7 @@ export const UnixTimestampEditorial: React.FC = () => {
       {/* Section 5: API, Database & JWT Use Cases */}
       <section aria-labelledby="use-cases-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <BookOpen size={18} />
           </div>
           <div>
@@ -3864,7 +3864,7 @@ export const UnixTimestampEditorial: React.FC = () => {
               >
                 JWT Decoder <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Tokens</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Tokens</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Decode and inspect JSON Web Token headers, payload claims, and expiration timestamps locally.
@@ -3916,8 +3916,8 @@ export const FancyFontsEditorial: React.FC = () => {
       {/* Section 1: What is Fancy Font Generator & Step-by-Step Guide */}
       <section aria-labelledby="what-is-fancy-font-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-800/60 flex items-center justify-center text-brand-600 dark:text-brand-400 shrink-0">
-            <Sparkles size={18} />
+          <div className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400 shrink-0">
+            <Type size={18} />
           </div>
           <div>
             <h2
@@ -4035,7 +4035,7 @@ export const FancyFontsEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+              <span className="text-xs font-medium text-slate-700 dark:text-zinc-300">
                 Combining Marks
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4056,7 +4056,7 @@ export const FancyFontsEditorial: React.FC = () => {
       {/* Section B: Platform Optimization Guide */}
       <section aria-labelledby="platform-guide-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Smartphone size={18} />
           </div>
           <div>
@@ -4117,7 +4117,7 @@ export const FancyFontsEditorial: React.FC = () => {
               <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 💬 Discord
               </h3>
-              <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-medium">
+              <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 font-medium">
                 Channels &amp; Roles
               </span>
             </div>
@@ -4304,7 +4304,7 @@ export const FancyFontsEditorial: React.FC = () => {
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                 ꧁༺ Kaomoji Wings &amp; Framing ༻꧂
               </h3>
-              <span className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-semibold">
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400 font-semibold">
                 Symmetry &bull; Ornaments
               </span>
             </div>
@@ -4467,7 +4467,7 @@ export const FancyFontsEditorial: React.FC = () => {
               >
                 Reverse Text <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Transform</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Transform</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Invert or flip text backwards and upside down for enigmatic social captions, gaming clan handles, and quirky visual signatures.
@@ -4547,7 +4547,7 @@ export const AiFriendlyEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-medium text-slate-700 dark:text-zinc-300 flex items-center gap-1.5">
                 Actionable Clarity
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4640,7 +4640,7 @@ export const AiFriendlyEditorial: React.FC = () => {
       {/* Section 3: When to Use a Friendlier Tone */}
       <section aria-labelledby="when-to-use-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Smile size={18} />
           </div>
           <div>
@@ -4744,7 +4744,7 @@ export const AiFriendlyEditorial: React.FC = () => {
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Friendly vs. Paraphrase</h3>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Structure</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Structure</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Our <Link href="/tools/ai-paraphrase" className="text-brand-600 dark:text-brand-400 hover:underline font-semibold">AI Paraphraser</Link> restructures sentences and substitutes vocabulary to eliminate repetitive phrasing or simplify complex syntax. The friendly rewriter specifically manages emotional temperature, politeness markers, and relationship warmth.
@@ -4882,7 +4882,7 @@ export const AiFriendlyEditorial: React.FC = () => {
       <section aria-labelledby="ai-toolkit-heading" className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800/60 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
-            <Sparkles size={18} />
+            <Cpu size={18} />
           </div>
           <div>
             <h2
@@ -4936,7 +4936,7 @@ export const AiFriendlyEditorial: React.FC = () => {
               >
                 AI Paraphraser <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Rewrite</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Rewrite</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Rephrase sentences with fresh vocabulary and engaging sentence structures while maintaining exact meaning.
@@ -4987,8 +4987,8 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
       {/* 1. What Does a Special Character Remover Do? */}
       <section aria-labelledby="special-chars-guide-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-800/60 flex items-center justify-center text-brand-600 dark:text-brand-400 shrink-0">
-            <Sparkles size={18} />
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
+            <Eraser size={18} />
           </div>
           <div>
             <h2
@@ -5036,7 +5036,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
       {/* 2. Before & After Transformation Examples */}
       <section aria-labelledby="examples-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <BookOpen size={18} />
           </div>
           <div>
@@ -5080,7 +5080,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           {/* Example 2 */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-medium text-slate-700 dark:text-zinc-300">
                 Mode: Keep Punctuation
               </span>
               <div className="space-y-1">
@@ -5130,7 +5130,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
       {/* 3. Deep Dive into the Three Filter Modes */}
       <section aria-labelledby="filter-modes-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Sliders size={18} />
           </div>
           <div>
@@ -5159,7 +5159,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
 
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-2.5">
             <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-indigo-500" />
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
               2. Keep Standard Punctuation
             </h3>
             <p className="leading-relaxed">
@@ -5454,7 +5454,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               >
                 Slug Generator <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">URLs</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">URLs</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Convert titles and headlines into clean, lowercase, URL-friendly kebab-case slugs with custom separator options.
@@ -5469,7 +5469,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               >
                 Regex Tester <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">Advanced</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Advanced</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Test complex regular expressions, highlight capture groups, and validate custom replacement logic with live matching.
@@ -5533,7 +5533,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
       {/* 2. Before & After Transformation Examples */}
       <section aria-labelledby="examples-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <BookOpen size={18} />
           </div>
           <div>
@@ -5577,7 +5577,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
           {/* Example 2: Multiline & Tab Preservation */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-medium text-slate-700 dark:text-zinc-300">
                 Mode: Spaces Only (Preserve Lines &amp; Tabs)
               </span>
               <div className="space-y-1">
@@ -5627,7 +5627,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
       {/* 3. Spaces Only vs All Whitespace: Direct Comparison */}
       <section aria-labelledby="modes-comparison-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 shrink-0">
             <Sliders size={18} />
           </div>
           <div>
@@ -5649,7 +5649,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60">
                 <th className="p-3.5 sm:p-4 font-semibold text-slate-900 dark:text-white">Feature / Behavior</th>
                 <th className="p-3.5 sm:p-4 font-semibold text-brand-600 dark:text-brand-400">Spaces Only (Default)</th>
-                <th className="p-3.5 sm:p-4 font-semibold text-purple-600 dark:text-purple-400">All Whitespace</th>
+                <th className="p-3.5 sm:p-4 font-semibold text-slate-900 dark:text-zinc-100">All Whitespace</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 text-slate-600 dark:text-slate-300">
@@ -5858,7 +5858,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               >
                 Remove Line Breaks <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">Paragraphs</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Paragraphs</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Join broken sentences and multi-line paragraphs into unified continuous lines with custom delimiter control.
@@ -5888,7 +5888,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               >
                 Remove Special Characters <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-purple-600 dark:text-purple-400">Symbols</span>
+              <span className="text-[11px] font-medium text-slate-600 dark:text-zinc-400">Symbols</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Filter out unwanted symbols, punctuation, and non-alphanumeric noise with Unicode property support.

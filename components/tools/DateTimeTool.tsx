@@ -195,8 +195,8 @@ export const DateTimeTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
         <div className="space-y-4">
           <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950/60 space-y-3 shadow-2xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
-                Unit: <strong className="text-brand-600 dark:text-brand-400">{res.usedUnit}</strong>
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                Unit: <strong className="text-slate-900 dark:text-zinc-100 font-semibold">{res.usedUnit}</strong>
               </span>
               <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full">
                 {res.relativeTime}
@@ -255,9 +255,9 @@ export const DateTimeTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
 
       return (
         <div className="space-y-4">
-          <div className="p-4 rounded-xl border border-brand-200 dark:border-brand-500/20 bg-brand-50/70 dark:bg-brand-500/5 space-y-2 shadow-2xs">
+          <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/80 dark:bg-zinc-900/60 space-y-2 shadow-2xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-medium text-slate-700 dark:text-zinc-300">
                 Exact Duration Breakdown
               </span>
               <span className="text-xs text-slate-600 dark:text-slate-400 font-mono">
@@ -286,7 +286,7 @@ export const DateTimeTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             </div>
 
             <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950/60 text-center shadow-2xs">
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 font-mono">{res.totalSeconds.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-teal-600 dark:text-teal-400 font-mono">{res.totalSeconds.toLocaleString()}</div>
               <div className="text-[11px] text-slate-600 dark:text-slate-400">Total Seconds</div>
             </div>
           </div>

@@ -237,7 +237,7 @@ export const TableTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
 
             <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-950/40">
               <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Paragraphs</div>
-              <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400 font-mono">
+              <div className="text-xl font-bold text-teal-600 dark:text-teal-400 font-mono">
                 {stats.paragraphs.toLocaleString()}
               </div>
             </div>

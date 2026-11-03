@@ -287,31 +287,31 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
       {/* Mode Switcher Nav */}
-      <div className="flex items-center justify-center p-1.5 bg-slate-100 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 max-w-md mx-auto">
+      <div className="flex items-center justify-center p-1 bg-slate-100 dark:bg-zinc-800 rounded-lg border border-slate-200 dark:border-zinc-700 max-w-md mx-auto">
         <Link
           href="/tools/pdf-to-word"
-          className={`flex-1 py-2 px-4 text-center rounded-lg text-sm font-semibold transition-all ${
+          className={`flex-1 py-1.5 px-4 text-center rounded-md text-xs font-semibold transition-all ${
             isPdfToWord
-              ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm"
-              : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              ? "bg-white dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 shadow-xs"
+              : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200"
           }`}
         >
           PDF to Word (.docx)
         </Link>
         <Link
           href="/tools/word-to-pdf"
-          className={`flex-1 py-2 px-4 text-center rounded-lg text-sm font-semibold transition-all ${
+          className={`flex-1 py-1.5 px-4 text-center rounded-md text-xs font-semibold transition-all ${
             !isPdfToWord
-              ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm"
-              : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              ? "bg-white dark:bg-zinc-900 text-slate-900 dark:text-zinc-100 shadow-xs"
+              : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200"
           }`}
         >
           Word (.docx) to PDF
         </Link>
       </div>
 
-      {/* Main Glass Workspace Card */}
-      <div className="bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur-md">
+      {/* Main Workspace Card */}
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl p-6 sm:p-8 shadow-xs">
         <input
           type="file"
           ref={fileInputRef}
@@ -334,26 +334,26 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
             onDragLeave={() => setIsDragging(false)}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed rounded-xl p-8 sm:p-12 text-center cursor-pointer transition-all duration-200 flex flex-col items-center justify-center ${
+            className={`border-2 border-dashed rounded-xl p-8 sm:p-12 text-center cursor-pointer transition-colors duration-200 flex flex-col items-center justify-center ${
               isDragging
-                ? "border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/20 scale-[0.99]"
-                : "border-slate-300 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-600 bg-slate-50/50 dark:bg-slate-800/30"
+                ? "border-sky-500 bg-sky-50/50 dark:bg-sky-950/20"
+                : "border-slate-300 dark:border-zinc-700 hover:border-sky-500 dark:hover:border-sky-500 bg-slate-50/50 dark:bg-zinc-950/40"
             }`}
           >
-            <div className="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4 shadow-sm">
-              <Upload className="w-8 h-8" />
+            <div className="w-14 h-14 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4 shadow-2xs">
+              <Upload className="w-7 h-7" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-1">
+            <h3 className="text-base font-bold text-slate-800 dark:text-zinc-100 mb-1">
               {isPdfToWord
                 ? "Drop your PDF file here, or click to browse"
                 : "Drop your Word document (.docx) here, or click to browse"}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4 max-w-md">
+            <p className="text-xs text-slate-500 dark:text-zinc-400 mb-4 max-w-md">
               Files up to 25 MB supported • 100% in-browser client conversion • Never uploaded to any server
             </p>
             <button
               type="button"
-              className="py-2.5 px-6 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-md shadow-indigo-500/20 transition-all"
+              className="py-2 px-5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-xs transition-colors"
             >
               Select {isPdfToWord ? "PDF" : "Word"} File
             </button>
@@ -365,7 +365,7 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
           <div className="space-y-6">
             <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
               <div className="flex items-center gap-3 overflow-hidden">
-                <div className="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 font-bold text-xs uppercase">
+                <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 flex items-center justify-center shrink-0 font-bold text-xs uppercase">
                   {isPdfToWord ? "PDF" : "DOCX"}
                 </div>
                 <div className="truncate">
@@ -391,19 +391,19 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
             </div>
 
             {state.status === "converting" ? (
-              <div className="space-y-3 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-900/50">
+              <div className="space-y-3 p-4 rounded-xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
                 <div className="flex items-center justify-between text-sm font-medium">
-                  <span className="text-indigo-900 dark:text-indigo-200 flex items-center gap-2">
-                    <RefreshCw className="w-4 h-4 animate-spin text-indigo-600 dark:text-indigo-400" />
+                  <span className="text-slate-900 dark:text-zinc-100 flex items-center gap-2">
+                    <RefreshCw className="w-4 h-4 animate-spin text-blue-600 dark:text-blue-400" />
                     {state.progressStage}
                   </span>
-                  <span className="text-indigo-600 dark:text-indigo-400 font-bold">
+                  <span className="text-blue-600 dark:text-blue-400 font-mono font-bold">
                     {state.progressPercent}%
                   </span>
                 </div>
-                <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full transition-all duration-300"
+                    className="h-full bg-blue-600 dark:bg-blue-500 rounded-full transition-all duration-300"
                     style={{ width: `${state.progressPercent}%` }}
                   />
                 </div>
@@ -411,7 +411,7 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-zinc-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
                   >
                     <StopCircle className="w-3.5 h-3.5" /> Cancel Conversion
                   </button>
@@ -421,10 +421,10 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
               <button
                 type="button"
                 onClick={handleConvert}
-                className="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base shadow-lg shadow-indigo-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="btn-primary w-full py-3 px-6 rounded-xl font-semibold text-sm shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Convert to {isPdfToWord ? "Word (.docx)" : "PDF"}</span>
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </button>
             )}
           </div>
@@ -528,8 +528,8 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
 
       {/* 100% Client-Side Privacy Guarantee */}
       <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
-        <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
-          <ShieldCheck className="w-5 h-5" />
+        <div className="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/20 flex items-center justify-center shrink-0">
+          <ShieldCheck className="w-4 h-4" />
         </div>
         <div>
           <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">

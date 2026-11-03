@@ -8,7 +8,7 @@ export const AI_TOOLS: ToolDefinition[] = [
     category: "AI Magic",
     layout: "ai",
     description: "AI-driven proofreading that corrects punctuation, grammar, and typos while keeping original voice.",
-    icon: "Sparkles",
+    icon: "FileCheck2",
     keywords: ["ai grammar", "proofread", "spell check", "fix grammar", "ai editor"],
     featured: true,
     logicReference: "aiGrammar",

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import {
   Menu,
   X,
-  Sparkles,
+  Cpu,
   Command as CommandIcon,
   Layers,
   Star,
@@ -135,15 +135,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenCommandPalette }) => {
                 >
                   <span className="flex items-center gap-2.5">
                     {isAI ? (
-                      <Sparkles size={15} className="text-brand-400" />
+                      <Cpu size={15} className="text-slate-400" />
                     ) : (
                       <DynamicIcon name={cat.icon} size={15} />
                     )}
                     {cat.name}
                   </span>
                   {isAI && (
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">
-                      AI
+                    <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                      Assisted
                     </span>
                   )}
                 </Link>
@@ -157,7 +157,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenCommandPalette }) => {
       <div className="p-4 border-t border-slate-800/80 bg-slate-950/40 text-xs text-slate-500 space-y-2">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-1.5 text-slate-400">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
             Browser Native
           </span>
           <span className="font-mono text-xs">100% Private</span>

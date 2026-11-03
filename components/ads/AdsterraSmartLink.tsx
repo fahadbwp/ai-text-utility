@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ExternalLink, Sparkles } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface AdsterraSmartLinkProps {
   label?: string;
@@ -23,9 +23,9 @@ export const AdsterraSmartLink: React.FC<AdsterraSmartLinkProps> = ({
         href={smartLinkUrl}
         target="_blank"
         rel="noopener noreferrer sponsored"
-        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/70 dark:bg-slate-900/60 backdrop-blur-md text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-800 shadow-2xs hover:bg-white dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all ${className}`}
+        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-800 shadow-2xs hover:bg-slate-50 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white transition-colors ${className}`}
       >
-        <span className="px-1.5 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/80 dark:border-slate-700 leading-none">
+        <span className="px-1.5 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-300 dark:border-zinc-700 leading-none">
           Ad
         </span>
         <span>{label}</span>
@@ -40,9 +40,9 @@ export const AdsterraSmartLink: React.FC<AdsterraSmartLinkProps> = ({
         href={smartLinkUrl}
         target="_blank"
         rel="noopener noreferrer sponsored"
-        className={`inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors ${className}`}
+        className={`inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-zinc-200 transition-colors ${className}`}
       >
-        <span className="px-1.5 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/80 dark:border-slate-700 leading-none">
+        <span className="px-1.5 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-300 dark:border-zinc-700 leading-none">
           Ad
         </span>
         <span>{label}</span>
@@ -56,13 +56,13 @@ export const AdsterraSmartLink: React.FC<AdsterraSmartLinkProps> = ({
       href={smartLinkUrl}
       target="_blank"
       rel="noopener noreferrer sponsored"
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/60 dark:bg-slate-900/60 backdrop-blur-md text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800/80 shadow-2xs hover:bg-white dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-700 transition-all ${className}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-zinc-800 shadow-2xs hover:bg-slate-50 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white transition-colors ${className}`}
     >
-      <span className="px-1 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/80 dark:border-slate-700 leading-none">
+      <span className="px-1 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-300 dark:border-zinc-700 leading-none">
         Ad
       </span>
       <span>{label}</span>
-      <ExternalLink size={10} className="text-slate-400 dark:text-slate-500" />
+      <ExternalLink size={10} className="text-slate-400 dark:text-zinc-500" />
     </a>
   );
 };

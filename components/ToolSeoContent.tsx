@@ -168,8 +168,8 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
         {/* How It Works & Key Highlights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* How to Use */}
-          <div className="p-6 rounded-2xl border border-white/70 dark:border-slate-800 bg-white/65 dark:bg-slate-900/50 shadow-[0_12px_35px_rgba(55,95,180,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md space-y-4">
-            <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="p-6 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-4">
+            <h3 className="text-base font-semibold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xs font-bold">
                 ✓
               </span>
@@ -185,13 +185,13 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
           </div>
 
           {/* Key Features & Privacy */}
-          <div className="p-6 rounded-2xl border border-white/70 dark:border-slate-800 bg-white/65 dark:bg-slate-900/50 shadow-[0_12px_35px_rgba(55,95,180,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md space-y-4 flex flex-col justify-between">
+          <div className="p-6 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-4 flex flex-col justify-between">
             <div>
-              <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+              <h3 className="text-base font-semibold text-slate-900 dark:text-zinc-100 flex items-center gap-2 mb-4">
                 <ShieldCheck className="text-emerald-600 dark:text-emerald-400" size={20} />
                 Key Features &amp; Security
               </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
                 {content.features.map((feat, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <Check size={16} className="text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
@@ -201,7 +201,7 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
               </ul>
             </div>
 
-            <div className="mt-4 p-3 rounded-xl bg-white/60 dark:bg-slate-950/60 border border-[rgba(100,120,160,0.14)] dark:border-slate-800/80 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2 backdrop-blur-xs">
+            <div className="mt-4 p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-400 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
               <span>
                 {isAI
@@ -257,12 +257,12 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
           {content.faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl border border-white/70 dark:border-slate-800/80 bg-white/65 dark:bg-slate-900/40 shadow-[0_8px_25px_rgba(55,95,180,0.06),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md space-y-2 hover:border-white/95 hover:bg-white/80 dark:hover:border-slate-700 transition-all"
+              className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors"
             >
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">
                 {faq.question}
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
                 {renderAnswerWithLinks(faq.answer)}
               </p>
             </div>
@@ -293,14 +293,14 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
                 className="card-3d group p-4 rounded-xl flex flex-col justify-between space-y-3"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-white/70 dark:bg-slate-800/80 border border-white/80 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-brand-600 dark:group-hover:text-brand-400 group-hover:bg-brand-50 dark:group-hover:bg-brand-950/40 transition-colors shrink-0 shadow-2xs">
-                    <DynamicIcon name={rel.icon} size={16} />
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:border-blue-500/40 transition-colors shrink-0 shadow-2xs">
+                    <DynamicIcon name={rel.icon} size={15} />
                   </div>
-                  <h3 className="text-xs font-semibold text-slate-900 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-white truncate">
+                  <h3 className="text-xs font-semibold text-slate-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate transition-colors">
                     {rel.name}
                   </h3>
                 </div>
-                <p className="text-xs text-[#5F6F89] dark:text-slate-400 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
                   {rel.description}
                 </p>
               </Link>

@@ -21,7 +21,7 @@ import {
   Server,
   CreditCard,
   User,
-  Sparkles,
+  Cpu,
   Download,
   Upload,
   RefreshCw,
@@ -153,7 +153,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
             onClick={() => setActiveTab("restore")}
             className={`flex items-center gap-2 py-3 px-6 font-medium text-sm border-b-2 transition-colors ${
               activeTab === "restore"
-                ? "border-indigo-500 text-indigo-600 dark:text-indigo-400"
+                ? "border-blue-600 text-blue-600 dark:text-blue-400"
                 : "border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             }`}
           >
@@ -206,14 +206,14 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                       onClick={() => toggleEntityType(type)}
                       className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
                         active
-                          ? "bg-indigo-50 border-indigo-200 text-indigo-700 dark:bg-indigo-950/50 dark:border-indigo-800 dark:text-indigo-300"
+                          ? "bg-blue-50 border-blue-200 text-blue-700 dark:bg-blue-950/40 dark:border-blue-800 dark:text-blue-300"
                           : "bg-gray-100 border-gray-200 text-gray-400 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-500"
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
                       <span>{label}</span>
                       {active && count > 0 && (
-                        <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-indigo-600 text-white">
+                        <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-blue-600 text-white font-mono">
                           {count}
                         </span>
                       )}
@@ -233,7 +233,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                   aria-label="Reversible Tokens"
                   checked={sanitizationMode === "reversible"}
                   onChange={() => setSanitizationMode("reversible")}
-                  className="text-indigo-600 focus:ring-indigo-500"
+                  className="text-blue-600 focus:ring-blue-500"
                 />
                 <span>Reversible Tokens ([TOKEN_1])</span>
               </label>
@@ -244,7 +244,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                   aria-label="Redacted Blackout"
                   checked={sanitizationMode === "redacted"}
                   onChange={() => setSanitizationMode("redacted")}
-                  className="text-indigo-600 focus:ring-indigo-500"
+                  className="text-blue-600 focus:ring-blue-500"
                 />
                 <span>Redacted ([REDACTED])</span>
               </label>
@@ -271,7 +271,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Paste confidential text containing customer names, emails, API keys, or IP addresses here..."
-                  className="w-full h-80 p-4 font-mono text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                  className="w-full h-80 p-4 font-mono text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 focus:ring-2 focus:ring-blue-500/40 focus:border-transparent resize-none"
                 />
               </div>
 
@@ -325,10 +325,10 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
         ) : (
           /* Tab 2: Restore AI Response */
           <div className="space-y-6">
-            <div className="p-4 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/50">
+            <div className="p-4 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700">
               <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-                <span className="text-sm font-medium text-indigo-900 dark:text-indigo-200">
+                <Cpu className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" />
+                <span className="text-sm font-medium text-slate-800 dark:text-zinc-200">
                   Paste the response you received from ChatGPT or Claude. The tool will automatically substitute synthetic tokens back to your original confidential data.
                 </span>
               </div>
@@ -354,7 +354,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                   value={aiResponseText}
                   onChange={(e) => setAiResponseText(e.target.value)}
                   placeholder="Paste response from ChatGPT / Claude containing tokens like [NAME_1], [EMAIL_1]..."
-                  className="w-full h-80 p-4 font-mono text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                  className="w-full h-80 p-4 font-mono text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/60 focus:ring-2 focus:ring-blue-500/40 focus:border-transparent resize-none"
                 />
               </div>
 
@@ -386,7 +386,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
             {/* Active Mapping Dictionary Drawer */}
             <div className="p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/40 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
                   Active Session Tokens ({Object.keys(activeMapping).length} registered)
                 </span>
               </div>
@@ -401,7 +401,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                       key={tok}
                       className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
                     >
-                      <span className="text-indigo-600 dark:text-indigo-400 font-bold">{tok}</span>
+                      <span className="text-blue-600 dark:text-blue-400 font-bold">{tok}</span>
                       <span className="text-gray-400">→</span>
                       <span className="text-gray-700 dark:text-gray-300 truncate max-w-[150px]">{val}</span>
                     </span>

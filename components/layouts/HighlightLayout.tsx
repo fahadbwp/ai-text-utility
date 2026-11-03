@@ -1,7 +1,5 @@
-"use client";
-
 import React from "react";
-import { Search, Sparkles, FileText, Trash2 } from "lucide-react";
+import { Search, CheckCircle2, FileText, Trash2 } from "lucide-react";
 import { WorkspaceProps } from "./types";
 
 export const HighlightLayout: React.FC<WorkspaceProps> = ({
@@ -77,7 +75,7 @@ export const HighlightLayout: React.FC<WorkspaceProps> = ({
       <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/40 overflow-hidden shadow-2xs transition-all duration-150">
         <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200/70 dark:border-slate-800/80 bg-slate-50/80 dark:bg-slate-950/60">
           <div className="flex items-center gap-2">
-            <Sparkles size={14} className="text-amber-500" />
+            <CheckCircle2 size={14} className="text-emerald-500" />
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight">
               Live Highlighted Matches &amp; Capture Groups
             </span>

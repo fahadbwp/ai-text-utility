@@ -516,31 +516,31 @@ export const JsonTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
           </div>
 
           {/* Header Card */}
-          <div className="p-3.5 rounded-xl border border-pink-200 dark:border-pink-500/20 bg-pink-50/60 dark:bg-pink-950/10 space-y-2">
-            <span className="text-xs font-semibold text-pink-700 dark:text-pink-400 uppercase tracking-wider">
+          <div className="p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/70 dark:bg-zinc-900/60 space-y-2">
+            <span className="text-xs font-semibold text-rose-600 dark:text-rose-400">
               Header: Algorithm & Token Type
             </span>
-            <pre className="text-xs font-mono text-pink-900 dark:text-pink-200 bg-white dark:bg-slate-950/50 p-3 rounded-lg overflow-x-auto border border-pink-200/80 dark:border-pink-500/10">
+            <pre className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-zinc-950 p-3 rounded-lg overflow-x-auto border border-slate-200 dark:border-zinc-800">
               {decoded.formattedHeader}
             </pre>
           </div>
 
           {/* Payload Card */}
-          <div className="p-3.5 rounded-xl border border-purple-200 dark:border-purple-500/20 bg-purple-50/60 dark:bg-purple-950/10 space-y-2">
-            <span className="text-xs font-semibold text-purple-700 dark:text-purple-400 uppercase tracking-wider">
+          <div className="p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/70 dark:bg-zinc-900/60 space-y-2">
+            <span className="text-xs font-semibold text-sky-600 dark:text-sky-400">
               Payload: Data Claims
             </span>
-            <pre className="text-xs font-mono text-purple-900 dark:text-purple-200 bg-white dark:bg-slate-950/50 p-3 rounded-lg overflow-x-auto border border-purple-200/80 dark:border-purple-500/10">
+            <pre className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-zinc-950 p-3 rounded-lg overflow-x-auto border border-slate-200 dark:border-zinc-800">
               {decoded.formattedPayload}
             </pre>
           </div>
 
           {/* Signature Card */}
-          <div className="p-3.5 rounded-xl border border-cyan-200 dark:border-cyan-500/20 bg-cyan-50/60 dark:bg-cyan-950/10 space-y-2">
-            <span className="text-xs font-semibold text-cyan-700 dark:text-cyan-400 uppercase tracking-wider">
+          <div className="p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50/70 dark:bg-zinc-900/60 space-y-2">
+            <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
               Signature (Raw Base64)
             </span>
-            <div className="text-xs font-mono text-cyan-900 dark:text-cyan-200 bg-white dark:bg-slate-950/50 p-2.5 rounded-lg break-all border border-cyan-200/80 dark:border-cyan-500/10">
+            <div className="text-xs font-mono text-slate-800 dark:text-zinc-200 bg-white dark:bg-zinc-950 p-2.5 rounded-lg break-all border border-slate-200 dark:border-zinc-800">
               {decoded.signature || "(No signature)"}
             </div>
           </div>

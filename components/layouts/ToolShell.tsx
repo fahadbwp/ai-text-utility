@@ -132,9 +132,9 @@ export const ToolShell: React.FC<ToolShellProps> = ({
                 {tool.supportsLiveMode && (
                   <span
                     title="Updates automatically as you type"
-                    className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20"
+                    className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 motion-safe:animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     <span>Live</span>
                   </span>
                 )}
@@ -184,7 +184,7 @@ export const ToolShell: React.FC<ToolShellProps> = ({
       {showShortcutsHelp && (
         <Modal label="Keyboard Shortcuts" onClose={() => setShowShortcutsHelp(false)}>
           <div
-            className="w-full max-w-md rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-6 shadow-2xl text-slate-900 dark:text-slate-100 animate-in zoom-in-95"
+            className="w-full max-w-md rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-2xl text-slate-900 dark:text-zinc-100 animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
