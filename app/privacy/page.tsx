@@ -27,8 +27,8 @@ export default function PrivacyPage() {
 
       {/* Header */}
       <div className="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold">
-          <ShieldCheck size={14} />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 text-xs font-semibold">
+          <ShieldCheck size={14} className="text-blue-600 dark:text-blue-400" />
           Privacy-First Architecture
         </div>
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
       {/* Highlights Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-500/20">
             <Lock size={16} />
           </div>
           <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Client-Side Processing</h2>

@@ -66,7 +66,7 @@ export const WordCounterEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 Volume Metrics
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -74,7 +74,7 @@ export const WordCounterEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Structure Breakdown
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -207,7 +207,7 @@ export const JsonFormatterEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 JSON Formatting (Pretty Print)
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -215,7 +215,7 @@ export const JsonFormatterEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 JSON Validation &amp; Error Pinpointing
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -253,7 +253,7 @@ export const JsonFormatterEditorial: React.FC = () => {
             <div className="p-2.5 rounded-lg bg-red-50/60 dark:bg-red-950/30 border border-red-200/60 dark:border-red-800/60 font-mono text-[11px] text-red-700 dark:text-red-300">
               ❌ &#123; &quot;status&quot;: 200, &quot;ready&quot;: true, &#125;
             </div>
-            <div className="p-2.5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-[11px] text-emerald-700 dark:text-emerald-300">
+            <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700 font-mono text-[11px] text-blue-700 dark:text-blue-300">
               ✅ &#123; &quot;status&quot;: 200, &quot;ready&quot;: true &#125;
             </div>
           </div>
@@ -266,7 +266,7 @@ export const JsonFormatterEditorial: React.FC = () => {
             <div className="p-2.5 rounded-lg bg-red-50/60 dark:bg-red-950/30 border border-red-200/60 dark:border-red-800/60 font-mono text-[11px] text-red-700 dark:text-red-300">
               ❌ &#123; &apos;username&apos;: &apos;alex&apos; &#125;
             </div>
-            <div className="p-2.5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-[11px] text-emerald-700 dark:text-emerald-300">
+            <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700 font-mono text-[11px] text-blue-700 dark:text-blue-300">
               ✅ &#123; &quot;username&quot;: &quot;alex&quot; &#125;
             </div>
           </div>
@@ -276,7 +276,7 @@ export const JsonFormatterEditorial: React.FC = () => {
       <section aria-labelledby="json-privacy-heading" className="space-y-4">
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white text-base">
-            <ShieldCheck className="text-emerald-600 dark:text-emerald-400" size={20} />
+            <ShieldCheck className="text-blue-600 dark:text-blue-400" size={20} />
             <h3 id="json-privacy-heading">Client-Side Processing: Payload Confidentiality</h3>
           </div>
           <p>
@@ -322,7 +322,7 @@ export const PasswordGeneratorEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 1. Length Matters Most
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -330,7 +330,7 @@ export const PasswordGeneratorEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 2. Character Diversity
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -416,7 +416,7 @@ export const UuidGeneratorEditorial: React.FC = () => {
           </p>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-            <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
               Anatomy of a UUID v4 Canonical String
             </h3>
             <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -728,7 +728,7 @@ export const UrlEncoderEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 encodeURI vs encodeURIComponent
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -736,7 +736,7 @@ export const UrlEncoderEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Space Encoding: %20 vs +
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -784,7 +784,7 @@ export const JwtDecoderEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-red-200/70 dark:border-red-900/60 bg-red-50/50 dark:bg-red-950/30 space-y-2">
-              <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-red-600 dark:text-red-400 font-semibold">
                 1. Header
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -800,7 +800,7 @@ export const JwtDecoderEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-blue-200/70 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/30 space-y-2">
-              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 3. Signature
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -819,7 +819,7 @@ export const JwtDecoderEditorial: React.FC = () => {
           <p>
             Our online JWT Decoder parses and decodes the Base64Url-encoded Header and Payload so developers can instantly examine claim contents, timestamps, and permissions. <strong className="text-slate-900 dark:text-white font-semibold">Note:</strong> Decoding does not cryptographically verify the signature against your secret key.
           </p>
-          <p className="text-emerald-700 dark:text-emerald-400 font-medium">
+          <p className="text-blue-600 dark:text-blue-400 font-medium">
             🔒 Privacy Guarantee: All parsing is executed 100% locally inside your browser memory. Your tokens and claims are never transmitted to any external server.
           </p>
         </div>
@@ -862,7 +862,7 @@ export const LoremIpsumEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 Why Use Placeholder Copy?
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -870,7 +870,7 @@ export const LoremIpsumEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 When to Transition to Real Copy
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -919,7 +919,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-2">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">1</span>
                 Input Title
               </span>
@@ -928,7 +928,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">2</span>
                 Choose Separator
               </span>
@@ -937,7 +937,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">3</span>
                 Case Preference
               </span>
@@ -946,7 +946,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">4</span>
                 Copy Permalink
               </span>
@@ -961,7 +961,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
       {/* 2. What Makes a Good SEO-Friendly Slug & Hyphens vs Underscores */}
       <section aria-labelledby="slug-best-practices-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Globe size={18} />
           </div>
           <div>
@@ -984,8 +984,8 @@ export const SlugGeneratorEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-emerald-500">✓</span> Recommended Best Practices
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <span className="text-blue-500">✓</span> Recommended Best Practices
               </span>
               <ul className="space-y-1.5 text-xs list-disc list-inside text-slate-600 dark:text-slate-400">
                 <li><strong className="text-slate-800 dark:text-slate-200">Concise &amp; Focused:</strong> 3 to 5 key descriptive words that convey the core topic.</li>
@@ -996,7 +996,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-amber-500">⚡</span> Hyphens vs. Underscores
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1121,7 +1121,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 URL Slug Generation
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1130,7 +1130,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 font-semibold">
                 URL Percent Encoding
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1205,7 +1205,7 @@ export const SlugGeneratorEditorial: React.FC = () => {
               >
                 Remove Accents <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Sanitize</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Sanitize</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Strip diacritics and foreign accent marks from international text while preserving base Latin letters.
@@ -1283,7 +1283,7 @@ export const JsonToCsvEditorial: React.FC = () => {
           {/* Side-by-side Visual Code Example */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 Source JSON Input (Array of Objects)
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -1295,7 +1295,7 @@ export const JsonToCsvEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Resulting CSV Output (Tabular Grid)
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -1327,7 +1327,7 @@ export const JsonToCsvEditorial: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">1</span>
               Paste JSON
             </span>
@@ -1337,7 +1337,7 @@ export const JsonToCsvEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">2</span>
               Configure Delimiter
             </span>
@@ -1347,7 +1347,7 @@ export const JsonToCsvEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">3</span>
               Live Generation
             </span>
@@ -1357,7 +1357,7 @@ export const JsonToCsvEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">4</span>
               Copy or Download
             </span>
@@ -1371,7 +1371,7 @@ export const JsonToCsvEditorial: React.FC = () => {
       {/* 3. Input Shapes, Missing Keys & Nested Data Mechanics */}
       <section aria-labelledby="json-structure-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Layers size={18} />
           </div>
           <div>
@@ -1390,7 +1390,7 @@ export const JsonToCsvEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 1. Arrays vs. Single Objects
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1399,7 +1399,7 @@ export const JsonToCsvEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 2. Missing Keys &amp; Sparse Records
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1408,7 +1408,7 @@ export const JsonToCsvEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 3. Nested Objects &amp; Arrays
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1445,7 +1445,7 @@ export const JsonToCsvEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-brand-600">●</span> Delimiters &amp; Commas
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1454,8 +1454,8 @@ export const JsonToCsvEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-emerald-600">●</span> Quotation Marks
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <span className="text-blue-600">●</span> Quotation Marks
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Internal double quotes (e.g. <code className="font-mono text-[11px]">Leader &quot;Pro&quot;</code>) are escaped by doubling them (<code className="font-mono text-[11px]">&quot;&quot;</code>) and wrapping the field in quotes: <code className="font-mono text-[11px]">&quot;&quot;Leader &quot;&quot;Pro&quot;&quot;&quot;&quot;</code>.
@@ -1463,7 +1463,7 @@ export const JsonToCsvEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-blue-600 dark:text-blue-400">●</span> Multi-line Strings
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1472,7 +1472,7 @@ export const JsonToCsvEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-cyan-600">●</span> Null &amp; Undefined Values
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1541,8 +1541,8 @@ export const JsonToCsvEditorial: React.FC = () => {
               CSV to JSON Converter
             </Link>.
           </p>
-          <div className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/80 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2">
-            <ShieldCheck size={16} className="shrink-0 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700 text-xs text-blue-800 dark:text-blue-300 flex items-center gap-2">
+            <ShieldCheck size={16} className="shrink-0 text-blue-600 dark:text-blue-400" />
             <span>
               <strong>100% Client-Side Privacy:</strong> All parsing and CSV formatting run strictly within your local browser memory. No text or files are ever sent to our servers.
             </span>
@@ -1593,7 +1593,7 @@ export const JsonToCsvEditorial: React.FC = () => {
               >
                 JSON Formatter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Format</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Format</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Beautify, validate, and minify raw JSON payloads with customizable indentation and syntax error highlighting.
@@ -1671,7 +1671,7 @@ export const CsvToJsonEditorial: React.FC = () => {
           {/* Side-by-side Visual Code Example */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 Source CSV Input (Delimited Grid)
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -1680,7 +1680,7 @@ export const CsvToJsonEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Resulting JSON Output (Default String Values)
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -1715,7 +1715,7 @@ export const CsvToJsonEditorial: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">1</span>
               Paste CSV or TSV
             </span>
@@ -1725,7 +1725,7 @@ export const CsvToJsonEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">2</span>
               Select Delimiter
             </span>
@@ -1735,7 +1735,7 @@ export const CsvToJsonEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">3</span>
               Configure Headers &amp; Types
             </span>
@@ -1745,7 +1745,7 @@ export const CsvToJsonEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">4</span>
               Copy or Download
             </span>
@@ -1759,7 +1759,7 @@ export const CsvToJsonEditorial: React.FC = () => {
       {/* 3. Headers, Custom Delimiters & Type Coercion */}
       <section aria-labelledby="csv-headers-types-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Layers size={18} />
           </div>
           <div>
@@ -1778,7 +1778,7 @@ export const CsvToJsonEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 1. Header Rows &amp; Key Naming
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1787,7 +1787,7 @@ export const CsvToJsonEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 2. Delimiter Flexibility
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1796,7 +1796,7 @@ export const CsvToJsonEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 3. Type Coercion &amp; Leading Zeros
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1833,7 +1833,7 @@ export const CsvToJsonEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-brand-600">●</span> Embedded Delimiters
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1842,8 +1842,8 @@ export const CsvToJsonEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-emerald-600">●</span> Escaped Quotation Marks
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <span className="text-blue-600">●</span> Escaped Quotation Marks
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Literal quotation marks inside cells are represented per RFC 4180 by two consecutive double quotes: <code className="font-mono text-[11px]">&quot;15&quot;&quot; Laptop&quot;</code> correctly converts into JSON property <code className="font-mono text-[11px]">&quot;15\&quot; Laptop&quot;</code>.
@@ -1851,7 +1851,7 @@ export const CsvToJsonEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-blue-600 dark:text-blue-400">●</span> Multi-line Cell Strings
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1860,7 +1860,7 @@ export const CsvToJsonEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-cyan-600">●</span> Blank Cells &amp; Empty Values
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -1928,8 +1928,8 @@ export const CsvToJsonEditorial: React.FC = () => {
               JSON to CSV Converter
             </Link>.
           </p>
-          <div className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/80 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2">
-            <ShieldCheck size={16} className="shrink-0 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700 text-xs text-blue-800 dark:text-blue-300 flex items-center gap-2">
+            <ShieldCheck size={16} className="shrink-0 text-blue-600 dark:text-blue-400" />
             <span>
               <strong>100% Client-Side Privacy:</strong> All CSV parsing and JSON serialization run strictly within your local browser memory. No data is ever transmitted to remote servers.
             </span>
@@ -1980,7 +1980,7 @@ export const CsvToJsonEditorial: React.FC = () => {
               >
                 JSON Formatter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Format</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Format</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Beautify, validate, and minify raw JSON payloads with customizable indentation and syntax error highlighting.
@@ -2058,7 +2058,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
           {/* Side-by-side Visual Code Example */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 Source Markdown Input
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -2067,7 +2067,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Resulting HTML Output
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -2102,7 +2102,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">1</span>
               Paste Markdown
             </span>
@@ -2112,7 +2112,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">2</span>
               Live Rendering
             </span>
@@ -2122,7 +2122,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">3</span>
               Switch Output View
             </span>
@@ -2132,7 +2132,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">4</span>
               Copy or Download
             </span>
@@ -2146,7 +2146,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
       {/* 3. Common Markdown Syntax & HTML Output Reference Table */}
       <section aria-labelledby="md-syntax-table-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Code2 size={18} />
           </div>
           <div>
@@ -2164,7 +2164,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
 
         <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-slate-50/80 dark:bg-slate-950/60 border-b border-slate-200/80 dark:border-slate-800 text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+            <thead className="bg-slate-50/80 dark:bg-slate-950/60 border-b border-slate-200/80 dark:border-slate-800 text-[11px] font-bold text-slate-700 dark:text-slate-300 font-semibold">
               <tr>
                 <th className="py-3 px-4">Element</th>
                 <th className="py-3 px-4">Markdown Syntax</th>
@@ -2277,7 +2277,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 1. Headings (H1 to H6)
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2286,7 +2286,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 2. Ordered &amp; Unordered Lists
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2295,7 +2295,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 3. Links &amp; Safe Image References
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2304,7 +2304,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 4. Code Blocks &amp; Language Classes
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2341,7 +2341,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-brand-600">●</span> Raw HTML Escaped by Default
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2350,8 +2350,8 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-emerald-600">●</span> Protocol Whitelisting
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <span className="text-blue-600">●</span> Protocol Whitelisting
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Links and images are strictly filtered. The parser permits only standard protocols (<code className="font-mono text-[11px]">https:</code>, <code className="font-mono text-[11px]">http:</code>, <code className="font-mono text-[11px]">mailto:</code>, relative paths, and anchor fragments). Dangerous schemes such as <code className="font-mono text-[11px]">javascript:</code> or SVG data URIs have their destinations removed. All data URIs, including raster images, are blocked.
@@ -2429,8 +2429,8 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
             </Link>{" "}
             utility.
           </p>
-          <div className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/80 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2">
-            <ShieldCheck size={16} className="shrink-0 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700 text-xs text-blue-800 dark:text-blue-300 flex items-center gap-2">
+            <ShieldCheck size={16} className="shrink-0 text-blue-600 dark:text-blue-400" />
             <span>
               <strong>100% Client-Side Privacy:</strong> All Markdown parsing, HTML generation, and preview rendering run strictly within your local browser memory. No text is ever uploaded to remote servers.
             </span>
@@ -2481,7 +2481,7 @@ export const MarkdownToHtmlEditorial: React.FC = () => {
               >
                 Strip HTML Tags <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Sanitize</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Sanitize</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Remove HTML tags and markup from rich text, leaving clean plain-text copy for documentation or excerpts.
@@ -2559,7 +2559,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
           {/* Side-by-side Visual Code Example */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 Unminified Source HTML Input
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -2568,7 +2568,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Minified HTML Output
               </span>
               <pre className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[11px] font-mono text-slate-800 dark:text-slate-200 overflow-x-auto">
@@ -2600,7 +2600,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">1</span>
               Paste HTML
             </span>
@@ -2610,7 +2610,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">2</span>
               Configure Options
             </span>
@@ -2620,7 +2620,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">3</span>
               Review Savings
             </span>
@@ -2630,7 +2630,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-1.5">
-            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">4</span>
               Copy or Download
             </span>
@@ -2644,7 +2644,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
       {/* 3. Whitespace Handling & Tag Compacting */}
       <section aria-labelledby="html-minifier-whitespace-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Code2 size={18} />
           </div>
           <div>
@@ -2663,7 +2663,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 1. Inter-Tag Whitespace
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2672,7 +2672,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 2. Attribute Gaps
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2681,7 +2681,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 3. Text-Node Spacing
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2714,7 +2714,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-brand-600">●</span> Standard Comments Stripped
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2723,8 +2723,8 @@ export const HtmlMinifierEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-emerald-600">●</span> Conditional Comments Preserved
+              <span className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <span className="text-blue-600">●</span> Conditional Comments Preserved
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Internet Explorer conditional comments (such as <code className="font-mono text-[11px]">&lt;!--[if IE 9]&gt;...&lt;![endif]--&gt;</code>) are automatically protected against removal, ensuring legacy polyfills and stylesheets continue to target older browsers correctly.
@@ -2823,8 +2823,8 @@ export const HtmlMinifierEditorial: React.FC = () => {
             </Link>{" "}
             tool.
           </p>
-          <div className="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/80 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2">
-            <ShieldCheck size={16} className="shrink-0 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700 text-xs text-blue-800 dark:text-blue-300 flex items-center gap-2">
+            <ShieldCheck size={16} className="shrink-0 text-blue-600 dark:text-blue-400" />
             <span>
               <strong>100% Client-Side Privacy:</strong> All HTML minification and byte calculations execute locally in your browser memory. Your HTML templates, proprietary code, and page content are never uploaded to any remote server.
             </span>
@@ -2875,7 +2875,7 @@ export const HtmlMinifierEditorial: React.FC = () => {
               >
                 Strip HTML Tags <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Sanitize</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Sanitize</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Remove all HTML tags and markup elements from text to extract clean plain-text copy for documentation or excerpts.
@@ -2952,7 +2952,7 @@ export const HashGeneratorEditorial: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
-                <ShieldCheck size={14} className="text-emerald-500" /> 1. Deterministic Output
+                <ShieldCheck size={14} className="text-blue-500" /> 1. Deterministic Output
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 The identical input will always yield the exact same hash value, regardless of how many times or on which platform the algorithm is executed.
@@ -2961,7 +2961,7 @@ export const HashGeneratorEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
-                <ShieldCheck size={14} className="text-emerald-500" /> 2. Pre-Image Resistance (One-Way)
+                <ShieldCheck size={14} className="text-blue-500" /> 2. Pre-Image Resistance (One-Way)
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Given a specific output digest <code className="font-mono text-[11px]">H</code>, it is computationally infeasible under expected security assumptions to calculate the original input text that generated it.
@@ -2970,7 +2970,7 @@ export const HashGeneratorEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
-                <ShieldCheck size={14} className="text-emerald-500" /> 3. Collision Resistance
+                <ShieldCheck size={14} className="text-blue-500" /> 3. Collision Resistance
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 It is computationally infeasible under current cryptographic assumptions to discover two distinct inputs <code className="font-mono text-[11px]">m1</code> and <code className="font-mono text-[11px]">m2</code> such that <code className="font-mono text-[11px]">hash(m1) === hash(m2)</code>.
@@ -2979,7 +2979,7 @@ export const HashGeneratorEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
-                <ShieldCheck size={14} className="text-emerald-500" /> 4. Strict Avalanche Effect
+                <ShieldCheck size={14} className="text-blue-500" /> 4. Strict Avalanche Effect
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 As an expected design property, flipping a single bit in the input causes each output bit to flip with approximately 50% probability on average, preventing statistical pattern analysis.
@@ -3066,21 +3066,21 @@ export const HashGeneratorEditorial: React.FC = () => {
                   <td className="p-3 font-bold text-brand-600 dark:text-brand-400 font-sans">SHA-256</td>
                   <td className="p-3">256 bits (32 bytes)</td>
                   <td className="p-3">64 characters</td>
-                  <td className="p-3 font-sans font-medium text-emerald-600 dark:text-emerald-400">High (Modern Standard)</td>
+                  <td className="p-3 font-sans font-medium text-blue-600 dark:text-blue-400">High (Modern Standard)</td>
                   <td className="p-3 font-sans">TLS/SSL, Bitcoin, API signatures, software verification</td>
                 </tr>
                 <tr className="bg-slate-50/50 dark:bg-slate-900/30">
                   <td className="p-3 font-bold text-brand-600 dark:text-brand-400 font-sans">SHA-384</td>
                   <td className="p-3">384 bits (48 bytes)</td>
                   <td className="p-3">96 characters</td>
-                  <td className="p-3 font-sans font-medium text-emerald-600 dark:text-emerald-400">Very High (Suite B)</td>
+                  <td className="p-3 font-sans font-medium text-blue-600 dark:text-blue-400">Very High (Suite B)</td>
                   <td className="p-3 font-sans">High-assurance federal systems, digital certificates</td>
                 </tr>
                 <tr className="bg-white/50 dark:bg-slate-950/30">
                   <td className="p-3 font-bold text-brand-600 dark:text-brand-400 font-sans">SHA-512</td>
                   <td className="p-3">512 bits (64 bytes)</td>
                   <td className="p-3">128 characters</td>
-                  <td className="p-3 font-sans font-medium text-emerald-600 dark:text-emerald-400">Maximum (64-bit Native)</td>
+                  <td className="p-3 font-sans font-medium text-blue-600 dark:text-blue-400">Maximum (64-bit Native)</td>
                   <td className="p-3 font-sans">64-bit high-throughput processing, high-entropy hashing</td>
                 </tr>
                 <tr className="bg-slate-50/50 dark:bg-slate-900/30">
@@ -3108,7 +3108,7 @@ export const HashGeneratorEditorial: React.FC = () => {
       {/* Section 4: Hashing vs Encryption vs Base64 */}
       <section aria-labelledby="hashing-vs-encryption-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Binary size={18} />
           </div>
           <div>
@@ -3131,7 +3131,7 @@ export const HashGeneratorEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <Fingerprint size={14} className="text-brand-500" /> 1. Cryptographic Hash
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -3140,8 +3140,8 @@ export const HashGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <KeyRound size={14} className="text-emerald-500" /> 2. Encryption
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <KeyRound size={14} className="text-blue-500" /> 2. Encryption
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 A <strong>two-way reversible transformation</strong> designed to maintain confidentiality. Plaintext is transformed into ciphertext using a secret key (e.g. AES-256-GCM or RSA-4096) and can only be decrypted by authorized key holders.
@@ -3149,7 +3149,7 @@ export const HashGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <Binary size={14} className="text-blue-500" /> 3. Encoding (Base64)
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -3196,7 +3196,7 @@ export const HashGeneratorEditorial: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl border border-rose-200/60 dark:border-rose-900/40 bg-white/70 dark:bg-slate-900/60 space-y-2 text-xs">
-            <span className="font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <span className="font-bold text-slate-900 dark:text-white font-semibold">
               Recommended Password Storage Solutions (Slow, Memory-Hard KDFs)
             </span>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -3286,7 +3286,7 @@ export const HashGeneratorEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 1. Comparing Known Text Digests &amp; API Experiments
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3295,7 +3295,7 @@ export const HashGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 2. Deterministic Cache Keys &amp; Text Fingerprints
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3304,7 +3304,7 @@ export const HashGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 3. Understanding Content Hashing &amp; Text Integrity
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3313,7 +3313,7 @@ export const HashGeneratorEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 4. Database Deduplication &amp; Privacy Indexing
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3327,7 +3327,7 @@ export const HashGeneratorEditorial: React.FC = () => {
       {/* Section 8: Client-Side Web Crypto Execution & Text Privacy */}
       <section aria-labelledby="hash-privacy-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <ShieldCheck size={18} />
           </div>
           <div>
@@ -3398,7 +3398,7 @@ export const HashGeneratorEditorial: React.FC = () => {
               >
                 Password Generator <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Security</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Security</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Generate cryptographically strong, high-entropy passwords with custom character sets and entropy scoring.
@@ -3479,7 +3479,7 @@ export const UnixTimestampEditorial: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="font-semibold text-slate-900 dark:text-white text-xs flex items-center gap-1.5">
-                <ShieldCheck size={14} className="text-emerald-500" /> Timezone-Independent Standard
+                <ShieldCheck size={14} className="text-blue-500" /> Timezone-Independent Standard
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 A Unix timestamp is identical in Tokyo, London, and New York for any given moment. Timezone offsets and daylight saving adjustments are applied purely during human display formatting.
@@ -3488,7 +3488,7 @@ export const UnixTimestampEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
               <span className="font-semibold text-slate-900 dark:text-white text-xs flex items-center gap-1.5">
-                <ShieldCheck size={14} className="text-emerald-500" /> Efficient Arithmetic &amp; Sorting
+                <ShieldCheck size={14} className="text-blue-500" /> Efficient Arithmetic &amp; Sorting
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Because timestamps are plain integers, computing elapsed duration or sorting chronological records requires simple numeric comparison rather than complex calendar parsing.
@@ -3525,7 +3525,7 @@ export const UnixTimestampEditorial: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">
+                <span className="font-bold text-slate-900 dark:text-white text-xs font-semibold">
                   Epoch Seconds (10 Digits)
                 </span>
                 <span className="text-[11px] font-mono text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/60 px-2 py-0.5 rounded-sm border border-brand-200 dark:border-brand-800">
@@ -3539,7 +3539,7 @@ export const UnixTimestampEditorial: React.FC = () => {
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">
+                <span className="font-bold text-slate-900 dark:text-white text-xs font-semibold">
                   Epoch Milliseconds (13 Digits)
                 </span>
                 <span className="text-[11px] font-medium text-slate-700 dark:text-zinc-300 bg-slate-100 dark:bg-zinc-800 px-2 py-0.5 rounded-sm border border-slate-200 dark:border-zinc-700">
@@ -3582,7 +3582,7 @@ export const UnixTimestampEditorial: React.FC = () => {
 
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
               Workflow A: Convert Unix Timestamp to Human Date
             </h3>
             <ol className="list-decimal list-inside space-y-2 pl-1">
@@ -3602,7 +3602,7 @@ export const UnixTimestampEditorial: React.FC = () => {
           </div>
 
           <div className="pt-2 border-t border-slate-200/80 dark:border-slate-800 space-y-3">
-            <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
               Workflow B: Convert Human Calendar Date to Unix Timestamp
             </h3>
             <ol className="list-decimal list-inside space-y-2 pl-1">
@@ -3626,7 +3626,7 @@ export const UnixTimestampEditorial: React.FC = () => {
       {/* Section 4: UTC vs Local Time & Timezone Handling */}
       <section aria-labelledby="timezones-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Globe size={18} />
           </div>
           <div>
@@ -3653,7 +3653,7 @@ export const UnixTimestampEditorial: React.FC = () => {
           </ul>
 
           <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-            <span className="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">
+            <span className="font-bold text-slate-900 dark:text-white text-xs font-semibold">
               Output Formats Provided by This Tool
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
@@ -3700,7 +3700,7 @@ export const UnixTimestampEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 1. REST &amp; GraphQL API Payloads
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3709,7 +3709,7 @@ export const UnixTimestampEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 2. JWT Token Expiration Claims
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3718,7 +3718,7 @@ export const UnixTimestampEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 3. Database Audit &amp; Event Logs
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3727,7 +3727,7 @@ export const UnixTimestampEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 4. Interval &amp; Duration Calculation
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -3760,7 +3760,7 @@ export const UnixTimestampEditorial: React.FC = () => {
         <div className="p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 The Year 2038 Issue Explained
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -3772,7 +3772,7 @@ export const UnixTimestampEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold">
                 Negative Timestamps (Pre-1970 Dates)
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -3793,7 +3793,7 @@ export const UnixTimestampEditorial: React.FC = () => {
       {/* Section 7: Client-Side Execution & Privacy */}
       <section aria-labelledby="privacy-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <ShieldCheck size={18} />
           </div>
           <div>
@@ -3879,7 +3879,7 @@ export const UnixTimestampEditorial: React.FC = () => {
               >
                 JSON Formatter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Format</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Format</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Format, validate, and inspect API responses containing numeric timestamps and date strings.
@@ -3942,7 +3942,7 @@ export const FancyFontsEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-2">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">1</span>
                 Type Your Text
               </span>
@@ -3951,7 +3951,7 @@ export const FancyFontsEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">2</span>
                 Browse Styles
               </span>
@@ -3960,7 +3960,7 @@ export const FancyFontsEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">3</span>
                 One-Click Copy
               </span>
@@ -3969,7 +3969,7 @@ export const FancyFontsEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-brand-500/10 flex items-center justify-center text-[11px]">4</span>
                 Paste Anywhere
               </span>
@@ -4017,7 +4017,7 @@ export const FancyFontsEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold">
                 SMP Symbols
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4026,7 +4026,7 @@ export const FancyFontsEditorial: React.FC = () => {
               </p>
             </div>
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                 Enclosed Characters
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4136,7 +4136,7 @@ export const FancyFontsEditorial: React.FC = () => {
               <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 🎮 Gaming Nicknames
               </h3>
-              <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 font-medium">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-100 text-blue-700 dark:text-blue-300 font-medium">
                 Free Fire &bull; Roblox
               </span>
             </div>
@@ -4268,7 +4268,7 @@ export const FancyFontsEditorial: React.FC = () => {
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                 Ⓒⓘⓡⓒⓛⓔⓓ &amp; 🅂🅀🅄🄰🅁🄴 (Bubbles)
               </h3>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400 font-semibold">
                 Badges &bull; Playful
               </span>
             </div>
@@ -4363,8 +4363,8 @@ export const FancyFontsEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
             <div className="space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                <span className="text-emerald-500">✓</span> Recommended Best Practices
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
+                <span className="text-blue-500">✓</span> Recommended Best Practices
               </h3>
               <ul className="space-y-1.5 text-xs list-disc list-inside text-slate-600 dark:text-slate-400">
                 <li>Use fancy fonts for short display names, handles, and profile accents.</li>
@@ -4375,7 +4375,7 @@ export const FancyFontsEditorial: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-slate-900 dark:text-white font-semibold flex items-center gap-1.5">
                 <span className="text-rose-500">✕</span> What to Avoid
               </h3>
               <ul className="space-y-1.5 text-xs list-disc list-inside text-slate-600 dark:text-slate-400">
@@ -4437,7 +4437,7 @@ export const FancyFontsEditorial: React.FC = () => {
               >
                 Word Counter <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Analytics</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Analytics</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Track character and word counts in real time to ensure your stylish bio remains strictly within character ceilings (such as 150 characters for Instagram and 80 characters for TikTok).
@@ -4529,7 +4529,7 @@ export const AiFriendlyEditorial: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-2">
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1.5">
                 Courteous Framing
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4538,7 +4538,7 @@ export const AiFriendlyEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1.5">
                 Empathetic Warmth
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4556,7 +4556,7 @@ export const AiFriendlyEditorial: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-slate-50/70 dark:bg-slate-950/40 space-y-1.5">
-              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1.5">
                 Defensiveness Reduction
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -4594,7 +4594,7 @@ export const AiFriendlyEditorial: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl border border-rose-200/70 dark:border-rose-900/50 bg-rose-50/50 dark:bg-rose-950/20 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-rose-700 dark:text-rose-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-rose-700 dark:text-rose-400 font-semibold">
                   Before: Direct / Blunt Draft
                 </span>
                 <span className="text-[11px] font-mono px-2 py-0.5 rounded-sm bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300">
@@ -4611,19 +4611,19 @@ export const AiFriendlyEditorial: React.FC = () => {
               </ul>
             </div>
 
-            <div className="p-4 rounded-xl border border-emerald-200/70 dark:border-emerald-900/50 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-2">
+            <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-200 bg-slate-100 dark:bg-slate-100 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-blue-600 dark:text-blue-400 font-semibold">
                   After: Representative Friendly Rewrite
                 </span>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded-sm bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300">
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-sm bg-slate-100 dark:bg-slate-100 text-blue-700 dark:text-blue-300">
                   Warm &amp; Approachable
                 </span>
               </div>
-              <p className="font-mono text-xs text-slate-800 dark:text-slate-200 p-3 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-emerald-200/60 dark:border-emerald-800/40">
+              <p className="font-mono text-xs text-slate-800 dark:text-slate-200 p-3 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-200">
                 &quot;Thanks for putting the proposal together! It looks like a few figures are still missing. Could you please send over the updated numbers when you have a moment so we can finalize the review?&quot;
               </p>
-              <ul className="space-y-1 text-xs text-emerald-800 dark:text-emerald-300 list-disc list-inside">
+              <ul className="space-y-1 text-xs text-blue-800 dark:text-blue-300 list-disc list-inside">
                 <li>Opens with genuine appreciation (&quot;Thanks for putting the proposal together!&quot;).</li>
                 <li>States the issue objectively without personal blame (&quot;a few figures are still missing&quot;).</li>
                 <li>Converts the demand into a courteous inquiry with shared purpose (&quot;so we can finalize&quot;).</li>
@@ -4734,7 +4734,7 @@ export const AiFriendlyEditorial: React.FC = () => {
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Friendly vs. Grammar</h3>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Correction</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Correction</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Our <Link href="/tools/ai-grammar" className="text-brand-600 dark:text-brand-400 hover:underline font-semibold">AI Grammar &amp; Proofreader</Link> focuses strictly on orthographic rules—correcting typos, punctuation, and grammatical mistakes while leaving the author&apos;s existing tone untouched. The friendly tool intentionally modifies social framing and word choice to elevate warmth.
@@ -4756,7 +4756,7 @@ export const AiFriendlyEditorial: React.FC = () => {
       {/* Section 5: Practical Tone Tips */}
       <section aria-labelledby="tone-tips-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Lightbulb size={18} />
           </div>
           <div>
@@ -4776,7 +4776,7 @@ export const AiFriendlyEditorial: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">1</span>
+                <span className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold">1</span>
                 Replace Commands with Courteous Inquiries
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 pl-7">
@@ -4786,7 +4786,7 @@ export const AiFriendlyEditorial: React.FC = () => {
 
             <div className="space-y-1.5">
               <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">2</span>
+                <span className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold">2</span>
                 Acknowledge Effort &amp; Prior Context
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 pl-7">
@@ -4796,7 +4796,7 @@ export const AiFriendlyEditorial: React.FC = () => {
 
             <div className="space-y-1.5">
               <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">3</span>
+                <span className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold">3</span>
                 Soften Harsh Absolutes
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 pl-7">
@@ -4806,7 +4806,7 @@ export const AiFriendlyEditorial: React.FC = () => {
 
             <div className="space-y-1.5">
               <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">4</span>
+                <span className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold">4</span>
                 Keep Deadlines and Action Items Crystal Clear
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 pl-7">
@@ -4816,7 +4816,7 @@ export const AiFriendlyEditorial: React.FC = () => {
 
             <div className="space-y-1.5">
               <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">5</span>
+                <span className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold">5</span>
                 Avoid Excessive Apologizing
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 pl-7">
@@ -4826,7 +4826,7 @@ export const AiFriendlyEditorial: React.FC = () => {
 
             <div className="space-y-1.5">
               <h3 className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">6</span>
+                <span className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold">6</span>
                 Maintain Professional Boundaries Respectfully
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 pl-7">
@@ -4921,7 +4921,7 @@ export const AiFriendlyEditorial: React.FC = () => {
               >
                 AI Grammar &amp; Proofreader <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Accuracy</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Accuracy</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Correct typos, grammatical flaws, and punctuation errors while strictly preserving your authentic voice.
@@ -5056,7 +5056,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           {/* Example 1 */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-semibold text-brand-600 dark:text-brand-400 font-semibold">
                 Mode: Alphanumeric Only
               </span>
               <div className="space-y-1">
@@ -5067,7 +5067,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
-                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
+                <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-100 border border-slate-200 dark:border-slate-200 font-mono text-xs text-blue-700 dark:text-blue-300 break-all">
                   Hello World 2026
                 </div>
               </div>
@@ -5091,7 +5091,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
-                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
+                <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-100 border border-slate-200 dark:border-slate-200 font-mono text-xs text-blue-700 dark:text-blue-300 break-all">
                   Order 984: Total is 45.50 (paid)!
                 </div>
               </div>
@@ -5104,7 +5104,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
           {/* Example 3 */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-semibold text-amber-600 dark:text-amber-400 font-semibold">
                 Mode: Custom Allowed List (@.-_)
               </span>
               <div className="space-y-1">
@@ -5115,7 +5115,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
-                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
+                <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-100 border border-slate-200 dark:border-slate-200 font-mono text-xs text-blue-700 dark:text-blue-300 break-all">
                   user_nametag@company.corp8080
                 </div>
               </div>
@@ -5200,7 +5200,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
       {/* 4. Unicode & Multilingual Support */}
       <section aria-labelledby="unicode-support-heading" className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
             <Globe size={18} />
           </div>
           <div>
@@ -5439,7 +5439,7 @@ export const RemoveSpecialCharsEditorial: React.FC = () => {
               >
                 Remove Accents <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Diacritics</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Diacritics</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Normalize accented letters (é, ñ, ü) into plain ASCII equivalents (e, n, u) using Unicode NFD decomposition.
@@ -5553,7 +5553,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
           {/* Example 1: Multiple Spaces in Prose */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-semibold text-brand-600 dark:text-brand-400 font-semibold">
                 Mode: Spaces Only (Prose)
               </span>
               <div className="space-y-1">
@@ -5564,7 +5564,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
-                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
+                <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-100 border border-slate-200 dark:border-slate-200 font-mono text-xs text-blue-700 dark:text-blue-300 break-all">
                   This sentence has extra spaces.
                 </div>
               </div>
@@ -5588,7 +5588,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
-                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 whitespace-pre">
+                <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-100 border border-slate-200 dark:border-slate-200 font-mono text-xs text-blue-700 dark:text-blue-300 whitespace-pre">
                   {"\tLine 1 has gaps.\n\tLine 2 also wide."}
                 </div>
               </div>
@@ -5601,7 +5601,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
           {/* Example 3: All Whitespace Flattening */}
           <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/80 dark:bg-slate-900/40 shadow-subtle flex flex-col justify-between space-y-3">
             <div className="space-y-2">
-              <span className="inline-block text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-semibold text-amber-600 dark:text-amber-400 font-semibold">
                 Mode: All Whitespace (Single Line)
               </span>
               <div className="space-y-1">
@@ -5612,7 +5612,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <span className="text-[11px] text-slate-400 uppercase font-mono">Cleaned Output:</span>
-                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 font-mono text-xs text-emerald-700 dark:text-emerald-300 break-all">
+                <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-100 border border-slate-200 dark:border-slate-200 font-mono text-xs text-blue-700 dark:text-blue-300 break-all">
                   Text with tabs and newlines.
                 </div>
               </div>
@@ -5655,28 +5655,28 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 text-slate-600 dark:text-slate-300">
               <tr>
                 <td className="p-3.5 sm:p-4 font-medium text-slate-900 dark:text-white">Consecutive ASCII Spaces (<code className="font-mono text-xs">U+0020</code>)</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Collapsed to single space (<code className="font-mono text-xs">/ &#123;2,&#125;/g</code>)</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Collapsed to single space (<code className="font-mono text-xs">/\s+/g</code>)</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Collapsed to single space (<code className="font-mono text-xs">/ &#123;2,&#125;/g</code>)</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Collapsed to single space (<code className="font-mono text-xs">/\s+/g</code>)</td>
               </tr>
               <tr>
                 <td className="p-3.5 sm:p-4 font-medium text-slate-900 dark:text-white">Line Breaks (<code className="font-mono text-xs">\n, \r\n</code>)</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Preserved (lines processed individually)</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Preserved (lines processed individually)</td>
                 <td className="p-3.5 sm:p-4 text-amber-600 dark:text-amber-400">Converted to single spaces</td>
               </tr>
               <tr>
                 <td className="p-3.5 sm:p-4 font-medium text-slate-900 dark:text-white">Tab Characters (<code className="font-mono text-xs">\t</code>)</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Preserved intact (for indentation &amp; columns)</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Preserved intact (for indentation &amp; columns)</td>
                 <td className="p-3.5 sm:p-4 text-amber-600 dark:text-amber-400">Converted to single spaces</td>
               </tr>
               <tr>
                 <td className="p-3.5 sm:p-4 font-medium text-slate-900 dark:text-white">Trailing Spaces per Line</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Automatically stripped (<code className="font-mono text-xs">/ +$/</code>)</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Entire result trimmed (<code className="font-mono text-xs">.trim()</code>)</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Automatically stripped (<code className="font-mono text-xs">/ +$/</code>)</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Entire result trimmed (<code className="font-mono text-xs">.trim()</code>)</td>
               </tr>
               <tr>
                 <td className="p-3.5 sm:p-4 font-medium text-slate-900 dark:text-white">Non-Breaking Spaces (NBSP / <code className="font-mono text-xs">\u00A0</code>)</td>
                 <td className="p-3.5 sm:p-4 text-slate-500 dark:text-slate-400">Preserved (only ASCII space is matched)</td>
-                <td className="p-3.5 sm:p-4 text-emerald-600 dark:text-emerald-400">Matched by <code className="font-mono text-xs">\s</code> &amp; normalized</td>
+                <td className="p-3.5 sm:p-4 text-blue-600 dark:text-blue-400">Matched by <code className="font-mono text-xs">\s</code> &amp; normalized</td>
               </tr>
               <tr>
                 <td className="p-3.5 sm:p-4 font-medium text-slate-900 dark:text-white">Output Structure</td>
@@ -5843,7 +5843,7 @@ export const RemoveExtraSpacesEditorial: React.FC = () => {
               >
                 Trim Lines <ArrowRight size={14} />
               </Link>
-              <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Per-Line</span>
+              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400">Per-Line</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Target leading and trailing whitespace per line specifically without altering internal spaces between words.

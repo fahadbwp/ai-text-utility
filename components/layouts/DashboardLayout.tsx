@@ -62,8 +62,8 @@ export const DashboardLayout: React.FC<WorkspaceProps> = ({
 
         <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-[11px] text-slate-500 dark:text-slate-400 font-mono">
           <span>{input.length.toLocaleString()} characters in memory</span>
-          <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+          <span className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
             Live Metrics Sync
           </span>
         </div>
@@ -79,11 +79,11 @@ export const DashboardLayout: React.FC<WorkspaceProps> = ({
       {/* 2. Live Metrics & Cards Dashboard Section */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200">
             <LayoutDashboard size={14} className="text-brand-600 dark:text-brand-400" />
             <span>Live Analysis Dashboard</span>
           </div>
-          <span className="text-xs text-slate-400 font-mono">Real-time breakdown</span>
+          <span className="text-xs text-slate-400">Real-time breakdown</span>
         </div>
 
         {customPreview ? (

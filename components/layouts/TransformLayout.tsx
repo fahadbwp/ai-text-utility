@@ -76,7 +76,7 @@ export const TransformLayout: React.FC<WorkspaceProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* Input Panel */}
         <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs focus-within:border-blue-500/50 transition-colors">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22]">
             <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200 flex items-center gap-2">
               <FileText size={14} className="text-blue-600 dark:text-blue-400" />
               Source Input
@@ -117,7 +117,7 @@ export const TransformLayout: React.FC<WorkspaceProps> = ({
             className="w-full p-4 sm:p-5 bg-transparent text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-sm resize-y focus:outline-hidden leading-relaxed min-h-[220px]"
           />
 
-          <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-[11px] text-slate-500 dark:text-zinc-400 font-mono flex-wrap gap-2">
+          <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22] text-[11px] text-slate-500 dark:text-zinc-400 font-mono flex-wrap gap-2">
             <div className="flex items-center gap-2.5">
               <span>{stats.words.toLocaleString()} words</span>
               <span className="text-slate-300 dark:text-zinc-700">•</span>
@@ -134,12 +134,12 @@ export const TransformLayout: React.FC<WorkspaceProps> = ({
 
         {/* Live Output Panel */}
         <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-colors">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22]">
             <div className="flex items-center gap-2">
               <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200">
                 Live Result
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" title="Result updates automatically" />
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" title="Result updates automatically" />
             </div>
             <div className="flex items-center gap-1.5">
               {canSwap && onSwap && (
@@ -181,7 +181,7 @@ export const TransformLayout: React.FC<WorkspaceProps> = ({
             className="w-full p-4 sm:p-5 bg-transparent text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-sm resize-y focus:outline-hidden leading-relaxed min-h-[220px] cursor-default"
           />
 
-          <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+          <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#161b22] text-xs text-slate-500 dark:text-zinc-400 font-mono">
             <span>{output ? `${output.length.toLocaleString()} characters generated` : "Instant browser conversion"}</span>
             <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700">Read-only</span>
           </div>

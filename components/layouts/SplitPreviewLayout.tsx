@@ -95,7 +95,7 @@ export const SplitPreviewLayout: React.FC<WorkspaceProps> = ({
 
           <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <span>{input.length.toLocaleString()} chars</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-medium">Live compilation</span>
+            <span className="text-blue-600 dark:text-blue-400 font-medium">Live compilation</span>
           </div>
         </div>
 
@@ -172,7 +172,7 @@ export const SplitPreviewLayout: React.FC<WorkspaceProps> = ({
 
           <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <span>{output.length.toLocaleString()} chars generated</span>
-            <span className="px-2 py-0.5 rounded-md text-[10px] uppercase font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">Sanitized HTML</span>
+            <span className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-slate-200/60 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">Sanitized HTML</span>
           </div>
         </div>
       </div>

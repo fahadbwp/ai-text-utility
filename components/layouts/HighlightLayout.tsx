@@ -16,7 +16,7 @@ export const HighlightLayout: React.FC<WorkspaceProps> = ({
       {/* 1. Regex Pattern & Flags Toolbar */}
       {customControls && (
         <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 shadow-2xs">
-          <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-3">
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-800 dark:text-slate-200 mb-3">
             <Search size={14} className="text-brand-600 dark:text-brand-400" />
             <span>Regular Expression Pattern &amp; Flags</span>
           </div>
@@ -67,7 +67,7 @@ export const HighlightLayout: React.FC<WorkspaceProps> = ({
 
         <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono">
           <span>{input.length.toLocaleString()} characters in test string</span>
-          <span className="text-emerald-600 dark:text-emerald-400 font-medium">In-Browser Regex Engine</span>
+          <span className="text-blue-600 dark:text-blue-400 font-medium">In-Browser Regex Engine</span>
         </div>
       </div>
 
@@ -75,12 +75,12 @@ export const HighlightLayout: React.FC<WorkspaceProps> = ({
       <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/40 overflow-hidden shadow-2xs transition-all duration-150">
         <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200/70 dark:border-slate-800/80 bg-slate-50/80 dark:bg-slate-950/60">
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={14} className="text-emerald-500" />
+            <CheckCircle2 size={14} className="text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight">
               Live Highlighted Matches &amp; Capture Groups
             </span>
           </div>
-          <span className="text-xs text-emerald-600 dark:text-emerald-400 font-mono font-medium">
+          <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
             Active Evaluation
           </span>
         </div>

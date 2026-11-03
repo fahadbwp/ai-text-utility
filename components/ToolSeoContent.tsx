@@ -188,21 +188,21 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
           <div className="p-6 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-4 flex flex-col justify-between">
             <div>
               <h3 className="text-base font-semibold text-slate-900 dark:text-zinc-100 flex items-center gap-2 mb-4">
-                <ShieldCheck className="text-emerald-600 dark:text-emerald-400" size={20} />
+                <ShieldCheck className="text-blue-600 dark:text-blue-400" size={20} />
                 Key Features &amp; Security
               </h3>
               <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-zinc-300">
                 {content.features.map((feat, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <Check size={16} className="text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <Check size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-4 p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-400 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+            <div className="mt-4 p-3 rounded-lg bg-slate-50 dark:bg-[#161b22] border border-slate-200 dark:border-zinc-800 text-xs text-slate-600 dark:text-zinc-400 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
               <span>
                 {isAI
                   ? "AI requests are transmitted via encrypted HTTPS through server-side endpoints to the configured AI provider. This application does not store submitted text in its database."

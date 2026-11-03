@@ -216,7 +216,7 @@ export const DateTimeTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             <div className="p-3 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-950/40 flex items-center justify-between">
               <div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400">Epoch Seconds</div>
-                <div className="text-sm font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{res.seconds}</div>
+                <div className="text-sm font-mono text-blue-600 dark:text-blue-400 font-semibold">{res.seconds}</div>
               </div>
               <CopyButton text={res.seconds.toString()} variant="ghost" />
             </div>
@@ -224,7 +224,7 @@ export const DateTimeTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             <div className="p-3 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-950/40 flex items-center justify-between">
               <div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400">Epoch Milliseconds</div>
-                <div className="text-sm font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{res.milliseconds}</div>
+                <div className="text-sm font-mono text-blue-600 dark:text-blue-400 font-semibold">{res.milliseconds}</div>
               </div>
               <CopyButton text={res.milliseconds.toString()} variant="ghost" />
             </div>
@@ -271,7 +271,7 @@ export const DateTimeTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950/60 text-center shadow-2xs">
-              <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 font-mono">{res.totalDays.toLocaleString()}</div>
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 font-mono">{res.totalDays.toLocaleString()}</div>
               <div className="text-[11px] text-slate-600 dark:text-slate-400">Total Days</div>
             </div>
 

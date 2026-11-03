@@ -73,13 +73,13 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
           "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/60",
         variant === "default" &&
           "btn-primary min-h-10 min-w-10 px-4 py-2",
-        copied && "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/30",
+        copied && "text-blue-700 dark:text-blue-300 bg-blue-500/10 border-blue-500/30",
         className
       )}
     >
       {copied ? (
         <>
-          <Check size={14} className="text-emerald-500 stroke-[2.5]" />
+          <Check size={14} className="text-blue-600 dark:text-blue-400 stroke-[2.5]" />
           <span>Copied!</span>
         </>
       ) : (

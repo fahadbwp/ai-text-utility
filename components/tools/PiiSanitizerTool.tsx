@@ -138,7 +138,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
             onClick={() => setActiveTab("sanitize")}
             className={`flex items-center gap-2 py-3 px-6 font-medium text-sm border-b-2 transition-colors ${
               activeTab === "sanitize"
-                ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                ? "border-blue-600 text-blue-600 dark:text-blue-400"
                 : "border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             }`}
           >
@@ -165,10 +165,10 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
         {activeTab === "sanitize" ? (
           <div className="space-y-6">
             {/* Security Badge */}
-            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
+            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-slate-100/80 dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700">
               <div className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <span className="text-sm font-medium text-emerald-900 dark:text-emerald-200">
+                <ShieldCheck className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" />
+                <span className="text-sm font-medium text-slate-800 dark:text-zinc-200">
                   100% In-Browser Zero-Knowledge Privacy: Text never leaves your device.
                 </span>
               </div>
@@ -176,7 +176,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                 type="button"
                 onClick={loadSampleData}
                 aria-label="Load Sample Data"
-                className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors"
+                className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
               >
                 Load Sample Data
               </button>
@@ -286,7 +286,7 @@ export function PiiSanitizerTool({ tool }: PiiSanitizerToolProps) {
                       Safe Sanitized Text (For AI Prompt)
                     </label>
                     {sanitizeResult.totalCount > 0 && (
-                      <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300">
+                      <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300">
                         {sanitizeResult.totalCount} Scrubbed
                       </span>
                     )}

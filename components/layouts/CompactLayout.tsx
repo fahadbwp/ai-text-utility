@@ -53,7 +53,7 @@ export const CompactLayout: React.FC<WorkspaceProps> = ({
         <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800/80 mb-4">
           <div className="flex items-center gap-2">
             <Calendar size={15} className="text-brand-600 dark:text-brand-400" />
-            <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
               {tool.slug === "date-difference" ? "Start & End Dates" : "Timestamp or Date"}
             </span>
           </div>
@@ -138,7 +138,7 @@ export const CompactLayout: React.FC<WorkspaceProps> = ({
 
         <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono">
           <span>{output ? `${output.length.toLocaleString()} characters in output` : "Ready to calculate"}</span>
-          <span className="px-2 py-0.5 rounded-md text-[10px] uppercase font-semibold bg-slate-200/60 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400">Calculation Result</span>
+          <span className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-slate-200/60 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400">Calculation Result</span>
         </div>
       </div>
     </div>

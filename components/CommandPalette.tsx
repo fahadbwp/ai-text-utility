@@ -83,7 +83,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           </div>
 
           {/* Quick Category Filter Pills */}
-          <div className="flex items-center gap-1.5 px-4 py-2 border-b border-slate-200/80 dark:border-zinc-800/80 bg-slate-50 dark:bg-zinc-950 overflow-x-auto text-xs scrollbar-none">
+          <div className="flex items-center gap-1.5 px-4 py-2 border-b border-slate-200/80 dark:border-zinc-800/80 bg-slate-50 dark:bg-[#161b22] overflow-x-auto text-xs scrollbar-none">
             <button
               type="button"
               onClick={() => setSelectedCategory("ALL")}
@@ -157,7 +157,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                             {tool.description}
                           </p>
                         </div>
-                        <span className="text-[11px] text-slate-400 dark:text-zinc-500 shrink-0 font-mono">
+                        <span className="text-[11px] text-slate-400 dark:text-zinc-500 shrink-0">
                           ↵ Open
                         </span>
                       </Command.Item>
@@ -168,7 +168,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             })}
           </Command.List>
 
-          <div className="flex items-center justify-between border-t border-slate-200 dark:border-zinc-800 px-4 py-2 bg-slate-50 dark:bg-zinc-950 text-xs text-slate-500 dark:text-zinc-400 font-mono">
+          <div className="flex items-center justify-between border-t border-slate-200 dark:border-zinc-800 px-4 py-2 bg-slate-50 dark:bg-[#161b22] text-xs text-slate-500 dark:text-zinc-400">
             <span>
               Use <kbd className="bg-white dark:bg-zinc-800 px-1 py-0.5 rounded border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">↑</kbd> <kbd className="bg-white dark:bg-zinc-800 px-1 py-0.5 rounded border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300">↓</kbd> to navigate
             </span>

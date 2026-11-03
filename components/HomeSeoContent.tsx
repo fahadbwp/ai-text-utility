@@ -50,29 +50,29 @@ export function HomeSeoContent() {
           </div>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-3 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">
-            <div className="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center border border-sky-500/20 shadow-2xs">
-              <Type size={17} />
+          <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">
+            <div className="flex items-center gap-2">
+              <Type size={16} className="text-slate-700 dark:text-zinc-300 shrink-0" />
+              <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For writing</h3>
             </div>
-            <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For writing</h3>
             <p className="text-xs leading-relaxed text-slate-600 dark:text-zinc-400">
               Use <Link href="/tools/word-counter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Word Counter</Link> for length checks, <Link href="/tools/case-converter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Case Converter</Link> for capitalization, <Link href="/tools/remove-extra-spaces" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Cleanup tools</Link> for messy text, and the AI writing tools when you want an assisted rewrite.
             </p>
           </div>
-          <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-3 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20 shadow-2xs">
-              <Code2 size={17} />
+          <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">
+            <div className="flex items-center gap-2">
+              <Code2 size={16} className="text-slate-700 dark:text-zinc-300 shrink-0" />
+              <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For developers</h3>
             </div>
-            <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For developers</h3>
             <p className="text-xs leading-relaxed text-slate-600 dark:text-zinc-400">
               Use <Link href="/tools/json-formatter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">JSON Formatter</Link>, <Link href="/tools/regex-tester" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Regex Tester</Link>, <Link href="/tools/base64" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Base64</Link>, <Link href="/tools/uuid-generator" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">UUID</Link>, <Link href="/tools/jwt-decoder" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">JWT</Link>, <Link href="/tools/url-encoder" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">URL encoding</Link>, hashing, and date utilities for quick checks during development.
             </p>
           </div>
-          <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-3 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">
-            <div className="w-9 h-9 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center border border-teal-500/20 shadow-2xs">
-              <ShieldCheck size={17} />
+          <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={16} className="text-slate-700 dark:text-zinc-300 shrink-0" />
+              <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For privacy</h3>
             </div>
-            <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For privacy</h3>
             <p className="text-xs leading-relaxed text-slate-600 dark:text-zinc-400">
               Ordinary transformations process text in your browser without sending it to our backend. AI requests leave the browser. Configured embedded ads use isolated cross-origin frames; sponsored links lead to external sites. Read the <Link href="/privacy" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Privacy Policy</Link> for details.
             </p>
@@ -108,6 +108,8 @@ export function HomeSeoContent() {
             const blueprint = getToolSeoBlueprint(slug);
             const tool = getToolBySlug(slug);
             if (!blueprint || !tool) return null;
+            const displayTitle = slug === "lorem-ipsum" ? "Sample Content Generator" : blueprint.h1;
+            const displayKeyword = slug === "lorem-ipsum" ? "dummy text generator" : blueprint.primaryKeyword;
             return (
               <div key={slug}>
                 <Link
@@ -116,10 +118,10 @@ export function HomeSeoContent() {
                 >
                   <div>
                     <span className="text-xs font-bold text-slate-900 dark:text-zinc-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-1">
-                      {blueprint.h1}
+                      {displayTitle}
                     </span>
                     <span className="text-[11px] text-slate-500 dark:text-zinc-400 line-clamp-1 mt-0.5 block">
-                      {blueprint.primaryKeyword}
+                      {displayKeyword}
                     </span>
                   </div>
                   <span className="text-[11px] text-brand-600 dark:text-brand-400 font-semibold inline-flex items-center gap-1 pt-1">

@@ -107,7 +107,7 @@ export default function ContactPage() {
 
           <div className="p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-3 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <div className="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-500/20">
                 <Wrench size={18} />
               </div>
               <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Feature Requests</h2>
@@ -117,7 +117,7 @@ export default function ContactPage() {
             </div>
             <a
               href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20Feature%20Request"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-2xs text-center"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-2xs text-center"
             >
               Request a Feature
             </a>

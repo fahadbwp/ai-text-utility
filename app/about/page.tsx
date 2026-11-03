@@ -42,7 +42,7 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
-            <Lock size={16} className="text-emerald-500" />
+            <Lock size={16} className="text-blue-600 dark:text-blue-400" />
             <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Browser-first privacy</h2>
             <p className="text-xs leading-relaxed text-slate-500 dark:text-zinc-400">Standard formatting, cleanup, counting, and conversion tools run locally in your browser rather than uploading your text to our application server.</p>
           </div>
@@ -74,10 +74,10 @@ export default function AboutPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Quality and transparency</h2>
             <div className="space-y-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" /><span><strong>No account required:</strong> the core utilities are available without registration.</span></div>
-              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" /><span><strong>Clear limitations:</strong> security-sensitive tools include warnings where an output should not be treated as proof of authenticity or security.</span></div>
-              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" /><span><strong>Human-readable guidance:</strong> tool pages include explanations, examples, FAQs, and links to related utilities rather than relying only on an interactive widget.</span></div>
-              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" /><span><strong>Support:</strong> questions and bug reports can be sent through the Contact page.</span></div>
+              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" /><span><strong>No account required:</strong> the core utilities are available without registration.</span></div>
+              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" /><span><strong>Clear limitations:</strong> security-sensitive tools include warnings where an output should not be treated as proof of authenticity or security.</span></div>
+              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" /><span><strong>Human-readable guidance:</strong> tool pages include explanations, examples, FAQs, and links to related utilities rather than relying only on an interactive widget.</span></div>
+              <div className="flex items-start gap-2"><CheckCircle2 size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" /><span><strong>Support:</strong> questions and bug reports can be sent through the Contact page.</span></div>
             </div>
           </section>
 

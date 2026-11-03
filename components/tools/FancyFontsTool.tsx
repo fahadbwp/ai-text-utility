@@ -68,8 +68,8 @@ export const FancyFontsTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => 
               <Type size={14} className="text-blue-600 dark:text-blue-400" />
               Type or paste text to stylize
             </span>
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
               Live preview enabled • {allStyles.length}+ styles
             </span>
           </div>

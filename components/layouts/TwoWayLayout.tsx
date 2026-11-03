@@ -50,7 +50,7 @@ export const TwoWayLayout: React.FC<WorkspaceProps> = ({
       <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <ArrowLeftRight size={16} className="text-brand-600 dark:text-brand-400" />
-          <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+          <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
             Bidirectional Workflow
           </span>
         </div>
@@ -109,7 +109,7 @@ export const TwoWayLayout: React.FC<WorkspaceProps> = ({
 
           <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <span>{input.length.toLocaleString()} characters</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-medium">Input Ready</span>
+            <span className="text-blue-600 dark:text-blue-400 font-medium">Input Ready</span>
           </div>
         </div>
 
@@ -120,7 +120,7 @@ export const TwoWayLayout: React.FC<WorkspaceProps> = ({
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight">
                 Converted Output
               </span>
-              <span className="w-2 h-2 rounded-full bg-emerald-500" title="Auto converted" />
+              <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400" title="Auto converted" />
             </div>
 
             <div className="flex items-center gap-1.5">
@@ -163,7 +163,7 @@ export const TwoWayLayout: React.FC<WorkspaceProps> = ({
 
           <div className="flex items-center justify-between px-4 py-2.5 border-t border-slate-200/70 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <span>{output ? `${output.length.toLocaleString()} characters` : "Auto converted"}</span>
-            <span className="px-2 py-0.5 rounded-md text-[10px] uppercase font-semibold bg-slate-200/60 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400">Read-only</span>
+            <span className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-slate-200/60 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400">Read-only</span>
           </div>
         </div>
       </div>
