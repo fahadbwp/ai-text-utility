@@ -43,5 +43,5 @@ export const CATEGORIES: { name: ToolCategory; icon: string; description: string
   { name: "Cleanup", icon: "Eraser", description: "Sanitize, trim, and strip noise from text" },
   { name: "Transform", icon: "Shuffle", description: "Encode, convert cases, hash, and generate text" },
   { name: "Date & Time", icon: "Calendar", description: "Unix timestamps, date calculations, and intervals" },
-  { name: "AI Magic", icon: "Sparkles", description: "AI-assisted rewriting, proofreading, and summarization" },
+  { name: "AI Magic", icon: "Cpu", description: "AI-assisted rewriting, proofreading, and summarization" },
 ];

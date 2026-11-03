@@ -2,7 +2,7 @@ import { serializeStructuredData } from "@/lib/structuredData";
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck, Cpu, Zap, Lock, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Cpu, Zap, Lock, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | AI Text Utility",
@@ -31,8 +31,8 @@ export default function AboutPage() {
         </Link>
 
         <header className="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-semibold">
-            <Sparkles size={14} /> Our Mission &amp; Engineering Principles
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 text-xs font-medium">
+            <ShieldCheck size={14} className="text-blue-600 dark:text-blue-400" /> Our Mission &amp; Engineering Principles
           </div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">About AI Text Utility</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -41,20 +41,20 @@ export default function AboutPage() {
         </header>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 space-y-2">
+          <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
             <Lock size={16} className="text-emerald-500" />
-            <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Browser-first privacy</h2>
-            <p className="text-xs leading-relaxed">Standard formatting, cleanup, counting, and conversion tools run locally in your browser rather than uploading your text to our application server.</p>
+            <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Browser-first privacy</h2>
+            <p className="text-xs leading-relaxed text-slate-500 dark:text-zinc-400">Standard formatting, cleanup, counting, and conversion tools run locally in your browser rather than uploading your text to our application server.</p>
           </div>
-          <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 space-y-2">
+          <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
             <Zap size={16} className="text-amber-500" />
-            <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Practical utilities</h2>
-            <p className="text-xs leading-relaxed">The catalog covers common writing, developer, formatting, cleanup, encoding, date, and text-transformation tasks without requiring an account.</p>
+            <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Practical utilities</h2>
+            <p className="text-xs leading-relaxed text-slate-500 dark:text-zinc-400">The catalog covers common writing, developer, formatting, cleanup, encoding, date, and text-transformation tasks without requiring an account.</p>
           </div>
-          <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 space-y-2">
-            <Cpu size={16} className="text-purple-500" />
-            <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Optional AI assistance</h2>
-            <p className="text-xs leading-relaxed">AI features are deliberately separate from local tools. When you use one, the requested text is sent to the configured AI provider to produce the requested result.</p>
+          <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
+            <Cpu size={16} className="text-blue-500" />
+            <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Optional AI assistance</h2>
+            <p className="text-xs leading-relaxed text-slate-500 dark:text-zinc-400">AI features are deliberately separate from local tools. When you use one, the requested text is sent to the configured AI provider to produce the requested result.</p>
           </div>
         </div>
 

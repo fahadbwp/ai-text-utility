@@ -8,7 +8,7 @@ import {
   generateAllFancyFonts,
   FancyFontCategory,
 } from "@/lib/tools/fancyFonts";
-import { Sparkles } from "lucide-react";
+import { Type } from "lucide-react";
 
 export const FancyFontsTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [input, setInput] = useState<string>(tool.sampleInput || "Hello World");
@@ -64,12 +64,12 @@ export const FancyFontsTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => 
       <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800/90 bg-white dark:bg-slate-900/60 overflow-hidden shadow-subtle">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 px-4 py-3 border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/80 dark:bg-slate-950/50">
           <div className="flex items-center gap-2.5 flex-wrap">
-            <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-              <Sparkles size={14} className="text-brand-600 dark:text-brand-400" />
+            <span className="text-xs font-semibold text-slate-800 dark:text-zinc-200 flex items-center gap-2">
+              <Type size={14} className="text-blue-600 dark:text-blue-400" />
               Type or paste text to stylize
             </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/60">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               Live preview enabled • {allStyles.length}+ styles
             </span>
           </div>

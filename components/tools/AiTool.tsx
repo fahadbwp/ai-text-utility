@@ -5,7 +5,7 @@ import { ToolDefinition } from "@/data/toolsRegistry";
 import { ToolWorkspaceResolver } from "@/components/layouts";
 import { requestAiTool, SLUG_TO_AI_MODE } from "@/lib/tools/aiTools";
 import { trackEvent } from "@/lib/analytics";
-import { Sparkles, RefreshCw, AlertTriangle } from "lucide-react";
+import { Cpu, RefreshCw, AlertTriangle } from "lucide-react";
 
 export const AiTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [input, setInput] = useState<string>(tool.sampleInput || "");
@@ -71,8 +71,8 @@ export const AiTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const customControls = (
     <div className="flex flex-wrap items-center justify-between gap-3 text-xs w-full">
       <div className="flex items-center gap-2 flex-wrap">
-        <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 font-medium">
-          <Sparkles size={13} className="text-blue-500 dark:text-blue-400" />
+        <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 font-medium">
+          <Cpu size={13} className="text-sky-500 dark:text-sky-400" />
           AI-assisted writing
         </span>
         <span className="text-slate-500 dark:text-slate-400">

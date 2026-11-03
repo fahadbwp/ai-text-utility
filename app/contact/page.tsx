@@ -2,7 +2,7 @@ import { serializeStructuredData } from "@/lib/structuredData";
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Mail, MessageSquare, Bug, Sparkles, HelpCircle } from "lucide-react";
+import { ArrowLeft, Mail, MessageSquare, Bug, Wrench, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us | AI Text Utility",
@@ -69,55 +69,55 @@ export default function ContactPage() {
 
         {/* Contact Channels Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs shadow-subtle space-y-3 flex flex-col justify-between">
+          <div className="p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-3 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="w-9 h-9 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-600 dark:text-brand-400">
+              <div className="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-500/20">
                 <Mail size={18} />
               </div>
-              <h2 className="text-sm font-semibold text-slate-900 dark:text-white">General Support</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">General Support</h2>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                 For general questions, usage assistance, or website feedback.
               </p>
             </div>
             <a
               href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20General%20Support"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 hover:bg-brand-700 text-white transition-colors shadow-2xs text-center"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 transition-colors shadow-2xs text-center"
             >
               Contact Support
             </a>
           </div>
 
-          <div className="p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs shadow-subtle space-y-3 flex flex-col justify-between">
+          <div className="p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-3 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="w-9 h-9 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-600 dark:text-rose-400">
+              <div className="w-9 h-9 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-600 dark:text-rose-400 border border-rose-500/20">
                 <Bug size={18} />
               </div>
-              <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Bug &amp; Edge Cases</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Bug &amp; Edge Cases</h2>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                 Spotted an unexpected output or parsing failure on a specific text string?
               </p>
             </div>
             <a
               href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20Bug%20Report"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white transition-colors shadow-2xs text-center"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-rose-600 hover:bg-rose-700 text-white transition-colors shadow-2xs text-center"
             >
               Report a Bug
             </a>
           </div>
 
-          <div className="p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs shadow-subtle space-y-3 flex flex-col justify-between">
+          <div className="p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-3 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                <Sparkles size={18} />
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <Wrench size={18} />
               </div>
-              <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Feature Requests</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Feature Requests</h2>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                 Need a particular cipher, regex helper, or format converter added to the suite?
               </p>
             </div>
             <a
               href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20Feature%20Request"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-2xs text-center"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-2xs text-center"
             >
               Request a Feature
             </a>

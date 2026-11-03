@@ -41,32 +41,32 @@ export default function PrivacyPage() {
 
       {/* Highlights Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs shadow-subtle space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+        <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
+          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
             <Lock size={16} />
           </div>
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Client-Side Processing</h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Client-Side Processing</h2>
+          <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
             Format, text, cleanup, and transform tools execute 100% inside your local browser memory.
           </p>
         </div>
 
-        <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs shadow-subtle space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400">
+        <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
+          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-500/20">
             <Server size={16} />
           </div>
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Secure AI Processing</h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">Secure AI Processing</h2>
+          <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
             AI text requests are encrypted in transit via HTTPS and sent to an external AI provider.
           </p>
         </div>
 
-        <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xs shadow-subtle space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+        <div className="p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs space-y-2">
+          <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-600 dark:text-teal-400 border border-teal-500/20">
             <EyeOff size={16} />
           </div>
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-white">No Sensitive Tracking</h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <h2 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">No Sensitive Tracking</h2>
+          <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
             Our application analytics events exclude input text. Advertising partners have separate data practices described below.
           </p>
         </div>

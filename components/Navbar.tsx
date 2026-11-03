@@ -68,89 +68,93 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-300 navbar-glass ${
-        scrolled ? "shadow-navScrolled backdrop-blur-xl" : ""
-      } ${pastHero ? "navbar-past-hero" : ""}`}
+      className={`sticky top-0 z-40 w-full transition-colors duration-150 navbar-glass ${
+        pastHero ? "navbar-past-hero" : ""
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3 sm:gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-3 sm:gap-6">
         {/* Brand Logo */}
         <Link
           href="/"
-          className="focus:outline-hidden focus:ring-2 focus:ring-brand-500/30 rounded-xl p-1 -ml-1 group shrink-0 transition-transform active:scale-[0.98]"
+          className="focus:outline-hidden focus:ring-2 focus:ring-blue-500/30 rounded-lg p-1 -ml-1 group shrink-0"
           aria-label="AI Text Utility home"
         >
           <BrandLogo size="md" showSubtitle={true} />
         </Link>
 
-        {/* Desktop Primary Navigation Links (Figma Composition) */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+        {/* Desktop Primary Navigation Links */}
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-1">
           <Link
             href="/"
-            className={`px-3 py-1.5 rounded-full text-xs font-medium ${pathname === '/' ? 'text-brand-600' : 'text-slate-600 dark:text-slate-300'} hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/50 transition-colors`}
+            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname === "/" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
           >
             Home
           </Link>
           <Link
             href="/about"
-            className={`px-3 py-1.5 rounded-full text-xs font-medium ${pathname === '/about' ? 'text-brand-600' : 'text-slate-600 dark:text-slate-300'} hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/70 transition-colors`}
+            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname === "/about" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className={`px-3 py-1.5 rounded-full text-xs font-medium ${pathname === '/contact' ? 'text-brand-600' : 'text-slate-600 dark:text-slate-300'} hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/70 transition-colors`}
+            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname === "/contact" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
           >
             Contact
           </Link>
         </nav>
 
         {/* Right Actions: Compact Search, Theme */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Desktop Compact Search Launcher */}
           <button
             type="button"
             onClick={onOpenCommandPalette}
-            aria-label={`Search tools (Press ${isMac ? '⌘K' : 'Ctrl K'})`}
-            className="hidden sm:flex items-center justify-between gap-2.5 px-3 py-1.5 rounded-full border border-white/70 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 hover:bg-white/90 dark:hover:bg-slate-900 hover:border-brand-500/40 dark:hover:border-brand-500/40 text-xs text-slate-500 dark:text-slate-400 transition-all shadow-2xs hover:shadow-2xs group cursor-pointer backdrop-blur-xs"
+            aria-label={`Search tools (Press ${isMac ? "⌘K" : "Ctrl K"})`}
+            className="hidden sm:flex items-center justify-between gap-2.5 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800/80 hover:border-slate-300 dark:hover:border-zinc-700 text-xs text-slate-500 dark:text-zinc-400 transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-1.5">
-              <Search size={13} className="text-slate-400 dark:text-slate-500 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors" />
-              <span className="font-normal text-slate-500 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-slate-200">
+              <Search size={13} className="text-slate-400 dark:text-zinc-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+              <span className="font-normal text-slate-500 dark:text-zinc-400">
                 Search tools...
               </span>
             </div>
-            <kbd className="inline-flex items-center gap-0.5 text-[10px] font-mono px-1.5 py-0.5 rounded-md border border-slate-200/80 dark:border-slate-700 bg-white/80 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-semibold shadow-2xs">
-              {isMac ? '⌘K' : 'Ctrl K'}
+            <kbd className="inline-flex items-center gap-0.5 text-[10px] font-mono px-1.5 py-0.5 rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-500 dark:text-zinc-400 font-medium">
+              {isMac ? "⌘K" : "Ctrl K"}
             </kbd>
           </button>
 
-          {/* Mobile Search Button (44px touch target) */}
+          {/* Mobile Search Button */}
           <button
             type="button"
             onClick={onOpenCommandPalette}
             aria-label="Search tools"
-            className="sm:hidden p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer active:scale-[0.97]"
+            className="sm:hidden p-2 rounded-lg text-slate-600 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
           >
             <Search size={18} aria-hidden="true" />
           </button>
 
-          {/* Favorites Indicator Button (44px touch target) */}
+          {/* Favorites Indicator Button */}
           <button
             type="button"
             onClick={handleFavoritesClick}
             aria-label={`View ${favCount} favorite tools`}
-            className="relative p-2 rounded-xl text-slate-600 hover:text-amber-500 dark:text-slate-300 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer active:scale-[0.97] group"
+            className="relative p-2 rounded-lg text-slate-600 hover:text-amber-500 dark:text-zinc-400 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer group"
             title={favCount > 0 ? `View ${favCount} favorite tools` : "View favorites"}
           >
             <Star
               size={17}
-              className={`transition-all duration-200 group-hover:scale-110 ${
-                favCount > 0 ? "fill-amber-400 text-amber-400" : ""
-              }`}
+              className={favCount > 0 ? "fill-amber-400 text-amber-400" : ""}
               aria-hidden="true"
             />
             {favCount > 0 && (
-              <span className="absolute top-1 right-1 px-1 min-w-[15px] h-[15px] rounded-full bg-amber-500 text-[9px] font-black text-slate-950 flex items-center justify-center leading-none shadow-2xs animate-in zoom-in-50 duration-150">
+              <span className="absolute top-1 right-1 px-1 min-w-[15px] h-[15px] rounded-full bg-amber-500 text-[9px] font-bold text-slate-950 flex items-center justify-center leading-none">
                 {favCount}
               </span>
             )}

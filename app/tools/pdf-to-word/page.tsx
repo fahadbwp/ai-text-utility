@@ -113,14 +113,14 @@ export default function PdfToWordPage() {
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-12">
         {/* Tool Header */}
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-900/40">
-            <ShieldCheck className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700">
+            <ShieldCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>100% Private • Local Browser Execution</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
-            Free Online <span className="text-indigo-600 dark:text-indigo-400">PDF to Word</span> Converter
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-zinc-100 tracking-tight">
+            Free Online PDF to Word Converter
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Convert digital, selectable PDFs into editable Microsoft Word (.docx) documents directly inside your browser. No server uploads, no privacy compromises.
           </p>
         </div>
@@ -129,38 +129,38 @@ export default function PdfToWordPage() {
         <DocumentConverterTool mode="pdf-to-word" />
 
         {/* Educational Content & How It Works */}
-        <div className="space-y-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+        <div className="space-y-8 pt-6 border-t border-slate-200 dark:border-zinc-800">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-zinc-100 mb-4">
               How to Convert PDF to Word Online
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white font-black flex items-center justify-center text-sm">
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2">
+                <div className="w-7 h-7 rounded-md bg-slate-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold flex items-center justify-center text-xs">
                   1
                 </div>
-                <h3 className="font-bold text-slate-900 dark:text-slate-100">Select Digital PDF</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                <h3 className="font-semibold text-slate-900 dark:text-zinc-100 text-sm">Select Digital PDF</h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                   Drag and drop any standard digital PDF up to 25 MB into the upload zone above.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white font-black flex items-center justify-center text-sm">
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2">
+                <div className="w-7 h-7 rounded-md bg-slate-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold flex items-center justify-center text-xs">
                   2
                 </div>
-                <h3 className="font-bold text-slate-900 dark:text-slate-100">In-Browser Processing</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                <h3 className="font-semibold text-slate-900 dark:text-zinc-100 text-sm">In-Browser Processing</h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                   Our Web Worker engine parses digital glyphs and builds OpenXML Word structures in memory.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white font-black flex items-center justify-center text-sm">
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2">
+                <div className="w-7 h-7 rounded-md bg-slate-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold flex items-center justify-center text-xs">
                   3
                 </div>
-                <h3 className="font-bold text-slate-900 dark:text-slate-100">Download .docx</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                <h3 className="font-semibold text-slate-900 dark:text-zinc-100 text-sm">Download .docx</h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
                   Download your editable Word document instantly and open it in Microsoft Word or Google Docs.
                 </p>
               </div>
@@ -168,21 +168,21 @@ export default function PdfToWordPage() {
           </div>
 
           {/* Contextual Links */}
-          <div className="p-6 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-1">
+              <h3 className="font-semibold text-slate-900 dark:text-zinc-100 text-sm mb-1">
                 Need to convert Word to PDF instead?
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-zinc-400">
                 Use our companion browser tool to export DOCX documents to standardized PDF.
               </p>
             </div>
             <Link
               href="/tools/word-to-pdf"
-              className="py-2.5 px-5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-all shrink-0 inline-flex items-center gap-1.5"
+              className="py-2 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-medium transition-colors shrink-0 inline-flex items-center gap-1.5"
             >
               <span>Word to PDF Converter</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 

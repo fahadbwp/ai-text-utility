@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import {
-  Sparkles,
+  Cpu,
   ArrowLeft,
   Play,
   Trash2,
@@ -182,11 +182,11 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
       </nav>
 
       {/* Tool Header Card */}
-      <div className="rounded-2xl border border-white/70 dark:border-slate-800/80 bg-white/68 dark:bg-slate-900/60 p-6 shadow-[0_12px_35px_rgba(55,95,180,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md">
+      <div className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-start gap-4">
             <div
-              className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-2xs border ${theme.bg} ${theme.border} icon-3d`}
+              className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 border ${theme.bg} ${theme.border}`}
             >
               <span className="text-2xl select-none" role="img" aria-hidden="true">
                 {theme.emoji}
@@ -195,7 +195,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
             <div>
               <div className="flex items-center gap-2.5 flex-wrap">
-                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-zinc-100">
                   {blueprint
                     ? blueprint.h1
                     : tool.slug === "fancy-fonts"
@@ -208,12 +208,12 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                   {tool.category}
                 </span>
                 {tool.supportsLiveMode && (
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800">
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
                     Live Auto-Run
                   </span>
                 )}
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-1 max-w-2xl leading-relaxed">
                 {blueprint
                   ? blueprint.aboveTheFoldIntro
                   : tool.slug === "fancy-fonts"
@@ -228,14 +228,14 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
               toolId={tool.id}
               toolName={tool.name}
               size={20}
-              className="p-2 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="p-2 border border-slate-200 dark:border-zinc-800 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
             />
           </div>
         </div>
 
         {/* Custom Controls Slot */}
         {customControls && (
-          <div className="mt-5 pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
+          <div className="mt-5 pt-4 border-t border-slate-200 dark:border-zinc-800">
             {customControls}
           </div>
         )}
@@ -256,15 +256,16 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
       )}
 
       {/* Main Workspace Panels */}
+      {/* Main Workspace Panels */}
       {customWorkspace ? (
         customWorkspace
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {/* Input Panel */}
           {!hideDefaultInput && (
-            <div className="flex flex-col rounded-2xl border border-white/70 dark:border-slate-800/80 bg-white/68 dark:bg-slate-900/60 overflow-hidden shadow-[0_12px_35px_rgba(55,95,180,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(100,120,160,0.12)] dark:border-slate-800 bg-white/60 dark:bg-slate-950/40 backdrop-blur-xs">
-                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+            <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/75 dark:bg-zinc-950/60">
+                <span className="text-xs font-semibold text-slate-700 dark:text-zinc-300 flex items-center gap-2">
                   <FileText size={14} className="text-slate-400" />
                   Input Text
                 </span>
@@ -273,7 +274,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                     <button
                       type="button"
                       onClick={() => onInputChange(tool.sampleInput || "")}
-                      className="px-2 py-1 text-[11px] font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 bg-white/70 dark:bg-slate-800/60 hover:bg-white/90 dark:hover:bg-slate-800 rounded-md border border-white/60 dark:border-slate-700/60 shadow-2xs transition-colors"
+                      className="px-2 py-1 text-[11px] font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 bg-white dark:bg-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-700 rounded-md border border-slate-200 dark:border-zinc-700 shadow-2xs transition-colors"
                     >
                       Load Sample
                     </button>
@@ -297,11 +298,11 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                 placeholder={inputPlaceholder}
                 aria-label="Text input"
                 rows={12}
-                className="w-full p-4 bg-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-xs sm:text-sm resize-y focus:outline-hidden leading-relaxed"
+                className="w-full p-4 bg-transparent text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-xs sm:text-sm resize-y focus:outline-hidden leading-relaxed"
               />
 
               {/* Input Live Stats Bar */}
-              <div className="flex items-center justify-between px-4 py-2 border-t border-[rgba(100,120,160,0.12)] dark:border-slate-800/80 bg-white/50 dark:bg-slate-950/60 text-[11px] text-slate-500 dark:text-slate-400 font-mono flex-wrap gap-2 backdrop-blur-xs">
+              <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-950/40 text-[11px] text-slate-500 dark:text-zinc-400 font-mono flex-wrap gap-2">
                 <div className="flex items-center gap-3">
                   <span>{stats.words.toLocaleString()} words</span>
                   <span>•</span>
@@ -319,9 +320,9 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
           {/* Output Panel / Preview */}
           {!hideDefaultOutput && (
-            <div className="flex flex-col rounded-2xl border border-white/70 dark:border-slate-800/80 bg-white/68 dark:bg-slate-900/60 overflow-hidden shadow-[0_12px_35px_rgba(55,95,180,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(100,120,160,0.12)] dark:border-slate-800 bg-white/60 dark:bg-slate-950/40 backdrop-blur-xs">
-                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <div className="flex flex-col rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zinc-800 bg-slate-50/75 dark:bg-zinc-950/60">
+                <span className="text-xs font-semibold text-slate-700 dark:text-zinc-300">
                   Output Result
                 </span>
                 <div className="flex items-center gap-1.5">
@@ -331,7 +332,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                       onClick={onSwap}
                       disabled={!output}
                       aria-label="Swap output to input"
-                      className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-30 rounded-md transition-colors"
+                      className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 disabled:opacity-30 rounded-md transition-colors"
                       title="Swap Output to Input"
                     >
                       <ArrowLeftRight size={14} />
@@ -343,7 +344,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                       onClick={handleDownload}
                       disabled={!output && !input}
                       aria-label="Download result as text file"
-                      className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-30 rounded-md transition-colors"
+                      className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-zinc-200 disabled:opacity-30 rounded-md transition-colors"
                       title="Download output as .txt"
                     >
                       <Download size={14} />
@@ -362,11 +363,11 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                   placeholder={outputPlaceholder}
                   aria-label="Text output"
                   rows={12}
-                  className="w-full p-4 bg-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-xs sm:text-sm resize-y focus:outline-hidden leading-relaxed"
+                  className="w-full p-4 bg-transparent text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 font-mono text-xs sm:text-sm resize-y focus:outline-hidden leading-relaxed"
                 />
               )}
 
-              <div className="flex items-center justify-between px-4 py-2 border-t border-[rgba(100,120,160,0.12)] dark:border-slate-800/80 bg-white/50 dark:bg-slate-950/60 text-xs text-slate-500 dark:text-slate-400 font-mono backdrop-blur-xs">
+              <div className="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-zinc-800 bg-slate-50/50 dark:bg-zinc-950/40 text-xs text-slate-500 dark:text-zinc-400 font-mono">
                 <span>{output ? `${output.length} characters generated` : "Waiting for input"}</span>
                 <span className="text-xs text-slate-400">Read-only</span>
               </div>
@@ -377,10 +378,10 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
       {/* Main Action Bar */}
       {!hideActionBar && (
-        <div className="flex items-center justify-between gap-3 p-4 rounded-2xl border border-white/70 dark:border-slate-800/80 bg-white/68 dark:bg-slate-900/50 shadow-[0_12px_35px_rgba(55,95,180,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] backdrop-blur-md">
-          <div className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">
+        <div className="flex items-center justify-between gap-3 p-4 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs">
+          <div className="text-xs text-slate-500 dark:text-zinc-400 hidden sm:block">
             Press{" "}
-            <kbd className="font-mono bg-white/70 dark:bg-slate-800 px-1.5 py-0.5 rounded-sm border border-white/80 dark:border-slate-700 text-slate-700 dark:text-slate-300 shadow-2xs">
+            <kbd className="font-mono bg-slate-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded-sm border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 shadow-2xs">
               Ctrl+Enter
             </kbd>{" "}
             to run
@@ -391,7 +392,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
               <button
                 type="button"
                 onClick={onClear}
-                className="px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 border border-white/80 dark:border-slate-700/80 bg-white/70 dark:bg-slate-800/80 hover:bg-white/90 dark:hover:bg-slate-800 rounded-xl transition-colors shadow-2xs backdrop-blur-xs"
+                className="px-4 py-2 text-xs font-semibold text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-zinc-100 border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-700 rounded-lg transition-colors shadow-2xs"
               >
                 Clear
               </button>
@@ -402,7 +403,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                 type="button"
                 onClick={onRun}
                 disabled={isLoading || !input}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold text-white transition-all shadow-md bg-brand-600 hover:bg-brand-500 shadow-brand-600/20 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold text-white transition-all shadow-xs bg-brand-600 hover:bg-brand-500 shadow-brand-600/20 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <>
@@ -411,7 +412,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
                   </>
                 ) : (
                   <>
-                    {isAI ? <Sparkles size={14} /> : <Play size={14} />}
+                    {isAI ? <Cpu size={14} /> : <Play size={14} />}
                     <span>{isAI ? "Generate with AI" : "Process Text"}</span>
                   </>
                 )}
@@ -424,11 +425,11 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
       {/* Shortcuts Modal */}
       {showShortcutsHelp && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 dark:bg-black/75 backdrop-blur-md animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in"
           onClick={() => setShowShortcutsHelp(false)}
         >
           <div
-            className="w-full max-w-md rounded-2xl border border-white/70 dark:border-slate-700 bg-white/85 dark:bg-slate-900/90 backdrop-blur-xl p-6 shadow-2xl text-slate-900 dark:text-slate-100 animate-in zoom-in-95"
+            className="w-full max-w-md rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-xl text-slate-900 dark:text-zinc-100 animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-4 border-b border-[rgba(100,120,160,0.12)] dark:border-slate-800">

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { Search, ArrowRight, ShieldCheck, Zap, Lock, Sparkles, Check, RefreshCw } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, Lock, Check, RefreshCw, Cpu } from "lucide-react";
 import { TOOLS_REGISTRY } from "@/data/toolsRegistry";
 
 interface DemoPreset {
@@ -89,168 +89,159 @@ export const TerminalHero: React.FC = () => {
         {/* Left Column: Hero Typography & Trust Indicators */}
         <div className="lg:col-span-6 w-full min-w-0 flex flex-col items-start text-left space-y-4 sm:space-y-5">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 dark:bg-brand-500/15 border border-blue-500/20 text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-tight shadow-2xs">
-            <Zap size={13} className="text-brand-600 dark:text-brand-400 fill-brand-600/20" />
-            <span>{totalTools} Powerful Tools</span>
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 text-xs font-medium">
+            <Cpu size={13} className="text-blue-600 dark:text-blue-400" />
+            <span>Client-Side Engine • {totalTools} Utilities</span>
           </div>
 
-          {/* Primary H1 (Figma Proportions: ~15-20% reduced) */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.14]">
-            Your All-in-One{" "}
-            <span className="block sm:inline bg-linear-to-r from-blue-600 via-indigo-600 to-fuchsia-500 bg-clip-text text-transparent dark:from-brand-400 dark:via-indigo-300 dark:to-fuchsia-400">
-              Text Utility Suite
-            </span>
+          {/* Primary H1 (Solid, unified high-contrast typography) */}
+          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-slate-900 dark:text-zinc-100 leading-[1.15]">
+            Your All-in-One Text Utility Suite
           </h1>
 
           {/* Supporting Paragraph */}
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
-            Analyze, transform, clean, and generate text with modern, fast and privacy-focused tools. Built for developers, writers and everyone who works with text.
+          <p className="text-slate-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg">
+            Analyze, transform, clean, and format text with deterministic, client-side browser utilities. Built for engineers, technical writers, and creators.
           </p>
 
-          {/* Compact 3-item Trust Row (3D Tactile Layout) */}
-          <div className="w-full pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 text-left">
-            <div className="flex-1 p-2.5 rounded-2xl bg-white/65 dark:bg-slate-900/65 backdrop-blur-md border border-white/70 dark:border-slate-800 shadow-[0_4px_16px_rgba(55,95,180,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(37,99,235,0.10)] transition-all flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-blue-500/12 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-400/30 icon-3d">
-                <ShieldCheck size={18} aria-hidden="true" />
+          {/* Compact 3-item Trust Row */}
+          <div className="w-full pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3 text-left">
+            <div className="flex-1 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
+                <ShieldCheck size={16} aria-hidden="true" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900 dark:text-white">Private &amp; Secure</div>
-                <div className="text-[11px] text-[#5F6F89] dark:text-slate-400">Most tools run in your browser</div>
+                <div className="text-xs font-semibold text-slate-900 dark:text-zinc-100">Client-Side</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">Runs locally in browser</div>
               </div>
             </div>
 
-            <div className="flex-1 p-2.5 rounded-2xl bg-white/65 dark:bg-slate-900/65 backdrop-blur-md border border-white/70 dark:border-slate-800 shadow-[0_4px_16px_rgba(55,95,180,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(147,51,234,0.10)] transition-all flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-purple-500/12 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 border border-purple-400/30 icon-3d">
-                <Zap size={18} aria-hidden="true" />
+            <div className="flex-1 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                <Zap size={16} aria-hidden="true" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900 dark:text-white">Fast Processing</div>
-                <div className="text-[11px] text-[#5F6F89] dark:text-slate-400">Instant results as you work</div>
+                <div className="text-xs font-semibold text-slate-900 dark:text-zinc-100">Zero Latency</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">Sub-millisecond execution</div>
               </div>
             </div>
 
-            <div className="flex-1 p-2.5 rounded-2xl bg-white/65 dark:bg-slate-900/65 backdrop-blur-md border border-white/70 dark:border-slate-800 shadow-[0_4px_16px_rgba(55,95,180,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(14,165,233,0.10)] transition-all flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-sky-500/12 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 border border-sky-400/30 icon-3d">
-                <Sparkles size={18} aria-hidden="true" />
+            <div className="flex-1 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-xs flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 border border-teal-500/20">
+                <Lock size={16} aria-hidden="true" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900 dark:text-white">AI Powered</div>
-                <div className="text-[11px] text-[#5F6F89] dark:text-slate-400">Advanced tools with AI</div>
+                <div className="text-xs font-semibold text-slate-900 dark:text-zinc-100">Private by Default</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">Zero data retention</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: 3D Floating Hero Showcase App Card */}
+        {/* Right Column: Hero Showcase Sandbox */}
         <div className="lg:col-span-6 w-full min-w-0">
-          <div className="relative group">
-            {/* Ambient 3D Aurora Backlight */}
-            <div className="hero-parallax-ambient absolute -inset-2 bg-linear-to-tr from-cyan-400/35 via-indigo-500/25 to-pink-500/35 rounded-[32px] blur-xl opacity-75 group-hover:opacity-100 transition duration-500 -z-10" />
+          <div className="relative rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hero-card-3d overflow-hidden">
+            {/* Top Bar / App Card Chrome */}
+            <div className="h-10 bg-slate-50 dark:bg-zinc-950/80 border-b border-slate-200 dark:border-zinc-800 px-4 flex items-center justify-between gap-3 select-none">
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-zinc-700 inline-block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-zinc-700 inline-block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-zinc-700 inline-block" />
+              </div>
 
-            <div className="relative rounded-2xl sm:rounded-3xl border border-white/80 dark:border-slate-800/90 bg-white/80 dark:bg-slate-900/80 hero-card-3d overflow-hidden transition-all backdrop-blur-xl">
-              {/* Top Bar / App Card Chrome */}
-              <div className="h-11 bg-white/60 dark:bg-slate-950/80 border-b border-[rgba(100,120,160,0.12)] dark:border-slate-800/80 px-4 flex items-center justify-between gap-3 select-none backdrop-blur-md">
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] inline-block" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] inline-block" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)] inline-block" />
+              {/* Preset Selector Tabs */}
+              <div
+                role="tablist"
+                aria-label="Interactive Demo Presets"
+                className="flex items-center gap-1 overflow-x-auto scrollbar-none py-1 min-w-0"
+              >
+                {PRESETS.map((preset, index) => (
+                  <button
+                    key={preset.id}
+                    ref={(el) => {
+                      tabRefs.current[index] = el;
+                    }}
+                    id={`demo-tab-${preset.id}`}
+                    role="tab"
+                    aria-selected={activePreset.id === preset.id}
+                    aria-controls="demo-tabpanel"
+                    tabIndex={activePreset.id === preset.id ? 0 : -1}
+                    type="button"
+                    onClick={() => setActivePreset(preset)}
+                    onKeyDown={(e) => handleKeyDown(e, index)}
+                    className={`h-7 px-2.5 rounded-md text-xs transition-colors cursor-pointer whitespace-nowrap flex items-center gap-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+                      activePreset.id === preset.id
+                        ? "bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 font-semibold border border-slate-200 dark:border-zinc-700 shadow-xs"
+                        : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800/50 font-normal"
+                    }`}
+                  >
+                    <span>{preset.name}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-medium shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>Live Preview</span>
+              </div>
+            </div>
+
+            {/* Preview Body: Split Input/Output View */}
+            <div
+              id="demo-tabpanel"
+              role="tabpanel"
+              aria-labelledby={`demo-tab-${activePreset.id}`}
+              className="p-4 sm:p-5 space-y-3"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-3">
+                {/* Input Box */}
+                <div className="space-y-1.5">
+                  <span className="text-xs font-semibold text-slate-600 dark:text-zinc-400 block">
+                    Input text
+                  </span>
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 font-mono text-xs text-slate-700 dark:text-zinc-300 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
+                    {activePreset.input}
+                  </div>
                 </div>
 
-                {/* Preset Selector Tabs */}
-                <div
-                  role="tablist"
-                  aria-label="Interactive Demo Presets"
-                  className="flex items-center gap-1 overflow-x-auto scrollbar-none py-1 min-w-0"
-                >
-                  {PRESETS.map((preset, index) => (
+                {/* Center Action Arrow */}
+                <div className="hidden sm:flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-500 dark:text-zinc-400 flex items-center justify-center">
+                    <ArrowRight size={13} />
+                  </div>
+                </div>
+
+                {/* Output Box */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-700 dark:text-zinc-300">
+                      Formatted result
+                    </span>
                     <button
-                      key={preset.id}
-                      ref={(el) => {
-                        tabRefs.current[index] = el;
-                      }}
-                      id={`demo-tab-${preset.id}`}
-                      role="tab"
-                      aria-selected={activePreset.id === preset.id}
-                      aria-controls="demo-tabpanel"
-                      tabIndex={activePreset.id === preset.id ? 0 : -1}
                       type="button"
-                      onClick={() => setActivePreset(preset)}
-                      onKeyDown={(e) => handleKeyDown(e, index)}
-                      className={`h-7 px-2.5 rounded-lg text-xs transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500/50 ${
-                        activePreset.id === preset.id
-                          ? "bg-white/95 dark:bg-slate-800 text-slate-900 dark:text-white shadow-[0_2px_6px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,1)] font-bold border border-white/80 dark:border-slate-700/80 scale-[1.02]"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/40 dark:hover:bg-slate-800/40 font-medium"
-                      }`}
+                      onClick={handleCopy}
+                      aria-label="Copy demo output"
+                      className="btn-secondary h-6 px-2 text-[11px] font-medium inline-flex items-center gap-1 cursor-pointer transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500/40"
                     >
-                      {activePreset.id === preset.id && <Sparkles size={11} className="text-amber-500" />}
-                      <span>{preset.name}</span>
+                      {copied ? <Check size={11} className="text-emerald-500" /> : <RefreshCw size={11} />}
+                      <span>{copied ? "Copied" : "Copy"}</span>
                     </button>
-                  ))}
-                </div>
-
-                {/* Status Badge */}
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 text-[11px] font-medium shrink-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 motion-safe:animate-pulse" />
-                  <span>Live Preview</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 font-mono text-xs text-slate-800 dark:text-zinc-200 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
+                    {activePreset.output}
+                  </div>
                 </div>
               </div>
 
-              {/* Preview Body: Split Input/Output View */}
-              <div
-                id="demo-tabpanel"
-                role="tabpanel"
-                aria-labelledby={`demo-tab-${activePreset.id}`}
-                className="p-4 sm:p-5 space-y-3"
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-3">
-                  {/* Input Box */}
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-mono font-semibold uppercase text-slate-400 dark:text-slate-500 block">
-                      Input
-                    </span>
-                    <div className="p-3 rounded-xl bg-slate-50/90 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/80 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] font-mono text-xs text-slate-700 dark:text-slate-300 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
-                      {activePreset.input}
-                    </div>
-                  </div>
-
-                  {/* Center Action Arrow */}
-                  <div className="hidden sm:flex items-center justify-center">
-                    <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-slate-500 dark:text-slate-400 flex items-center justify-center shadow-[0_4px_10px_rgba(15,23,42,0.08),inset_0_1px_0_rgba(255,255,255,1)] hover:scale-110 hover:text-brand-600 transition-all">
-                      <ArrowRight size={13} />
-                    </div>
-                  </div>
-
-                  {/* Output Box */}
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-semibold uppercase text-emerald-600 dark:text-emerald-400">
-                        Cleaned Result
-                      </span>
-                      <button
-                        type="button"
-                        onClick={handleCopy}
-                        aria-label="Copy demo output"
-                        className="btn-secondary h-6 px-2 text-[11px] font-medium inline-flex items-center gap-1 cursor-pointer transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500/40"
-                      >
-                        {copied ? <Check size={11} className="text-emerald-500" /> : <RefreshCw size={11} />}
-                        <span>{copied ? "Copied" : "Copy"}</span>
-                      </button>
-                    </div>
-                    <div className="p-3 rounded-xl bg-linear-to-br from-emerald-50/70 via-teal-50/40 to-white/90 dark:from-emerald-950/30 dark:via-teal-950/20 dark:to-slate-900/90 border border-emerald-300/60 dark:border-emerald-700/50 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_4px_14px_-2px_rgba(16,185,129,0.12)] font-mono text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap break-all min-h-[96px] leading-relaxed">
-                      {activePreset.output}
-                    </div>
-                  </div>
+              {/* Bottom Status Bar */}
+              <div className="pt-2 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span className="font-medium text-[11px]">{activePreset.sublabel}</span>
                 </div>
-
-                {/* Bottom Status Bar */}
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="font-medium text-[11px]">{activePreset.sublabel}</span>
-                  </div>
-                  <div className="font-mono text-[11px]">
-                    Characters: {activePreset.charsBefore} → {activePreset.charsAfter}
-                  </div>
+                <div className="font-mono text-[11px]">
+                  Characters: {activePreset.charsBefore} → {activePreset.charsAfter}
                 </div>
               </div>
             </div>

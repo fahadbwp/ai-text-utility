@@ -72,8 +72,8 @@ export const FavoriteStar: React.FC<FavoriteStarProps> = ({
         className={cn(
           "w-9 h-9 min-w-[36px] min-h-[36px] rounded-full flex items-center justify-center transition-all duration-150 pointer-events-none",
           favorite
-            ? "bg-amber-500/15 text-amber-500 border border-amber-400/40 shadow-2xs group-hover/fav:bg-amber-500/25 group-hover/fav:scale-105"
-            : "bg-white/50 dark:bg-slate-800/40 text-slate-400 dark:text-slate-500 border border-white/70 dark:border-slate-700/60 shadow-2xs group-hover/fav:text-amber-500 dark:group-hover/fav:text-amber-400 group-hover/fav:bg-white/80 dark:group-hover/fav:bg-slate-700/60 group-hover/fav:scale-105",
+            ? "bg-amber-500/15 text-amber-500 border border-amber-400/40 shadow-2xs group-hover/fav:bg-amber-500/25"
+            : "bg-white/50 dark:bg-slate-800/40 text-slate-400 dark:text-slate-500 border border-white/70 dark:border-slate-700/60 shadow-2xs group-hover/fav:text-amber-500 dark:group-hover/fav:text-amber-400 group-hover/fav:bg-white/80 dark:group-hover/fav:bg-slate-700/60",
           showLabel && "w-auto px-2.5"
         )}
       >
@@ -81,7 +81,7 @@ export const FavoriteStar: React.FC<FavoriteStarProps> = ({
           size={size}
           strokeWidth={2.2}
           className={cn(
-            "transition-transform group-active/fav:scale-125 shrink-0",
+            "transition-colors shrink-0",
             favorite ? "fill-amber-400 text-amber-500" : ""
           )}
         />
