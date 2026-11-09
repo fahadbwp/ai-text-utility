@@ -2333,6 +2333,36 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       }
     ]
   },
+  "json-to-typescript": {
+    howToSteps: [
+      "Paste your raw JSON object, array, or API response into the left Input editor.",
+      "Select your output generation mode: TypeScript Interfaces, Type Aliases, or Zod Validation Schemas.",
+      "Customize the Root Type Name and toggle Optional Properties (?), Readonly, or Format Dates as needed.",
+      "Review the generated type-safe code in the right editor with line numbers and syntax highlighting.",
+      "Click Copy Code to copy to clipboard, or Download .ts to save directly to your TypeScript project."
+    ],
+    features: [
+      "Multi-mode generation: Clean TypeScript interfaces, type aliases, and runtime Zod validation schemas",
+      "Intelligent nested object extraction with recursive type definitions and PascalCase naming",
+      "Multi-record array schema union and field reconciliation to prevent missing optional keys",
+      "One-click JSON formatting, beautification, and sample presets for instant developer testing",
+      "100% client-side in-browser generation with zero network transmission for maximum security"
+    ],
+    faqs: [
+      {
+        question: "Is my JSON payload or code sent to any external server?",
+        answer: "No. The TypeScript interface generator operates 100% client-side in your web browser. No payload or generated types are ever uploaded, logged, or transmitted anywhere."
+      },
+      {
+        question: "How does the generator handle arrays with differing object structures?",
+        answer: "When an array contains multiple JSON objects, the engine iterates across every record and merges their property signatures. If a field only appears in some objects, it is automatically marked as optional (?) to guarantee type safety."
+      },
+      {
+        question: "Can I generate Zod runtime validation schemas as well as TypeScript types?",
+        answer: "Yes! Switch the mode pill to 'Zod Schema'. The generator will output complete z.object() schemas with inferred z.infer<typeof RootSchema> types ready for API validation."
+      }
+    ]
+  },
 };
 
 import { getToolBySlug } from "../tools/index.ts";

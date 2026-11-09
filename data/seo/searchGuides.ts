@@ -333,4 +333,26 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "Keyword density is calculated by dividing the number of times a specific word appears by the total word count of the text, multiplied by 100. This percentage helps SEO specialists maintain balanced keyword distribution without penalty."
     }
   },
+  "json-to-typescript": {
+    title: "JSON to TypeScript Interface Generator – Convert JSON to TS [Free]",
+    description: "Convert JSON objects into clean TypeScript interfaces, type aliases, and Zod schemas instantly. 100% private in-browser code generator for developers.",
+    heading: "Generate TypeScript Interfaces and Zod Schemas from JSON Online",
+    useCase: "Instantly generate type-safe TypeScript interfaces, types, and Zod validation schemas directly from raw JSON objects, REST API payloads, or webhook responses. Supports deep nested types, unified multi-record array schema generation, optional property detection, and readonly modifiers. Pair with [JSON Formatter & Validator](/tools/json-formatter) to validate payloads, or [JSON to CSV](/tools/json-to-csv) to export tabular rows.",
+    example: {
+      input: '{\n  "userId": 1,\n  "title": "Sample Post",\n  "published": true,\n  "author": {\n    "name": "Alice",\n    "email": "alice@example.com"\n  }\n}',
+      output: 'export interface Author {\n  name: string;\n  email: string;\n}\n\nexport interface RootObject {\n  userId: number;\n  title: string;\n  published: boolean;\n  author: Author;\n}',
+      note: "Nested objects are automatically extracted into distinct, reusable TypeScript interfaces."
+    },
+    limitation: "The generator analyzes runtime data types provided in your JSON sample. If a field is null across all array objects, it will default to 'any'. Provide representative data with non-null values for the most accurate type inference.",
+    related: [
+      "json-formatter",
+      "json-to-csv",
+      "csv-to-json",
+      "regex-tester"
+    ],
+    faq: {
+      question: "Is my JSON payload or code sent to any external server?",
+      answer: "No. The TypeScript interface generator operates 100% client-side in your web browser. No payload or generated types are ever uploaded, logged, or transmitted anywhere."
+    }
+  },
 };

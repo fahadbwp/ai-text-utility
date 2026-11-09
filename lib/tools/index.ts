@@ -17,6 +17,7 @@ export * from "./csvToJson.ts";
 export * from "./addLineNumbers.ts";
 export * from "./markdownToHtml.ts";
 export * from "./htmlMinifier.ts";
+export * from "./jsonToTypescript.ts";
 
 // Cleanup Tools
 export * from "./removeDuplicateLines.ts";

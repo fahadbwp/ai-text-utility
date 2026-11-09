@@ -7,3 +7,4 @@ export { RegexTool } from "./RegexTool";
 export { TableTool } from "./TableTool";
 export { TransformTool } from "./TransformTool";
 export { PiiSanitizerTool } from "./PiiSanitizerTool";
+export { JsonToTypescriptTool } from "./JsonToTypescriptTool";
