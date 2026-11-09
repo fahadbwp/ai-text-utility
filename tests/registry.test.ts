@@ -1,4 +1,5 @@
 import test from "node:test";
+import fs from "node:fs";
 import assert from "node:assert/strict";
 import {
   TOOLS_REGISTRY,
@@ -229,4 +230,50 @@ test("Tools Registry - Automated Invariant Validation", () => {
   const missingFieldRes = validateToolsRegistry(missingFieldList);
   assert.equal(missingFieldRes.valid, false);
   assert.ok(missingFieldRes.errors.length >= 3);
+});
+
+test("Tools Registry - Transform Layout Tools Have Wired Execution Cases", () => {
+  const transformSource = fs.readFileSync("components/tools/TransformTool.tsx", "utf8");
+
+  const dedicatedSlugs = new Set([
+    "diff-checker",
+    "pii-sanitizer",
+    "json-to-typescript",
+    "fancy-fonts",
+    "unix-timestamp",
+    "date-difference",
+    "password-generator",
+    "uuid-generator",
+    "lorem-ipsum",
+    "hash-generator",
+    "json-formatter",
+    "json-to-csv",
+    "csv-to-json",
+    "jwt-decoder",
+    "markdown-to-html",
+    "html-minifier",
+    "regex-tester",
+    "query-string-parser",
+    "word-counter",
+    "character-frequency",
+    "word-frequency",
+    "extract-emails-urls",
+    "image-compressor",
+    "image-converter",
+    "image-resizer",
+    "invoice-generator",
+    "pdf-merger",
+  ]);
+
+  const routedToTransform = TOOLS_REGISTRY.filter(
+    (t) => t.category !== "AI Magic" && !dedicatedSlugs.has(t.slug)
+  );
+
+  for (const tool of routedToTransform) {
+    const casePattern = `case "${tool.slug}":`;
+    assert.ok(
+      transformSource.includes(casePattern),
+      `Tool '${tool.slug}' routes to TransformTool but lacks a wired execution switch case`
+    );
+  }
 });
