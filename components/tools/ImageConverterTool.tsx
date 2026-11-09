@@ -55,11 +55,12 @@ export const ImageConverterTool: React.FC<ImageConverterToolProps> = ({ tool }) 
         }
 
         ctx.drawImage(img, 0, 0);
+        URL.revokeObjectURL(objectUrl);
 
         if (format === "svg") {
           // Render SVG image wrapper with base64 data
           const pngDataUrl = canvas.toDataURL("image/png");
-          const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width}" "${canvas.height}"><image href="${pngDataUrl}" width="${canvas.width}" height="${canvas.height}"/></svg>`;
+          const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}"><image href="${pngDataUrl}" width="${canvas.width}" height="${canvas.height}"/></svg>`;
           const blob = new Blob([svgMarkup], { type: "image/svg+xml;charset=utf-8" });
           setConvertedBlob(blob);
           if (convertedUrl) URL.revokeObjectURL(convertedUrl);

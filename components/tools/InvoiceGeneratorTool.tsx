@@ -172,6 +172,9 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
     const doc = new jsPDF({ unit: "pt", format: "a4" });
     const pageWidth = doc.internal.pageSize.getWidth();
 
+    // Use safe currency code for default Helvetica font to prevent Unicode glyph corruption
+    const pdfCurrency = currencyCode === "INR" || currencyCode === "AED" ? currencyCode : currencySymbol;
+
     // Top Header Banner
     doc.setFillColor(30, 41, 59); // slate-800
     doc.rect(0, 0, pageWidth, 70, "F");
@@ -223,8 +226,8 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
     doc.setFontSize(9);
     doc.text("ITEM / DESCRIPTION", 50, tableTop + 16);
     doc.text("QTY", 360, tableTop + 16, { align: "center" });
-    doc.text(`PRICE (${currencySymbol})`, 440, tableTop + 16, { align: "right" });
-    doc.text(`TOTAL (${currencySymbol})`, pageWidth - 50, tableTop + 16, { align: "right" });
+    doc.text(`PRICE (${pdfCurrency})`, 440, tableTop + 16, { align: "right" });
+    doc.text(`TOTAL (${pdfCurrency})`, pageWidth - 50, tableTop + 16, { align: "right" });
 
     // Table Rows
     let currentY = tableTop + 24;
@@ -249,21 +252,21 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
 
     doc.setFontSize(9);
     doc.text("Subtotal:", summaryX, summaryTop);
-    doc.text(`${currencySymbol} ${subtotal.toLocaleString()}`, valueX, summaryTop, { align: "right" });
+    doc.text(`${pdfCurrency} ${subtotal.toLocaleString()}`, valueX, summaryTop, { align: "right" });
 
     if (discountPercent > 0) {
       doc.text(`Discount (${discountPercent}%):`, summaryX, summaryTop + 16);
-      doc.text(`-${currencySymbol} ${discountAmount.toLocaleString()}`, valueX, summaryTop + 16, { align: "right" });
+      doc.text(`-${pdfCurrency} ${discountAmount.toLocaleString()}`, valueX, summaryTop + 16, { align: "right" });
     }
 
     if (taxPercent > 0) {
       doc.text(`Tax / VAT (${taxPercent}%):`, summaryX, summaryTop + 32);
-      doc.text(`+${currencySymbol} ${taxAmount.toLocaleString()}`, valueX, summaryTop + 32, { align: "right" });
+      doc.text(`+${pdfCurrency} ${taxAmount.toLocaleString()}`, valueX, summaryTop + 32, { align: "right" });
     }
 
     if (shippingFee > 0) {
       doc.text("Shipping / Extra Fee:", summaryX, summaryTop + 48);
-      doc.text(`+${currencySymbol} ${shippingFee.toLocaleString()}`, valueX, summaryTop + 48, { align: "right" });
+      doc.text(`+${pdfCurrency} ${shippingFee.toLocaleString()}`, valueX, summaryTop + 48, { align: "right" });
     }
 
     // Grand Total Box
@@ -274,7 +277,7 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
     doc.setFontSize(11);
     doc.setTextColor(15, 23, 42);
     doc.text("Grand Total:", summaryX, totalBoxY + 3);
-    doc.text(`${currencySymbol} ${grandTotal.toLocaleString()}`, valueX, totalBoxY + 3, { align: "right" });
+    doc.text(`${pdfCurrency} ${grandTotal.toLocaleString()}`, valueX, totalBoxY + 3, { align: "right" });
 
     // Notes and Terms
     if (notes || bankDetails) {
@@ -561,13 +564,13 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-zinc-800">
-                {items.map((item) => (
+                {items.map((item, index) => (
                   <tr key={item.id} className="hover:bg-slate-50/50 dark:hover:bg-zinc-800/30">
                     <td className="p-2.5 pl-3">
                       <input
                         type="text"
                         value={item.description}
-                        aria-label={`Description for ${item.description}`}
+                        aria-label={item.description ? `Description for ${item.description}` : `Item description row ${index + 1}`}
                         onChange={(e) => handleItemChange(item.id, "description", e.target.value)}
                         className="w-full px-2 py-1 text-xs rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-900"
                       />
@@ -577,7 +580,7 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
                         type="number"
                         min="1"
                         value={item.quantity}
-                        aria-label="Item quantity"
+                        aria-label={`Quantity row ${index + 1}`}
                         onChange={(e) =>
                           handleItemChange(item.id, "quantity", parseInt(e.target.value, 10) || 1)
                         }
@@ -589,7 +592,7 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
                         type="number"
                         min="0"
                         value={item.unitPrice}
-                        aria-label="Item unit price"
+                        aria-label={`Unit price row ${index + 1}`}
                         onChange={(e) =>
                           handleItemChange(item.id, "unitPrice", parseFloat(e.target.value) || 0)
                         }
@@ -604,7 +607,7 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
                         type="button"
                         onClick={() => handleDeleteItem(item.id)}
                         disabled={items.length <= 1}
-                        aria-label={`Delete ${item.description}`}
+                        aria-label={`Delete item row ${index + 1}`}
                         className="p-1 rounded text-slate-400 hover:text-red-500 disabled:opacity-30 cursor-pointer"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

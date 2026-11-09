@@ -213,11 +213,13 @@ export const PdfMergerTool: React.FC<PdfMergerToolProps> = ({ tool }) => {
 
   const downloadFile = (blob: Blob, defaultFilename: string) => {
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
+    a.href = url;
     a.download = defaultFilename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const totalPagesInMerge = pdfList.reduce((acc, p) => acc + p.pageCount, 0);

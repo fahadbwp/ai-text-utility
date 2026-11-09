@@ -60,6 +60,7 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
           img.onload = resolve;
           img.onerror = reject;
         });
+        URL.revokeObjectURL(objectUrl);
 
         let currentWidth = img.naturalWidth;
         let currentHeight = img.naturalHeight;
@@ -71,6 +72,9 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
         const ctx = canvas.getContext("2d");
         if (!ctx) throw new Error("Could not create canvas context");
 
+        // Fill white background so transparent images don't convert with black background
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, currentWidth, currentHeight);
         ctx.drawImage(img, 0, 0, currentWidth, currentHeight);
 
         const targetBytes = targetSizeKb * 1024;
@@ -117,7 +121,8 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
             currentHeight = Math.round(img.naturalHeight * scale);
             canvas.width = currentWidth;
             canvas.height = currentHeight;
-            ctx.clearRect(0, 0, currentWidth, currentHeight);
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, currentWidth, currentHeight);
             ctx.drawImage(img, 0, 0, currentWidth, currentHeight);
 
             const testBlob = await new Promise<Blob | null>((resolve) =>
@@ -196,11 +201,13 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
     if (!compressedBlob || !file) return;
     const a = document.createElement("a");
     const originalName = file.name.substring(0, file.name.lastIndexOf(".")) || file.name;
-    a.href = URL.createObjectURL(compressedBlob);
+    const url = URL.createObjectURL(compressedBlob);
+    a.href = url;
     a.download = `${originalName}-compressed.jpg`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const savingsPercent =

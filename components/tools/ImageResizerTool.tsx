@@ -47,12 +47,19 @@ export const ImageResizerTool: React.FC<ImageResizerToolProps> = ({ tool }) => {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
+        const isPng = file?.type === "image/png";
+        const outputMime = isPng ? "image/png" : "image/jpeg";
+        if (!isPng) {
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, targetW, targetH);
+        }
+
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = "high";
         ctx.drawImage(img, 0, 0, targetW, targetH);
 
         const blob = await new Promise<Blob | null>((resolve) =>
-          canvas.toBlob(resolve, "image/jpeg", 0.92)
+          canvas.toBlob(resolve, outputMime, 0.92)
         );
         if (blob) {
           setResizedBlob(blob);
@@ -65,7 +72,7 @@ export const ImageResizerTool: React.FC<ImageResizerToolProps> = ({ tool }) => {
         setIsProcessing(false);
       }
     },
-    [resizedUrl]
+    [file, resizedUrl]
   );
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -130,13 +137,17 @@ export const ImageResizerTool: React.FC<ImageResizerToolProps> = ({ tool }) => {
 
   const handleDownload = () => {
     if (!resizedBlob || !file) return;
+    const isPng = file.type === "image/png";
     const originalName = file.name.substring(0, file.name.lastIndexOf(".")) || file.name;
+    const ext = isPng ? "png" : "jpg";
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(resizedBlob);
-    a.download = `${originalName}-resized.jpg`;
+    const url = URL.createObjectURL(resizedBlob);
+    a.href = url;
+    a.download = `${originalName}-resized.${ext}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   return (

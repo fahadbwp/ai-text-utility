@@ -116,6 +116,16 @@ export default function AiToolsDirectoryPage() {
           <p className="text-sm sm:text-base text-slate-600 dark:text-zinc-400 leading-relaxed">
             Discover, filter, and compare the most powerful generative AI software across writing, coding, image creation, video, audio, and SEO workflows.
           </p>
+
+          <div className="flex items-center justify-center gap-3 pt-1">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-slate-800 dark:hover:bg-white shadow-xs transition-colors"
+            >
+              <span>Submit Your Tool</span>
+              <ArrowRight size={12} />
+            </Link>
+          </div>
         </div>
 
         {/* Categories Rail Links */}
