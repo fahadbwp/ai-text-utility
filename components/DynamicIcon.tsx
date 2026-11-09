@@ -62,10 +62,18 @@ import {
   AlertTriangle,
   PhoneCall,
   Replace,
+  FileImage,
+  Crop,
+  Receipt,
+  FileCheck,
   LucideProps,
 } from "lucide-react";
 
 const ICON_MAP: Record<string, React.FC<LucideProps>> = {
+  FileImage,
+  Crop,
+  Receipt,
+  FileCheck,
   Calculator,
   Link2,
   SmilePlus,

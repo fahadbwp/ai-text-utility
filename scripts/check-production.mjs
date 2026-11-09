@@ -4,12 +4,23 @@ import {JSDOM} from 'jsdom';
 import {TOOLS_REGISTRY} from '../data/toolsRegistry.ts';
 import {SEARCH_GUIDES} from '../data/seo/searchGuides.ts';
 import {getToolEducationalContent} from '../data/toolFaqs.ts';
+import {AI_CATEGORIES, getAllAiTools} from '../data/aiToolsDirectory.ts';
 const origin = 'http://127.0.0.1:3001';
 const server=spawn('node',['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port','3001'],{stdio:['ignore','pipe','pipe']});
 const normalize = value => value.replace(/\s+/g, ' ').trim();
 let canonicalOrigin;
 const titles = new Set();
-const canonicalPaths = new Set(['/', '/about', '/contact', '/privacy', '/terms', '/tools/pdf-to-word', '/tools/word-to-pdf', ...TOOLS_REGISTRY.map(tool => `/tools/${tool.slug}`)]);
+const directoryPaths = [
+  '/ai-tools',
+  ...AI_CATEGORIES.map(c => `/ai-tools/${c.slug}`),
+  ...getAllAiTools().map(t => `/ai-tools/alternatives/${t.slug}`),
+];
+const canonicalPaths = new Set([
+  '/', '/about', '/contact', '/privacy', '/terms',
+  '/tools/pdf-to-word', '/tools/word-to-pdf',
+  ...TOOLS_REGISTRY.map(tool => `/tools/${tool.slug}`),
+  ...directoryPaths,
+]);
 async function inspect(path) {
  const res = await fetch(origin + path);
  assert.equal(res.status, 200, path);
@@ -89,6 +100,7 @@ async function inspect(path) {
 try {
  await new Promise((resolve,reject)=>{server.stdout.on('data',d=>{if(d.toString().includes('Ready'))resolve()});server.on('error',reject);server.on('exit',c=>reject(new Error(`server exited ${c}`)));setTimeout(()=>reject(new Error('startup timeout')),15000).unref()});
  for (const path of ['/', '/about', '/contact', '/privacy', '/terms']) await inspect(path);
+ for (const path of directoryPaths) await inspect(path);
  for (const tool of TOOLS_REGISTRY) {
   await inspect(`/tools/${tool.slug}`);
   for(const alias of tool.aliases||[]) {
@@ -114,5 +126,5 @@ try {
  sitemapDom.window.close();
  const image = await fetch(origin + '/og-image.png');
  assert.equal(image.status, 200);
- console.log(`PASS: ${TOOLS_REGISTRY.length + 5} canonical pages, titles, descriptions, H1s, social images, visible FAQ content, absent FAQPage schema, application/breadcrumb schemas, aliases, 404/noindex, named controls, internal tool links, practical guides and canonical sitemap`);
+ console.log(`PASS: ${canonicalPaths.size} canonical pages, titles, descriptions, H1s, social images, visible FAQ content, absent FAQPage schema, application/breadcrumb schemas, aliases, 404/noindex, named controls, internal tool links, practical guides and canonical sitemap`);
 } finally { server.kill(); }

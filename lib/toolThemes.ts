@@ -65,6 +65,33 @@ export const CATEGORY_THEMES: Record<ToolCategory, ColorTheme> = {
     badgeText: "text-slate-700 dark:text-slate-300",
     badgeBorder: "border-slate-200 dark:border-slate-700",
   },
+  Image: {
+    emoji: "🖼️",
+    bg: "bg-emerald-500/10 dark:bg-emerald-500/15",
+    text: "text-emerald-600 dark:text-emerald-400",
+    border: "border-emerald-200 dark:border-emerald-900/40",
+    badgeBg: "bg-emerald-50 dark:bg-emerald-950/40",
+    badgeText: "text-emerald-700 dark:text-emerald-300",
+    badgeBorder: "border-emerald-200 dark:border-emerald-900/40",
+  },
+  "PDF & Documents": {
+    emoji: "📄",
+    bg: "bg-rose-500/10 dark:bg-rose-500/15",
+    text: "text-rose-600 dark:text-rose-400",
+    border: "border-rose-200 dark:border-rose-900/40",
+    badgeBg: "bg-rose-50 dark:bg-rose-950/40",
+    badgeText: "text-rose-700 dark:text-rose-300",
+    badgeBorder: "border-rose-200 dark:border-rose-900/40",
+  },
+  Business: {
+    emoji: "🧾",
+    bg: "bg-violet-500/10 dark:bg-violet-500/15",
+    text: "text-violet-600 dark:text-violet-400",
+    border: "border-violet-200 dark:border-violet-900/40",
+    badgeBg: "bg-violet-50 dark:bg-violet-950/40",
+    badgeText: "text-violet-700 dark:text-violet-300",
+    badgeBorder: "border-violet-200 dark:border-violet-900/40",
+  },
 };
 
 export const TOOL_THEMES: Record<string, ColorTheme> = {

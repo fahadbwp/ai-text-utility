@@ -1476,6 +1476,130 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
       "regex-tester",
     ],
   },
+  "image-compressor": {
+    slug: "image-compressor",
+    title: "Image Compressor Online Free – Compress Under 20KB, 50KB, 100KB",
+    metaDescription:
+      "Compress JPG, PNG, and WebP images to exact target sizes under 20KB, 50KB, or 100KB in your browser. 100% private, zero uploads, instant free download.",
+    h1: "Free Online Image Compressor",
+    aboveTheFoldIntro:
+      "Compress your photos, documents, and web graphics directly in your browser without uploading files to any external server. Choose preset targets or custom quality.",
+    primaryKeyword: "image compressor",
+    secondaryKeywords: [
+      "compress image under 50kb",
+      "compress image under 20kb",
+      "compress image under 100kb",
+      "reduce image size",
+      "compress png online",
+      "compress jpg online",
+    ],
+    popularAnchor: "Online Image Compressor",
+    clusterSlugs: [
+      "image-converter",
+      "image-resizer",
+      "pdf-merger",
+      "word-counter",
+    ],
+  },
+  "image-converter": {
+    slug: "image-converter",
+    title: "Image Format Converter Online – PNG, JPG, WebP, SVG Free",
+    metaDescription:
+      "Convert images between PNG, JPG, WebP, and SVG formats directly in your browser. 100% client-side privacy, lossless conversion, and instant downloads.",
+    h1: "Online Image Format Converter",
+    aboveTheFoldIntro:
+      "Convert raster images, illustrations, and photos between modern formats without server processing. Retain image quality with fast, private browser conversion.",
+    primaryKeyword: "image format converter",
+    secondaryKeywords: [
+      "png to jpg converter",
+      "jpg to png converter",
+      "webp to png converter",
+      "png to webp converter",
+      "convert image format online",
+      "free image converter",
+    ],
+    popularAnchor: "Image Format Converter",
+    clusterSlugs: [
+      "image-compressor",
+      "image-resizer",
+      "pdf-merger",
+      "word-counter",
+    ],
+  },
+  "image-resizer": {
+    slug: "image-resizer",
+    title: "Image Resizer & Crop Online – Social Media & Passport Presets",
+    metaDescription:
+      "Resize image dimensions in pixels or crop photos to exact aspect ratio presets for Instagram, YouTube, and passports. 100% private in-browser tool.",
+    h1: "Image Resizer and Photo Cropper",
+    aboveTheFoldIntro:
+      "Adjust image dimensions by exact pixels, percentages, or crop to standard aspect ratio presets for social platforms, banners, and passport photos.",
+    primaryKeyword: "image resizer and crop",
+    secondaryKeywords: [
+      "resize image pixels",
+      "crop image online",
+      "passport photo maker online",
+      "social media image resizer",
+      "photo dimension changer",
+    ],
+    popularAnchor: "Image Resizer & Crop",
+    clusterSlugs: [
+      "image-compressor",
+      "image-converter",
+      "pdf-merger",
+      "word-counter",
+    ],
+  },
+  "pdf-merger": {
+    slug: "pdf-merger",
+    title: "Merge PDF Files Online Free – Combine & Split Pages in Browser",
+    metaDescription:
+      "Combine multiple PDF documents into one or extract selected page ranges with 100% client-side privacy. Zero file uploads, completely free and instant.",
+    h1: "Free Online PDF Merger and Splitter",
+    aboveTheFoldIntro:
+      "Merge multiple PDF files in any order or split pages into clean new documents entirely in your web browser. Your private documents never touch an external server.",
+    primaryKeyword: "merge pdf files online",
+    secondaryKeywords: [
+      "combine pdf files",
+      "split pdf online",
+      "merge pdf free",
+      "extract pdf pages",
+      "pdf joiner online",
+      "client side pdf merger",
+    ],
+    popularAnchor: "PDF Merger & Splitter",
+    clusterSlugs: [
+      "image-compressor",
+      "invoice-generator",
+      "word-counter",
+      "json-to-csv",
+    ],
+  },
+  "invoice-generator": {
+    slug: "invoice-generator",
+    title: "Free Invoice Generator & Slip Maker – Instant PDF & WhatsApp",
+    metaDescription:
+      "Create professional business invoices, receipts, and shop billing slips with custom logos, tax, discounts, and one-click PDF export or WhatsApp sharing.",
+    h1: "Free Invoice Generator and Slip Maker",
+    aboveTheFoldIntro:
+      "Design, customize, and generate professional PDF invoices and shop receipts directly in your browser. Add items, calculate taxes, and download or print instantly.",
+    primaryKeyword: "free invoice generator",
+    secondaryKeywords: [
+      "receipt maker online",
+      "shop bill generator",
+      "billing slip maker",
+      "create invoice pdf",
+      "estimate generator",
+      "free digital invoice",
+    ],
+    popularAnchor: "Invoice Generator & Slip Maker",
+    clusterSlugs: [
+      "pdf-merger",
+      "image-compressor",
+      "word-counter",
+      "json-to-csv",
+    ],
+  },
 };
 
 

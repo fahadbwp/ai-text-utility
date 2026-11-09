@@ -192,6 +192,84 @@ export const CATEGORY_DEFAULT_CONTENT: Record<
       },
     ],
   },
+  Image: {
+    howToSteps: [
+      "Upload or drag and drop your image file (JPG, PNG, WebP) into the upload area.",
+      "Adjust target compression size, output format, or dimension parameters.",
+      "Preview the processed image and compare file sizes in real time.",
+      "Click 'Download' to save the optimized image directly to your device.",
+    ],
+    features: [
+      "100% Client-side browser execution with zero server uploads",
+      "Support for popular web formats including JPG, PNG, and WebP",
+      "Interactive side-by-side preview and instantaneous processing",
+      "Complete privacy — your images never leave your local machine",
+    ],
+    faqs: [
+      {
+        question: "Are my photos uploaded to any remote server?",
+        answer:
+          "No. All image operations run directly in your browser using HTML5 Canvas and Blob APIs. Your files are never uploaded to any server or cloud service.",
+      },
+      {
+        question: "Which image formats are supported?",
+        answer:
+          "The tools support common raster formats including JPEG, PNG, WebP, SVG, and BMP depending on the selected tool mode.",
+      },
+    ],
+  },
+  "PDF & Documents": {
+    howToSteps: [
+      "Upload your PDF or document files using the file picker or drag-and-drop zone.",
+      "Choose your desired operation (merge files, split pages, or convert formats).",
+      "Review the file order, page ranges, or conversion progress bar.",
+      "Click the download button to save your finished document instantly.",
+    ],
+    features: [
+      "100% In-browser document manipulation without cloud processing",
+      "Fast client-side PDF merging, splitting, and rendering",
+      "Strict privacy protection — documents stay on your device",
+      "Compatible with all modern desktop and mobile web browsers",
+    ],
+    faqs: [
+      {
+        question: "Is it safe to merge confidential PDF documents here?",
+        answer:
+          "Yes. Document processing is executed 100% client-side in your browser memory. No document data or metadata is ever transmitted over the network.",
+      },
+      {
+        question: "Are there any file size or page count limits?",
+        answer:
+          "Because processing happens locally in your browser memory, limits depend only on your computer's RAM. Most modern devices comfortably process hundreds of pages.",
+      },
+    ],
+  },
+  Business: {
+    howToSteps: [
+      "Fill in your business details, contact information, and upload your company logo.",
+      "Enter your client's billing information, invoice number, and issue date.",
+      "Add line items with descriptions, quantities, unit prices, and tax rates.",
+      "Click 'Download PDF', 'Print Slip', or 'Share via WhatsApp' to export your invoice.",
+    ],
+    features: [
+      "100% Free digital invoice and shop receipt slip generator",
+      "Custom business branding with logo upload and currency selection",
+      "Instant client-side PDF export without watermarks or sign-up",
+      "One-click WhatsApp sharing and print-ready receipt slip layout",
+    ],
+    faqs: [
+      {
+        question: "Do I need to sign up or create an account to generate invoices?",
+        answer:
+          "No. The invoice generator is completely free, requires no account or credit card, and adds no forced watermarks to your exported documents.",
+      },
+      {
+        question: "Where is my invoice data stored?",
+        answer:
+          "All invoice data remains in your local browser session. Nothing is saved to external databases or remote servers, ensuring total financial privacy.",
+      },
+    ],
+  },
 };
 
 export const TOOL_SPECIFIC_CONTENT: Record<
@@ -2360,6 +2438,146 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       {
         question: "Can I generate Zod runtime validation schemas as well as TypeScript types?",
         answer: "Yes! Switch the mode pill to 'Zod Schema'. The generator will output complete z.object() schemas with inferred z.infer<typeof RootSchema> types ready for API validation."
+      }
+    ]
+  },
+  "image-compressor": {
+    howToSteps: [
+      "Upload or drag and drop your JPG, PNG, or WebP photo into the compression box.",
+      "Select a target size preset (under 20KB, 50KB, 100KB) or use the quality slider.",
+      "Review the compressed image preview and compare original vs new file size.",
+      "Click 'Download Compressed Image' to save your file with instant zero-loss quality."
+    ],
+    features: [
+      "Target size compression presets specifically calibrated for job applications and portal uploads",
+      "Iterative client-side binary search algorithm to achieve exact maximum KB constraints",
+      "Real-time side-by-side visual comparison with percentage compression statistics",
+      "100% private in-browser processing with zero server uploads and zero data retention"
+    ],
+    faqs: [
+      {
+        question: "How does the image compressor hit exact target sizes like under 50KB?",
+        answer: "The tool utilizes an iterative client-side binary search loop that dynamically adjusts canvas encoding quality until the output blob falls directly under your chosen target file size."
+      },
+      {
+        question: "Does compressing an image here reduce its visual clarity?",
+        answer: "The compression algorithm preserves high perceptual fidelity and sharp edge definition while eliminating redundant color palette metadata and unnecessary headers."
+      },
+      {
+        question: "Are my uploaded photos safe and private?",
+        answer: "Yes, completely safe. All compression computations happen locally inside your browser memory using HTML5 Canvas APIs. No photo is ever sent across the network."
+      }
+    ]
+  },
+  "image-converter": {
+    howToSteps: [
+      "Select or drag and drop your image file in PNG, JPG, WebP, or SVG format.",
+      "Choose your desired target format from the format selection buttons.",
+      "Adjust output quality settings if converting to lossy formats like JPEG or WebP.",
+      "Download the freshly converted image file directly to your local computer."
+    ],
+    features: [
+      "Instant bidirectional format conversion between PNG, JPEG, WebP, SVG, and BMP",
+      "Lossless alpha channel transparency preservation when converting to PNG or WebP",
+      "Custom output quality slider to balance visual clarity against output file weight",
+      "Pure browser execution with zero uploads and zero software installation required"
+    ],
+    faqs: [
+      {
+        question: "Can I convert transparent PNG images to JPG without black background artifacts?",
+        answer: "Yes. When converting transparent PNG files to JPEG, the converter automatically paints a clean solid white backdrop to prevent black alpha-channel artifacts."
+      },
+      {
+        question: "Why convert PNG images to WebP format?",
+        answer: "WebP provides superior compression and smaller file sizes compared to traditional PNG while maintaining crisp alpha transparency, improving website loading speeds."
+      },
+      {
+        question: "Are my files uploaded to an external conversion server?",
+        answer: "No. The entire conversion process executes client-side inside your browser canvas engine. No files or images are ever uploaded to any server."
+      }
+    ]
+  },
+  "image-resizer": {
+    howToSteps: [
+      "Upload an image from your computer or drag it directly onto the resizer canvas.",
+      "Enter your target width and height in pixels or select a social media aspect ratio preset.",
+      "Lock the aspect ratio chain to automatically preserve correct proportions during resize.",
+      "Click the download button to export your resized and cropped image instantly."
+    ],
+    features: [
+      "Multi-platform aspect ratio presets for Instagram (1:1, 4:5), YouTube (16:9), and Stories (9:16)",
+      "Official passport photo dimensions and aspect ratio presets for online portal submissions",
+      "High-quality bicubic interpolation canvas scaling to prevent pixelation and blur",
+      "100% client-side photo processing with zero network latency or server storage"
+    ],
+    faqs: [
+      {
+        question: "What presets are included for social media and passports?",
+        answer: "The resizer includes 1:1 Square (avatars and Instagram feed), 16:9 Landscape (YouTube banners and presentations), 4:5 Portrait (Instagram posts), 9:16 Vertical (TikTok, Reels, and Stories), and standard Passport Photo dimensions."
+      },
+      {
+        question: "How does the aspect ratio lock work?",
+        answer: "When aspect ratio lock is enabled, typing a new width automatically computes the mathematically proportional height (and vice-versa), ensuring your photo never looks stretched or squished."
+      },
+      {
+        question: "Does resizing images locally affect privacy?",
+        answer: "No. Everything runs purely within your local browser runtime. Personal photos, government IDs, and documents never leave your device."
+      }
+    ]
+  },
+  "pdf-merger": {
+    howToSteps: [
+      "Upload two or more PDF documents into the PDF merger drop zone.",
+      "Reorder your documents using the up and down arrow controls to achieve the desired sequence.",
+      "Click 'Merge PDFs' to assemble all documents into a unified file.",
+      "Save and download the merged PDF file to your local computer with one click."
+    ],
+    features: [
+      "Merge multiple PDF files into a single unified document with custom page sequencing",
+      "Split large PDF files by specifying exact page ranges or extracting individual sheets",
+      "Powered by client-side WebAssembly and pdf-lib for lightning-fast local execution",
+      "Zero server transmission guaranteeing total privacy for sensitive legal and financial papers"
+    ],
+    faqs: [
+      {
+        question: "Can I split specific pages from a PDF as well as merge?",
+        answer: "Yes. Switch to 'Split Mode' to extract specific page ranges (such as '1-3, 5, 8-10') or save individual pages into fresh, standalone PDF documents."
+      },
+      {
+        question: "Is there a limit on the number of PDFs I can combine?",
+        answer: "There are no arbitrary server limits. Because merging runs client-side in browser memory, you can combine as many documents as your device memory can accommodate."
+      },
+      {
+        question: "Are my confidential contracts and PDF documents kept private?",
+        answer: "Yes. Your files are processed entirely in your web browser memory. No documents or pages are ever uploaded, logged, or sent to any remote server."
+      }
+    ]
+  },
+  "invoice-generator": {
+    howToSteps: [
+      "Enter your business name, address, contact information, and upload your company logo.",
+      "Fill in the client details, invoice number, issue date, payment due date, and select currency.",
+      "Add your invoice line items specifying item descriptions, quantities, unit prices, and tax rates.",
+      "Click 'Download PDF' to save a professional invoice, 'Print Slip' to print, or 'Share via WhatsApp'."
+    ],
+    features: [
+      "Complete invoice personalization with logo upload, customizable tax rates, and discount lines",
+      "Multiple international currency symbols supported including USD, EUR, GBP, PKR, INR, and AED",
+      "Clean vector PDF rendering via client-side jsPDF with professional layout and borders",
+      "Instant WhatsApp share button with pre-formatted invoice summary and total amount"
+    ],
+    faqs: [
+      {
+        question: "Is this invoice generator free to use for shops and small businesses?",
+        answer: "Yes. The invoice and slip generator is 100% free forever without account creation, monthly subscriptions, or forced watermark branding."
+      },
+      {
+        question: "How does the WhatsApp invoice sharing feature work?",
+        answer: "Clicking 'Share via WhatsApp' formats a clear text summary with your invoice number, issue date, itemized list, and grand total, opening WhatsApp ready to send to your client."
+      },
+      {
+        question: "Can I print a physical receipt slip for customers directly from the tool?",
+        answer: "Yes. The 'Print Slip' button triggers your browser's print dialog with a print-optimized clean stylesheet suitable for standard printers or thermal receipt printers."
       }
     ]
   },

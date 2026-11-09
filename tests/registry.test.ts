@@ -16,6 +16,9 @@ import {
   TRANSFORM_TOOLS,
   DATE_TIME_TOOLS,
   AI_TOOLS,
+  IMAGE_TOOLS,
+  PDF_TOOLS,
+  BUSINESS_TOOLS,
 } from "../data/toolsRegistry.ts";
 import type { ToolDefinition } from "../data/tools/types.ts";
 
@@ -50,6 +53,9 @@ test("Tools Registry - Modular Category Consistency", () => {
   assert.equal(TRANSFORM_TOOLS.length, 12);
   assert.equal(DATE_TIME_TOOLS.length, 2);
   assert.equal(AI_TOOLS.length, 7);
+  assert.equal(IMAGE_TOOLS.length, 3);
+  assert.equal(PDF_TOOLS.length, 1);
+  assert.equal(BUSINESS_TOOLS.length, 1);
 
   const totalSum =
     TEXT_TOOLS.length +
@@ -57,10 +63,13 @@ test("Tools Registry - Modular Category Consistency", () => {
     CLEANUP_TOOLS.length +
     TRANSFORM_TOOLS.length +
     DATE_TIME_TOOLS.length +
-    AI_TOOLS.length;
+    AI_TOOLS.length +
+    IMAGE_TOOLS.length +
+    PDF_TOOLS.length +
+    BUSINESS_TOOLS.length;
 
   assert.equal(TOOLS_REGISTRY.length, totalSum);
-  assert.equal(TOOLS_REGISTRY.length, 54);
+  assert.equal(TOOLS_REGISTRY.length, 59);
 });
 
 test("Tools Registry - Valid Categories", () => {

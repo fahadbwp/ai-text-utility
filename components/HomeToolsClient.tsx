@@ -197,9 +197,28 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
         </div>
       </section>
 
-      {/* Promotional Callout */}
-      <div className="flex items-center justify-end px-1 -mt-3 sm:-mt-4">
-        <AdsterraSmartLink variant="badge" label="Featured Deals" />
+      {/* AI Tools Directory Discovery Banner */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl border border-blue-200/60 dark:border-blue-900/40 bg-gradient-to-r from-blue-50/60 via-indigo-50/40 to-white dark:from-blue-950/20 dark:via-indigo-950/10 dark:to-zinc-900 shadow-xs">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+            <span className="text-sm">🤖</span>
+          </div>
+          <div>
+            <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-zinc-100">
+              New: Curated AI Software Directory
+            </p>
+            <p className="text-[11px] sm:text-xs text-slate-600 dark:text-zinc-400">
+              Compare 100+ top tools for Writing, Coding, Video, Audio, and Image creation.
+            </p>
+          </div>
+        </div>
+        <Link
+          href="/ai-tools"
+          className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition-colors shrink-0 self-start sm:self-auto"
+        >
+          <span>Explore Directory</span>
+          <ArrowRight size={12} />
+        </Link>
       </div>
 
       {selectedCategory === "ALL" && !onlyFavorites && recentTools.length > 0 && (

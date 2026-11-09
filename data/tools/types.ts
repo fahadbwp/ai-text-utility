@@ -4,7 +4,10 @@ export type ToolCategory =
   | "Cleanup"
   | "Transform"
   | "Date & Time"
-  | "AI Magic";
+  | "AI Magic"
+  | "Image"
+  | "PDF & Documents"
+  | "Business";
 
 export type ToolLayout =
   | "transform"
@@ -34,7 +37,18 @@ export interface ToolDefinition {
   requiresAI?: boolean;
   sampleInput?: string;
   aliases?: string[];
-  customComponent?: "regex-tester" | "json-formatter" | "password-generator" | "date-calculator" | "query-parser" | "default";
+  customComponent?:
+    | "regex-tester"
+    | "json-formatter"
+    | "password-generator"
+    | "date-calculator"
+    | "query-parser"
+    | "image-compressor"
+    | "image-converter"
+    | "image-resizer"
+    | "pdf-merger"
+    | "invoice-generator"
+    | "default";
 }
 
 export const CATEGORIES: { name: ToolCategory; icon: string; description: string }[] = [
@@ -44,4 +58,7 @@ export const CATEGORIES: { name: ToolCategory; icon: string; description: string
   { name: "Transform", icon: "Shuffle", description: "Encode, convert cases, hash, and generate text" },
   { name: "Date & Time", icon: "Calendar", description: "Unix timestamps, date calculations, and intervals" },
   { name: "AI Magic", icon: "Cpu", description: "AI-assisted rewriting, proofreading, and summarization" },
+  { name: "Image", icon: "FileImage", description: "Compress, convert, resize, and crop images client-side" },
+  { name: "PDF & Documents", icon: "FileCheck", description: "Merge, split, and convert PDF documents in browser" },
+  { name: "Business", icon: "Receipt", description: "Create invoices, receipts, and billing slips instantly" },
 ];

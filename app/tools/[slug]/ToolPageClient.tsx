@@ -14,12 +14,22 @@ import {
   TransformTool,
   PiiSanitizerTool,
   JsonToTypescriptTool,
+  ImageCompressorTool,
+  ImageConverterTool,
+  ImageResizerTool,
+  PdfMergerTool,
+  InvoiceGeneratorTool,
 } from "@/components/tools";
 
 export const ToolPageClient: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   if (tool.slug === "diff-checker") return <DiffCheckerTool tool={tool} />;
   if (tool.slug === "pii-sanitizer") return <PiiSanitizerTool tool={tool} />;
   if (tool.slug === "json-to-typescript") return <JsonToTypescriptTool tool={tool} />;
+  if (tool.slug === "image-compressor") return <ImageCompressorTool tool={tool} />;
+  if (tool.slug === "image-converter") return <ImageConverterTool tool={tool} />;
+  if (tool.slug === "image-resizer") return <ImageResizerTool tool={tool} />;
+  if (tool.slug === "pdf-merger") return <PdfMergerTool tool={tool} />;
+  if (tool.slug === "invoice-generator") return <InvoiceGeneratorTool tool={tool} />;
   // 1. AI Magic Tools (6 tools)
   if (tool.category === "AI Magic") {
     return <AiTool tool={tool} />;

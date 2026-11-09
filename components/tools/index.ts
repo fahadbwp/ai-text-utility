@@ -8,3 +8,8 @@ export { TableTool } from "./TableTool";
 export { TransformTool } from "./TransformTool";
 export { PiiSanitizerTool } from "./PiiSanitizerTool";
 export { JsonToTypescriptTool } from "./JsonToTypescriptTool";
+export { ImageCompressorTool } from "./ImageCompressorTool";
+export { ImageConverterTool } from "./ImageConverterTool";
+export { ImageResizerTool } from "./ImageResizerTool";
+export { PdfMergerTool } from "./PdfMergerTool";
+export { InvoiceGeneratorTool } from "./InvoiceGeneratorTool";

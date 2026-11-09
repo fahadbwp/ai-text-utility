@@ -83,30 +83,56 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
         </Link>
 
         {/* Desktop Primary Navigation Links */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-1">
+        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-0.5 lg:gap-1">
           <Link
             href="/"
-            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors ${
               pathname === "/" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
             }`}
           >
             Home
           </Link>
           <Link
+            href="/tools/image-compressor"
+            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname?.startsWith("/tools/image") ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
+          >
+            Image Suite
+          </Link>
+          <Link
+            href="/tools/pdf-merger"
+            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname === "/tools/pdf-merger" || pathname === "/tools/pdf-to-word" || pathname === "/tools/word-to-pdf"
+                ? "text-blue-600 dark:text-blue-400 font-semibold"
+                : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
+          >
+            PDF Suite
+          </Link>
+          <Link
+            href="/tools/invoice-generator"
+            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname === "/tools/invoice-generator" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
+          >
+            Invoice Maker
+          </Link>
+          <Link
+            href="/ai-tools"
+            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              pathname?.startsWith("/ai-tools") ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
+            }`}
+          >
+            AI Directory
+          </Link>
+          <Link
             href="/about"
-            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors ${
               pathname === "/about" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
             }`}
           >
             About
-          </Link>
-          <Link
-            href="/contact"
-            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-              pathname === "/contact" ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100"
-            }`}
-          >
-            Contact
           </Link>
         </nav>
 

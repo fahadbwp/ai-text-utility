@@ -6,6 +6,9 @@ import { CLEANUP_TOOLS } from "./cleanup.ts";
 import { TRANSFORM_TOOLS } from "./transform.ts";
 import { DATE_TIME_TOOLS } from "./dateTime.ts";
 import { AI_TOOLS } from "./ai.ts";
+import { IMAGE_TOOLS } from "./image.ts";
+import { PDF_TOOLS } from "./pdf.ts";
+import { BUSINESS_TOOLS } from "./business.ts";
 import { validateToolsRegistry, assertValidRegistry } from "./validation.ts";
 
 export * from "./types.ts";
@@ -16,6 +19,9 @@ export { CLEANUP_TOOLS } from "./cleanup.ts";
 export { TRANSFORM_TOOLS } from "./transform.ts";
 export { DATE_TIME_TOOLS } from "./dateTime.ts";
 export { AI_TOOLS } from "./ai.ts";
+export { IMAGE_TOOLS } from "./image.ts";
+export { PDF_TOOLS } from "./pdf.ts";
+export { BUSINESS_TOOLS } from "./business.ts";
 
 /**
  * Unified Central Tools Registry.
@@ -28,6 +34,9 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
   ...TRANSFORM_TOOLS,
   ...DATE_TIME_TOOLS,
   ...AI_TOOLS,
+  ...IMAGE_TOOLS,
+  ...PDF_TOOLS,
+  ...BUSINESS_TOOLS,
 ];
 
 // In non-production or build initialization, validate registry integrity

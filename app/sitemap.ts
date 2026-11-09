@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { TOOLS_REGISTRY } from "@/data/toolsRegistry";
+import { AI_CATEGORIES, getAllAiTools } from "@/data/aiToolsDirectory";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
@@ -63,5 +64,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: tool.featured ? 0.9 : 0.7,
   }));
 
-  return [...staticRoutes, ...converterRoutes, ...toolRoutes];
+  // Curated AI Directory programmatic routes
+  const directoryRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/ai-tools`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    },
+    ...AI_CATEGORIES.map((cat) => ({
+      url: `${baseUrl}/ai-tools/${cat.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+    ...getAllAiTools().map((tool) => ({
+      url: `${baseUrl}/ai-tools/alternatives/${tool.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...staticRoutes, ...converterRoutes, ...toolRoutes, ...directoryRoutes];
 }
