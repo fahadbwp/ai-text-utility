@@ -150,10 +150,10 @@ export default function PrivacyPage() {
           <p className="text-slate-500 dark:text-slate-400">
             If you have questions, feedback, or privacy-related inquiries regarding AI Text Utility, please contact our support team at{" "}
             <a
-              href="mailto:support@aitextutility.com"
+              href="mailto:fahadsaleembwp@gmail.com"
               className="text-brand-600 dark:text-brand-400 underline hover:text-brand-700 dark:hover:text-brand-300 font-medium"
             >
-              support@aitextutility.com
+              fahadsaleembwp@gmail.com
             </a>{" "}
             or visit our{" "}
             <Link

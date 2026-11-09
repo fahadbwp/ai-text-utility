@@ -80,7 +80,7 @@ export default function ContactPage() {
               </p>
             </div>
             <a
-              href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20General%20Support"
+              href="mailto:fahadsaleembwp@gmail.com?subject=AI%20Text%20Utility%20-%20General%20Support"
               className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 transition-colors shadow-2xs text-center"
             >
               Contact Support
@@ -98,7 +98,7 @@ export default function ContactPage() {
               </p>
             </div>
             <a
-              href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20Bug%20Report"
+              href="mailto:fahadsaleembwp@gmail.com?subject=AI%20Text%20Utility%20-%20Bug%20Report"
               className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-rose-600 hover:bg-rose-700 text-white transition-colors shadow-2xs text-center"
             >
               Report a Bug
@@ -116,7 +116,7 @@ export default function ContactPage() {
               </p>
             </div>
             <a
-              href="mailto:plexudo@gmail.com?subject=AI%20Text%20Utility%20-%20Feature%20Request"
+              href="mailto:fahadsaleembwp@gmail.com?subject=AI%20Text%20Utility%20-%20Feature%20Request"
               className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-2xs text-center"
             >
               Request a Feature
