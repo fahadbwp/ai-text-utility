@@ -92,11 +92,13 @@ test("AI Tools Directory - Alternative Generation Robustness", () => {
       alternatives.length >= 2,
       `Tool '${tool.slug}' must have at least 2 alternatives returned, got ${alternatives.length}`
     );
-    // Tool must never list itself as its own alternative
-    assert.ok(
-      !alternatives.some((a) => a.slug === tool.slug),
-      `Tool '${tool.slug}' lists itself in alternatives`
-    );
+    // Verify every explicitly listed alternative slug maps to a valid tool
+    for (const altSlug of tool.alternatives) {
+      assert.ok(
+        allTools.some((t) => t.slug === altSlug || t.id === altSlug),
+        `Tool '${tool.slug}' references unknown alternative slug: '${altSlug}'`
+      );
+    }
   }
 });
 

@@ -70,6 +70,12 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [phoneDedupe, setPhoneDedupe] = useState<boolean>(true);
   const [phoneFormat, setPhoneFormat] = useState<"clean" | "digits-only" | "raw">("clean");
 
+  // Remove hidden characters options
+  const [hiddenStripZeroWidth, setHiddenStripZeroWidth] = useState<boolean>(true);
+  const [hiddenNormalizeNbsp, setHiddenNormalizeNbsp] = useState<boolean>(true);
+  const [hiddenStripDirectional, setHiddenStripDirectional] = useState<boolean>(true);
+  const [hiddenStripControl, setHiddenStripControl] = useState<boolean>(false);
+
   // Find and replace options
   const [findQuery, setFindQuery] = useState<string>("");
   const [replaceWith, setReplaceWith] = useState<string>("");
@@ -203,6 +209,82 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
             );
             break;
 
+          case "remove-hidden-characters":
+            setOutput(
+              removeHiddenCharacters(currentInput, {
+                stripZeroWidth: hiddenStripZeroWidth,
+                normalizeNonBreakingSpaces: hiddenNormalizeNbsp,
+                stripDirectionalMarkers: hiddenStripDirectional,
+                stripControlCharacters: hiddenStripControl,
+              })
+            );
+            break;
+
+          case "find-and-replace": {
+            const res = findAndReplace(currentInput, {
+              find: findQuery,
+              replace: replaceWith,
+              matchCase: findMatchCase,
+              matchWholeWord: findWholeWord,
+              useRegex: findUseRegex,
+            });
+            setOutput(res.result);
+            break;
+          }
+
+          case "extract-phone-numbers":
+            setOutput(
+              extractPhoneNumbers(currentInput, {
+                deduplicate: phoneDedupe,
+                format: phoneFormat,
+              })
+            );
+            break;
+
+          case "remove-lines-containing": {
+            const res = removeLinesContaining(currentInput, {
+              query: filterQuery,
+              mode: filterMode,
+              caseSensitive: filterCase,
+              useRegex: filterRegex,
+              removeEmptyLines: filterRemoveEmpty,
+            });
+            setOutput(res.result);
+            break;
+          }
+
+          case "add-prefix-suffix":
+            setOutput(
+              addPrefixSuffix(currentInput, {
+                prefix: linePrefix,
+                suffix: lineSuffix,
+                skipEmptyLines: prefixSkipEmpty,
+                trimOriginalLines: prefixTrimLines,
+              })
+            );
+            break;
+
+          case "extract-text-between":
+            setOutput(
+              extractTextBetween(currentInput, {
+                startDelimiter: betweenStart,
+                endDelimiter: betweenEnd,
+                includeDelimiters: betweenIncludeDelims,
+                deduplicate: betweenDedupe,
+              })
+            );
+            break;
+
+          case "extract-capitalized-words":
+            setOutput(
+              extractCapitalizedWords(currentInput, {
+                mode: capitalMode,
+                deduplicate: capitalDedupe,
+                minWordLength: capitalMinLength,
+              })
+            );
+            break;
+
           // --- Transform Tools ---
           case "case-converter":
             setOutput(convertCase(currentInput, caseMode));
@@ -284,6 +366,33 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
       lineBreaksParagraphs,
       specialCharsMode,
       specialCharsCustom,
+      phoneDedupe,
+      phoneFormat,
+      hiddenStripZeroWidth,
+      hiddenNormalizeNbsp,
+      hiddenStripDirectional,
+      hiddenStripControl,
+      findQuery,
+      replaceWith,
+      findMatchCase,
+      findWholeWord,
+      findUseRegex,
+      filterQuery,
+      filterMode,
+      filterCase,
+      filterRegex,
+      filterRemoveEmpty,
+      linePrefix,
+      lineSuffix,
+      prefixSkipEmpty,
+      prefixTrimLines,
+      betweenStart,
+      betweenEnd,
+      betweenIncludeDelims,
+      betweenDedupe,
+      capitalMode,
+      capitalDedupe,
+      capitalMinLength,
       caseMode,
       sortOrder,
       sortCase,
@@ -837,6 +946,363 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
           </div>
         );
 
+      case "remove-hidden-characters":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs">
+            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+              <input
+                type="checkbox"
+                checked={hiddenStripZeroWidth}
+                aria-label="Remove zero-width spaces and joiners"
+                onChange={(e) => setHiddenStripZeroWidth(e.target.checked)}
+                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+              />
+              <span>Strip Zero-Width &amp; BOM</span>
+            </label>
+
+            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+              <input
+                type="checkbox"
+                checked={hiddenNormalizeNbsp}
+                aria-label="Normalize non-breaking spaces"
+                onChange={(e) => setHiddenNormalizeNbsp(e.target.checked)}
+                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+              />
+              <span>Normalize Non-Breaking Spaces</span>
+            </label>
+
+            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+              <input
+                type="checkbox"
+                checked={hiddenStripDirectional}
+                aria-label="Strip directional unicode markers"
+                onChange={(e) => setHiddenStripDirectional(e.target.checked)}
+                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+              />
+              <span>Strip Directional Markers</span>
+            </label>
+
+            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+              <input
+                type="checkbox"
+                checked={hiddenStripControl}
+                aria-label="Strip ASCII control characters"
+                onChange={(e) => setHiddenStripControl(e.target.checked)}
+                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+              />
+              <span>Strip Control Characters</span>
+            </label>
+          </div>
+        );
+
+      case "find-and-replace":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs w-full">
+            <div className="flex items-center gap-2 flex-1 min-w-[200px]">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Find:</span>
+              <input
+                type="text"
+                placeholder="Text or pattern to find"
+                value={findQuery}
+                aria-label="Find pattern"
+                onChange={(e) => setFindQuery(e.target.value)}
+                className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs"
+              />
+            </div>
+
+            <div className="flex items-center gap-2 flex-1 min-w-[200px]">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Replace With:</span>
+              <input
+                type="text"
+                placeholder="Replacement text"
+                value={replaceWith}
+                aria-label="Replace with text"
+                onChange={(e) => setReplaceWith(e.target.value)}
+                className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={findMatchCase}
+                  aria-label="Case sensitive search"
+                  onChange={(e) => setFindMatchCase(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Match Case</span>
+              </label>
+
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={findWholeWord}
+                  aria-label="Match whole words only"
+                  onChange={(e) => setFindWholeWord(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Whole Word</span>
+              </label>
+
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={findUseRegex}
+                  aria-label="Use regular expressions"
+                  onChange={(e) => setFindUseRegex(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>RegEx</span>
+              </label>
+            </div>
+          </div>
+        );
+
+      case "extract-phone-numbers":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Output Format:</span>
+              <select
+                aria-label="Phone number format"
+                value={phoneFormat}
+                onChange={(e) => setPhoneFormat(e.target.value as "clean" | "digits-only" | "raw")}
+                className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs"
+              >
+                <option value="clean">Standard / Cleaned Format</option>
+                <option value="digits-only">Digits Only (Numbers only)</option>
+                <option value="raw">Raw Original Extracted</option>
+              </select>
+            </div>
+
+            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+              <input
+                type="checkbox"
+                checked={phoneDedupe}
+                aria-label="Remove duplicate phone numbers"
+                onChange={(e) => setPhoneDedupe(e.target.checked)}
+                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+              />
+              <span>Deduplicate Numbers</span>
+            </label>
+          </div>
+        );
+
+      case "remove-lines-containing":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs w-full">
+            <div className="flex items-center gap-2 flex-1 min-w-[200px]">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Target:</span>
+              <input
+                type="text"
+                placeholder="Text or pattern to match"
+                value={filterQuery}
+                aria-label="Filter target query"
+                onChange={(e) => setFilterQuery(e.target.value)}
+                className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs"
+              />
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Action:</span>
+              <select
+                aria-label="Filter action mode"
+                value={filterMode}
+                onChange={(e) => setFilterMode(e.target.value as "remove" | "keep")}
+                className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs"
+              >
+                <option value="remove">Remove Matching Lines</option>
+                <option value="keep">Keep Only Matching Lines</option>
+              </select>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={filterCase}
+                  aria-label="Case sensitive filter"
+                  onChange={(e) => setFilterCase(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Case Sensitive</span>
+              </label>
+
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={filterRegex}
+                  aria-label="Use regular expression pattern"
+                  onChange={(e) => setFilterRegex(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>RegEx</span>
+              </label>
+
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={filterRemoveEmpty}
+                  aria-label="Remove empty lines after filter"
+                  onChange={(e) => setFilterRemoveEmpty(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Strip Empty Lines</span>
+              </label>
+            </div>
+          </div>
+        );
+
+      case "add-prefix-suffix":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs w-full">
+            <div className="flex items-center gap-2 flex-1 min-w-[180px]">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Prefix:</span>
+              <input
+                type="text"
+                placeholder='e.g. " or item: '
+                value={linePrefix}
+                aria-label="Line prefix text"
+                onChange={(e) => setLinePrefix(e.target.value)}
+                className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs"
+              />
+            </div>
+
+            <div className="flex items-center gap-2 flex-1 min-w-[180px]">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Suffix:</span>
+              <input
+                type="text"
+                placeholder='e.g. " or ,'
+                value={lineSuffix}
+                aria-label="Line suffix text"
+                onChange={(e) => setLineSuffix(e.target.value)}
+                className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={prefixSkipEmpty}
+                  aria-label="Skip blank and empty lines"
+                  onChange={(e) => setPrefixSkipEmpty(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Skip Empty Lines</span>
+              </label>
+
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={prefixTrimLines}
+                  aria-label="Trim lines before applying prefix and suffix"
+                  onChange={(e) => setPrefixTrimLines(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Trim Lines First</span>
+              </label>
+            </div>
+          </div>
+        );
+
+      case "extract-text-between":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs w-full">
+            <div className="flex items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Start Delimiter:</span>
+              <input
+                type="text"
+                placeholder='e.g. "'
+                value={betweenStart}
+                aria-label="Start delimiter"
+                onChange={(e) => setBetweenStart(e.target.value)}
+                className="w-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs text-center"
+              />
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">End Delimiter:</span>
+              <input
+                type="text"
+                placeholder='e.g. "'
+                value={betweenEnd}
+                aria-label="End delimiter"
+                onChange={(e) => setBetweenEnd(e.target.value)}
+                className="w-20 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs font-mono text-xs text-center"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={betweenIncludeDelims}
+                  aria-label="Include delimiters in output"
+                  onChange={(e) => setBetweenIncludeDelims(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Include Delimiters</span>
+              </label>
+
+              <label className="flex items-center gap-1.5 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={betweenDedupe}
+                  aria-label="Deduplicate extracted results"
+                  onChange={(e) => setBetweenDedupe(e.target.checked)}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Deduplicate</span>
+              </label>
+            </div>
+          </div>
+        );
+
+      case "extract-capitalized-words":
+        return (
+          <div className="flex flex-wrap items-center gap-4 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Extraction Mode:</span>
+              <select
+                aria-label="Capitalized extraction mode"
+                value={capitalMode}
+                onChange={(e) => setCapitalMode(e.target.value as CapitalizedExtractionMode)}
+                className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs"
+              >
+                <option value="all-capitalized">All Words Starting with Capital (Proper Nouns)</option>
+                <option value="uppercase-only">ALL-CAPS Only (Acronyms &amp; Abbreviations)</option>
+                <option value="consecutive">Consecutive Capitalized Words (Full Names / Titles)</option>
+              </select>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">Min Length:</span>
+              <input
+                type="number"
+                min={1}
+                max={20}
+                aria-label="Minimum word length"
+                value={capitalMinLength}
+                onChange={(e) => setCapitalMinLength(Math.max(1, parseInt(e.target.value, 10) || 1))}
+                className="w-16 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-slate-800 dark:text-slate-200 font-mono text-center focus:outline-hidden focus:border-brand-500 shadow-2xs"
+              />
+            </div>
+
+            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+              <input
+                type="checkbox"
+                checked={capitalDedupe}
+                aria-label="Deduplicate extracted capitalized words"
+                onChange={(e) => setCapitalDedupe(e.target.checked)}
+                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+              />
+              <span>Deduplicate</span>
+            </label>
+          </div>
+        );
+
       default:
         return null;
     }
@@ -861,6 +1327,33 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
     lineBreaksParagraphs,
     specialCharsMode,
     specialCharsCustom,
+    phoneDedupe,
+    phoneFormat,
+    hiddenStripZeroWidth,
+    hiddenNormalizeNbsp,
+    hiddenStripDirectional,
+    hiddenStripControl,
+    findQuery,
+    replaceWith,
+    findMatchCase,
+    findWholeWord,
+    findUseRegex,
+    filterQuery,
+    filterMode,
+    filterCase,
+    filterRegex,
+    filterRemoveEmpty,
+    linePrefix,
+    lineSuffix,
+    prefixSkipEmpty,
+    prefixTrimLines,
+    betweenStart,
+    betweenEnd,
+    betweenIncludeDelims,
+    betweenDedupe,
+    capitalMode,
+    capitalDedupe,
+    capitalMinLength,
     caseMode,
     sortOrder,
     sortCase,

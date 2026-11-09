@@ -60,44 +60,6 @@ export default function PdfToWordPage() {
         description:
           "Free and secure in-browser PDF to Word (.docx) document conversion without server uploads.",
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${canonicalUrl}#faq`,
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Is this PDF to Word converter completely free?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes, this tool is 100% free with no account creation, no subscription fees, and no daily limits.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Are my PDF documents uploaded to your servers?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "No. All conversion is executed 100% client-side inside your browser's memory using JavaScript and Web Workers. Your files never touch our servers.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I convert scanned (image-only) PDFs?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "No. This tool requires digital, selectable-text PDFs. Scanned image-only PDFs require server-side OCR processing, which is intentionally excluded to ensure your files stay strictly on your device.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What formatting survives during PDF to Word conversion?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Digital text, paragraph order, headings, and bold weights are extracted into an editable DOCX. Complex multi-column magazine layouts or advanced tables may require minor post-editing.",
-            },
-          },
-        ],
-      },
     ],
   };
 

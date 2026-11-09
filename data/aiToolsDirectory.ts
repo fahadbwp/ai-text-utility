@@ -104,7 +104,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["LLM", "Chatbot", "Writing", "OpenAI"],
     pros: ["Extremely versatile knowledge base", "Fast streaming responses", "Advanced Voice mode"],
     cons: ["Can hallucinate without web search enabled", "Plus subscription required for higher rate limits"],
-    alternatives: ["claude", "gemini", "perplexity", "copilot"],
+    alternatives: ["claude", "gemini", "perplexity", "copilot-microsoft"],
   },
   {
     id: "claude",
@@ -499,7 +499,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Open Source", "Photorealism", "Black Forest Labs", "State of the Art"],
     pros: ["Incredible anatomical precision and hand rendering", "Open weights available for local GPU hosting", "Fast inference"],
     cons: ["High VRAM required to run locally (16GB+)", "Web cloud interfaces charge per generation"],
-    alternatives: ["midjourney", "stable-diffusion", "ideogram"],
+    alternatives: ["midjourney", "stable-diffusion-webui", "ideogram"],
   },
   {
     id: "leonardo-ai",
@@ -586,7 +586,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Text to Video", "Image to Video", "VFX", "Filmmaking"],
     pros: ["Cinematic photorealism and physics simulation", "Motion Brush and precise camera direction controls", "Lip-sync audio support"],
     cons: ["Credits deplete rapidly during video generation", "Occasional morphological distortions on fast movement"],
-    alternatives: ["pika-labs", "kling-ai", "luma-dream-machine", "sora"],
+    alternatives: ["pika-labs", "kling-ai", "luma-dream-machine", "sora-openai"],
   },
   {
     id: "pika-labs",
@@ -654,7 +654,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Avatar", "Video Translation", "Corporate Training", "Marketing"],
     pros: ["Flawless voice cloning and multi-language lip syncing", "Custom photo avatar and instant digital twin", "High video resolution"],
     cons: ["Higher entry pricing than text generators", "Requires credit bundles for long videos"],
-    alternatives: ["synthesia", "descript", "invideo"],
+    alternatives: ["synthesia", "descript", "invideo-ai"],
   },
   {
     id: "synthesia",
@@ -671,7 +671,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Enterprise Avatars", "Training", "Multilingual", "L&D"],
     pros: ["SOC2 compliant enterprise security", "Over 160 professionally recorded human avatars", "Screen recording integration"],
     cons: ["No permanently free tier", "Presenter movements can feel slightly formal"],
-    alternatives: ["heygen", "descript", "invideo"],
+    alternatives: ["heygen", "descript", "invideo-ai"],
   },
   {
     id: "descript",
@@ -688,7 +688,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Podcast", "Video Editing", "Transcription", "Filler Words"],
     pros: ["One-click removal of 'um', 'uh', and filler words", "Studio Sound cleans noisy microphone audio instantly", "Overdub voice correction"],
     cons: ["Desktop app can be resource heavy on large 4K projects", "Transcription credits on free tier"],
-    alternatives: ["opus-clip", "capcut-ai", "veed-io"],
+    alternatives: ["opus-clip", "capcut-ai", "invideo-ai"],
   },
   {
     id: "opus-clip",
@@ -705,7 +705,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Shorts", "Reels", "TikTok", "Auto Captions", "Repurposing"],
     pros: ["Automated virality score ranking for clips", "Auto-reframe keeps active speaker in 9:16 vertical center", "Custom emoji captions"],
     cons: ["Free tier includes subtle watermark", "Needs long video sources with clear speech"],
-    alternatives: ["descript", "capcut-ai", "veed-io"],
+    alternatives: ["descript", "capcut-ai", "invideo-ai"],
   },
 
   // === Audio & Music ===
@@ -811,7 +811,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Search", "Answer Engine", "Research", "Citations"],
     pros: ["Direct answers with verifiable source footnotes", "Pro search searches academic papers and Reddit", "Clean, ad-free UI"],
     cons: ["Occasional source misinterpretation on niche topics", "Pro queries capped on free plan"],
-    alternatives: ["chatgpt", "gemini", "copilot"],
+    alternatives: ["chatgpt", "gemini", "copilot-microsoft"],
   },
   {
     id: "gemini",
@@ -879,7 +879,7 @@ export const AI_TOOLS_DIRECTORY: AiToolItem[] = [
     tags: ["Project Management", "Engineering", "Issue Tracking"],
     pros: ["Blazing fast keyboard-first workflow", "Intelligent duplicate issue detection", "Clean modern aesthetics"],
     cons: ["Optimized strictly for software product teams", "Advanced insights require paid plan"],
-    alternatives: ["notion-ai", "taskade-ai"],
+    alternatives: ["notion-ai", "cursor"],
   },
   {
     id: "raycast-ai",

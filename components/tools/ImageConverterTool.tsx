@@ -90,6 +90,7 @@ export const ImageConverterTool: React.FC<ImageConverterToolProps> = ({ tool }) 
     if (e.target.files && e.target.files[0]) {
       const selected = e.target.files[0];
       setFile(selected);
+      if (previewOriginal) URL.revokeObjectURL(previewOriginal);
       setPreviewOriginal(URL.createObjectURL(selected));
       convertImage(selected, targetFormat, quality);
     }
@@ -162,6 +163,7 @@ export const ImageConverterTool: React.FC<ImageConverterToolProps> = ({ tool }) 
               const selected = e.dataTransfer.files[0];
               if (selected.type.startsWith("image/")) {
                 setFile(selected);
+                if (previewOriginal) URL.revokeObjectURL(previewOriginal);
                 setPreviewOriginal(URL.createObjectURL(selected));
                 convertImage(selected, targetFormat, quality);
               }

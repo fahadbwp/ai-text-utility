@@ -179,10 +179,25 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
     doc.setFillColor(30, 41, 59); // slate-800
     doc.rect(0, 0, pageWidth, 70, "F");
 
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(22);
-    doc.setFont("helvetica", "bold");
-    doc.text("INVOICE", 40, 45);
+    if (logoUrl) {
+      try {
+        doc.addImage(logoUrl, "JPEG", 40, 15, 40, 40);
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(22);
+        doc.setFont("helvetica", "bold");
+        doc.text("INVOICE", 90, 45);
+      } catch {
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(22);
+        doc.setFont("helvetica", "bold");
+        doc.text("INVOICE", 40, 45);
+      }
+    } else {
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(22);
+      doc.setFont("helvetica", "bold");
+      doc.text("INVOICE", 40, 45);
+    }
 
     doc.setFontSize(10);
     doc.setFont("helvetica", "normal");
@@ -216,24 +231,35 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
     doc.text(`Email: ${clientEmail || "-"}`, 320, 159);
     doc.text(`Due Date: ${dueDate || "-"}`, 320, 172);
 
+    // Helper to render table header
+    const renderTableHeader = (y: number) => {
+      doc.setFillColor(241, 245, 249); // slate-100
+      doc.rect(40, y, pageWidth - 80, 24, "F");
+
+      doc.setTextColor(30, 41, 59);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.text("ITEM / DESCRIPTION", 50, y + 16);
+      doc.text("QTY", 360, y + 16, { align: "center" });
+      doc.text(`PRICE (${pdfCurrency})`, 440, y + 16, { align: "right" });
+      doc.text(`TOTAL (${pdfCurrency})`, pageWidth - 50, y + 16, { align: "right" });
+      doc.setFont("helvetica", "normal");
+    };
+
     // Table Header
-    const tableTop = 205;
-    doc.setFillColor(241, 245, 249); // slate-100
-    doc.rect(40, tableTop, pageWidth - 80, 24, "F");
+    let currentY = 205;
+    renderTableHeader(currentY);
+    currentY += 24;
 
-    doc.setTextColor(30, 41, 59);
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9);
-    doc.text("ITEM / DESCRIPTION", 50, tableTop + 16);
-    doc.text("QTY", 360, tableTop + 16, { align: "center" });
-    doc.text(`PRICE (${pdfCurrency})`, 440, tableTop + 16, { align: "right" });
-    doc.text(`TOTAL (${pdfCurrency})`, pageWidth - 50, tableTop + 16, { align: "right" });
-
-    // Table Rows
-    let currentY = tableTop + 24;
-    doc.setFont("helvetica", "normal");
-
+    // Table Rows with Multi-Page Pagination
     items.forEach((item) => {
+      if (currentY > 700) {
+        doc.addPage();
+        currentY = 40;
+        renderTableHeader(currentY);
+        currentY += 24;
+      }
+
       currentY += 20;
       doc.text(item.description || "Item", 50, currentY);
       doc.text(item.quantity.toString(), 360, currentY, { align: "center" });
@@ -244,6 +270,12 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
       doc.setDrawColor(226, 232, 240);
       doc.line(40, currentY + 6, pageWidth - 40, currentY + 6);
     });
+
+    // Check if summary fits on current page
+    if (currentY > 650) {
+      doc.addPage();
+      currentY = 40;
+    }
 
     // Summary Section
     const summaryTop = currentY + 30;
@@ -281,7 +313,11 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
 
     // Notes and Terms
     if (notes || bankDetails) {
-      const notesY = Math.max(summaryTop + 120, 680);
+      let notesY = summaryTop + 120;
+      if (notesY > 750) {
+        doc.addPage();
+        notesY = 50;
+      }
       doc.setFontSize(9);
       doc.setFont("helvetica", "bold");
       doc.setTextColor(71, 85, 105);
@@ -346,10 +382,40 @@ export const InvoiceGeneratorTool: React.FC<InvoiceGeneratorToolProps> = ({ tool
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-slate-100 dark:border-zinc-800">
           {/* Business Info (Seller) */}
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-100">
-              <Building2 className="w-4 h-4 text-violet-600" />
-              <span>YOUR BUSINESS / SELLER DETAILS</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-zinc-100">
+                <Building2 className="w-4 h-4 text-violet-600" />
+                <span>YOUR BUSINESS / SELLER DETAILS</span>
+              </div>
+              <label
+                htmlFor="business-logo"
+                className="text-[11px] font-medium text-violet-600 dark:text-violet-400 hover:underline cursor-pointer"
+              >
+                {logoUrl ? "Change Logo" : "+ Upload Logo"}
+              </label>
+              <input
+                id="business-logo"
+                type="file"
+                accept="image/*"
+                aria-label="Upload business logo image"
+                onChange={handleLogoUpload}
+                className="hidden"
+              />
             </div>
+            {logoUrl && (
+              <div className="flex items-center gap-2 p-1.5 rounded-lg bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={logoUrl} alt="Business logo preview" className="h-8 max-w-[80px] object-contain rounded" />
+                <button
+                  type="button"
+                  onClick={() => setLogoUrl(null)}
+                  aria-label="Remove business logo"
+                  className="text-[10px] text-red-500 hover:text-red-600 cursor-pointer ml-auto"
+                >
+                  Remove Logo
+                </button>
+              </div>
+            )}
             <div>
               <label htmlFor="business-name" className="text-[11px] text-slate-500 dark:text-zinc-400 block mb-1">
                 Business / Shop Name

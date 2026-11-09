@@ -162,6 +162,7 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
     if (e.target.files && e.target.files[0]) {
       const selected = e.target.files[0];
       setFile(selected);
+      if (previewOriginal) URL.revokeObjectURL(previewOriginal);
       const originalUrl = URL.createObjectURL(selected);
       setPreviewOriginal(originalUrl);
       processCompression(selected, mode, targetKb, quality);
@@ -175,6 +176,7 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
       const selected = e.dataTransfer.files[0];
       if (selected.type.startsWith("image/")) {
         setFile(selected);
+        if (previewOriginal) URL.revokeObjectURL(previewOriginal);
         const originalUrl = URL.createObjectURL(selected);
         setPreviewOriginal(originalUrl);
         processCompression(selected, mode, targetKb, quality);

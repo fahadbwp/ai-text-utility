@@ -79,6 +79,7 @@ export const ImageResizerTool: React.FC<ImageResizerToolProps> = ({ tool }) => {
     if (e.target.files && e.target.files[0]) {
       const selected = e.target.files[0];
       setFile(selected);
+      if (previewOriginal) URL.revokeObjectURL(previewOriginal);
       const url = URL.createObjectURL(selected);
       setPreviewOriginal(url);
 
@@ -179,6 +180,7 @@ export const ImageResizerTool: React.FC<ImageResizerToolProps> = ({ tool }) => {
               const selected = e.dataTransfer.files[0];
               if (selected.type.startsWith("image/")) {
                 setFile(selected);
+                if (previewOriginal) URL.revokeObjectURL(previewOriginal);
                 const url = URL.createObjectURL(selected);
                 setPreviewOriginal(url);
                 const img = new Image();

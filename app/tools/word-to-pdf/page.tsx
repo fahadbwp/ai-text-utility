@@ -60,44 +60,6 @@ export default function WordToPdfPage() {
         description:
           "Free and secure in-browser Word (.docx) to PDF document conversion without server uploads.",
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${canonicalUrl}#faq`,
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Is this Word to PDF converter completely free?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes, this tool is 100% free with no sign-ups, no subscription tiers, and no daily conversion limits.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Are my Word documents sent to a third party or server?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "No. All conversion is performed 100% in your browser's memory using JavaScript. No document content is ever sent over the network.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What elements are preserved in the generated PDF?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Standard headings, paragraph formatting, bold, italics, bullet/numbered lists, bordered tables, and multi-page page breaks are preserved.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Are complex Word macros (.docm) or SmartArt supported?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "No. Advanced proprietary Word features such as SmartArt, WordArt, dynamic Excel charts, and macros are not rendered by browser-based open-source engines.",
-            },
-          },
-        ],
-      },
     ],
   };
 

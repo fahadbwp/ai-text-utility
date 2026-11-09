@@ -316,6 +316,7 @@ export const DocumentConverterTool: React.FC<DocumentConverterToolProps> = ({ mo
           type="file"
           ref={fileInputRef}
           accept={expectedMime}
+          aria-label="Upload document file"
           className="hidden"
           onChange={(e) => {
             if (e.target.files && e.target.files[0]) {
