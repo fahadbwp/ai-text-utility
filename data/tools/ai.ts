@@ -71,7 +71,7 @@ export const AI_TOOLS: ToolDefinition[] = [
     layout: "ai",
     description: "Condense long articles and reports into clear, high-impact bullet points and key takeaways.",
     icon: "FileCheck2",
-    keywords: ["ai summarize", "tldr", "bullet summary", "executive summary", "condense"],
+    keywords: ["ai text summarizer", "ai summarize", "summarize text online", "tldr", "bullet summary", "executive summary", "condense"],
     featured: true,
     logicReference: "aiSummarize",
     supportsLiveMode: false,
