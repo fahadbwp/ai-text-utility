@@ -45,7 +45,7 @@ test("Tools Registry - Structure & Uniqueness", () => {
 
 test("Tools Registry - Modular Category Consistency", () => {
   assert.equal(TEXT_TOOLS.length, 15);
-  assert.equal(FORMAT_TOOLS.length, 7);
+  assert.equal(FORMAT_TOOLS.length, 8);
   assert.equal(CLEANUP_TOOLS.length, 10);
   assert.equal(TRANSFORM_TOOLS.length, 12);
   assert.equal(DATE_TIME_TOOLS.length, 2);
@@ -60,7 +60,7 @@ test("Tools Registry - Modular Category Consistency", () => {
     AI_TOOLS.length;
 
   assert.equal(TOOLS_REGISTRY.length, totalSum);
-  assert.equal(TOOLS_REGISTRY.length, 53);
+  assert.equal(TOOLS_REGISTRY.length, 54);
 });
 
 test("Tools Registry - Valid Categories", () => {
@@ -94,7 +94,9 @@ test("Tools Registry - Lookup Helpers & Alias Resolution", () => {
     { alias: "prompt-sanitizer", expectedSlug: "pii-sanitizer" },
     { alias: "keyword-frequency-counter", expectedSlug: "word-frequency" },
     { alias: "keyword-density-counter", expectedSlug: "word-frequency" },
-    { alias: "word-frequency-counter", expectedSlug: "word-frequency" },
+        { alias: "word-frequency-counter", expectedSlug: "word-frequency" },
+    { alias: "json-to-ts", expectedSlug: "json-to-typescript" },
+    { alias: "json-to-zod", expectedSlug: "json-to-typescript" },
   ];
 
   for (const { alias, expectedSlug } of expectedAliases) {

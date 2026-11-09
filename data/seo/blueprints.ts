@@ -1450,6 +1450,32 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
       "remove-special-chars",
     ],
   },
+  "json-to-typescript": {
+    slug: "json-to-typescript",
+    title: "JSON to TypeScript Interface Generator – Convert JSON to TS [Free]",
+    metaDescription:
+      "Convert JSON objects into clean TypeScript interfaces, type aliases, and Zod schemas instantly. 100% private in-browser code generator for developers.",
+    h1: "JSON to TypeScript Interface Generator",
+    aboveTheFoldIntro:
+      "Generate type-safe TypeScript interfaces, types, and Zod validation schemas from JSON objects or API payloads instantly in your browser.",
+    primaryKeyword: "json to typescript",
+    secondaryKeywords: [
+      "json to ts",
+      "json to typescript interface",
+      "convert json to typescript",
+      "json to zod schema",
+      "json to type",
+      "generate typescript from json",
+      "json interface generator",
+    ],
+    popularAnchor: "JSON to TypeScript Generator",
+    clusterSlugs: [
+      "json-formatter",
+      "json-to-csv",
+      "csv-to-json",
+      "regex-tester",
+    ],
+  },
 };
 
 
