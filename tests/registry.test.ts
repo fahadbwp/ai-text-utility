@@ -92,6 +92,9 @@ test("Tools Registry - Lookup Helpers & Alias Resolution", () => {
     { alias: "grammar-fixer", expectedSlug: "ai-grammar" },
     { alias: "ai-summarizer", expectedSlug: "ai-summarize" },
     { alias: "prompt-sanitizer", expectedSlug: "pii-sanitizer" },
+    { alias: "keyword-frequency-counter", expectedSlug: "word-frequency" },
+    { alias: "keyword-density-counter", expectedSlug: "word-frequency" },
+    { alias: "word-frequency-counter", expectedSlug: "word-frequency" },
   ];
 
   for (const { alias, expectedSlug } of expectedAliases) {
