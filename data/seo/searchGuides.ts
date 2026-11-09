@@ -270,8 +270,8 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
     faq: { question: "Is stripping HTML the same as minifying HTML?", answer: "No. Stripping tags produces plain text. Minifying HTML keeps markup while reducing parts of its source formatting. Choose the tool that matches your destination." },
   },
   "html-minifier": {
-    title: "HTML Minifier – Compact HTML Source Online",
-    description: "Compact HTML tag formatting and optionally remove comments. Preserve text-node whitespace, preview the source and copy the result in your browser.",
+    title: "HTML & Text Minifier Online – Minify Code & Compress Markup [Free]",
+    description: "Minify HTML code, strip unnecessary whitespace, and remove comment tags in your browser. Fast, free HTML and text compression tool for developers.",
     heading: "Minify HTML without flattening its visible text",
     useCase: "Use this for HTML source, then test the result in the destination page. It compacts tag formatting conservatively instead of deleting whitespace throughout a document.",
     example: { input: '<div   class="note" >Hello world</div>', output: '<div class="note" >Hello world</div>', note: "Tag-spacing example; visible text is retained." },

@@ -60,7 +60,7 @@ export const TRANSFORM_TOOLS: ToolDefinition[] = [
     layout: "transform",
     description: "Sort lines alphabetically (A-Z, Z-A), numerically, by length, or randomly shuffle.",
     icon: "ArrowUpDown",
-    keywords: ["sort lines", "alphabetical sort", "reverse sort", "shuffle lines", "natural sort"],
+    keywords: ["sort lines alphabetically", "sort lines online", "sort text lines", "alphabetize list online", "numerical line sorter", "shuffle lines"],
     featured: false,
     logicReference: "sortLines",
     supportsLiveMode: true,

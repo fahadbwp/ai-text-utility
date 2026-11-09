@@ -95,7 +95,7 @@ export const FORMAT_TOOLS: ToolDefinition[] = [
     layout: "transform",
     description: "Reduce HTML size by removing standard comments and compacting attribute gaps while preserving text whitespace.",
     icon: "Minimize2",
-    keywords: ["minify html", "compress html", "html optimizer", "reduce html size"],
+    keywords: ["minify text", "html minifier", "minify html", "compress html", "html optimizer", "reduce html size"],
     featured: false,
     logicReference: "htmlMinifier",
     supportsLiveMode: true,

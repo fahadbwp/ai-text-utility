@@ -19,6 +19,410 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
     aboveTheFoldIntro: guide.description, primaryKeyword: guide.title.toLowerCase(),
     secondaryKeywords: [], popularAnchor: guide.title, clusterSlugs: guide.related,
   }])),
+
+  "extract-emails-urls": {
+    slug: "extract-emails-urls",
+    title: "Email Extractor from Text Online – Free Email & URL Address Parser",
+    metaDescription:
+      "Extract emails, website links, and domain addresses from raw text, documents, or spreadsheets in your browser. 100% private, instant deduplication.",
+    h1: "Email & URL Extractor from Text",
+    aboveTheFoldIntro:
+      "Extract contact email addresses, website links, and domains from unstructured text, client logs, or contact databases with zero server uploads.",
+    primaryKeyword: "email extractor from text",
+    secondaryKeywords: [
+      "extract email from text",
+      "extract emails from text",
+      "email address extractor",
+      "extract url from text",
+      "link extractor online",
+      "email parser from text",
+      "parse emails online",
+    ],
+    popularAnchor: "Email Extractor from Text",
+    clusterSlugs: [
+      "remove-duplicate-lines",
+      "sort-lines",
+      "url-encoder",
+      "remove-special-chars",
+    ],
+  },
+  "character-frequency": {
+    slug: "character-frequency",
+    title: "Character Frequency Counter Online – Free Letter & Symbol Analyzer",
+    metaDescription:
+      "Count character frequencies, letter distributions, and occurrence percentages in real-time. 100% private in-browser character frequency analyzer.",
+    h1: "Character Frequency Counter Online",
+    aboveTheFoldIntro:
+      "Count character occurrences, percentages, and letter frequency distributions in real time. Inspect symbol frequency, whitespace, and case differences directly in your browser.",
+    primaryKeyword: "character frequency",
+    secondaryKeywords: [
+      "character frequency counter",
+      "letter frequency counter",
+      "symbol frequency analyzer",
+      "character occurrence counter",
+      "count letter frequency",
+      "letter count distribution",
+    ],
+    popularAnchor: "Character Frequency Counter",
+    clusterSlugs: [
+      "word-frequency",
+      "word-counter",
+      "regex-tester",
+    ],
+  },
+  "date-difference": {
+    slug: "date-difference",
+    title: "Date Difference Calculator – Calculate Days Between Dates Online [Free]",
+    metaDescription:
+      "Calculate exact days, weeks, months, and working days between two dates online. Free date difference calculator with timezone and inclusive options.",
+    h1: "Date Difference Calculator",
+    aboveTheFoldIntro:
+      "Compare two dates and times to view elapsed days, hours, and minutes with customizable timezone handling and inclusive-end settings.",
+    primaryKeyword: "date difference calculator",
+    secondaryKeywords: [
+      "calculate days between dates",
+      "days between two dates",
+      "date difference",
+      "weeks between dates",
+      "days calculator between dates",
+      "time between dates",
+      "date span calculator",
+    ],
+    popularAnchor: "Date Difference Calculator",
+    clusterSlugs: [
+      "unix-timestamp",
+      "word-counter",
+      "json-formatter",
+    ],
+  },
+  "ai-summarize": {
+    slug: "ai-summarize",
+    title: "AI Text Summarizer Online – Condense Articles & Bullet Points [Free]",
+    metaDescription:
+      "Summarize long articles, essays, and text documents into concise bullet points or summaries. Text is sent to an AI provider; compare key points with the source.",
+    h1: "AI Text Summarizer Online",
+    aboveTheFoldIntro:
+      "Condense lengthy articles, customer research, and documents into clear bullet points or an executive summary in seconds with assisted AI.",
+    primaryKeyword: "ai text summarizer",
+    secondaryKeywords: [
+      "ai summarizer",
+      "summarize text online",
+      "article summarizer",
+      "summarize text free",
+      "ai paragraph summarizer",
+      "bullet point summarizer",
+    ],
+    popularAnchor: "AI Text Summarizer",
+    clusterSlugs: [
+      "word-counter",
+      "ai-paraphrase",
+      "ai-expand",
+    ],
+  },
+  "ai-grammar": {
+    slug: "ai-grammar",
+    title: "AI Grammar Checker & Proofreader Online – Fix Spelling & Punctuation",
+    metaDescription:
+      "Review grammar, spelling, and sentence phrasing with AI assistance. Text is sent to an AI provider; check suggested edits before use.",
+    h1: "AI Grammar Checker and Proofreader",
+    aboveTheFoldIntro:
+      "Inspect text for grammar, spelling, comma placement, and phrasing issues in one click. Receive clear suggestions to elevate clarity and correctness.",
+    primaryKeyword: "ai grammar checker",
+    secondaryKeywords: [
+      "ai proofreader online",
+      "free grammar checker",
+      "fix grammar mistakes",
+      "ai spelling checker",
+      "proofread text online",
+      "sentence corrector",
+    ],
+    popularAnchor: "AI Grammar Checker and Proofreader",
+    clusterSlugs: [
+      "ai-paraphrase",
+      "ai-professional",
+      "word-counter",
+    ],
+  },
+  "sort-lines": {
+    slug: "sort-lines",
+    title: "Sort Lines Alphabetically & Numerically Online – Free Text Sorter",
+    metaDescription:
+      "Sort text lines alphabetically, numerically, by length, or in reverse order instantly. Organize lists, CSV entries, and text files directly in your browser.",
+    h1: "Sort Text Lines Online",
+    aboveTheFoldIntro:
+      "Sort text lines alphabetically (A-Z or Z-A), numerically, by line length, or randomize order. Clean and structure list data in seconds.",
+    primaryKeyword: "sort lines alphabetically",
+    secondaryKeywords: [
+      "sort lines online",
+      "sort text lines",
+      "alphabetize list online",
+      "numerical line sorter",
+      "text line organizer",
+      "order lines alphabetically",
+    ],
+    popularAnchor: "Sort Text Lines Online",
+    clusterSlugs: [
+      "remove-duplicate-lines",
+      "trim-lines",
+      "add-line-numbers",
+    ],
+  },
+  "query-string-parser": {
+    slug: "query-string-parser",
+    title: "URL Query String Parser & Decoder Online – Inspect URL Parameters",
+    metaDescription:
+      "Parse URL query strings into readable parameters, keys, and decoded values. Inspect complex URL parameters with zero network transmission.",
+    h1: "URL Query String Parser",
+    aboveTheFoldIntro:
+      "Inspect URL search parameters, path components, and decoded keys or values. Useful for checking tracking tags, redirects, and API endpoints.",
+    primaryKeyword: "query string parser",
+    secondaryKeywords: [
+      "url parameter parser",
+      "parse query string",
+      "url query string decoder",
+      "query param inspector",
+      "decode url parameters",
+    ],
+    popularAnchor: "URL Query String Parser",
+    clusterSlugs: [
+      "url-encoder",
+      "jwt-decoder",
+      "json-formatter",
+    ],
+  },
+  "remove-accents": {
+    slug: "remove-accents",
+    title: "Remove Accents & Diacritics from Text Online [Free]",
+    metaDescription:
+      "Strip accents, diacritical marks, and Latin accents (é, à, ñ, ü) into standard ASCII letters instantly. Fast, private in-browser text normalizer.",
+    h1: "Remove Accents and Diacritics",
+    aboveTheFoldIntro:
+      "Normalize accented Latin letters to their plain ASCII equivalents. Useful for slug generation, search indexing, and plain-text exports.",
+    primaryKeyword: "remove letter accents",
+    secondaryKeywords: [
+      "remove accents from text",
+      "diacritics remover",
+      "normalize accented characters",
+      "strip accents online",
+      "accent mark remover",
+    ],
+    popularAnchor: "Remove Accents and Diacritics",
+    clusterSlugs: [
+      "slug-generator",
+      "remove-special-chars",
+      "case-converter",
+    ],
+  },
+  "tabs-to-spaces": {
+    slug: "tabs-to-spaces",
+    title: "Tabs to Spaces Converter Online – Convert Indentation [Free]",
+    metaDescription:
+      "Convert tabs to spaces or spaces to tabs with custom indentation widths (2, 4, 8 spaces). 100% private in-browser code and text formatter.",
+    h1: "Tabs to Spaces and Spaces to Tabs",
+    aboveTheFoldIntro:
+      "Convert tab characters to spaces or leading space runs back into tabs. Useful for code indent consistency across editors and terminal displays.",
+    primaryKeyword: "tabs to spaces",
+    secondaryKeywords: [
+      "spaces to tabs",
+      "convert tabs to spaces",
+      "indentation converter",
+      "tab to space converter",
+      "replace tabs with spaces",
+    ],
+    popularAnchor: "Tabs to Spaces Converter",
+    clusterSlugs: [
+      "remove-extra-spaces",
+      "trim-lines",
+      "json-formatter",
+    ],
+  },
+  "remove-empty-lines": {
+    slug: "remove-empty-lines",
+    title: "Remove Empty Lines Online – Delete Blank Lines from Text [Free]",
+    metaDescription:
+      "Delete empty lines, strip trailing blank lines, and compact paragraph spacing instantly in your browser. 100% private text cleaner.",
+    h1: "Remove Empty Lines from Text",
+    aboveTheFoldIntro:
+      "Strip blank lines, lines containing only spaces, or consecutive empty rows from text. Useful before sorting, counting, or formatting lists.",
+    primaryKeyword: "remove empty lines",
+    secondaryKeywords: [
+      "delete empty lines",
+      "remove blank lines",
+      "strip empty lines",
+      "delete blank rows",
+      "clean empty lines online",
+    ],
+    popularAnchor: "Remove Empty Lines Online",
+    clusterSlugs: [
+      "remove-duplicate-lines",
+      "trim-lines",
+      "remove-extra-spaces",
+    ],
+  },
+  "trim-lines": {
+    slug: "trim-lines",
+    title: "Trim Lines Online – Strip Leading & Trailing Whitespace [Free]",
+    metaDescription:
+      "Trim whitespace, remove leading tabs, and strip trailing spaces from every line of text instantly in your browser.",
+    h1: "Trim Whitespace from Every Line",
+    aboveTheFoldIntro:
+      "Strip leading and trailing spaces or tabs from every line while keeping line breaks intact. Useful for cleaning raw logs and CSV exports.",
+    primaryKeyword: "trim lines",
+    secondaryKeywords: [
+      "trim whitespace online",
+      "strip leading spaces",
+      "remove trailing whitespace",
+      "trim text lines",
+      "clean line edges",
+    ],
+    popularAnchor: "Trim Lines Online",
+    clusterSlugs: [
+      "remove-extra-spaces",
+      "remove-duplicate-lines",
+      "remove-empty-lines",
+    ],
+  },
+  "remove-line-breaks": {
+    slug: "remove-line-breaks",
+    title: "Remove Line Breaks Online – Convert Multi-Line to Single Line [Free]",
+    metaDescription:
+      "Strip unwanted line breaks, newlines, and carriage returns to join text into a continuous single line or paragraph. Free in-browser tool.",
+    h1: "Remove Line Breaks and Join Text",
+    aboveTheFoldIntro:
+      "Replace hard line breaks with spaces or custom delimiters to produce a single continuous block. Useful for re-wrapping copied paragraphs.",
+    primaryKeyword: "remove line breaks",
+    secondaryKeywords: [
+      "remove newlines",
+      "convert multiline to single line",
+      "join lines online",
+      "strip carriage returns",
+      "remove line breaks online",
+    ],
+    popularAnchor: "Remove Line Breaks Online",
+    clusterSlugs: [
+      "remove-extra-spaces",
+      "remove-empty-lines",
+      "word-counter",
+    ],
+  },
+  "remove-emojis": {
+    slug: "remove-emojis",
+    title: "Remove Emojis from Text Online – Strip Symbols & Emoticons [Free]",
+    metaDescription:
+      "Remove emojis, Unicode pictographs, and decorative emoticons from text, social posts, or documents. 100% private in-browser tool.",
+    h1: "Remove Emojis from Text",
+    aboveTheFoldIntro:
+      "Strip emojis and Unicode pictographs from pasted text while keeping punctuation and letters intact. Useful for clean imports and database safety.",
+    primaryKeyword: "remove emojis from text",
+    secondaryKeywords: [
+      "strip emojis online",
+      "remove emoticons from text",
+      "delete emojis",
+      "emoji remover online",
+      "clean emojis from text",
+    ],
+    popularAnchor: "Remove Emojis Online",
+    clusterSlugs: [
+      "remove-special-chars",
+      "remove-accents",
+      "word-counter",
+    ],
+  },
+  "reverse-text": {
+    slug: "reverse-text",
+    title: "Reverse Text Online – Flip Words, Letters & Backwards Text [Free]",
+    metaDescription:
+      "Reverse text, invert letter order, flip word order, or reverse entire lines instantly with free in-browser text tool.",
+    h1: "Reverse Text, Words, or Lines",
+    aboveTheFoldIntro:
+      "Invert letter order, flip words in sentences, or reverse the order of entire lines. Useful for puzzle solving, mirror text, and testing display logic.",
+    primaryKeyword: "reverse text",
+    secondaryKeywords: [
+      "backwards text generator",
+      "flip text online",
+      "reverse words",
+      "reverse letters online",
+      "mirror text generator",
+    ],
+    popularAnchor: "Reverse Text Online",
+    clusterSlugs: [
+      "rot13",
+      "sort-lines",
+      "case-converter",
+    ],
+  },
+  "rot13": {
+    slug: "rot13",
+    title: "ROT13 Cipher Encoder & Decoder Online – Free Caesar Shift Tool",
+    metaDescription:
+      "Encode and decode text using the ROT13 substitution cipher instantly. Rotate letters 13 positions forward or backward directly in your browser.",
+    h1: "ROT13 Encoder and Decoder",
+    aboveTheFoldIntro:
+      "Apply the classic ROT13 letter-rotation cipher to obscure text or decode existing ROT13 messages. Non-alphabetic characters are preserved as-is.",
+    primaryKeyword: "rot13 cipher",
+    secondaryKeywords: [
+      "rot13 decoder",
+      "rot13 encoder",
+      "caesar cipher rot13",
+      "rotate 13 letters",
+      "decode rot13 online",
+    ],
+    popularAnchor: "ROT13 Cipher Tool",
+    clusterSlugs: [
+      "base64",
+      "reverse-text",
+      "hash-generator",
+    ],
+  },
+  "add-line-numbers": {
+    slug: "add-line-numbers",
+    title: "Add Line Numbers to Text Online – Number List Lines [Free]",
+    metaDescription:
+      "Prepend line numbers to text, code snippets, or lists with custom padding, separators, and starting indexes in your browser.",
+    h1: "Add Line Numbers to Text",
+    aboveTheFoldIntro:
+      "Prepend sequential line numbers to every line with customizable separators, starting indices, and zero-padding options.",
+    primaryKeyword: "add line numbers",
+    secondaryKeywords: [
+      "number lines online",
+      "add line numbering",
+      "prepend line numbers",
+      "line numbering tool",
+      "number a list online",
+    ],
+    popularAnchor: "Add Line Numbers Online",
+    clusterSlugs: [
+      "add-prefix-suffix",
+      "sort-lines",
+      "trim-lines",
+    ],
+  },
+  "diff-checker": {
+    slug: "diff-checker",
+    title: "Online Diff Checker – Compare Two Texts & Find Differences Free",
+    metaDescription:
+      "Compare two text files side by side and highlight added, removed, or modified words and lines. Fast, free in-browser diff comparison tool with report export.",
+    h1: "Online Diff Checker",
+    aboveTheFoldIntro:
+      "Compare two texts side by side to instantly visualize differences, added content, and removed lines with customizable case and whitespace sensitivity.",
+    primaryKeyword: "online diff checker",
+    secondaryKeywords: [
+      "diff checker online",
+      "compare text online",
+      "text difference checker",
+      "code diff tool",
+      "side by side text comparison",
+      "find differences in text",
+      "compare two texts",
+    ],
+    popularAnchor: "Online Diff Checker",
+    clusterSlugs: [
+      "remove-extra-spaces",
+      "remove-duplicate-lines",
+      "word-counter",
+      "case-converter",
+    ],
+  },
   "extract-phone-numbers": {
     slug: "extract-phone-numbers",
     title: "Extract Phone Numbers from Text Online – Bulk Phone Extractor [Free]",
@@ -734,9 +1138,9 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
   "html-minifier": {
     slug: "html-minifier",
-    title: "HTML Minifier – Minify HTML Code and Compress Markup Online [Instant]",
+    title: "HTML & Text Minifier Online – Minify Code & Compress Markup [Free]",
     metaDescription:
-      "Minify HTML online: remove standard comments and compact attribute gaps while preserving text whitespace. Process markup locally in your browser.",
+      "Minify HTML code, strip unnecessary whitespace, and remove comment tags in your browser. Fast, free HTML and text compression tool for developers.",
     h1: "HTML Minifier",
     aboveTheFoldIntro:
       "Remove standard HTML comments and compact attribute gaps. Text whitespace and attribute values stay intact; review comment-dependent templates before using the output.",
@@ -801,9 +1205,9 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
   },
   "unix-timestamp": {
     slug: "unix-timestamp",
-    title: "Unix Timestamp Converter – Convert Epoch to Date and Date to Epoch [Instant]",
+    title: "Unix Timestamp to Date Converter – Epoch to Human DateTime [Free]",
     metaDescription:
-      "Convert Unix timestamps to readable dates and dates back to epoch time instantly. Supports common timestamp formats directly in your browser.",
+      "Convert Unix timestamps to readable human date, UTC time, and local timezone formats. Instant bi-directional epoch converter with millisecond support.",
     h1: "Unix Timestamp Converter",
     aboveTheFoldIntro:
       "Convert Unix epoch timestamps into readable dates and turn dates back into Unix time instantly. Useful for APIs, logs, databases and developer workflows.",
