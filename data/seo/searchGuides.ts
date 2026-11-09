@@ -316,4 +316,21 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "No. All scanning, regex tokenization, and de-anonymization take place locally in your browser session. No text is ever uploaded, cached, or transmitted over the internet."
     }
   },
+  "word-frequency": {
+    title: "Keyword Frequency Counter – Word & Content Density Analyzer Online [Free]",
+    description: "Analyze keyword frequency, word repetition, and keyword density percentages from text or articles in your browser. Free, instant, and 100% private.",
+    heading: "Analyze Keyword Frequency, Repetition & Content Density Online",
+    useCase: "Analyze text density, keyword repetition, and word count distributions for SEO copywriting, academic essays, and marketing collateral. Calculate exact repetition frequency and percentage density to prevent keyword stuffing and ensure natural editorial flow. Pair with [Word Counter](/tools/word-counter) for reading time metrics and [Character Frequency Counter](/tools/character-frequency) for letter breakdown.",
+    example: {
+      input: "SEO content optimization requires keyword research. Proper keyword research ensures high search ranking and keyword density balance.",
+      output: "keyword: 3 (16.7%)\nresearch: 2 (11.1%)\nseo: 1 (5.6%)\noptimization: 1 (5.6%)\nranking: 1 (5.6%)",
+      note: "Calculated keyword occurrences and percentage density."
+    },
+    limitation: "Calculations strip standard punctuation and normalize terms to lowercase for accurate frequency counting. Stop words can be filtered depending on chosen tool preferences. Processing runs entirely in-memory in your client browser.",
+    related: ["word-counter", "character-frequency", "remove-duplicate-lines", "find-and-replace"],
+    faq: {
+      question: "How does this tool calculate keyword density?",
+      answer: "Keyword density is calculated by dividing the number of times a specific word appears by the total word count of the text, multiplied by 100. This percentage helps SEO specialists maintain balanced keyword distribution without penalty."
+    }
+  },
 };

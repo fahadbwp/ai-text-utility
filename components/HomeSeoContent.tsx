@@ -10,12 +10,14 @@ export function HomeSeoContent() {
     <>
       <section aria-labelledby="workflows-heading" className="max-w-4xl mx-auto space-y-4">
         <h2 id="workflows-heading" className="scroll-mt-24 text-xl font-bold text-slate-900 dark:text-white">Start with the task you need to finish</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { title: "Prepare a page for publishing", text: "Format its URL, check the length and fill design mockups.", slugs: ["slug-generator", "word-counter", "lorem-ipsum"] },
             { title: "Clean a pasted list", text: "Remove repeated entries, unwanted symbols and extra whitespace.", slugs: ["remove-duplicate-lines", "remove-special-chars", "remove-extra-spaces"] },
             { title: "Polish a message", text: "Choose professional tone, warmer wording or proofreading. AI tools send text to an AI provider.", slugs: ["ai-professional", "ai-friendly", "ai-grammar"] },
             { title: "Develop or rephrase a draft", text: "Expand an idea, try different wording or shorten a passage. Check AI output against your source.", slugs: ["ai-expand", "ai-paraphrase", "ai-summarize"] },
+            { title: "Convert documents & scrub prompts", text: "Convert PDF documents to editable Word docs, generate PDFs, or mask sensitive PII before prompting AI.", slugs: ["pdf-to-word", "word-to-pdf", "pii-sanitizer"] },
+            { title: "Analyze keywords & density", text: "Count word and phrase frequency, measure keyword density percentages, and balance text repetition.", slugs: ["word-frequency", "character-frequency", "word-counter"] },
           ].map((workflow) => (
             <div key={workflow.title} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/65 dark:bg-slate-900/60 p-5 space-y-3">
               <h3 className="font-semibold text-slate-900 dark:text-white">{workflow.title}</h3>

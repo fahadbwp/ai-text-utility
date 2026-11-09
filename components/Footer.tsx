@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-8 border-b border-slate-200/80 dark:border-zinc-800/80">
           {/* Col 1: Brand & Purpose */}
-          <div className="md:col-span-6 space-y-4 max-w-md">
+          <div className="md:col-span-4 space-y-4 max-w-sm">
             <Link href="/" className="inline-flex items-center group" aria-label="AI Text Utility home">
               <BrandLogo size="md" showSubtitle={true} />
             </Link>
@@ -35,7 +35,46 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Col 2: Categories */}
+          {/* Col 2: Popular Tools */}
+          <div className="md:col-span-3 space-y-3">
+            <h3 className="text-xs font-semibold text-slate-900 dark:text-zinc-100 tracking-normal">
+              Popular Tools
+            </h3>
+            <ul className="space-y-2 text-xs text-slate-500 dark:text-zinc-400">
+              <li>
+                <Link href="/tools/pdf-to-word" className="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+                  PDF to Word Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/word-to-pdf" className="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+                  Word to PDF Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/word-frequency" className="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+                  Keyword Frequency Counter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/ai-professional" className="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+                  AI Professional Tone Rewriter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/pii-sanitizer" className="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+                  PII Sanitizer &amp; Prompt Masker
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/word-counter" className="hover:text-slate-900 dark:hover:text-zinc-100 transition-colors">
+                  Word &amp; Character Counter
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Categories */}
           <div className="md:col-span-3 space-y-3">
             <h3 className="text-xs font-semibold text-slate-900 dark:text-zinc-100 tracking-normal">
               Tool Categories
@@ -54,8 +93,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: Resources & Trust */}
-          <div className="md:col-span-3 space-y-3">
+          {/* Col 4: Resources & Trust */}
+          <div className="md:col-span-2 space-y-3">
             <h3 className="text-xs font-semibold text-slate-900 dark:text-zinc-100 tracking-normal">
               Legal &amp; Resources
             </h3>
