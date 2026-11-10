@@ -18,18 +18,27 @@ export const metadata: Metadata = {
     "client-side pdf converter",
   ],
   alternates: {
-    canonical: "https://ai-text-utility.vercel.app/tools/pdf-to-word",
+    canonical: "/tools/pdf-to-word",
   },
   openGraph: {
     title: "PDF to Word Converter Online Free - 100% Private Browser Tool",
     description:
       "Instant, private, in-browser PDF to editable Word document (.docx) conversion without uploading files to remote servers.",
-    url: "https://ai-text-utility.vercel.app/tools/pdf-to-word",
+    url: "/tools/pdf-to-word",
     siteName: "AI Text Utility",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PDF to Word Converter Online Free - 100% Private Browser Tool",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og-image.png"],
     title: "PDF to Word Converter Online Free - 100% Private Browser Tool",
     description:
       "Convert digital PDFs to editable Word documents (.docx) with 100% client-side privacy.",
@@ -59,6 +68,24 @@ export default function PdfToWordPage() {
         },
         description:
           "Free and secure in-browser PDF to Word (.docx) document conversion without server uploads.",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumbs`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "PDF to Word",
+            item: canonicalUrl,
+          },
+        ],
       },
     ],
   };

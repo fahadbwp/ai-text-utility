@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { ToolDefinition } from "@/data/toolsRegistry";
 import { ToolShell } from "@/components/layouts/ToolShell";
 import {
@@ -28,6 +28,12 @@ export const ImageConverterTool: React.FC<ImageConverterToolProps> = ({ tool }) 
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
+  useEffect(() => {
+    return () => {
+      if (previewOriginal) URL.revokeObjectURL(previewOriginal);
+      if (convertedUrl) URL.revokeObjectURL(convertedUrl);
+    };
+  }, [previewOriginal, convertedUrl]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const convertImage = useCallback(
@@ -108,11 +114,13 @@ export const ImageConverterTool: React.FC<ImageConverterToolProps> = ({ tool }) 
     const originalName = file.name.substring(0, file.name.lastIndexOf(".")) || file.name;
     const ext = targetFormat === "jpeg" ? "jpg" : targetFormat;
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(convertedBlob);
+    const dlUrl = URL.createObjectURL(convertedBlob);
+    a.href = dlUrl;
     a.download = `${originalName}-converted.${ext}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(dlUrl), 1000);
   };
 
   return (

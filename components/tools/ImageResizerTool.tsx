@@ -34,6 +34,12 @@ export const ImageResizerTool: React.FC<ImageResizerToolProps> = ({ tool }) => {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
+  useEffect(() => {
+    return () => {
+      if (previewOriginal) URL.revokeObjectURL(previewOriginal);
+      if (resizedUrl) URL.revokeObjectURL(resizedUrl);
+    };
+  }, [previewOriginal, resizedUrl]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const renderResized = useCallback(

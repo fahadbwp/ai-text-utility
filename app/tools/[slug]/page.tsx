@@ -160,19 +160,6 @@ export default async function ToolPage({ params }: PageProps) {
     ],
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: content.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer.replace(/\[([^\]]+)\]\(((?:\/(?!\/)|https?:\/\/)[^)]+)\)/g, "$1"),
-      },
-    })),
-  };
-
   return (
     <>
       <script

@@ -49,6 +49,8 @@ export const PdfMergerTool: React.FC<PdfMergerToolProps> = ({ tool }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const splitInputRef = useRef<HTMLInputElement>(null);
 
+  const MAX_FILE_SIZE_BYTES = 50 * 1024 * 1024; // 50MB browser safety limit
+
   const handleMergeFilesUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
     setErrorMessage(null);
@@ -56,6 +58,10 @@ export const PdfMergerTool: React.FC<PdfMergerToolProps> = ({ tool }) => {
 
     const newItems: UploadedPdf[] = [];
     for (const f of files) {
+      if (f.size > MAX_FILE_SIZE_BYTES) {
+        setErrorMessage(`"${f.name}" exceeds the 50MB file size limit for in-browser processing.`);
+        continue;
+      }
       try {
         const buffer = await f.arrayBuffer();
         const doc = await PDFDocument.load(buffer);
@@ -138,6 +144,10 @@ export const PdfMergerTool: React.FC<PdfMergerToolProps> = ({ tool }) => {
     if (!e.target.files || !e.target.files[0]) return;
     setErrorMessage(null);
     const f = e.target.files[0];
+    if (f.size > MAX_FILE_SIZE_BYTES) {
+      setErrorMessage(`"${f.name}" exceeds the 50MB file size limit for in-browser processing.`);
+      return;
+    }
     try {
       const buffer = await f.arrayBuffer();
       const doc = await PDFDocument.load(buffer);

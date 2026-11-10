@@ -58,10 +58,13 @@ async function inspect(path) {
   }
   const schemas = [...doc.querySelectorAll('script[type="application/ld+json"]')].map(el => JSON.parse(el.textContent));
   if (path.startsWith('/tools/')) {
-   assert.ok(schemas.some(s => s['@type'] === 'WebApplication'), `${path}: application schema`);
+   const flatSchemas = schemas.flatMap(s => s['@graph'] || s);
+   assert.ok(flatSchemas.some(s => s['@type'] === 'WebApplication'), `${path}: application schema`);
    assert.equal(doc.querySelector('meta[property="og:url"]')?.content, canonical.href, `${path}: OG URL`);
-   const tool = TOOLS_REGISTRY.find(tool => path === `/tools/${tool.slug}`);
-   assert.ok(tool, `${path}: registered tool`);
+   const isStandalone = path === '/tools/pdf-to-word' || path === '/tools/word-to-pdf';
+   if (!isStandalone) {
+    const tool = TOOLS_REGISTRY.find(tool => path === `/tools/${tool.slug}`);
+    assert.ok(tool, `${path}: registered tool`);
    // Phase 1 deliberately removed FAQPage JSON-LD, not the visible FAQ content.
    const containsFaqSchema = value => value && typeof value === 'object' && (
     [value['@type']].flat().includes('FAQPage') || Object.values(value).some(containsFaqSchema)
@@ -93,13 +96,20 @@ async function inspect(path) {
     assert.ok(normalize(answer.textContent), `${path}: nonempty FAQ answer`);
     assert.equal(normalize(answer.textContent), normalize(expectedAnswer), `${path}: FAQ answer`);
    });
+  } else {
+   const application = flatSchemas.find(s => s['@type'] === 'WebApplication');
+   assert.ok(application, `${path}: standalone WebApplication schema`);
+   assert.equal(application.url, canonical.href, `${path}: standalone application URL`);
+   const breadcrumb = flatSchemas.find(s => s['@type'] === 'BreadcrumbList');
+   assert.ok(breadcrumb, `${path}: standalone BreadcrumbList schema`);
   }
+ }
   if (path === '/') assert.ok(doc.body.textContent.includes('Free online text tools for everyday work'));
  } finally { dom.window.close(); }
 }
 try {
  await new Promise((resolve,reject)=>{server.stdout.on('data',d=>{if(d.toString().includes('Ready'))resolve()});server.on('error',reject);server.on('exit',c=>reject(new Error(`server exited ${c}`)));setTimeout(()=>reject(new Error('startup timeout')),15000).unref()});
- for (const path of ['/', '/about', '/contact', '/privacy', '/terms']) await inspect(path);
+ for (const path of ['/', '/about', '/contact', '/privacy', '/terms', '/tools/pdf-to-word', '/tools/word-to-pdf']) await inspect(path);
  for (const path of directoryPaths) await inspect(path);
  for (const tool of TOOLS_REGISTRY) {
   await inspect(`/tools/${tool.slug}`);

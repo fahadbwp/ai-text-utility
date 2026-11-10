@@ -18,18 +18,27 @@ export const metadata: Metadata = {
     "in-browser docx to pdf",
   ],
   alternates: {
-    canonical: "https://ai-text-utility.vercel.app/tools/word-to-pdf",
+    canonical: "/tools/word-to-pdf",
   },
   openGraph: {
     title: "Word to PDF Converter Online Free - 100% Private In-Browser",
     description:
       "Instant, private Word to PDF document conversion inside your browser without uploading files to remote servers.",
-    url: "https://ai-text-utility.vercel.app/tools/word-to-pdf",
+    url: "/tools/word-to-pdf",
     siteName: "AI Text Utility",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Word to PDF Converter Online Free - 100% Private Browser Tool",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og-image.png"],
     title: "Word to PDF Converter Online Free - 100% Private In-Browser",
     description:
       "Convert Word (.docx) documents to standard PDF with 100% client-side privacy.",
@@ -59,6 +68,24 @@ export default function WordToPdfPage() {
         },
         description:
           "Free and secure in-browser Word (.docx) to PDF document conversion without server uploads.",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumbs`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Word to PDF",
+            item: canonicalUrl,
+          },
+        ],
       },
     ],
   };

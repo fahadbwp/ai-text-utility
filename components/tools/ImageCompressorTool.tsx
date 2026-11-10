@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { ToolDefinition } from "@/data/toolsRegistry";
 import { ToolShell } from "@/components/layouts/ToolShell";
 import {
@@ -40,6 +40,12 @@ export const ImageCompressorTool: React.FC<ImageCompressorToolProps> = ({ tool }
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
+  useEffect(() => {
+    return () => {
+      if (previewOriginal) URL.revokeObjectURL(previewOriginal);
+      if (compressedUrl) URL.revokeObjectURL(compressedUrl);
+    };
+  }, [previewOriginal, compressedUrl]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const TARGET_PRESETS = [20, 50, 100, 200];

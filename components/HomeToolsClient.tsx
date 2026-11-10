@@ -81,9 +81,23 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
       setRecentList(getRecentTools());
     };
     const checkFavoritesFromUrl = () => {
-      if (typeof window !== "undefined" && (window.location.search.includes("favorites=true") || window.location.hash === "#favorites")) {
-        setOnlyFavorites(true);
-        setTimeout(() => document.getElementById("tools-section")?.scrollIntoView({ behavior: "smooth" }), 100);
+      if (typeof window !== "undefined") {
+        if (window.location.search.includes("favorites=true") || window.location.hash === "#favorites") {
+          setOnlyFavorites(true);
+          setTimeout(() => document.getElementById("tools-section")?.scrollIntoView({ behavior: "smooth" }), 100);
+          return;
+        }
+        if (window.location.hash.startsWith("#category-")) {
+          const hashCat = window.location.hash.replace("#category-", "");
+          const matched = CATEGORIES.find(
+            (c) => c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") === hashCat
+          );
+          if (matched) {
+            setSelectedCategory(matched.name);
+            setOnlyFavorites(false);
+            setTimeout(() => document.getElementById("tools-section")?.scrollIntoView({ behavior: "smooth" }), 100);
+          }
+        }
       }
     };
     updateStorage();
