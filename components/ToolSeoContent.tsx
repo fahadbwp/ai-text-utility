@@ -6,6 +6,7 @@ import { ToolDefinition, getToolsByCategory, getFeaturedTools, getToolBySlug } f
 import { getToolEducationalContent } from "@/data/toolFaqs";
 import { getToolSeoBlueprint } from "@/data/seoBlueprint";
 import { DynamicIcon } from "@/components/DynamicIcon";
+import { ToolCard } from "@/components/ToolCard";
 import {
   WordCounterEditorial,
   JsonFormatterEditorial,
@@ -285,25 +286,9 @@ export const ToolSeoContent: React.FC<ToolSeoContentProps> = ({ tool }) => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {fallbackTools.map((rel) => (
-              <Link
-                key={rel.id}
-                href={`/tools/${rel.slug}`}
-                className="card-3d group p-4 rounded-xl flex flex-col justify-between space-y-3"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-center text-slate-700 dark:text-zinc-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:border-blue-500/40 transition-colors shrink-0 shadow-2xs">
-                    <DynamicIcon name={rel.icon} size={15} />
-                  </div>
-                  <h3 className="text-xs font-semibold text-slate-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate transition-colors">
-                    {rel.name}
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
-                  {rel.description}
-                </p>
-              </Link>
+              <ToolCard key={rel.id} tool={rel} />
             ))}
           </div>
         </section>

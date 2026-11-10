@@ -138,9 +138,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                         className="flex items-center gap-3 px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white cursor-pointer data-[selected=true]:bg-slate-100 dark:data-[selected=true]:bg-zinc-800 data-[selected=true]:text-slate-900 dark:data-[selected=true]:text-white transition-colors"
                       >
                         <div
-                          className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 border ${theme.bg} ${theme.border}`}
+                          className={`w-7 h-7 rounded-[8px] flex items-center justify-center shrink-0 ${theme.iconBg} text-white shadow-2xs`}
                         >
-                          <DynamicIcon name={tool.icon} size={14} className={theme.text} />
+                          <DynamicIcon name={tool.icon} size={14} className="text-white" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">

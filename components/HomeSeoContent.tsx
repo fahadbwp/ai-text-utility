@@ -4,6 +4,7 @@ import { ArrowRight, Type, Code2, ShieldCheck } from "lucide-react";
 import { getToolBySlug } from "@/data/toolsRegistry";
 import { getToolSeoBlueprint, TOP_10_P0_TOOLS } from "@/data/seoBlueprint";
 import { AdsterraResponsiveBanner, AdsterraNativeBanner } from "@/components/ads";
+import { ToolCard } from "@/components/ToolCard";
 
 export function HomeSeoContent() {
   return (
@@ -105,33 +106,12 @@ export function HomeSeoContent() {
             Fast, privacy-focused browser utilities with client-side execution
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {TOP_10_P0_TOOLS.map((slug) => {
-            const blueprint = getToolSeoBlueprint(slug);
             const tool = getToolBySlug(slug);
-            if (!blueprint || !tool) return null;
-            const displayTitle = slug === "lorem-ipsum" ? "Sample Content Generator" : blueprint.h1;
-            const displayKeyword = slug === "lorem-ipsum" ? "dummy text generator" : blueprint.primaryKeyword;
+            if (!tool) return null;
             return (
-              <div key={slug}>
-                <Link
-                  href={`/tools/${slug}`}
-                  className="group p-3.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors flex flex-col justify-between space-y-2 shadow-xs h-full"
-                >
-                  <div>
-                    <span className="text-xs font-bold text-slate-900 dark:text-zinc-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-1">
-                      {displayTitle}
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-zinc-400 line-clamp-1 mt-0.5 block">
-                      {displayKeyword}
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-brand-600 dark:text-brand-400 font-semibold inline-flex items-center gap-1 pt-1">
-                    <span>Open tool</span>
-                    <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              </div>
+              <ToolCard key={slug} tool={tool} featured={true} badgeLabel="Popular" />
             );
           })}
         </div>

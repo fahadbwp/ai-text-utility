@@ -54,6 +54,20 @@
   --text-brand: #2563eb;
   --text-success: #16a34a;
   --text-warning: #d97706;
+
+  /* Premium Tool Card Design System Tokens */
+  --color-primary-blue: #1685FF;
+  --color-sky-blue: #49B9FF;
+  --color-coral: #FF6B70;
+  --color-mint: #39CFA5;
+  --color-teal: #13B8B8;
+  --color-amber: #FFB547;
+  --color-orange: #FF8B36;
+  --color-pink: #F47FB3;
+  --color-soft-bg: #F7FAFF;
+  --color-card-bg: #FFFFFF;
+  --color-main-text: #17264A;
+  --color-secondary-text: #647797;
 }
 
 .dark {

@@ -64,12 +64,14 @@ import {
   Replace,
   FileImage,
   Crop,
-  Receipt,
   FileCheck,
+  Receipt,
+  Scale,
   LucideProps,
 } from "lucide-react";
 
 const ICON_MAP: Record<string, React.FC<LucideProps>> = {
+  Scale,
   FileImage,
   Crop,
   Receipt,

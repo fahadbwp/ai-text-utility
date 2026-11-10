@@ -6,7 +6,7 @@ import { removeEmptyLines } from "../../lib/tools/removeEmptyLines.ts";
 import { trimLines } from "../../lib/tools/trimLines.ts";
 import { removeExtraSpaces } from "../../lib/tools/removeExtraSpaces.ts";
 import { stripHtmlTags } from "../../lib/tools/stripHtmlTags.ts";
-import { removeLineBreaks } from "../../lib/tools/removeLineBreaks.ts";
+import { removeLineBreaks, formatIntoTwoParagraphs } from "../../lib/tools/removeLineBreaks.ts";
 import { removeSpecialChars } from "../../lib/tools/removeSpecialChars.ts";
 
 test("1. Remove Duplicate Lines", () => {
@@ -137,6 +137,89 @@ test("6. Remove Line Breaks", () => {
     removeLineBreaks(multiline, { collapseParagraphs: true, separator: " " }),
     "P1 L1 P1 L2\n\nP2 L1 P2 L2"
   );
+
+  // Preset: single-line
+  assert.equal(
+    removeLineBreaks(multiline, { preset: "single-line", separator: " " }),
+    "P1 L1 P1 L2 P2 L1 P2 L2"
+  );
+
+  // Preset: preserve-paragraphs
+  assert.equal(
+    removeLineBreaks(multiline, { preset: "preserve-paragraphs", separator: " " }),
+    "P1 L1 P1 L2\n\nP2 L1 P2 L2"
+  );
+
+  // Preset: two-paragraphs
+  const fourSentences =
+    "Sentence one is here.\nSentence two is here.\nSentence three is here.\nSentence four is here.";
+  const twoParasPreset = removeLineBreaks(fourSentences, { preset: "two-paragraphs" });
+  assert.equal(
+    twoParasPreset,
+    "Sentence one is here. Sentence two is here.\n\nSentence three is here. Sentence four is here."
+  );
+
+  // formatTwoParagraphs boolean flag
+  const twoParasFlag = removeLineBreaks(fourSentences, { formatTwoParagraphs: true });
+  assert.equal(twoParasFlag, twoParasPreset);
+});
+
+test("6b. Format Into Two Paragraphs Helper", () => {
+  // Empty, null, whitespace handling
+  assert.equal(formatIntoTwoParagraphs(""), "");
+  assert.equal(formatIntoTwoParagraphs("   "), "");
+  assert.equal(formatIntoTwoParagraphs("\n\n\t\n"), "");
+  assert.equal(formatIntoTwoParagraphs(null as any), "");
+  assert.equal(formatIntoTwoParagraphs(undefined as any), "");
+
+  // Multi-sentence single block split into 2 balanced paragraphs
+  const input =
+    "Line one of first thought.\nLine two of first thought.\n" +
+    "Line three of second thought.\nLine four of second thought.";
+  assert.equal(
+    formatIntoTwoParagraphs(input),
+    "Line one of first thought. Line two of first thought.\n\nLine three of second thought. Line four of second thought."
+  );
+
+  // Odd number of sentences (5 sentences -> 3 and 2)
+  const oddSentences = "Sentence 1.\nSentence 2.\nSentence 3.\nSentence 4.\nSentence 5.";
+  assert.equal(
+    formatIntoTwoParagraphs(oddSentences),
+    "Sentence 1. Sentence 2. Sentence 3.\n\nSentence 4. Sentence 5."
+  );
+
+  // Hyphenated line wrap removal
+  const hyphenated = "This text has a break-\ning hyphen inside a word.";
+  assert.equal(
+    formatIntoTwoParagraphs(hyphenated),
+    "This text has a breaking hyphen inside a word."
+  );
+
+  // Horizontal rule dividers (---, ***, ___)
+  const dividers = "Header block of text.\nMore header context.\n---\nFooter block of text.\n***\nFinal thoughts.";
+  const strippedDividers = formatIntoTwoParagraphs(dividers);
+  assert.ok(!strippedDividers.includes("---"));
+  assert.ok(!strippedDividers.includes("***"));
+  assert.equal(strippedDividers.split(/\n\s*\n/).length, 2);
+
+  // Multi-paragraph condensation (>2 paragraphs condensed into 2)
+  const fourParas = "Paragraph 1.\n\nParagraph 2.\n\nParagraph 3.\n\nParagraph 4.";
+  assert.equal(
+    formatIntoTwoParagraphs(fourParas),
+    "Paragraph 1. Paragraph 2.\n\nParagraph 3. Paragraph 4."
+  );
+
+  // Idempotency: text already in 2 paragraphs remains unchanged
+  const alreadyTwo = "First paragraph content.\n\nSecond paragraph content.";
+  assert.equal(formatIntoTwoParagraphs(alreadyTwo), alreadyTwo);
+  assert.equal(formatIntoTwoParagraphs(formatIntoTwoParagraphs(alreadyTwo)), alreadyTwo);
+
+  // Single run-on sentence without punctuation: cleanly splits at median word boundary
+  const runOn = "This is a single continuous run on sentence without any ending period that should be divided into two halves";
+  const runOnResult = formatIntoTwoParagraphs(runOn);
+  const runOnParas = runOnResult.split(/\n\s*\n/);
+  assert.equal(runOnParas.length, 2);
+  assert.ok(runOnParas[0].length > 0 && runOnParas[1].length > 0);
 });
 
 test("7. Remove Special Characters", () => {

@@ -23,6 +23,10 @@ test("Published deterministic search examples match the actual tools", async () 
     "slug-generator": generateSlug,
     "remove-special-chars": removeSpecialChars,
     "remove-extra-spaces": removeExtraSpaces,
+    "remove-line-breaks": async (input) => {
+      const { removeLineBreaks } = await import("@/lib/tools/removeLineBreaks");
+      return removeLineBreaks(input, { collapseParagraphs: true, separator: " " });
+    },
     "remove-duplicate-lines": removeDuplicateLines,
     "add-prefix-suffix": (input) => addPrefixSuffix(input, { prefix: "'", suffix: "'," }),
     "remove-lines-containing": (input) => removeLinesContaining(input, { query: "ERROR", mode: "remove" }).result,

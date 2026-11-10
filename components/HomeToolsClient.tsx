@@ -8,66 +8,8 @@ import { ToolCard } from "@/components/ToolCard";
 import { EmptyState } from "@/components/EmptyState";
 import { TerminalHero } from "@/components/TerminalHero";
 import { DynamicIcon } from "@/components/DynamicIcon";
-import { AdsterraSmartLink } from "@/components/ads";
 import { getFavorites, getRecentTools } from "@/lib/storage";
-import { getCategoryTheme, getToolTheme } from "@/lib/toolThemes";
-import { FavoriteStar } from "@/components/FavoriteStar";
-
-const RecentToolCard: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
-  const theme = getToolTheme(tool.id, tool.category);
-
-  return (
-    <div className="card-3d group relative flex flex-col justify-between rounded-xl p-3.5 sm:p-4">
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
-          <div
-            className="flex items-center justify-center shrink-0 text-slate-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-            aria-hidden="true"
-          >
-            <DynamicIcon
-              name={tool.icon}
-              size={16}
-              className="transition-colors"
-            />
-          </div>
-
-          <div className="relative z-20 flex items-center -mr-1 -mt-1">
-            <FavoriteStar toolId={tool.id} toolName={tool.name} size={15} />
-          </div>
-        </div>
-
-        <h3 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1 line-clamp-1">
-          <Link
-            href={`/tools/${tool.slug}`}
-            className="focus:outline-hidden focus:underline after:content-[''] after:absolute after:inset-0 after:rounded-xl after:z-0"
-          >
-            {tool.name}
-          </Link>
-        </h3>
-        <p className="text-[11px] sm:text-xs text-slate-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
-          {tool.description}
-        </p>
-      </div>
-
-      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-zinc-800/80 flex items-center justify-between text-xs">
-        <div className="flex items-center gap-1.5 truncate max-w-[70%]">
-          <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700 truncate">
-            {tool.category}
-          </span>
-          <span className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700 shrink-0">
-            Recent
-          </span>
-        </div>
-        <span
-          className="relative z-10 w-6 h-6 rounded-md text-slate-400 dark:text-zinc-500 group-hover:text-slate-700 dark:group-hover:text-zinc-200 flex items-center justify-center transition-colors shrink-0"
-          aria-hidden="true"
-        >
-          <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-        </span>
-      </div>
-    </div>
-  );
-};
+import { getCategoryTheme } from "@/lib/toolThemes";
 
 export function HomeToolsClient({ children }: { children: React.ReactNode }) {
   const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
@@ -134,7 +76,7 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
     <div className="w-full max-w-7xl mx-auto space-y-6 sm:space-y-8 pb-16">
       <TerminalHero />
 
-      {/* Modern Developer Command Search Launcher */}
+      {/* Modern Command Search Launcher */}
       <div className="w-full max-w-2xl -mt-2 sm:-mt-3">
         <button
           type="button"
@@ -235,31 +177,31 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
         </Link>
       </div>
 
+      {/* Recently Used Section */}
       {selectedCategory === "ALL" && !onlyFavorites && recentTools.length > 0 && (
-        <section id="recent" aria-labelledby="recent-heading" className="space-y-3">
+        <section id="recent" aria-labelledby="recent-heading" className="space-y-4">
           <div className="flex items-center justify-between pb-1">
             <div className="flex items-center gap-2">
-              <Clock size={16} className="text-slate-600 dark:text-zinc-400 shrink-0" />
+              <Clock size={16} className="text-[#1685FF] shrink-0" />
               <div>
-                <h2 id="recent-heading" className="text-sm sm:text-base font-semibold text-slate-900 dark:text-zinc-100 tracking-tight">
+                <h2 id="recent-heading" className="text-sm sm:text-base font-bold text-[#17264A] tracking-tight">
                   Recently Used
                 </h2>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                <p className="text-xs text-[#647797]">
                   Quick access to tools you used recently
                 </p>
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-3 sm:gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {recentTools.map((tool) => (
-              <div key={`recent-${tool.id}`} className="w-full sm:w-[260px] md:w-[280px]">
-                <RecentToolCard tool={tool} />
-              </div>
+              <ToolCard key={`recent-${tool.id}`} tool={tool} badgeLabel="Recent" />
             ))}
           </div>
         </section>
       )}
 
+      {/* Main Tools Display */}
       {filteredTools.length === 0 ? (
         <EmptyState
           title={onlyFavorites ? "No favorites yet" : "No utilities found"}
@@ -268,7 +210,7 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
           onAction={() => { setSelectedCategory("ALL"); setOnlyFavorites(false); }}
         />
       ) : selectedCategory === "ALL" && !onlyFavorites ? (
-        <div className="space-y-8 sm:space-y-10">
+        <div className="space-y-10 sm:space-y-12">
           {CATEGORIES.map((cat) => {
             const toolsInCat = TOOLS_REGISTRY.filter((t) => t.category === cat.name);
             const isAI = cat.name === ("AI Magic" as ToolCategory);
@@ -277,48 +219,48 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
               <section
                 key={cat.name}
                 id={`category-${cat.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                className="space-y-3 scroll-mt-20"
+                className="space-y-4 scroll-mt-20"
               >
-                <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-zinc-800/80 pb-2.5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex items-center justify-center shrink-0 text-slate-700 dark:text-zinc-300">
-                      <DynamicIcon name={cat.icon} size={18} className="text-slate-700 dark:text-zinc-300" />
+                <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-9 h-9 rounded-[10px] ${catTheme.iconBg} flex items-center justify-center shrink-0 shadow-xs`}
+                    >
+                      <DynamicIcon name={cat.icon} size={18} className="text-white" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h2 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-zinc-100 tracking-tight">
+                        <h2 className="text-base sm:text-lg font-bold text-[#17264A] tracking-tight">
                           {cat.name} Tools
                         </h2>
                         {isAI && (
-                          <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-pink-50 text-[#DB2777] border border-pink-200/80">
                             Assisted Writing
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">
+                      <p className="text-xs text-[#647797] mt-0.5">
                         {cat.description}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2.5 shrink-0">
-                    <span className="px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-700">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-[#17264A] border border-slate-200/80">
                       {toolsInCat.length} tools
                     </span>
                     <button
                       type="button"
                       onClick={() => setSelectedCategory(cat.name)}
-                      className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
+                      className="text-xs font-semibold text-[#1685FF] hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
                     >
                       <span>View all</span>
-                      <ArrowRight size={12} />
+                      <ArrowRight size={13} />
                     </button>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
                   {toolsInCat.map((tool) => (
-                    <div key={tool.id}>
-                      <ToolCard tool={tool} />
-                    </div>
+                    <ToolCard key={tool.id} tool={tool} />
                   ))}
                 </div>
               </section>
@@ -327,12 +269,12 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
         </div>
       ) : (
         <section className="space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-zinc-800/80 pb-3">
+          <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
             <div>
-              <h2 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-zinc-100 tracking-tight">
+              <h2 className="text-base sm:text-lg font-bold text-[#17264A] tracking-tight">
                 {onlyFavorites ? "Your Favorited Utilities" : `${selectedCategory} Utilities`}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 mt-0.5">
+              <p className="text-xs sm:text-sm text-[#647797] mt-0.5">
                 {onlyFavorites ? `${filteredTools.length} saved tools` : `${filteredTools.length} tools found`}
               </p>
             </div>
@@ -340,18 +282,16 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
               <button
                 type="button"
                 onClick={() => { setOnlyFavorites(false); setSelectedCategory("ALL"); }}
-                className="btn-secondary h-8 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-zinc-100 inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="h-8 px-3.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-[#17264A] hover:bg-slate-50 inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               >
                 <span>View all tools</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} />
               </button>
             )}
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
             {filteredTools.map((tool) => (
-              <div key={tool.id}>
-                <ToolCard tool={tool} />
-              </div>
+              <ToolCard key={tool.id} tool={tool} />
             ))}
           </div>
         </section>

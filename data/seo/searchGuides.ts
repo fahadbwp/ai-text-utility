@@ -355,4 +355,38 @@ export const SEARCH_GUIDES: Record<string, SearchGuide> = {
       answer: "No. The TypeScript interface generator operates 100% client-side in your web browser. No payload or generated types are ever uploaded, logged, or transmitted anywhere."
     }
   },
+  "remove-line-breaks": {
+    title: "Remove Line Breaks Online – Strip Line Separators Free",
+    description: "Remove hard line breaks and clean line separators to format run-on text into structured paragraphs or single continuous lines. 100% private in-browser tool.",
+    heading: "Remove Hard Line Separators & Format Structured Paragraphs",
+    useCase: "Remove hard line breaks, paragraph breaks, and unwanted line separators from copied text. Ideal for formatting messy PDF exports, email threads, OCR scans, and terminal outputs into two clean, structured paragraphs or a continuous single line. Pair with [Remove Extra Spaces](/tools/remove-extra-spaces) to normalize spacing, [Remove Empty Lines](/tools/remove-empty-lines) to purge blank rows, or [AI Summarizer](/tools/ai-summarize) to condense long documents.",
+    example: {
+      input: "First line of paragraph one.\nSecond line of paragraph one.\n\nFirst line of paragraph two.\nSecond line of paragraph two.",
+      output: "First line of paragraph one. Second line of paragraph one.\n\nFirst line of paragraph two. Second line of paragraph two.",
+      note: "Preserved double line breaks between paragraphs while joining wrapped lines."
+    },
+    limitation: "The line break cleaner joins text lines and preserves paragraph spacing using your chosen delimiter. It does not alter your wording, correct typos, or rejoin hyphenated words. All processing executes locally in your browser without uploading data.",
+    related: ["remove-extra-spaces", "remove-empty-lines", "ai-summarize", "word-counter"],
+    faq: {
+      question: "Can I format text and remove line breaks without uploading data to a server?",
+      answer: "Yes. All line break removal and paragraph formatting executes 100% locally in your web browser using JavaScript. No text, confidential documents, or copied notes are ever sent over the network or stored on external servers."
+    }
+  },
+  "ai-summarize": {
+    title: "AI Text Summarizer – Condense Long Articles Online [Free]",
+    description: "Condense long articles, reports, and run-on text into structured paragraphs or key bullet points with an AI provider. Free online text summarizer.",
+    heading: "Condense Long Articles & Multi-Paragraph Text Online",
+    useCase: "Condense rambling articles, meeting notes, research drafts, and run-on text into two structured paragraphs or high-impact bullet points. Clean messy text formatting with [Remove Line Breaks](/tools/remove-line-breaks) first, or refine the summary tone with [AI Paraphraser](/tools/ai-paraphrase) and [AI Proofreader](/tools/ai-grammar).",
+    example: {
+      input: "Artificial Intelligence search algorithms and conversational engines synthesize vast amounts of documentation across the open web to answer user questions directly. Web publishers and content creators must format their articles with clear heading structures, citable answer blocks, and front-loaded summaries so that generative models can cite key findings accurately.\n\nBrowser-based utilities provide complementary benefits by preprocessing raw documents locally before submission. By removing erratic line separators, normalizing spacing, and stripping control characters in client memory, users ensure their source material is clean and readable before sending requests to external AI endpoints.",
+      output: "Generative AI search engines index authoritative documentation by extracting front-loaded answer summaries and clear semantic heading structures.\n\nPreprocessing text locally in your browser cleans erratic line breaks and formatting before submitting drafts to AI models.",
+      note: "Illustrative condensation of dense technical overview into two structured paragraphs."
+    },
+    limitation: "Summarization quality depends on clarity of the source input. The AI synthesizes key concepts but requires human verification for factual accuracy, critical numbers, and subtle context before publishing.",
+    related: ["remove-line-breaks", "ai-paraphrase", "ai-expand", "word-counter"],
+    faq: {
+      question: "How do I condense a long paragraph into two paragraphs and remove line separators?",
+      answer: "You can first clean erratic line breaks using our [Remove Line Breaks](/tools/remove-line-breaks) tool, then paste the continuous text into the AI Summarizer to condense the run-on sentences into two clean, structured paragraphs."
+    }
+  },
 };

@@ -2008,6 +2008,16 @@ export const TOOL_SPECIFIC_CONTENT: Record<
     ],
     faqs: [
       {
+        question: "Can I format text and remove line breaks without uploading data to a server?",
+        answer:
+          "Yes. All line break removal and paragraph formatting executes 100% locally in your web browser using JavaScript. No text, confidential documents, or copied notes are ever sent over the network or stored on external servers.",
+      },
+      {
+        question: "How do I condense text into two paragraphs and remove line separators?",
+        answer:
+          "Paste your text into the editor, check 'Preserve Double Line Breaks' (or select the 2-Paragraph preset), and set the separator to a single space. The tool strips unwanted line separators while maintaining exactly two distinct paragraphs.",
+      },
+      {
         question: "Why does text copied from PDFs contain awkward line breaks?",
         answer:
           "PDF documents insert hard line break characters at the end of every visual line rather than flowing text naturally. This tool strips those artificial line breaks and reconnects the text into coherent paragraphs.",
@@ -2300,6 +2310,16 @@ export const TOOL_SPECIFIC_CONTENT: Record<
       "Supports input texts up to 10,000 characters per request",
     ],
     faqs: [
+      {
+        question: "How do I condense a long paragraph into two paragraphs and remove line separators?",
+        answer:
+          "You can first clean erratic line breaks using our [Remove Line Breaks](/tools/remove-line-breaks) tool, then paste the continuous text into the AI Summarizer to condense the run-on sentences into two clean, structured paragraphs.",
+      },
+      {
+        question: "Is text formatted or summarized without storing private data?",
+        answer:
+          "Summaries are requested over encrypted HTTPS directly through server endpoints to the AI provider. The application does not store, log, or persist your text in any database. Review generated summaries before publishing.",
+      },
       {
         question: "What is the maximum document length I can summarize?",
         answer:

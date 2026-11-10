@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "@/components/Modal";
 import Link from "next/link";
-import { ArrowLeft, HelpCircle, X, AlertCircle } from "lucide-react";
+import { ArrowLeft, HelpCircle, X, AlertCircle, Sparkles } from "lucide-react";
 import { ToolDefinition } from "@/data/toolsRegistry";
 import { DynamicIcon } from "@/components/DynamicIcon";
 import { FavoriteStar } from "@/components/FavoriteStar";
 import { addRecentTool } from "@/lib/storage";
 import { getToolTheme } from "@/lib/toolThemes";
 import { getToolSeoBlueprint } from "@/data/seoBlueprint";
+import { CITABLE_ANSWER_BLOCKS } from "@/data/seo/citableAnswerBlocks";
 
 export interface ToolShellProps {
   tool: ToolDefinition;
@@ -31,6 +32,7 @@ export const ToolShell: React.FC<ToolShellProps> = ({
   const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
   const theme = getToolTheme(tool.id, tool.category);
   const blueprint = getToolSeoBlueprint(tool.slug);
+  const citableAnswer = CITABLE_ANSWER_BLOCKS[tool.slug];
 
   // Track as recently used in localStorage
   useEffect(() => {
@@ -175,6 +177,57 @@ export const ToolShell: React.FC<ToolShellProps> = ({
             {error}
           </div>
         </div>
+      )}
+
+      {/* Citable Answer Block Callout (GEO / AI Overviews) */}
+      {citableAnswer && (
+        <section
+          aria-labelledby="citable-answer-heading"
+          className="rounded-2xl border border-blue-200/80 dark:border-blue-900/50 bg-blue-50/40 dark:bg-blue-950/20 p-4 sm:p-6 shadow-2xs space-y-3.5"
+        >
+          <div className="flex items-center gap-2.5">
+            <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-blue-600/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 shrink-0">
+              <Sparkles size={16} />
+            </span>
+            <h2
+              id="citable-answer-heading"
+              className="text-base sm:text-lg font-bold text-slate-900 dark:text-white"
+            >
+              {citableAnswer.heading}
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            {citableAnswer.intro}
+          </p>
+          <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            {citableAnswer.steps.map((step, idx) => {
+              const match = step.match(/^(Step \d+:)\s*(.*)$/);
+              return (
+                <li key={idx} className="flex items-start gap-2.5">
+                  <span
+                    className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 text-xs font-semibold shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  >
+                    {idx + 1}
+                  </span>
+                  <span className="leading-relaxed">
+                    {match ? (
+                      <>
+                        <strong className="font-semibold text-slate-900 dark:text-slate-100">{match[1]}</strong>{" "}
+                        {match[2]}
+                      </>
+                    ) : (
+                      step
+                    )}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="text-xs text-slate-600 dark:text-slate-400 pt-2 border-t border-blue-100/80 dark:border-blue-900/40 leading-relaxed font-medium">
+            {citableAnswer.takeaway}
+          </p>
+        </section>
       )}
 
       {/* Main Workspace */}

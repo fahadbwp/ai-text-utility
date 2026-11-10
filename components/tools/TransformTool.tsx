@@ -63,6 +63,7 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
   const [stripHtmlEntities, setStripHtmlEntities] = useState<boolean>(true);
   const [lineBreaksSep, setLineBreaksSep] = useState<string>(" ");
   const [lineBreaksParagraphs, setLineBreaksParagraphs] = useState<boolean>(false);
+  const [lineBreaksPreset, setLineBreaksPreset] = useState<"custom" | "two-paragraphs" | "preserve-paragraphs" | "single-line">("custom");
   const [specialCharsMode, setSpecialCharsMode] = useState<"alphanumeric-only" | "keep-punctuation" | "custom">("alphanumeric-only");
   const [specialCharsCustom, setSpecialCharsCustom] = useState<string>("");
 
@@ -196,6 +197,7 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
               removeLineBreaks(currentInput, {
                 separator: lineBreaksSep,
                 collapseParagraphs: lineBreaksParagraphs,
+                formatTwoParagraphs: lineBreaksPreset === "two-paragraphs",
               })
             );
             break;
@@ -364,6 +366,7 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
       stripHtmlEntities,
       lineBreaksSep,
       lineBreaksParagraphs,
+      lineBreaksPreset,
       specialCharsMode,
       specialCharsCustom,
       phoneDedupe,
@@ -694,31 +697,100 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
 
       case "remove-line-breaks":
         return (
-          <div className="flex flex-wrap items-center gap-4 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="text-slate-700 dark:text-slate-300 font-medium">Replace With:</span>
-              <select
-                aria-label="Replace line breaks with"
-                value={lineBreaksSep}
-                onChange={(e) => setLineBreaksSep(e.target.value)}
-                className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs"
-              >
-                <option value=" ">Single Space (&quot; &quot;)</option>
-                <option value=", ">Comma & Space (&quot;, &quot;)</option>
-                <option value="; ">Semicolon & Space (&quot;; &quot;)</option>
-                <option value="">Nothing (Join Directly)</option>
-              </select>
+          <div className="space-y-3 w-full text-xs">
+            {/* 1-Click Presets Bar */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">1-Click Presets:</span>
+              <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Paragraph cleanup presets">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLineBreaksPreset("two-paragraphs");
+                    setLineBreaksParagraphs(true);
+                    setLineBreaksSep(" ");
+                  }}
+                  aria-pressed={lineBreaksPreset === "two-paragraphs"}
+                  aria-label="Clean line separators and format into 2 paragraphs"
+                  className={`px-3 py-1.5 rounded-xl font-medium transition-all cursor-pointer ${
+                    lineBreaksPreset === "two-paragraphs"
+                      ? "bg-slate-900 text-white dark:bg-brand-600 dark:text-white shadow-2xs"
+                      : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700"
+                  }`}
+                >
+                  Clean &amp; Format into 2 Paragraphs
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLineBreaksPreset("preserve-paragraphs");
+                    setLineBreaksParagraphs(true);
+                    setLineBreaksSep(" ");
+                  }}
+                  aria-pressed={lineBreaksPreset === "preserve-paragraphs"}
+                  aria-label="Normalize paragraphs with double line breaks"
+                  className={`px-3 py-1.5 rounded-xl font-medium transition-all cursor-pointer ${
+                    lineBreaksPreset === "preserve-paragraphs"
+                      ? "bg-slate-900 text-white dark:bg-brand-600 dark:text-white shadow-2xs"
+                      : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700"
+                  }`}
+                >
+                  Normalize Paragraphs (Double Break)
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLineBreaksPreset("single-line");
+                    setLineBreaksParagraphs(false);
+                    setLineBreaksSep(" ");
+                  }}
+                  aria-pressed={lineBreaksPreset === "single-line"}
+                  aria-label="Remove all line breaks into a single continuous line"
+                  className={`px-3 py-1.5 rounded-xl font-medium transition-all cursor-pointer ${
+                    lineBreaksPreset === "single-line"
+                      ? "bg-slate-900 text-white dark:bg-brand-600 dark:text-white shadow-2xs"
+                      : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700"
+                  }`}
+                >
+                  Single Continuous Line
+                </button>
+              </div>
             </div>
 
-            <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
-              <input
-                type="checkbox"
-                checked={lineBreaksParagraphs}
-                onChange={(e) => setLineBreaksParagraphs(e.target.checked)}
-                className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
-              />
-              <span>Preserve Double Line Breaks (Paragraphs)</span>
-            </label>
+            {/* Advanced Separator Options */}
+            <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-slate-700 dark:text-slate-300 font-medium">Separator:</span>
+                <select
+                  aria-label="Replace line breaks with"
+                  value={lineBreaksSep}
+                  onChange={(e) => {
+                    setLineBreaksSep(e.target.value);
+                    setLineBreaksPreset("custom");
+                  }}
+                  className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-brand-500 shadow-2xs"
+                >
+                  <option value=" ">Single Space (&quot; &quot;)</option>
+                  <option value=", ">Comma &amp; Space (&quot;, &quot;)</option>
+                  <option value="; ">Semicolon &amp; Space (&quot;; &quot;)</option>
+                  <option value="">Nothing (Join Directly)</option>
+                </select>
+              </div>
+
+              <label className="flex items-center gap-2 cursor-pointer text-slate-700 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={lineBreaksParagraphs}
+                  onChange={(e) => {
+                    setLineBreaksParagraphs(e.target.checked);
+                    setLineBreaksPreset("custom");
+                  }}
+                  className="rounded-sm border-slate-300 dark:border-slate-700 text-brand-600 focus:ring-brand-500 bg-white dark:bg-slate-800"
+                />
+                <span>Preserve Double Line Breaks (Paragraphs)</span>
+              </label>
+            </div>
           </div>
         );
 
@@ -1325,6 +1397,7 @@ export const TransformTool: React.FC<{ tool: ToolDefinition }> = ({ tool }) => {
     stripHtmlEntities,
     lineBreaksSep,
     lineBreaksParagraphs,
+    lineBreaksPreset,
     specialCharsMode,
     specialCharsCustom,
     phoneDedupe,
