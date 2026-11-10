@@ -9,9 +9,11 @@ export interface RemoveLineBreaksOptions {
  * Splits text into sentences based on standard typographic punctuation (. ! ?).
  */
 function splitIntoSentences(text: string): string[] {
-  const matches = text.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
-  if (!matches) return [text];
-  return matches.map((s) => s.trim()).filter(Boolean);
+  const sentences = text
+    .split(/(?<=[.!?]["')\]]?)\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return sentences.length > 0 ? sentences : [text];
 }
 
 /**
@@ -34,10 +36,10 @@ export function formatIntoTwoParagraphs(
   let cleaned = input.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
 
   // 2. Clean hyphenated line breaks (e.g. "prac-\ntice" -> "practice")
-  cleaned = cleaned.replace(/(\b\w+)-[ \t]*\n[ \t]*(\w+\b)/g, "$1$2");
+  cleaned = cleaned.replace(/(\p{L}+)-[ \t]*\r?\n[ \t]*(\p{L}+)/gu, "$1$2");
 
   // 3. Remove horizontal rule dividers (e.g. ---, ***, ___)
-  cleaned = cleaned.replace(/^[ \t]*[-*_]{3,}[ \t]*$/gm, "");
+  cleaned = cleaned.replace(/^[ \t]*[-*_](?:[ \t]*[-*_]){2,}[ \t]*$/gm, "");
 
   // 4. Inspect existing paragraphs if separated by double line breaks
   const rawParagraphs = cleaned

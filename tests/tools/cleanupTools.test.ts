@@ -222,6 +222,38 @@ test("6b. Format Into Two Paragraphs Helper", () => {
   assert.ok(runOnParas[0].length > 0 && runOnParas[1].length > 0);
 });
 
+test("6c. Format Into Two Paragraphs - Adversarial & Edge Cases", () => {
+  // Decimals ($19.99, 3.14), emails (user@site.com), URLs (https://site.org), dialogue quotes are not dropped
+  const complexTokens =
+    'The product costs $19.99 today. Visit https://site.org or email user@site.com for details.\n' +
+    'He said, "Stop!" She ran away. What now?';
+  const complexResult = formatIntoTwoParagraphs(complexTokens);
+  assert.ok(complexResult.includes("$19.99"), "Decimals must not be dropped");
+  assert.ok(complexResult.includes("https://site.org"), "URLs must not be dropped");
+  assert.ok(complexResult.includes("user@site.com"), "Emails must not be dropped");
+  assert.ok(complexResult.includes("He said,"), "Text before quoted punctuation must not be dropped");
+  assert.ok(complexResult.includes('"Stop!"'), "Quotes must be preserved");
+  assert.equal(complexResult.split(/\n\s*\n/).length, 2, "Must split into exactly 2 paragraphs");
+
+  // Accented words (café-\nstyle -> caféstyle) are rejoined
+  const accented = "Enjoy the café-\nstyle atmosphere.\nSecond sentence is here.\nThird sentence is here.";
+  const accentedResult = formatIntoTwoParagraphs(accented);
+  assert.ok(accentedResult.includes("caféstyle"), "Accented words spanning line breaks must be rejoined");
+
+  // Number ranges (10-\n11) are not concatenated
+  const numberRange = "See pages 10-\n11 for details.\nNext sentence is here.\nThird sentence is here.";
+  const numberRangeResult = formatIntoTwoParagraphs(numberRange);
+  assert.ok(!numberRangeResult.includes("1011"), "Numeric ranges must not be joined into single number");
+
+  // Spaced markdown dividers (- - -, * * *, _ _ _) are stripped
+  const spacedDividers =
+    "Header block of text.\nMore header context.\n- - -\nFooter block of text.\n* * *\nFinal thoughts.";
+  const cleanedSpaced = formatIntoTwoParagraphs(spacedDividers);
+  assert.ok(!cleanedSpaced.includes("- - -"), "Spaced hyphen dividers must be stripped");
+  assert.ok(!cleanedSpaced.includes("* * *"), "Spaced asterisk dividers must be stripped");
+  assert.equal(cleanedSpaced.split(/\n\s*\n/).length, 2, "Must format into 2 paragraphs after stripping dividers");
+});
+
 test("7. Remove Special Characters", () => {
   assert.equal(removeSpecialChars(""), "");
 
