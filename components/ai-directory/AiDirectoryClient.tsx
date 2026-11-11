@@ -190,7 +190,7 @@ export const AiDirectoryClient: React.FC<AiDirectoryClientProps> = ({ initialToo
                   <a
                     href={tool.websiteUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     aria-label={`Visit official website for ${tool.name}`}
                     className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white"
                   >
@@ -294,7 +294,7 @@ export const AiDirectoryClient: React.FC<AiDirectoryClientProps> = ({ initialToo
                   <a
                     href={tool.websiteUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     aria-label={`Visit official website for ${tool.name}`}
                     className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-800 dark:text-zinc-200 transition-colors"
                   >

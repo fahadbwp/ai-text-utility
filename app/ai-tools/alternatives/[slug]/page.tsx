@@ -190,7 +190,7 @@ export default async function AiAlternativesPage({ params }: PageProps) {
             <a
               href={tool.websiteUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               aria-label={`Visit official website for ${tool.name}`}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 self-start sm:self-auto"
             >
@@ -267,7 +267,7 @@ export default async function AiAlternativesPage({ params }: PageProps) {
                   <a
                     href={alt.websiteUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     aria-label={`Visit official website for ${alt.name}`}
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-xs self-start sm:self-auto cursor-pointer"
                   >
