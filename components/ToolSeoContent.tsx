@@ -49,11 +49,11 @@ export function isValidInternalRoute(url: string): boolean {
   if (trimmed.startsWith("//") || trimmed.includes(":") || trimmed.includes("\\") || trimmed.includes("..")) {
     return false;
   }
-  if (trimmed === "/") return true;
+  if (trimmed === "/" || trimmed === "/ai-tools" || trimmed.startsWith("/ai-tools/")) return true;
   const match = trimmed.match(/^\/tools\/([a-z0-9-]+)$/);
   if (!match) return false;
   const slug = match[1];
-  return Boolean(getToolBySlug(slug));
+  return Boolean(getToolBySlug(slug) || getToolSeoBlueprint(slug));
 }
 
 // Helper to render markdown-style links [text](url) inside FAQ and guide copy

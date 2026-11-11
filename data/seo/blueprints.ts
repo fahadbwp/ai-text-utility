@@ -1600,6 +1600,44 @@ export const SEO_BLUEPRINT_MAP: Record<string, ToolSeoBlueprint> = {
       "json-to-csv",
     ],
   },
+  "pdf-to-word": {
+    slug: "pdf-to-word",
+    title: "PDF to Word Converter Online Free - 100% Private Browser Tool",
+    metaDescription:
+      "Convert PDF to editable Word (.docx) free in your browser. 100% client-side conversion ensures total privacy — your files are never uploaded to any server.",
+    h1: "PDF to Word Converter Online Free",
+    aboveTheFoldIntro:
+      "Convert PDF documents to editable Microsoft Word (.docx) format directly in your web browser with 100% client-side privacy. Zero server uploads.",
+    primaryKeyword: "pdf to word",
+    secondaryKeywords: [
+      "pdf to docx converter",
+      "convert pdf to word free",
+      "free pdf to word converter online",
+      "private pdf to docx",
+      "browser pdf to word",
+    ],
+    popularAnchor: "PDF to Word Converter",
+    clusterSlugs: ["word-to-pdf", "pdf-merger", "markdown-to-html", "strip-html-tags"],
+  },
+  "word-to-pdf": {
+    slug: "word-to-pdf",
+    title: "Word to PDF Converter Online Free - 100% Private In-Browser",
+    metaDescription:
+      "Convert Word (.docx) to PDF free directly in your web browser. 100% client-side execution ensures your documents are never uploaded to any remote server.",
+    h1: "Word to PDF Converter Online Free",
+    aboveTheFoldIntro:
+      "Convert Word (.docx) documents to standard PDF files inside your browser with complete client-side security. Zero server uploads.",
+    primaryKeyword: "word to pdf",
+    secondaryKeywords: [
+      "docx to pdf converter",
+      "convert word to pdf online free",
+      "free docx to pdf",
+      "private word to pdf",
+      "browser word converter",
+    ],
+    popularAnchor: "Word to PDF Converter",
+    clusterSlugs: ["pdf-to-word", "pdf-merger", "markdown-to-html", "html-minifier"],
+  },
 };
 
 

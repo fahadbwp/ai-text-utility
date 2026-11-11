@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         url: canonicalUrl,
         type: "website",
         siteName: "AI Text Utility",
-        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AI Text Utility" }],
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${blueprint.primaryKeyword} - ${tool.name}` }],
       },
       twitter: {
         card: "summary_large_image",
