@@ -1,0 +1,28 @@
+# AI Text Utility
+
+> Fast, private, browser-based productivity text utilities and AI writing assistants. Processes sensitive data 100% client-side with zero telemetry or remote server storage.
+
+AI Text Utility is a free web suite containing 59 client-side utilities and 110+ curated AI tools directory. All core text operations execute directly in the user's browser using WebAssembly, Web Crypto, and Canvas APIs.
+
+## Core Utilities
+
+- [Word Counter](https://ai-text-utility.vercel.app/tools/word-counter): Real-time word, character, sentence, paragraph, and reading time analyzer.
+- [Online Diff Checker](https://ai-text-utility.vercel.app/tools/diff-checker): Visual side-by-side text difference and change comparison.
+- [JSON Formatter & Validator](https://ai-text-utility.vercel.app/tools/json-formatter): Format, validate, inspect, and minify JSON data.
+- [Regex Tester](https://ai-text-utility.vercel.app/tools/regex-tester): Test regular expressions in real-time with capture groups and catastrophic backtrack protection.
+- [Case Converter](https://ai-text-utility.vercel.app/tools/case-converter): Convert text between UPPERCASE, lowercase, Title Case, camelCase, snake_case, and kebab-case.
+- [Remove Line Breaks](https://ai-text-utility.vercel.app/tools/remove-line-breaks): Eliminate unwanted line breaks and reformat run-on text into structured paragraphs.
+- [Duplicate Line Remover](https://ai-text-utility.vercel.app/tools/remove-duplicate-lines): Deduplicate lists while preserving order.
+- [PII & AI Prompt Sanitizer](https://ai-text-utility.vercel.app/tools/pii-sanitizer): Redact and mask sensitive emails, API keys, phone numbers, and credit cards before AI prompting.
+- [PDF to Word Converter](https://ai-text-utility.vercel.app/tools/pdf-to-word): In-browser client-side PDF to editable Word document conversion.
+- [Word to PDF Converter](https://ai-text-utility.vercel.app/tools/word-to-pdf): In-browser client-side Word to PDF document generation.
+- [Image Compressor](https://ai-text-utility.vercel.app/tools/image-compressor): Browser-based client-side image compression to exact file targets (20KB, 50KB, 100KB).
+- [Invoice Generator](https://ai-text-utility.vercel.app/tools/invoice-generator): Generate customizable business receipts and PDF invoices in-browser.
+
+## AI Software Directory
+
+- [AI Tools Directory](https://ai-text-utility.vercel.app/ai-tools): Curated catalog of 110+ top AI tools categorized across Writing, Coding, Image, Video, Audio, Productivity, and SEO.
+
+## Privacy & Security
+
+All text processing utilities execute locally in JavaScript/WASM inside the client browser. No user input or documents are stored on or sent to remote servers unless explicitly utilizing AI Rewrite features.

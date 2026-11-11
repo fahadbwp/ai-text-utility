@@ -147,11 +147,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
           >
             <div className="flex items-center gap-1.5">
               <Search size={13} className="text-slate-400 dark:text-zinc-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
-              <span className="font-normal text-slate-500 dark:text-zinc-400">
+              <span className="font-medium text-slate-600 dark:text-zinc-300">
                 Search tools...
               </span>
             </div>
-            <kbd className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-500 dark:text-zinc-400 font-medium">
+            <kbd className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 font-semibold">
               {isMac ? "⌘K" : "Ctrl K"}
             </kbd>
           </button>

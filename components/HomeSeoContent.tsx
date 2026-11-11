@@ -24,7 +24,26 @@ export function HomeSeoContent() {
               <h3 className="font-semibold text-slate-900 dark:text-white">{workflow.title}</h3>
               <p className="text-sm text-slate-600 dark:text-slate-300">{workflow.text}</p>
               <ul className="space-y-2 text-sm">
-                {workflow.slugs.map((slug) => <li key={slug}><Link className="text-brand-600 dark:text-brand-400 underline underline-offset-2" href={`/tools/${slug}`}>{getToolSeoBlueprint(slug)?.popularAnchor || getToolBySlug(slug)?.name}</Link></li>)}
+                {workflow.slugs.map((slug) => {
+                  const linkText =
+                    getToolSeoBlueprint(slug)?.popularAnchor ||
+                    getToolBySlug(slug)?.name ||
+                    (slug === "pdf-to-word"
+                      ? "PDF to Word Converter"
+                      : slug === "word-to-pdf"
+                      ? "Word to PDF Converter"
+                      : slug);
+                  return (
+                    <li key={slug}>
+                      <Link
+                        className="text-brand-600 dark:text-brand-400 underline underline-offset-2"
+                        href={`/tools/${slug}`}
+                      >
+                        {linkText}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -59,7 +78,7 @@ export function HomeSeoContent() {
               <h3 className="font-bold text-slate-900 dark:text-zinc-100 text-sm">For writing</h3>
             </div>
             <p className="text-xs leading-relaxed text-slate-600 dark:text-zinc-400">
-              Use <Link href="/tools/word-counter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Word Counter</Link> for length checks, <Link href="/tools/case-converter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Case Converter</Link> for capitalization, <Link href="/tools/remove-extra-spaces" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Cleanup tools</Link> for messy text, and the AI writing tools when you want an assisted rewrite.
+              Use <Link href="/tools/word-counter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Word Counter</Link> for length checks, <Link href="/tools/case-converter" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Case Converter</Link> for capitalization, <Link href="/tools/remove-extra-spaces" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">Remove Extra Spaces</Link> for messy text, and the AI writing tools when you want an assisted rewrite.
             </p>
           </div>
           <div className="p-5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 space-y-2.5 shadow-xs hover:border-slate-300 dark:hover:border-zinc-700 transition-colors">

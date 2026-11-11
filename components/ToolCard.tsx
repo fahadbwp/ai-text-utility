@@ -113,11 +113,11 @@ export const ToolCard: React.FC<ToolCardProps> = ({
 
           {/* Speed / Free / AI Indicator */}
           {tool.requiresAI ? (
-            <span className="text-[9px] sm:text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-pink-50 text-[#DB2777] border border-pink-200/80 shrink-0">
+            <span className="text-[9px] sm:text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-pink-50 text-[#9D174D] border border-pink-200/80 shrink-0">
               AI
             </span>
           ) : (
-            <span className="text-[9px] sm:text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-50 text-[#059669] border border-emerald-200/80 shrink-0">
+            <span className="text-[9px] sm:text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-200/80 shrink-0">
               Instant
             </span>
           )}

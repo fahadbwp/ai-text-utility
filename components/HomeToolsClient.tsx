@@ -239,19 +239,20 @@ export function HomeToolsClient({ children }: { children: React.ReactNode }) {
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-[#647797] mt-0.5">
+                      <p className="text-xs text-slate-600 dark:text-zinc-300 mt-0.5">
                         {cat.description}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-[#17264A] border border-slate-200/80">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-zinc-800 text-[#17264A] dark:text-zinc-100 border border-slate-200/80 dark:border-zinc-700">
                       {toolsInCat.length} tools
                     </span>
                     <button
                       type="button"
                       onClick={() => setSelectedCategory(cat.name)}
-                      className="text-xs font-semibold text-[#1685FF] hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
+                      aria-label={`View all ${cat.name} tools`}
+                      className="text-xs font-semibold text-[#0052CC] dark:text-blue-400 hover:underline inline-flex items-center gap-1 cursor-pointer transition-colors"
                     >
                       <span>View all</span>
                       <ArrowRight size={13} />
