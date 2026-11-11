@@ -7,14 +7,21 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        // Allow all crawlers including AI search bots full access to public content
         userAgent: "*",
-        allow: ["/", "/tools/", "/about", "/contact", "/privacy", "/terms"],
+        allow: ["/", "/tools/", "/ai-tools/", "/about", "/contact", "/privacy", "/terms"],
         disallow: [
           "/api/",
           "/admin/",
           "/private/",
         ],
       },
+      // Explicit allow for AI search engine crawlers
+      { userAgent: "OAI-SearchBot", allow: ["/"] },
+      { userAgent: "PerplexityBot", allow: ["/"] },
+      { userAgent: "ClaudeBot", allow: ["/"] },
+      { userAgent: "Bingbot", allow: ["/"] },
+      { userAgent: "Googlebot", allow: ["/"] },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
   };

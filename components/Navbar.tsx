@@ -171,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             type="button"
             onClick={handleFavoritesClick}
             aria-label={`View ${favCount} favorite tools`}
-            className="relative p-2 rounded-lg text-slate-600 hover:text-amber-500 dark:text-zinc-400 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer group"
+            className="relative p-2 rounded-lg text-slate-600 hover:text-amber-500 dark:text-zinc-400 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer group"
             title={favCount > 0 ? `View ${favCount} favorite tools` : "View favorites"}
           >
             <Star
